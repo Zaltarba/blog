@@ -21,19 +21,19 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 # Experience
 
-![](/images/OSTRUM.png)  
+![](https://github.com/Zaltarba/blog/blob/master/images/OSTRUM.png)  
 
 Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.
 
-![](/images/CACIB.png)
+![](https://github.com/Zaltarba/blog/blob/master/images/CACIB.png)
 
 Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
 
-![](/images/BNP.png)  
+![](https://github.com/Zaltarba/blog/blob/master/images/BNP.png)  
 
 Within the pricing P\&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).
 
-![](/images/AFL.png)  
+![](https://github.com/Zaltarba/blog/blob/master/images/AFL.png)  
 
 Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
 
