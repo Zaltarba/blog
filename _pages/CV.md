@@ -21,22 +21,25 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 # Experience
 
-![](https://github.com/Zaltarba/blog/blob/master/images/OSTRUM.png)  
+## Quantitative Analyste at Ostrum Asset Management
 
-Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.
+Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.  
+On going 6 months internship - *2023*
 
-![](https://github.com/Zaltarba/blog/blob/master/images/CACIB.png)
+## Data Scientist at CACIB 
 
-Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
+Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).  
+6 months internship - *2022*
 
-![](https://github.com/Zaltarba/blog/blob/master/images/BNP.png)  
+## Actuary at Cardif BnP
 
-Within the pricing P\&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).
+Within the pricing P&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).  
+6 months internship - *2021-2022*
 
-![](https://github.com/Zaltarba/blog/blob/master/images/AFL.png)  
+## Data Scientist at AFL 
 
 Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
-
+3 months internship - *2021*
 ## Personal and academic project
 
 - **Bayesian Statistics and hidden Markov models Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
