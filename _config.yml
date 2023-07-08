@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: Reverie
+name: Balthazar Courvoisier blog 
 
 # Name of the author
 author: Courvoisier Balthazar
@@ -24,12 +24,12 @@ footer-links:
   email: balthazar.courvoisier@gmail.com
   facebook:
   flickr:
-  github: amitmerchant1990/reverie
+  github: zaltarba/blog
   instagram:
   linkedin: 
   pinterest:
   rss: rss
-  twitter: amit_merchant
+  twitter: 
   stackoverflow: 
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
