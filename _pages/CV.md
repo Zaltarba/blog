@@ -4,8 +4,6 @@ title: CV
 permalink: /CV/
 ---
 
-<img src="/images/AFL.png" alt= “” width="2" height="2">
-
 ## Profile
 
 Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative analyst position involving the use of econometric methods. Seeking full-time employment.
@@ -23,19 +21,19 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 # Experience
 
-![search](/images/OSTRUM.png) 
+![](/images/OSTRUM.png)  
 
 Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.
 
-![search](/images/CACIB.png) 
+![](/images/CACIB.png)  
 
 Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
 
-![search eee e](/images/BNP.png) 
+![](/images/BNP.png)  
 
 Within the pricing P\&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).
 
-![search](/images/AFL.png) 
+![](/images/AFL.png)  
 
 Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
 
@@ -56,7 +54,7 @@ Prediction of MovieLens database users' tastes by methods including clustering (
 ## Skills \& interests
 
 -**Languages** : French (native), English (TOEIC: 910), German (level B1)  
--**Programming languages** : Python, SQL, VBA, DAX, \LaTeX  
+-**Programming languages** : Python, SQL, VBA, DAX, LaTeX  
 -**Softwares** : VS Code, Excel, Power BI, Microsoft Access, Powerpoint   
 -**Soft skills** : Teamwork, Critical thinking, Curiosity, Autonomy   
 -**Sports** : Football, Golf, Tennis, Boxing   
