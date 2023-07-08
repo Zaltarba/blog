@@ -119,7 +119,7 @@ Our model successfully assigned each series to its cluster and accurately estima
 
 The graphs below illustrate the convergence of the $\alpha$, $\beta$, $\phi$, $\sigma^2$, $S$, and $\phi$ parameters over the iterations for each cluster.
 
-![Results for the first model](/images/model1_graph-1.png)
+![Results for the first model](/blog/images/model1_graph-1.png)
 
 It can be observed that the parameters converge to their true values around the 1000th iteration.
 
@@ -151,7 +151,7 @@ Our model successfully assigned each series to its cluster, and it accurately es
 
 The graphs below illustrate the convergence of the $\alpha$, $\beta$, $\gamma$, $\phi$, $\sigma^2$, $S$, and $\phi$ parameters over the iterations for each cluster.
 
-![Results for the second model](/images/model2_graph-1.png)
+![Results for the second model](/blog/images/model2_graph-1.png)
 
 It can be observed that the parameters converge to their true values around the 1000th iteration.
 
