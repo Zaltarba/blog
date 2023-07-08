@@ -9,9 +9,6 @@ excerpt: The purpose of this project is to group a set of time series into diffe
 
 This project is an pratical implementation of the methods from [Model-Based Clustering of Multiple Time Series](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series) by Frühwirth-Schnatter, and S. Kaufmann.
 
-<img src="https://render.githubusercontent.com/render/math?math={P(A|B)=\frac{\P(B|A)\P(A)}{\P(B|A)\P(A)\%2BP(B|\neg A)\P(\neg A)}}##gh-light-mode-only">
-<img src="https://render.githubusercontent.com/render/math?math={\color{white}\P(A|B)=\frac{\P(B|A)\P(A)}{\P(B|A)\P(A)\%2BP(B|\neg A)\P(\neg A)}}#gh-dark-mode-only">
-
 ## Introduction
 
 The purpose of this project is to group a set of time series into different clusters and, in doing so, estimate the statistical model describing the time series of each cluster. To conduct our estimations, we adopt a Bayesian framework and utilize Monte Carlo simulation methods and hidden Markov chains.
