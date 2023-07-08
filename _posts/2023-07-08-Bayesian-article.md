@@ -1,7 +1,8 @@
 ---
-layout: Bayesian statistics project
-title: How to cluster time series within a bayesian framework
-categories: Academic project
+layout: post
+title:  How to cluster time series within a bayesian framework
+categories: [Academic project]
+excerpt: The purpose of this project is to group a set of time serie ...
 ---
 
 # A model-based clustering of multiple time-series algorithm
