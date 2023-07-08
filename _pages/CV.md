@@ -6,7 +6,7 @@ permalink: /CV/
 
 **BALTHAZAR COURVOISIER**
 
-> +33 6 45 25 74 52 Le V´esinet, France\
+> +33 6 45 25 74 52 Le Vésinet, France\
 > *⋄* Linkedin *⋄*
 >
 > **PROFILE**
