@@ -4,11 +4,11 @@ title: CV
 permalink: /CV/
 ---
 
-## Profile
+# Profile
 
 Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative analyst position involving the use of econometric methods. Seeking full-time employment.
 
-## Education
+# Education
 
 - [Polytechnique Paris](https://www.ip-paris.fr/en/home-en/) - [Master 2 Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) - *2022/2023* 
   - Courses : Deep Learning, Computer Vision, Missing data and causality, Tail Events Analysis
@@ -19,7 +19,7 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 - [Janson de Sailly](https://www.janson-de-sailly.fr/cpge-presentation-generale-structure/) - Classe Préparatoire aux Grandes Écoles - *2017/2019*  
   - Physics and Engineering class, PCSI-PSI* 
 
-# Experience
+# Work Experiences
 
 - **Quantitative Analyste at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**  - On going 6 months internship 
   - Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.  
@@ -37,7 +37,7 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 Mathematics lessons and tutoring for students in CPGE
 
-## Personal and academic project
+# Personal and academic project
 
 - **Bayesian Statistics Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
 The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on the folowing [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series).
@@ -56,7 +56,7 @@ Production of descriptive statistics on French communes for the AFL barometer, i
 - **Movie recommendation algorithm with Python** - *2020*  
 Prediction of MovieLens database users' tastes by methods including clustering (k-means), PCA, matrix factorization using numpy, pandas, scipy libraries
 
-## Skills & interests
+# Skills & interests
 
 -**Languages** : French (native), English (TOEIC: 910), German (level B1)  
 -**Programming languages** : Python, SQL, VBA, DAX, LaTeX  
