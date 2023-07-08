@@ -21,8 +21,33 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
   - Physics and Engineering class, PCSI-PSI* 
 
 # Experience
+<style>
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
+|  Responsiveness            |  Search |
+|---   |---  |
+|![Responsiveness](/images/mobile-demo.png) | text description |
+| ![search](/images/search.png) | text description |
 
-work work work
+<table border="0">
+ <tr>
+    <td><b style="font-size:30px"></b></td>
+    <td><b style="font-size:30px"></b></td>
+ </tr>
+ <tr>
+    <td>![](/images/OSTRUM.png</td>
+    <td>Lorem ipsum ...</td>
+ </tr>
+</table>
 
 ## Personal and academic project
 
@@ -47,8 +72,3 @@ Prediction of MovieLens database users' tastes by methods including clustering (
 -**Sports** : Football, Golf, Tennis, Boxing   
 -**Culture and Hobbies** : Chess, Cinematography, Aquariophilia   
 
-
-```
-
-The contegorized content can be shown over this URL: <https://yourgithubusername.github.io/categories/>
-d over [here](https://www.amitmerchant.com/reverie/sitemap).
