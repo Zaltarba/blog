@@ -33,6 +33,10 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 - **Data Scientist at [AFL](https://www.agence-france-locale.fr/a-propos-de-lafl/)** - 3 months internship in 2021
   - Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
 
+- **Mathematics tutor at [Ipesup](https://www.ipesup.fr)**
+
+Mathematics lessons and tutoring for students in CPGE
+
 ## Personal and academic project
 
 - **Bayesian Statistics and hidden Markov models Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
@@ -45,7 +49,7 @@ First prize for the ESG topic, focusing on the influence of companies' carbon fo
 Production of descriptive statistics on French communes for the AFL barometer, identifying financial trajectories followed between 2014 and 2019 with clustering
 
 - **Movie recommendation algorithm with Python** - *2020*  
-Prediction of MovieLens database users' tastes by methods including clustering (k-means), PCA, matrix factorization using numpy, pandas, scipy libraries 
+Prediction of MovieLens database users' tastes by methods including clustering (k-means), PCA, matrix factorization using numpy, pandas, scipy libraries
 
 ## Skills & interests
 
