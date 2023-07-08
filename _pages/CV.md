@@ -25,7 +25,7 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.
 
-![](/images/CACIB.png)  
+![placeholder](/images/CACIB.png){:.centered}
 
 Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
 
