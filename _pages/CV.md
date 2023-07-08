@@ -4,6 +4,7 @@ title: CV
 permalink: /CV/
 ---
 
+<img src="/images/AFL.png" alt= “” width="2" height="2">
 
 ## Profile
 
@@ -21,38 +22,27 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
   - Physics and Engineering class, PCSI-PSI* 
 
 # Experience
-<style>
-table {
-    border-collapse: collapse;
-}
-table, th, td {
-   border: 1px solid black;
-}
-blockquote {
-    border-left: solid blue;
-    padding-left: 10px;
-}
-</style>
-|  Responsiveness            |  Search |
-|---   |---  |
-|![Responsiveness](/images/mobile-demo.png) | text description |
-| ![search](/images/search.png) | text description |
 
-<table border="0">
- <tr>
-    <td><b style="font-size:30px"></b></td>
-    <td><b style="font-size:30px"></b></td>
- </tr>
- <tr>
-    <td>![](/images/OSTRUM.png</td>
-    <td>Lorem ipsum ...</td>
- </tr>
-</table>
+![search](/images/OSTRUM.png) 
+
+Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.
+
+![search](/images/CACIB.png) 
+
+Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
+
+![search eee e](/images/BNP.png) 
+
+Within the pricing P\&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).
+
+![search](/images/AFL.png) 
+
+Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
 
 ## Personal and academic project
 
 - **Bayesian Statistics and hidden Markov models Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
-The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series).
+The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on the folowing [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series).
 
 - **Hackathon with Ostrum Asset Management** - *2022*  
 First prize for the ESG topic, focusing on the influence of companies' carbon footprints on their default risk  
