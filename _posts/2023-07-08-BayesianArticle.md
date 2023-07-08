@@ -23,25 +23,25 @@ Using an MCMC algorithm, we will iteratively estimate the vector $S$, followed b
 
 ### Theoretical Perspective
 
-For $i = 1,..,N$, the conditional density of $y_i$ given $\theta_{S_i}$ is written as:
+For $i = 1,..,N$, the conditional density of $y_i$ given $\theta_{S_i}$ is written as:  
 
-$p(y_i | \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t}|y_{i,t-1},..,y_{i,0},\theta_{S_i})$
+$p(y_i | \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t}|y_{i,t-1},..,y_{i,0},\theta_{S_i})$   
 
-Where $p(y_i|y_{i,t-1},..,y_{i,0},\theta_{S_i})$ is a known density that depends on the chosen model.
+Where $p(y_i|y_{i,t-1},..,y_{i,0},\theta_{S_i})$ is a known density that depends on the chosen model.  
 
-Therefore,
-
+Therefore,  
+ 
 $p(y_i | S_i, \theta_1,...,\theta_K) = p(y_i | \theta_{S_i})$
 
 $=p(y_i | \theta_{1})$ if $S_i = 1$
 ...
 $=p(y_i | \theta_{K})$ if $S_i = K$
 
-Next, we establish a probabilistic model for the variable $S = (S_1,..,S_N)$. We assume that $S_1, S_2,..,S_N$ are pairwise independent a priori, and for all $i = 1,..,N$, we define the prior probability $Pr(S_i = k)$, the probability that time series $i$ belongs to cluster $k$. We assume that for each series $i$, we have no prior knowledge of which cluster it belongs to. Hence,
+Next, we establish a probabilistic model for the variable $S = (S_1,..,S_N)$. We assume that $S_1, S_2,..,S_N$ are pairwise independent a priori, and for all $i = 1,..,N$, we define the prior probability $Pr(S_i = k)$, the probability that time series $i$ belongs to cluster $k$. We assume that for each series $i$, we have no prior knowledge of which cluster it belongs to. Hence,  
 
 $Pr(S_i = k | \eta_1,..,\eta_K) = \eta_k$
 
-The sizes of the groups $(\eta_1,..,\eta_K)$ are initially unknown and are estimated using the data.
+The sizes of the groups $(\eta_1,..,\eta_K)$ are initially unknown and are estimated using the data.  
 
 ### The MCMC Algorithm
 
@@ -57,56 +57,56 @@ $p(S_i = k|y,\theta_1,..,\theta_K,\phi) \propto p(y_i|\theta_k)Pr(S_i = k|\phi)$
 
 Using equations (1) and (3), we will calculate this posterior for $k = 1,..,K$, and using Python, we will simulate a draw of $S_i$ and assign it to a group $k$.
 
-**Step 2**
+**Step 2**  
+
 We fix the classification $S$ and estimate the parameter vector $(\theta_1,..,\theta_K,\phi)$.
 
-Conditioned on $S$, the variables $\theta$ and $\phi$ are independent. Since the parameter $\theta_k$ is specific to cluster $k$, we group all time series belonging to group $k$.
+Conditioned on $S$, the variables $\theta$ and $\phi$ are independent. Since the parameter $\theta_k$ is specific to cluster $k$, we group all time series belonging to group $k$.  
 
-Thus, $\theta_k$ is estimated using the posterior (5) and a Metropolis-Hastings algorithm:
+Thus, $\theta_k$ is estimated using the posterior (5) and a Metropolis-Hastings algorithm:  
 
-$p(\theta_k|y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k|y_i) = \prod_{i : S_i = k} p(y_i|\theta_k)p(\theta_k)$
+$p(\theta_k|y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k|y_i) = \prod_{i : S_i = k} p(y_i|\theta_k)p(\theta_k)$  
 
-Where the prior $p(\theta_k)$ depends on the chosen model.
+Where the prior $p(\theta_k)$ depends on the chosen model.  
 
-Finally, we estimate $\phi = (\eta_1,..,\eta_k)$ using the posterior (6) and a Metropolis-Hastings algorithm:
+Finally, we estimate $\phi = (\eta_1,..,\eta_k)$ using the posterior (6) and a Metropolis-Hastings algorithm:   
 
 $p(\phi|S,y) = p(y|S,\phi,\theta_1,..,\theta_K) = p(y|S,\phi,\theta_1,..,\theta_K) \times p(S|\phi) \times p(\phi)$
+$= \prod_{k=1,...,K} \prod_{i : S_i = k} p(y_i|\theta_k) \prod_{j = 1,...,N}Pr(S_j|\phi)p(\phi)$  
 
-$= \prod_{k=1,...,K} \prod_{i : S_i = k} p(y_i|\theta_k) \prod_{j = 1,...,N}Pr(S_j|\phi)p(\phi)$
-
-Where the prior distribution of $\phi$ is a Dirichlet distribution (4,..,4).
+Where the prior distribution of $\phi$ is a Dirichlet distribution (4,..,4).  
 
 We will estimate $\psi = (\theta_1,..,\theta_k,\phi,S)$ by repeating these two steps P times, after initializing $\psi^{0} = (\theta_1^{0},..,\theta_k^{0},\phi^{0},S^{0})$.
 
-## Implementation
+## Implementation  
 
-From a practical point of view, the likelihood of the estimated ARIMAX(p, 0, d) models was calculated using the statsmodels library.
+From a practical point of view, the likelihood of the estimated ARIMAX(p, 0, d) models was calculated using the statsmodels library.  
 
-To avoid a final classification with zero time series in a cluster, we decided to randomly select about ten series in such cases to update the cluster parameters. Otherwise, if the size of a cluster is reduced to zero in the early iterations, the coefficients associated with the model would not be updated.
+To avoid a final classification with zero time series in a cluster, we decided to randomly select about ten series in such cases to update the cluster parameters. Otherwise, if the size of a cluster is reduced to zero in the early iterations, the coefficients associated with the model would not be updated.  
 
-The two steps described in the previous section were used for a Gibbs sampling algorithm. For each step, a Metropolis-Hastings algorithm was implemented. A random walk was performed to find the model coefficients, with ten successive iterations for each step. We selected this number based on the results we obtained and taking into account the complexity of the final algorithm.
+The two steps described in the previous section were used for a Gibbs sampling algorithm. For each step, a Metropolis-Hastings algorithm was implemented. A random walk was performed to find the model coefficients, with ten successive iterations for each step. We selected this number based on the results we obtained and taking into account the complexity of the final algorithm.  
 
-## Results
+## Results  
 
-### Model 1
+### Model 1  
 
-The first model is an ARMA(1,1) model of the form:
+The first model is an ARMA(1,1) model of the form:  
 
-$y_{i,t} = \alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1} + \epsilon_t$
+$y_{i,t} = \alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1} + \epsilon_t$  
 
-Here, $\theta_k$ = $(\alpha_k,\beta_k)$, where $\alpha_k$ and $\beta_k$ are the AR(1) and MA(1) parameters, respectively, of the time series belonging to cluster $k$.
+Here, $\theta_k$ = $(\alpha_k,\beta_k)$, where $\alpha_k$ and $\beta_k$ are the AR(1) and MA(1) parameters, respectively, of the time series belonging to cluster $k$.  
 
-We set $K = 2$ and $N = 100$, and use the following priors:
+We set $K = 2$ and $N = 100$, and use the following priors:  
 
-$\forall k \in 1,2 : \alpha,\beta \sim \mathcal{N}(0,,\frac{1}{3})\phi \sim \mathcal{D}(4,4)\Pr(S_i = k | \eta_1,..,\eta_K) = \eta_k$
+$\forall k \in 1,2 : \alpha,\beta \sim \mathcal{N}(0,,\frac{1}{3})\phi \sim \mathcal{D}(4,4)\Pr(S_i = k | \eta_1,..,\eta_K) = \eta_k$  
 
-Since $\epsilon_t \sim \mathcal{N}(0,\sigma^2)$, we have:
+Since $\epsilon_t \sim \mathcal{N}(0,\sigma^2)$, we have:  
+  
+$y_{i,t}|y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1}, \sigma^2)$  
 
-$y_{i,t}|y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1}, \sigma^2)$
+We are able to calculate the posteriors (4), (5), and (6) and estimate the parameters using the method described in Section 2.  
 
-We are able to calculate the posteriors (4), (5), and (6) and estimate the parameters using the method described in Section 2.
-
-The results obtained after 5000 iterations are as follows:
+The results obtained after 5000 iterations are as follows:  
 
 | Coefficients   | $\alpha$   | $\beta$   | $\sigma^2$   | Cluster Sizes|
 |----------------|------------|-----------|--------------|---------------|
