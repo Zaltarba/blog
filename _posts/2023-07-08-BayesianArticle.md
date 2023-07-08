@@ -27,21 +27,17 @@ Using an MCMC algorithm, we will iteratively estimate the vector $S$, followed b
 
 For $i = 1,..,N$, the conditional density of $y_i$ given $\theta_{S_i}$ is written as:  
 
-$p(y_i \mid \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t} \mid y_{i,t-1},..,y_{i,0},\theta_{S_i})$   
+$$p(y_i \mid \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t} \mid y_{i,t-1},..,y_{i,0},\theta_{S_i})~~~~~~~~~~~~~~~~~~~~~~(1)$$ 
 
 Where $p(y_i \mid y_{i,t-1},..,y_{i,0},\theta_{S_i})$ is a known density that depends on the chosen model.  
 
 Therefore,  
  
-$p(y_i \mid S_i, \theta_1,...,\theta_K) = p(y_i \mid \theta_{S_i})$
-
-$=p(y_i \mid \theta_{1})$ if $S_i = 1$
-...
-$=p(y_i \mid \theta_{K})$ if $S_i = K$
+$$p(y_i \mid S_i, \theta_1,...,\theta_K) = p(y_i \mid \theta_{S_i})~~~~~~~~~~~~~~~~~~~~~~(2)$$
 
 Next, we establish a probabilistic model for the variable $S = (S_1,..,S_N)$. We assume that $S_1, S_2,..,S_N$ are pairwise independent a priori, and for all $i = 1,..,N$, we define the prior probability $Pr(S_i = k)$, the probability that time series $i$ belongs to cluster $k$. We assume that for each series $i$, we have no prior knowledge of which cluster it belongs to. Hence,  
 
-$Pr(S_i = k \mid \eta_1,..,\eta_K) = \eta_k$
+$$Pr(S_i = k \mid \eta_1,..,\eta_K) = \eta_k~~~~~~~~~~~~~~~~~~~~~~(3)$$
 
 The sizes of the groups $(\eta_1,..,\eta_K)$ are initially unknown and are estimated using the data.  
 
@@ -49,13 +45,15 @@ The sizes of the groups $(\eta_1,..,\eta_K)$ are initially unknown and are estim
 
 The estimation of the parameter vector $\psi = (\theta_1,..,\theta_k,\phi,S)$ using MCMC is done in two steps:
 
-**Step 1**
+**Step 1**  
+
 We fix the parameters $(\theta_1,..,\theta_K,\phi)$ and estimate $S$.
 
 In this step, we will assign a group $k$ to each time series $i$ using the posterior $p(S_i \mid y,\theta_1,..,\theta_K,\phi)$.
 
 Based on Bayes' theorem and the above, we know that:
-$p(S_i = k \mid y,\theta_1,..,\theta_K,\phi) \propto p(y_i \mid \theta_k)Pr(S_i = k \mid \phi)$
+
+$$p(S_i = k \mid y,\theta_1,..,\theta_K,\phi) \propto p(y_i \mid \theta_k)Pr(S_i = k \mid \phi)~~~~~~~~~~~~~~~~~~~~~~(4)$$
 
 Using equations (1) and (3), we will calculate this posterior for $k = 1,..,K$, and using Python, we will simulate a draw of $S_i$ and assign it to a group $k$.
 
@@ -67,13 +65,14 @@ Conditioned on $S$, the variables $\theta$ and $\phi$ are independent. Since the
 
 Thus, $\theta_k$ is estimated using the posterior (5) and a Metropolis-Hastings algorithm:  
 
-$p(\theta_k \mid y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k \mid y_i) = \prod_{i : S_i = k} p(y_i \mid \theta_k)p(\theta_k)$  
+$$p(\theta_k \mid y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k \mid y_i) = \prod_{i : S_i = k} p(y_i \mid \theta_k)p(\theta_k)~~~~~~~~~~~~~~~~~~~~~~(5)$$  
 
 Where the prior $p(\theta_k)$ depends on the chosen model.  
 
-Finally, we estimate $\phi = (\eta_1,..,\eta_k)$ using the posterior (6) and a Metropolis-Hastings algorithm:   
+Finally, we estimate $\phi = (\eta_1,..,\eta_k)$ using the posterior (6) and a Metropolis-Hastings algorithm:  
 
-$p(\phi \mid S,y) = p(y \mid S,\phi,\theta_1,..,\theta_K) = p(y \mid S,\phi,\theta_1,..,\theta_K) \times p(S \mid \phi) \times p(\phi)$
+$p(\phi \mid S,y) = p(y \mid S,\phi,\theta_1,..,\theta_K)$  
+$= p(y \mid S,\phi,\theta_1,..,\theta_K) \times p(S \mid \phi) \times p(\phi)~~~~~~~~~~~~~~~~~~~~~~(6)$  
 $= \prod_{k=1,...,K} \prod_{i : S_i = k} p(y_i \mid \theta_k) \prod_{j = 1,...,N}Pr(S_j \mid \phi)p(\phi)$  
 
 Where the prior distribution of $\phi$ is a Dirichlet distribution (4,..,4).  
