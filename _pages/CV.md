@@ -4,113 +4,49 @@ title: CV
 permalink: /CV/
 ---
 
-**BALTHAZAR COURVOISIER**
 
-> +33 6 45 25 74 52 Le Vésinet, France\
-> *⋄* Linkedin *⋄*
->
-> **PROFILE**
->
-> Graduating student with in-depth knowledge in finance, machine
-> learning, statistics and econometrics. Highly moti-vated for a
-> quantitative analyst position involving the use of econometric
-> methods. Seeking full-time employment.
->
-> **EDUCATION**
+## Profile
 
-+-----------------------------------+-----------------------------------+
-| > **Polytechnique Paris** -       | *2022 - 2023*                     |
-| > **Master 2 Data Science**       |                                   |
-+===================================+===================================+
-+-----------------------------------+-----------------------------------+
+Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative analyst position involving the use of econometric methods. Seeking full-time employment.
 
-> \- Courses : Deep Learning, Computer Vision, Missing data and
-> causality, Tail Events Analysis\
-> - *2019 - 2023*eries, Econometrics, Monte Carlo methods, Stochastic
-> calculus, Online Learning
+## Education
 
-+-----------------------------------+-----------------------------------+
-| > **Janson de Sailly** - **Classe | *2017 - 2019*                     |
-| > Pr´eparatoire aux Grandes       |                                   |
-| > ´Ecoles**                       |                                   |
-+===================================+===================================+
-+-----------------------------------+-----------------------------------+
+- [Polytechnique Paris](https://www.ip-paris.fr/en/home-en/) - [Master 2 Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) - *2022-2023* 
+  - Courses : Deep Learning, Computer Vision, Missing data and causality, Tail Events Analysis
+    
+- [ENSAE Paris](https://www.ensae.fr) - [Engineering program](https://www.ensae.fr/en/education/ingenieur-ensae-program) - *2019-2023*
+  - Courses : Time series, Econometrics, Monte Carlo methods, Stochastic calculus, Online Learning
+    
+- [Janson de Sailly](https://www.janson-de-sailly.fr/cpge-presentation-generale-structure/) - Classe Préparatoire aux Grandes Écoles - *2017-2019*  
+  - Physics and Engineering class, PCSI-PSI* 
 
-> \- Physics and Engineering class, PCSI-PSI\*
->
-> **EXPERIENCE**
+# Experience
 
-+-----------------------------------+-----------------------------------+
-| > ![](vertopal_a47bbd4781dc4      | > *On going, May 2023 - now*      |
-| 7c881d1c313d0c51ee7/media/image1. | > Construction of a Stop Loss     |
-| png){width="1.3291666666666666in" | > Take Profit mechanism for       |
-| > height="0.39444444444444443in"} | > different portfolios using      |
-| >                                 | > Hurst exponents, implemented    |
-| > ![](vertopal_a47bbd4781dc47     | > with Python and VBA.            |
-| c881d1c313d0c51ee7/media/image2.p | >                                 |
-| ng){width="0.48194444444444445in" | > *6 months, April - September    |
-| > height="0.55in"}                | > 2022* Within CACIB's finance    |
-| >                                 | > department: NBI modeling for    |
-| > ![](vertopal_a47bbd4781dc4      | > various business sectors using  |
-| 7c881d1c313d0c51ee7/media/image3. | > econometric and machine         |
-| png){width="1.0222222222222221in" | > learning models (OLS, SARIMAX). |
-| > height="0.433332239720035in"}   | >                                 |
-| >                                 | > *6 months, September 2021 -     |
-| > ![](vertopal_a47bbd4781dc4      | > March 2022* Within the pricing  |
-| 7c881d1c313d0c51ee7/media/image4. | > P&C team: creation of a         |
-| png){width="0.8472222222222222in" | > robustness index for            |
-| > height="0.4722222222222222in"}  | > smartphones using econometric   |
-|                                   | > models, NLP and clustering      |
-|                                   | > (KNN, CAH).                     |
-|                                   | >                                 |
-|                                   | > *3 months, June - August 2021*  |
-|                                   | > Analysis of financial data,     |
-|                                   | > development and                 |
-|                                   | > industrialization on Power BI   |
-|                                   | > of risk analysis reports and    |
-|                                   | > investment monitoring.          |
-+===================================+===================================+
-+-----------------------------------+-----------------------------------+
+work work work
 
-> **PERSONAL AND ACADEMIC PROJECT**
+## Personal and academic project
 
-+-----------------------------------+-----------------------------------+
-| > \- **Bayesian Statistics and    | 2023                              |
-| > hidden Markov models Project**  |                                   |
-| > -                               |                                   |
-+===================================+===================================+
-+-----------------------------------+-----------------------------------+
+- **Bayesian Statistics and hidden Markov models Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
+The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series).
 
-> The aim of this project is to group a set of time series into
-> clusters, and to estimate the model describing each cluster. Based on
-> .
->
-> \- **Hackathon with Ostrum Asset Management** *2022* First prize for
-> the ESG topic, focusing on the influence of companies' carbon
-> footprints on their default risk- **Applied statistics project with
-> Agence France Locale** *2020 - 2021* Production of descriptive
-> statistics on French communes for the AFL barometer, identifying
-> financial trajectories followed between 2014 and 2019 with clustering\
-> - **Movie recommendation algorithm with Python**\
-> *2020* Prediction of MovieLens database users' tastes by methods
-> including clustering (k-means), PCA, matrix factorization using numpy,
-> pandas, scipy libraries
->
-> **SKILLS & INTERESTS**
+- **Hackathon with Ostrum Asset Management** - *2022*  
+First prize for the ESG topic, focusing on the influence of companies' carbon footprints on their default risk  
 
-+-----------------------------------+-----------------------------------+
-| > **Languages**\                  | > French (native), English        |
-| > **Programming languages         | > (TOEIC: 910), German (level B1) |
-| > Softwares**\                    | > Python, SQL, VBA, DAX, LATEX\   |
-| > **Soft skills**\                | > VS Code, Excel, Power BI,       |
-| > **Sports**\                     | > Microsoft Access, Powerpoint    |
-| > **Culture and Hobbies**         | > Teamwork, Critical thinking,    |
-|                                   | > Curiosity, Autonomy\            |
-|                                   | > Football, Golf, Tennis, Boxing\ |
-|                                   | > Chess, Cinematography,          |
-|                                   | > Aquariophilia                   |
-+===================================+===================================+
-+-----------------------------------+-----------------------------------+
+- **Applied statistics project with Agence France Locale** - *2020-2021*  
+Production of descriptive statistics on French communes for the AFL barometer, identifying financial trajectories followed between 2014 and 2019 with clustering
+
+- **Movie recommendation algorithm with Python** - *2020*  
+Prediction of MovieLens database users' tastes by methods including clustering (k-means), PCA, matrix factorization using numpy, pandas, scipy libraries 
+
+## Skills \& interests
+
+-**Languages** : French (native), English (TOEIC: 910), German (level B1)  
+-**Programming languages** : Python, SQL, VBA, DAX, \LaTeX  
+-**Softwares** : VS Code, Excel, Power BI, Microsoft Access, Powerpoint   
+-**Soft skills** : Teamwork, Critical thinking, Curiosity, Autonomy   
+-**Sports** : Football, Golf, Tennis, Boxing   
+-**Culture and Hobbies** : Chess, Cinematography, Aquariophilia   
+
 
 ```
 
