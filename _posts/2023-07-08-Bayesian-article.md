@@ -7,7 +7,7 @@ excerpt: The purpose of this project is to group a set of time serie ...
 
 # A model-based clustering of multiple time-series algorithm
 
-This project is an pratical implementation of the methods in this article by an author.
+This project is an pratical implementation of the methods from [Model-Based Clustering of Multiple Time Series](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series) by Frühwirth-Schnatter, and S. Kaufmann.
 
 ## Introduction
 
@@ -157,3 +157,7 @@ It can be observed that the parameters converge to their true values around the 
 ## Conclusion
 
 By using a Bayesian approach and Monte Carlo methods, we successfully grouped time series into different clusters. We observed that the estimations of the AR parameters were very close to the true values, and our algorithms made no classification errors. However, the estimations of the MA parameters were often less accurate. This difficulty arises from the challenges involved in estimating the parameters specific to ARIMA models. Additionally, we assumed that all parameters follow the same prior distribution
+
+## Bibliography 
+
+14. Frühwirth-Schnatter, and S. Kaufmann, (2008). Model-based clustering of multiple time-series, Journal of Business and Economic Statistics, 26, 78 – 89
