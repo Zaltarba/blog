@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Profile
-permalink: /About_me/
+permalink: /about_me/
 ---
 
 Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative analyst position involving the use of econometric methods. Seeking full-time employment.
