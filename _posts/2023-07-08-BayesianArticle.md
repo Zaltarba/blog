@@ -27,21 +27,21 @@ Using an MCMC algorithm, we will iteratively estimate the vector $S$, followed b
 
 For $i = 1,..,N$, the conditional density of $y_i$ given $\theta_{S_i}$ is written as:  
 
-$p(y_i \pipe \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t} \pipe y_{i,t-1},..,y_{i,0},\theta_{S_i})$   
+$p(y_i \mid \theta_{S_i}) = \prod_{t=1,...,T} p(y_{i,t} \mid y_{i,t-1},..,y_{i,0},\theta_{S_i})$   
 
-Where $p(y_i \pipe y_{i,t-1},..,y_{i,0},\theta_{S_i})$ is a known density that depends on the chosen model.  
+Where $p(y_i \mid y_{i,t-1},..,y_{i,0},\theta_{S_i})$ is a known density that depends on the chosen model.  
 
 Therefore,  
  
-$p(y_i \pipe S_i, \theta_1,...,\theta_K) = p(y_i \pipe \theta_{S_i})$
+$p(y_i \mid S_i, \theta_1,...,\theta_K) = p(y_i \mid \theta_{S_i})$
 
-$=p(y_i \pipe \theta_{1})$ if $S_i = 1$
+$=p(y_i \mid \theta_{1})$ if $S_i = 1$
 ...
-$=p(y_i \pipe \theta_{K})$ if $S_i = K$
+$=p(y_i \mid \theta_{K})$ if $S_i = K$
 
 Next, we establish a probabilistic model for the variable $S = (S_1,..,S_N)$. We assume that $S_1, S_2,..,S_N$ are pairwise independent a priori, and for all $i = 1,..,N$, we define the prior probability $Pr(S_i = k)$, the probability that time series $i$ belongs to cluster $k$. We assume that for each series $i$, we have no prior knowledge of which cluster it belongs to. Hence,  
 
-$Pr(S_i = k \pipe \eta_1,..,\eta_K) = \eta_k$
+$Pr(S_i = k \mid \eta_1,..,\eta_K) = \eta_k$
 
 The sizes of the groups $(\eta_1,..,\eta_K)$ are initially unknown and are estimated using the data.  
 
@@ -52,10 +52,10 @@ The estimation of the parameter vector $\psi = (\theta_1,..,\theta_k,\phi,S)$ us
 **Step 1**
 We fix the parameters $(\theta_1,..,\theta_K,\phi)$ and estimate $S$.
 
-In this step, we will assign a group $k$ to each time series $i$ using the posterior $p(S_i \pipe y,\theta_1,..,\theta_K,\phi)$.
+In this step, we will assign a group $k$ to each time series $i$ using the posterior $p(S_i \mid y,\theta_1,..,\theta_K,\phi)$.
 
 Based on Bayes' theorem and the above, we know that:
-$p(S_i = k \pipe y,\theta_1,..,\theta_K,\phi) \propto p(y_i \pipe \theta_k)Pr(S_i = k \pipe \phi)$
+$p(S_i = k \mid y,\theta_1,..,\theta_K,\phi) \propto p(y_i \mid \theta_k)Pr(S_i = k \mid \phi)$
 
 Using equations (1) and (3), we will calculate this posterior for $k = 1,..,K$, and using Python, we will simulate a draw of $S_i$ and assign it to a group $k$.
 
@@ -67,14 +67,14 @@ Conditioned on $S$, the variables $\theta$ and $\phi$ are independent. Since the
 
 Thus, $\theta_k$ is estimated using the posterior (5) and a Metropolis-Hastings algorithm:  
 
-$p(\theta_k \pipe y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k \pipe y_i) = \prod_{i : S_i = k} p(y_i \pipe \theta_k)p(\theta_k)$  
+$p(\theta_k \mid y,S_1,..,S_N) = \prod_{i : S_i = k} p(\theta_k \mid y_i) = \prod_{i : S_i = k} p(y_i \mid \theta_k)p(\theta_k)$  
 
 Where the prior $p(\theta_k)$ depends on the chosen model.  
 
 Finally, we estimate $\phi = (\eta_1,..,\eta_k)$ using the posterior (6) and a Metropolis-Hastings algorithm:   
 
-$p(\phi \pipe S,y) = p(y \pipe S,\phi,\theta_1,..,\theta_K) = p(y \pipe S,\phi,\theta_1,..,\theta_K) \times p(S \pipe \phi) \times p(\phi)$
-$= \prod_{k=1,...,K} \prod_{i : S_i = k} p(y_i \pipe \theta_k) \prod_{j = 1,...,N}Pr(S_j \pipe \phi)p(\phi)$  
+$p(\phi \mid S,y) = p(y \mid S,\phi,\theta_1,..,\theta_K) = p(y \mid S,\phi,\theta_1,..,\theta_K) \times p(S \mid \phi) \times p(\phi)$
+$= \prod_{k=1,...,K} \prod_{i : S_i = k} p(y_i \mid \theta_k) \prod_{j = 1,...,N}Pr(S_j \mid \phi)p(\phi)$  
 
 Where the prior distribution of $\phi$ is a Dirichlet distribution (4,..,4).  
 
@@ -100,11 +100,11 @@ Here, $\theta_k$ = $(\alpha_k,\beta_k)$, where $\alpha_k$ and $\beta_k$ are the 
 
 We set $K = 2$ and $N = 100$, and use the following priors:  
 
-$\forall k \in 1,2 : \alpha,\beta \sim \mathcal{N}(0,,\frac{1}{3})\phi \sim \mathcal{D}(4,4)\Pr(S_i = k \pipe \eta_1,..,\eta_K) = \eta_k$  
+$\forall k \in 1,2 : \alpha,\beta \sim \mathcal{N}(0,,\frac{1}{3})\phi \sim \mathcal{D}(4,4)\Pr(S_i = k \mid \eta_1,..,\eta_K) = \eta_k$  
 
 Since $\epsilon_t \sim \mathcal{N}(0,\sigma^2)$, we have:  
   
-$y_{i,t} \pipe y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1}, \sigma^2)$  
+$y_{i,t} \mid y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1}, \sigma^2)$  
 
 We are able to calculate the posteriors (4), (5), and (6) and estimate the parameters using the method described in Section 2.  
 
@@ -136,7 +136,7 @@ We set K = 3 and N = 100, and use the same priors as in Model 1.
 
 Since $\epsilon_t \sim \mathcal{N}(0,\sigma^2)$, with $\sigma^2$ known, we have:
 
-$y_{i,t} \pipe y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1} + \gamma_{S_i}x_t, \sigma^2)$
+$y_{i,t} \mid y_{i,t-1},..,y_{i,0},\theta_{S_i} \sim \mathcal{N}(\alpha_{S_i}y_{i,t-1} + \beta_{S_i}\epsilon_{t-1} + \gamma_{S_i}x_t, \sigma^2)$
 
 We are able to calculate the posteriors (4), (5), and (6) and estimate the parameters using the method described in Section 2.
 
