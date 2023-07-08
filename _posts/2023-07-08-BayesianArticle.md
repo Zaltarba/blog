@@ -7,7 +7,8 @@ excerpt: The purpose of this project is to group a set of time series into diffe
 
 # A model-based clustering of multiple time-series algorithm
 
-This project is an pratical implementation of the methods from [Model-Based Clustering of Multiple Time Series](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series) by Frühwirth-Schnatter, and S. Kaufmann.
+This project is an pratical implementation of the methods from [Model-Based Clustering of Multiple Time Series](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series) by Frühwirth-Schnatter, and S. Kaufmann.  
+You can check the python implementation on my [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git).
 
 ## Introduction
 
