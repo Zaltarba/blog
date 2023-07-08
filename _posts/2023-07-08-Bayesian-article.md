@@ -1,6 +1,6 @@
 ---
-layout: A model-based clustering of multiple time-series algorithm
-title: A model-based clustering of multiple time-series algorithm
+layout: Bayesian statistics project
+title: How to cluster time series within a bayesian framework
 categories: Academic project
 ---
 
