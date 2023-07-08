@@ -10,13 +10,13 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 ## Education
 
-- [Polytechnique Paris](https://www.ip-paris.fr/en/home-en/) - [Master 2 Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) - *2022-2023* 
+- [Polytechnique Paris](https://www.ip-paris.fr/en/home-en/) - [Master 2 Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) - *2022/2023* 
   - Courses : Deep Learning, Computer Vision, Missing data and causality, Tail Events Analysis
     
-- [ENSAE Paris](https://www.ensae.fr) - [Engineering program](https://www.ensae.fr/en/education/ingenieur-ensae-program) - *2019-2023*
+- [ENSAE Paris](https://www.ensae.fr) - [Engineering program](https://www.ensae.fr/en/education/ingenieur-ensae-program) - *2019/2023*
   - Courses : Time series, Econometrics, Monte Carlo methods, Stochastic calculus, Online Learning
     
-- [Janson de Sailly](https://www.janson-de-sailly.fr/cpge-presentation-generale-structure/) - Classe Préparatoire aux Grandes Écoles - *2017-2019*  
+- [Janson de Sailly](https://www.janson-de-sailly.fr/cpge-presentation-generale-structure/) - Classe Préparatoire aux Grandes Écoles - *2017/2019*  
   - Physics and Engineering class, PCSI-PSI* 
 
 # Experience
@@ -41,7 +41,7 @@ The aim of this project is to group a set of time series into clusters, and to e
 - **Hackathon with Ostrum Asset Management** - *2022*  
 First prize for the ESG topic, focusing on the influence of companies' carbon footprints on their default risk  
 
-- **Applied statistics project with Agence France Locale** - *2020-2021*  
+- **Applied statistics project with Agence France Locale** - *2020/2021*  
 Production of descriptive statistics on French communes for the AFL barometer, identifying financial trajectories followed between 2014 and 2019 with clustering
 
 - **Movie recommendation algorithm with Python** - *2020*  
