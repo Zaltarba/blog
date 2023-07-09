@@ -76,7 +76,7 @@ With $\theta_0 \sim N_{p}{(a_0, P_0)}$ with $B_t = \mathrm{diag}{(2y_{1t} - 1, \
 This representation is equivalent to another formulation (Albert and Chib 1993) as followed:  
 
 $$p{(z_t \vert \theta_t)} = \phi_m{(z_t - F_t \theta_t; V_t)}$$
-$$\theta_t & = & G_t \theta_{t-1} + \varepsilon_t, \varepsilon_t \sim \func{N_p}{0, W_t}$$  
+$$\theta_t = G_t \theta_{t-1} + \varepsilon_t, \varepsilon_t \sim \func{N_p}{0, W_t}$$  
 
 With $y_{it} = 1_{z_{it} > 0}$   
 
