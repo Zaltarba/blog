@@ -174,7 +174,11 @@ In order to compare the accuracy of the algorithms, Fasano et al used the follow
 
 We also used this method, however due to the extensive computing time the methods required. We restrained ourselves to grids of size $100 \times 100$ and only went up to $t=50$. We ended up with the following table : 
 
-Insert table
+| Algorithm | $\theta_1 \quad (R=10^3)$ | $\theta_1 \quad (R=10^4)$ | $\theta_1 \quad (R=10^5)$ | $\theta_2 \quad (R=10^3)$ | $\theta_2 \quad (R=10^4)$ | $\theta_2 \quad (R=10^5)$ |
+|-----------|----------------------------|----------------------------|----------------------------|----------------------------|----------------------------|----------------------------|
+| Boostrap  | 0.086                      | 0.036                      | 0.025                      | 0.124                      | 0.069                      | 0.062                      |
+| Optimal   | 0.082                      | 0.034                      | 0.024                      | 0.117                      | 0.067                      | 0.061                      |
+
 
 We can see that our results are similar to the article's results, and the conclusions drawn out are the same : although mild, we benefit from a better accuracy with the proposed "optimal" filter than the one we observe when using the classic bootstrap filter.  
 "
@@ -192,7 +196,10 @@ We can see that the accuracy of both algorithms decreases with time (let it be n
 
 Finally, and because we are using Monte Carlo methods, we decided to take a look at the variance of our algrithms. We expected a smaller variance for the "optimal" algorithm. To look at the variance of the results, we simulated 100 runs with each algorithm and $10^3$ samples. We then assessed the median variance. We obtained the  following results :  
 
-Insert table
+| Algorithm | Variance of `$\theta_1$` | Variance of `$\theta_2$` |
+|-----------|-------------------------|-------------------------|
+| Boostrap  | 0.00525312              | 0.00937037              |
+| Optimal   | 0.00380095              | 0.00727529              |
 
 As expected we have lower variance with the optimal algorithm than the boostrap algorithm. Moreover, we have a relatively small variance : $10^{-3}$ for all coefficients.
 
