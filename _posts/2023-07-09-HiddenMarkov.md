@@ -66,7 +66,7 @@ induces the skewness as it is rescaled by the term $\Phi_{h}(\gamma ; \Gamma)$
 
 We have also the following distribution equality $\theta \overset{(d)} = \xi + \omega (U_0 + \Delta \Gamma^{-1} U_1)$ with $U_0$ independant of $U_1$ and $U_0 \sim N_q{(0, \overline{\Omega} - \Delta \Gamma^{-1} \Delta^T)}, U_1 \sim TN_h{(0, \Gamma, -\gamma)}$ truncated normal law below $-\gamma$. This representation allows for efficient computing, but we can also apply it to a probit model.  
 
-Given $y_t = (y_{1t}, \ldots, y_{mt})^T \in \set{0, 1}^m$ a binary vector and $\theta_t = (\theta_{1t}, \ldots, \theta_{pt})^T \in R^p$ the vectors of parameters. The dynamic probit model is then defined as:  `
+Given $y_t = (y_{1t}, \ldots, y_{mt})^T \in {(0, 1)}^m$ a binary vector and $\theta_t = (\theta_{1t}, \ldots, \theta_{pt})^T \in R^p$ the vectors of parameters. The dynamic probit model is then defined as:  `
 
 $$p{(y_t \mid \theta_t)} = \Phi_m{(B_t F_t \theta_t ; B_t V_t B_t)}$$
 $$\theta_t = G_t \theta_{t-1} + \varepsilon_t, \varepsilon_t \sim N_p{(0, W_t)}$$
