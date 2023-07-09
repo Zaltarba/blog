@@ -114,3 +114,89 @@ And at time $t$, the filtering distribution are defined as:
 - $s_t = (\mathrm{diag}{F_t \Omega_{t \mid t} F_t^T + V_t})^{1/2}$  
 
 For the smoothing, it is available with similar forms of equations.  
+
+## Particles algorithms
+
+Particle filters are a mathematical tool used to estimate the state of a system that is described by a set of uncertain variables. It is a type of recursive Bayesian filter that estimates the state of a system by sampling a large number of "particles," each of which represents a possible state of the system. The particles are weighted according to their likelihood of being the true state of the system, and the weighted average of the particles is used as an estimate of the state. In this section we describe two particles algorithms we used to estimate the parameters of the targeted SUN distribution : the bootstrap filter, and an optimal filter proposed by the researchers.  
+
+To obtain similar results, detailed in the fourth part of the report, we started with the same parameters and used the previously seen properties. 
+
+- $a_0 = [0, 0]$
+- $P_0 = 3I_2$
+- $V_t = 1$
+
+### Bootstrap filter
+
+In a bootstrap filter, the state estimates are generated using a bootstrapping process, which involves sampling from the previous estimate of the state distribution with replacement. This means that each sample is drawn from the previous estimate, and the same sample may be drawn multiple times. The new estimate of the state is then obtained by weighting the samples according to their likelihood of being the true state.  
+
+In the specific case of our study, using the properties and the assumptions of the model, we implemented the bootstrap filter by following this pseudo code :  
+
+Insert pic 
+
+Where $W_0$ is taken as $W_0 = 0.01 I_2$ (suggested by a graphical search of the maximum for the marginal likelihood computed under different combinations via the analytical formula)  
+
+### Independent and identically distributed sampling
+
+A first filter is proposed by the researchers in the article. It uses the main properties of the SUN distribution in order to get independent and identically distributed sampling. This algorithm can be described by the following pseudo code :  
+
+Insert pic 
+
+### Optimal filter
+
+The optimal filter introduced by the researchers can be described by the following pseudo code, using the equations of the SUN distribution and filtering, we perform the steps : 
+
+Insert pic
+
+Where $G_t = \Gamma = \overline{\Omega} = I_2$ and $\omega = 0.1$, this filter leverages the SUN distribution properties detailed above. With the starting values, we have:
+
+$$\Gamma = I_2$$
+
+## Results and Conclusion
+
+We decided to focus on the convergence of the algorithms. Plotting the convergence of the models parameter $\theta_1$ and $\theta_2$.  
+
+Insert pic
+
+We observe similar results as the one in the paper : 
+
+- $\theta_1$ seems to tend towards -0.5
+- $\theta_2$ seems to tend towards 1
+ 
+One may find the same plot but for the boostrap algorithm in the Appendix. We can see the same convergence results : $\theta_1$ seems to tend towards -0.5, $\theta_2$ seems to tend towards 1.  
+
+In order to compare the accuracy of the algorithms, Fasano et al used the following procedure :  
+
+1. Compute the corresponding SUN density on a 2000*2000 sized grid of equally spaced values of $\theta_{1t}$ and $\theta_{2t}$ for each $t$ in $1,2,...,97$
+2. Compute the marginal distributions of $\theta_{1t}$ (resp. $\theta_{2t}$) by summing over the values of $\theta_{2t}$ (resp. $\theta_{1t}$) and multiplying by the grid step size (this corresponds to approaching the integral of the joint density on one of the two variables by a rectangle method)
+3. Run each algorithm 100 with respectively $10^3, 10^4,$ and $ 10^5$ particles
+4. Compute the Wasserstein distance between the empirical distribution given by each algorithm and the discretized exact density
+5. for each algorithm, take the median of the 100 Wasserstein distance computed
+
+We also used this method, however due to the extensive computing time the methods required. We restrained ourselves to grids of size $100 \times 100$ and only went up to $t=50$. We ended up with the following table : 
+
+Insert table
+
+We can see that our results are similar to the article's results, and the conclusions drawn out are the same : although mild, we benefit from a better accuracy with the proposed "optimal" filter than the one we observe when using the classic bootstrap filter.  
+"
+We also reproduced a bar plot which shows the frequency at which each algorithm dominates the other accross time.  
+
+Insert pic
+
+We can see the "optimal" filter has ranks above the bootstrap filter most of the time: it overperforms the bootstrap filter at frequency 0.59 for $R=10^3$, 0.84 for $R=10^4$, and 0.66 for $R=10^5$.  
+
+We also compared the performance of the algorithms throughout the time window by averaging the wasserstein distance over each of the 100 experiments for each algorithm at each time $t$, the graph below shows the results:  
+
+Insert pic
+
+We can see that the accuracy of both algorithms decreases with time (let it be noted that here a good accuracy is a low accuracy, although this can sound confusing). Of course, we also notice throughout the study that more particles implies better results.  
+
+Finally, and because we are using Monte Carlo methods, we decided to take a look at the variance of our algrithms. We expected a smaller variance for the "optimal" algorithm. To look at the variance of the results, we simulated 100 runs with each algorithm and $10^3$ samples. We then assessed the median variance. We obtained the  following results :  
+
+Insert table
+
+As expected we have lower variance with the optimal algorithm than the boostrap algorithm. Moreover, we have a relatively small variance : $10^{-3}$ for all coefficients.
+
+## Appendix
+
+Insert graph
+
