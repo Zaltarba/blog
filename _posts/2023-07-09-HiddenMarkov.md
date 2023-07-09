@@ -64,14 +64,14 @@ $$\frac{\Phi_{h}(\gamma + \Delta^T \overline{\Omega}^{-1} \omega^{-1} (\theta - 
 
 induces the skewness as it is rescaled by the term $\Phi_{h}(\gamma ; \Gamma)$  
 
-We have also the following distribution equality $\theta \overset{(d)}{=} \xi + \omega (U_0 + \Delta \Gamma^{-1} U_1)$ with $U_0 \indep U_1$ and $U_0 \sim \func{N_q}{0, \overline{\Omega} - \Delta \Gamma^{-1} \Delta^T}, U_1 \sim \func{TN_h}{0, \Gamma, -\gamma}$ truncated normal law below $-\gamma$. This representation allows for efficient computing, but we can also apply it to a probit model.  
+We have also the following distribution equality $\theta \overset{(d)} = \xi + \omega (U_0 + \Delta \Gamma^{-1} U_1)$ with $U_0$ independant of $U_1$ and $U_0 \sim N_q{(0, \overline{\Omega} - \Delta \Gamma^{-1} \Delta^T)}, U_1 \sim TN_h{(0, \Gamma, -\gamma)}$ truncated normal law below $-\gamma$. This representation allows for efficient computing, but we can also apply it to a probit model.  
 
-Given $y_t = (y_{1t}, \ldots, y_{mt})^T \in \set{0, 1}^m$ a binary vector and $\theta_t = (\theta_{1t}, \ldots, \theta_{pt})^T \in \R^p$ the vectors of parameters. The dynamic probit model is then defined as:  `
+Given $y_t = (y_{1t}, \ldots, y_{mt})^T \in \set{0, 1}^m$ a binary vector and $\theta_t = (\theta_{1t}, \ldots, \theta_{pt})^T \in R^p$ the vectors of parameters. The dynamic probit model is then defined as:  `
 
-$$p{(y_t \vert \theta_t)} = \Phi_m{(B_t F_t \theta_t ; B_t V_t B_t)}$$
-$$\theta_t = G_t \theta_{t-1} + \varepsilon_t, \varepsilon_t \sim \func{N_p}{(0, W_t)}$$
+$$p{(y_t \mid \theta_t)} = \Phi_m{(B_t F_t \theta_t ; B_t V_t B_t)}$$
+$$\theta_t = G_t \theta_{t-1} + \varepsilon_t, \varepsilon_t \sim N_p{(0, W_t)}$$
 
-With $\theta_0 \sim \func{N_p}{a_0, P_0}$ with $B_t = \mathrm{diag}{(2y_{1t} - 1, \ldots, 2y_{mt} - 1)}$  
+With $\theta_0 \sim N_{p}{(a_0, P_0)}$ with $B_t = \mathrm{diag}{(2y_{1t} - 1, \ldots, 2y_{mt} - 1)}$  
 
 This representation is equivalent to another formulation (Albert and Chib 1993) as followed:  
 
@@ -82,7 +82,7 @@ With $y_{it} = 1_{z_{it} > 0}$
 
 Then, under such a dynamic, the first step filtering distribution is:  
 
-$$ (\theta_1 \mid y_1) \sim \mathrm{SUN}_{p,m}{\xi_{1 \mid 1}, \Omega_{1 \mid 1}, \Delta_{1 \mid 1}, \gamma_{1 \mid 1}, \Gamma_{1 \mid 1}} $$
+$$ (\theta_1 \mid y_1) \sim SUN_{p,m}{(\xi_{1 \mid 1}, \Omega_{1 \mid 1}, \Delta_{1 \mid 1}, \gamma_{1 \mid 1}, \Gamma_{1 \mid 1})} $$
 
 With the following parameters:
 
@@ -93,7 +93,7 @@ With the following parameters:
 - $\Gamma_{1 \mid 1} = s_1^{-1} B_1 \times {F_1 \Omega_{1 \mid 1} F_1^T + V_1}B_1 s_1^{-1}$
 - $s_1 = (\mathrm{diag}{(F_1 \Omega_{1 \mid 1}F_1^T + V_1)})^{1/2}$  
   
-More generally, if $(\theta_t \mid y_{1:t-1}) \sim SUN_{p,m(t-1)}$ t t ${(\xi_{t-1 \mid t-1}, \Omega_{t-1 \mid t-1}, \Delta_{t-1 \mid t-1}, \gamma_{t-1 \mid t-1}, \Gamma_{t-1 \mid t-1})$ is the filtering distribution at $t-1$, then the predictive distribution at $t$ is $(\theta_t \mid y_{1:t-1}) \sim \mathrm{SUN}_{p,m(t-1)}(\xi_{t \mid t-1}, \Omega_{t \mid t-1}, \Delta_{t \mid t-1}, \gamma_{t \mid t-1}, \Gamma_{t \mid t-1})$ with the following parameters:   
+More generally, if $(\theta_t \mid y_{1:t-1}) \sim SUN_{p,m(t-1)}(\xi_{t-1 \mid t-1}, \Omega_{t-1 \mid t-1}, \Delta_{t-1 \mid t-1}, \gamma_{t-1 \mid t-1}, \Gamma_{t-1 \mid t-1})$ is the filtering distribution at $t-1$, then the predictive distribution at $t$ is $(\theta_t \mid y_{1:t-1}) \sim SUN_{p,m(t-1)}(\xi_{t \mid t-1}, \Omega_{t \mid t-1}, \Delta_{t \mid t-1}, \gamma_{t \mid t-1}, \Gamma_{t \mid t-1})$ with the following parameters:   
 
 - $\xi_{t \mid t-1} = G_t \xi_{t-1 \mid t-1}$  
 - $\Omega_{t \mid t-1} = G_t \Omega_{t-1 \mid t-1}G_t^T + W_t$  
