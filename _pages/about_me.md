@@ -19,21 +19,23 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 # Work Experiences
 
-- **Quantitative Analyste at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**  - On going 6 months internship 
+- **Quantitative Analyste at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**
+  - On going 6 months internship 
   - Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.  
 
-- **Data Scientist at [CACIB](https://www.ca-cib.fr/nous-connaitre)** - 6 months internship in 2022
+- **Data Scientist at [CACIB](https://www.ca-cib.fr/nous-connaitre)**
+  - 6 months internship in 2022
   - Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
-  - 
-- **Actuary at [Cardif BnP](https://www.cardif.fr/partenaires/qui-sommes-nous)** - 6 months internship between 2021 and 2022
+- **Actuary at [Cardif BnP](https://www.cardif.fr/partenaires/qui-sommes-nous)**
+  - 6 months internship between 2021 and 2022
   - Within the pricing P&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).  
-
-- **Data Scientist at [AFL](https://www.agence-france-locale.fr/a-propos-de-lafl/)** - 3 months internship in 2021
+- **Data Scientist at [AFL](https://www.agence-france-locale.fr/a-propos-de-lafl/)**
+  - 3 months internship in 2021
   - Analysis of financial data, development and industrialization on Power BI of risk analysis reports and investment monitoring.
 
 - **Mathematics tutor at [Ipesup](https://www.ipesup.fr)**
-
-Mathematics lessons and tutoring for students in CPGE
+  - Since 2019
+  - Mathematics lessons and tutoring for students in CPGE
 
 # Personal and academic project
 
