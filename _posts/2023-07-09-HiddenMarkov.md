@@ -107,7 +107,7 @@ And at time $t$, the filtering distribution are defined as:
 - $\Omega_{t \mid t} = \Omega_{t \mid t-1}$    
 - $\Delta_{t \mid t} = [\Delta_{t \mid t-1}, \overline{\Omega_{t \mid t}} \omega_{t \mid t} F_t^T B_t s_t^{-1}]$  
 - $\gamma_{t \mid t} = [\gamma_{t \mid t-1}^T, \xi_{t \mid t}^T F_t^T B_t s_t^{-T}]$  
-- $\Gamma_{t \mid t} = [[A, B]|, [B, C]]$  
+- $\Gamma_{t \mid t} = [[A, B], [B, C]]$  
 - $A = \Gamma_{t \mid t-1}$  
 - $B = s_t^{-1} B_t F_t \omega_{t \mid t} \Delta_{t \mid t-1}$  
 - $C = s_t^{-1} B_t(F_t \Omega_{t \mid t} F_t^T + V_t) B_t s_t^{-1}$  
