@@ -139,13 +139,13 @@ Where $W_0$ is taken as $W_0 = 0.01 I_2$ (suggested by a graphical search of the
 
 A first filter is proposed by the researchers in the article. It uses the main properties of the SUN distribution in order to get independent and identically distributed sampling. This algorithm can be described by the following pseudo code :  
 
-![Fig 2](/blog/images/HMM_Fig2.png)
+![Fig 7](/blog/images/HMM_Fig7.png)
 
 ### Optimal filter
 
 The optimal filter introduced by the researchers can be described by the following pseudo code, using the equations of the SUN distribution and filtering, we perform the steps : 
 
-![Fig 3](/blog/images/HMM_Fig3.png)
+![Fig 2](/blog/images/HMM_Fig2.png)
 
 Where $G_t = \Gamma = \overline{\Omega} = I_2$ and $\omega = 0.1$, this filter leverages the SUN distribution properties detailed above. With the starting values, we have:
 
@@ -155,7 +155,7 @@ $$\Gamma = I_2$$
 
 We decided to focus on the convergence of the algorithms. Plotting the convergence of the models parameter $\theta_1$ and $\theta_2$.  
 
-![Fig 14(/blog/images/HMM_Fig4.png)
+![Fig 3](/blog/images/HMM_Fig3.png)
 
 We observe similar results as the one in the paper : 
 
@@ -184,13 +184,13 @@ We can see that our results are similar to the article's results, and the conclu
 "
 We also reproduced a bar plot which shows the frequency at which each algorithm dominates the other accross time.  
 
-![Fig 5](/blog/images/HMM_Fig5.png)
+![Fig 4](/blog/images/HMM_Fig4.png)
 
 We can see the "optimal" filter has ranks above the bootstrap filter most of the time: it overperforms the bootstrap filter at frequency 0.59 for $R=10^3$, 0.84 for $R=10^4$, and 0.66 for $R=10^5$.  
 
 We also compared the performance of the algorithms throughout the time window by averaging the wasserstein distance over each of the 100 experiments for each algorithm at each time $t$, the graph below shows the results:  
 
-![Fig 6](/blog/images/HMM_Fig6.png)
+![Fig 5](/blog/images/HMM_Fig5.png)
 
 We can see that the accuracy of both algorithms decreases with time (let it be noted that here a good accuracy is a low accuracy, although this can sound confusing). Of course, we also notice throughout the study that more particles implies better results.  
 
@@ -205,5 +205,5 @@ As expected we have lower variance with the optimal algorithm than the boostrap 
 
 ## Appendix
 
-![Fig 7](/blog/images/HMM_Fig7.png)
+![Fig 6](/blog/images/HMM_Fig6.png)
 
