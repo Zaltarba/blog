@@ -196,7 +196,7 @@ We can see that the accuracy of both algorithms decreases with time (let it be n
 
 Finally, and because we are using Monte Carlo methods, we decided to take a look at the variance of our algrithms. We expected a smaller variance for the "optimal" algorithm. To look at the variance of the results, we simulated 100 runs with each algorithm and $10^3$ samples. We then assessed the median variance. We obtained the  following results :  
 
-| Algorithm | Variance of `$\theta_1$` | Variance of `$\theta_2$` |
+| Algorithm | Variance of $\theta_1$ | Variance of $\theta_2$ |
 |-----------|-------------------------|-------------------------|
 | Boostrap  | 0.00525312              | 0.00937037              |
 | Optimal   | 0.00380095              | 0.00727529              |
