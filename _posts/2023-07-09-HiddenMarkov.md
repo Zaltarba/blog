@@ -205,5 +205,5 @@ As expected we have lower variance with the optimal algorithm than the boostrap 
 
 ## Appendix
 
-Insert graph
+![Fig 7](/blog/images/HMM_Fig7.png)
 
