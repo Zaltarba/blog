@@ -62,6 +62,6 @@ Prediction of MovieLens database users' tastes by methods including clustering (
 -**Programming languages** : Python, SQL, VBA, DAX, LaTeX  
 -**Softwares** : VS Code, Excel, Power BI, Microsoft Access, Powerpoint   
 -**Soft skills** : Teamwork, Critical thinking, Curiosity, Autonomy   
--**Sports** : Football ⚽:, Golf ⛳:, Tennis 🎾:, Boxing 🥊:   
--**Culture and Hobbies** : Chess ♟️:, Cinematography 🎬:, Aquariophilia 🐟:
+-**Sports** : Football ⚽:, Golf ⛳, Tennis 🎾, Boxing 🥊   
+-**Culture and Hobbies** : Chess ♟️, Cinematography 🎬, Aquariophilia 🐟
 
