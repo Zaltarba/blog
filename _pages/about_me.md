@@ -19,13 +19,13 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 
 # Work Experiences 🏦
 
-- **Quantitative Analyste at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**
+- **Quant Researcher at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**
   - On going 6 months internship 
-  - Construction of a Stop Loss Take Profit mechanism for different portfolios using Hurst exponents, implemented with Python and VBA.  
+  - Alpha research for low frequency strategies using Hurst exponents, implemented with Python and VBA.  
 
-- **Data Scientist at [CACIB](https://www.ca-cib.fr/nous-connaitre)**
+- **Quant Researcher at [CACIB](https://www.ca-cib.fr/nous-connaitre)**
   - 6 months internship in 2022
-  - Within CACIB's finance department: NBI modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
+  - Alpha modeling for various business sectors using econometric and machine learning models (OLS, SARIMAX).
 - **Actuary at [Cardif BnP](https://www.cardif.fr/partenaires/qui-sommes-nous)**
   - 6 months internship between 2021 and 2022
   - Within the pricing P&C team: creation of a robustness index for smartphones using econometric models, NLP and clustering (KNN, CAH).  
