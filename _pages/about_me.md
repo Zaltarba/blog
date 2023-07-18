@@ -4,7 +4,7 @@ title: Profile 🚀
 permalink: /about_me/
 ---
 
-Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative analyst position involving the use of econometric methods. Seeking full-time employment.
+Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative researcher position involving the use of econometric methods. Seeking full-time employment.
 
 # Education 🏫
 
@@ -12,7 +12,7 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
   - Courses : Deep Learning, Computer Vision, Missing data and causality, Tail Events Analysis
     
 - [ENSAE Paris](https://www.ensae.fr) - [Engineering program](https://www.ensae.fr/en/education/ingenieur-ensae-program) - *2019/2023*
-  - Courses : Time series, Econometrics, Monte Carlo methods, Stochastic calculus, Online Learning
+  - Courses : Statistics, Time series, Econometrics, Monte Carlo methods, Stochastic calculus, Online Learning
     
 - [Janson de Sailly](https://www.janson-de-sailly.fr/cpge-presentation-generale-structure/) - Classe Préparatoire aux Grandes Écoles - *2017/2019*  
   - Physics and Engineering class, PCSI-PSI* 
