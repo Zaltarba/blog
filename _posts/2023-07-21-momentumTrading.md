@@ -250,7 +250,6 @@ for stock in tqdm(portfolio):
 
   stock_exposure = np.cumsum(portfolio[stock]["exposure"])
   portfolio_exposure += stock_exposure
-  #sns.lineplot(x=df.index[1:], y=stock_exposure, ax=ax1)
 
 sns.lineplot(x=df.index[1:], y=portfolio_exposure,)
 ax.set_xlabel("Date")
