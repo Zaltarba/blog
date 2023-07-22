@@ -5,9 +5,7 @@ categories: [Personnal Project, Coding]
 excerpt: Just for fun 
 ---
 
-# Unveiling the Potential of the Momentum Strategy Enhanced by the Hurst Exponent
-
-## Introduction
+# Introduction
 
 Welcome to this post, where we delve into the captivating domain of finance and investment strategies. Today, we try to enhance the performance of the momentum strategy with the hurst exponent.
 
@@ -15,15 +13,15 @@ The momentum strategy is a widely-used investment approach based on the belief t
 
 Within this blog post, we endeavor to unravel a "humble" momentum strategy that augments its power through the application of the lesser-known yet potent metric, the Hurst exponent. Named after the eminent British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
 
-## Theorical foundations of the model 
+# Theorical foundations of the model 
 
-### The hurst exponent 
+## The hurst exponent 
 
 Speak about Hurst 
 
-## A pratical implementation 
+# A pratical implementation 
 
-### Importing the data 
+## Importing the data 
 
 In this project we will use the yahoo Finance API to get daily values. Using python, we can get the historical values of the Tesla stock for instance : 
 
@@ -33,7 +31,7 @@ TSLA_ticker = yahooFinance.Ticker("TSLA")
 TSLA_ticker_history = TSLA_ticker.history(period="max")
 ```
 
-### Coding the strategy 
+## Coding the strategy 
 
 We first make the required imports : 
 
@@ -208,7 +206,7 @@ for stock in tqdm(portfolio):
   portfolio[stock]["exposure"], portfolio[stock]["capital_gains"], portfolio[stock]["yields"] = strategy(open_prices, close_prices)
 ```
 
-### Results
+## Results
 
 ```python
 portfolio_capital_gain = np.zeros(N_DAYS)
