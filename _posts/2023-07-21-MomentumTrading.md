@@ -39,15 +39,15 @@ In the context of finance, a high Hurst exponent value signifies that an asset's
 
 Combining momentum trading with the Hurst exponent involves a systematic approach to identify assets with persistent price trends. The process can be summarized in the following steps:  
 
-1. Calculating the Hurst Exponent :
+### Calculating the Hurst Exponent
 
 To begin, traders calculate the Hurst exponent for various assets of interest. This is done by analyzing their historical price data and applying mathematical techniques like the Rescaled Range Analysis (R/S Analysis) or the Detrended Fluctuation Analysis (DFA) to estimate the exponent. In this post we use a method I discribed in this article.
 
-2. Selecting Assets with High Hurst Exponent :
+### Selecting Assets with High Hurst Exponent
 
 Assets with a Hurst exponent greater than 0.5 are considered to exhibit persistent price movements. These are the assets that align well with the core principle of momentum trading, as they are more likely to maintain their current trends over a certain period.
 
-3. Implementing the Momentum Strategies : 
+### Implementing the Momentum Strategies
 
 Once assets with high Hurst exponents, indicating a likelihood of persistent price trends, are identified, this blog focuses on a more specific approach to momentum trading. For the purpose of this article, we will concentrate on the variations observed in the last 10 days of an asset's price history. Instead of employing traditional technical indicators like Moving Averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD), our focus lies on the recent positive variations in the asset's price movements.
 
