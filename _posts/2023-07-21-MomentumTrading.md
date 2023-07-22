@@ -49,9 +49,14 @@ Assets with a Hurst exponent greater than 0.5 are considered to exhibit persiste
 
 ### Implementing the Momentum Strategies
 
-Once assets with high Hurst exponents, indicating a likelihood of persistent price trends, are identified, this blog focuses on a more specific approach to momentum trading. For the purpose of this article, we will concentrate on the variations observed in the last 10 days of an asset's price history. Instead of employing traditional technical indicators like Moving Averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD), our focus lies on the recent positive variations in the asset's price movements.
+Once assets with high Hurst exponents, indicating a likelihood of persistent price trends, are identified, we will focus on a more specific approach to momentum trading. For the purpose of this article, we will concentrate on the variations observed in the last 10 days of an asset's price history. Instead of employing traditional technical indicators like Moving Averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD), our focus lies on the recent positive variations in the asset's price movements.
 
 The rationale behind this approach is to capture the momentum of the asset's recent upward movements. By selecting assets with consistent positive variations in the short term, we aim to ride the wave of their upward trends and potentially benefit from their continued price appreciation.
+
+We will use the folowing approach : 
+  1. We check if the Hurst exponent is above 0.6
+  2. If it is the case, we either take a long position if stock is bullish or short position if the stock is bearish.
+  3. We then hold the stock for 3 days 
 
 # A pratical implementation 
 
