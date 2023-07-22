@@ -25,7 +25,9 @@ So, if you are eager to traverse the realm of momentum trading, heightened by th
 
 Speak about mBm ect
 
-## Importing the data 
+## A praticalm implementation 
+
+### Importing the data 
 
 In this project we will use the yahoo Finance API to get daily values. Using python, we can get the historical values of the Tesla stock for instance : 
 
@@ -34,3 +36,20 @@ import yfinance as yahooFinance
 TSLA_ticker = yahooFinance.Ticker("TSLA")
 TSLA_ticker_history = TSLA_ticker.history(period="max")
 ```
+
+### Coding the strategy 
+
+```python
+N_DAYS = 2518
+HOLDING_PERIOD = 2
+PERSISTENT_THRESHOLD = 0.60
+HURST_PERIOD = 20
+MISE = 10
+tickers = [
+  "PG", "JNJ", "KO",
+  "XOM", "IBM", "C",
+  "GE", "F", "T",
+  "MMM", "WMT", "JPM",
+  "MCD", "DIS",
+  ]
+
