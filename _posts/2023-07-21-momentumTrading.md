@@ -209,7 +209,6 @@ for stock in tqdm(portfolio):
   df = yahooFinance.Ticker(stock).history(period="10y")
   open_prices = df["Open"]
   close_prices = df["Close"]
-  close_prices.plot()
   portfolio[stock]["exposure"], portfolio[stock]["capital_gains"], portfolio[stock]["yields"] = strategy(open_prices, close_prices)
 ```
 
