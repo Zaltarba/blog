@@ -275,5 +275,5 @@ Indeed, it appears we have almost no extra capital gain with our strategy. Yet, 
 
 # Conclusion 
 
-Explain results and conclude 
+I haven't find a way to become a billionaire yet !
 
