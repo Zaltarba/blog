@@ -229,7 +229,8 @@ fig.suptitle("Capital gains of our portfolio's stocks")
 plt.show()
 ```
 
-[Insert graph]
+![figure](/blog/images/MT_Stocks_capital_gain.png)
+
 
 ```python
 fig, ax = plt.subplots(1, 1, figsize=(7, 5))
@@ -240,7 +241,7 @@ fig.suptitle("Capital gains of our portfolio")
 plt.show()
 ```
 
-[Insert graph]
+![figure](/blog/images/MT_Portfolio_capital_gain.png)
 
 ```python
 portfolio_exposure = np.zeros(N_DAYS-1)
@@ -257,6 +258,7 @@ fig.suptitle("Portfolio exposure")
 plt.show()
 ```
 
+![figure](/blog/images/MT_Portfolio_exposure.png)
 
 
 
