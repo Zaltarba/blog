@@ -234,28 +234,51 @@ def strategy(open_prices:pd.Series, close_prices:pd.Series)->Tuple[np.ndarray]:
 Finally we run the momentum trading strategy for each of the portfolio's stock : 
 
 ```python
+yields, capital_gains, positions = {}, {}, {}
 portfolio = {stock:{} for stock in tickers}
+
 for stock in tqdm(portfolio):
+
   df = yahooFinance.Ticker(stock).history(period="10y")
   open_prices = df["Open"]
   close_prices = df["Close"]
-  portfolio[stock]["exposure"], portfolio[stock]["capital_gains"], portfolio[stock]["yields"] = strategy(open_prices, close_prices)
+
+  stock_strategy = strategy(open_prices, close_prices)
+  portfolio[stock]["exposure"] = stock_strategy[0]
+  portfolio[stock]["capital_gains"] = stock_strategy[1]
+  portfolio[stock]["yields"] = stock_strategy[2]
+
+  mean_exposure = np.mean(np.cumsum(stock_strategy[0]))
+  portfolio[stock]["benchmark"] = close_prices.apply(
+      lambda x : mean_exposure * ((x/ first_price)-1)
+      )
 ```
 
 ## Results
 
 ```python
 portfolio_capital_gain = np.zeros(N_DAYS)
+portfolio_benchmark = np.zeros(N_DAYS)
 
-fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+
 for stock in tqdm(portfolio):
 
   stock_capital_gain = np.cumsum(portfolio[stock]["capital_gains"])
   portfolio_capital_gain += stock_capital_gain
-  sns.lineplot(x=df.index, y=stock_capital_gain, ax=ax)
-ax.set_xlabel("Date")
-ax.set_ylabel("Capital gains")
+  sns.lineplot(x=df.index, y=stock_capital_gain, ax=ax1)
+  benchmark_stock = portfolio[stock]["benchmark"]
+  portfolio_benchmark += portfolio[stock]["benchmark"]
+  sns.lineplot(x=df.index, y=benchmark_stock, ax=ax2)
+
+ax1.set_xlabel("Date")
+ax1.set_ylabel("Capital gain")
+ax1.set_title("Momentum strategy")
+ax2.set_xlabel("Date")
+ax2.set_ylabel("Capital gain")
+ax2.set_title("Buy and Hold strategy")
 fig.suptitle("Capital gains of our portfolio's stocks")
+plt.savefig("Stocks_capital_gain.png")
 plt.show()
 ```
 
@@ -263,32 +286,24 @@ plt.show()
 
 
 ```python
-fig, ax = plt.subplots(1, 1, figsize=(7, 5))
-sns.lineplot(x=df.index, y=portfolio_capital_gain,)
-ax.set_xlabel("Date")
-ax.set_ylabel("Capital gains")
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+
+sns.lineplot(x=df.index, y=portfolio_capital_gain, ax=ax1)
+sns.lineplot(x=df.index, y=portfolio_benchmark, ax=ax2)
+
+ax1.set_xlabel("Date")
+ax1.set_ylabel("Capital gains")
+ax1.set_title("Momentum strategy")
+ax2.set_xlabel("Date")
+ax2.set_ylabel("Capital gains")
+ax2.set_title("Buy and Hold strategy")
+
 fig.suptitle("Capital gains of our portfolio")
+plt.savefig("Portfolio_capital_gain.png")
 plt.show()
 ```
 
 ![figure](/blog/images/MT_Portfolio_capital_gain.png)
-
-```python
-portfolio_exposure = np.zeros(N_DAYS-1)
-
-for stock in tqdm(portfolio):
-
-  stock_exposure = np.cumsum(portfolio[stock]["exposure"])
-  portfolio_exposure += stock_exposure
-
-sns.lineplot(x=df.index[1:], y=portfolio_exposure,)
-ax.set_xlabel("Date")
-ax.set_ylabel("Exposure")
-fig.suptitle("Portfolio exposure")
-plt.show()
-```
-
-![figure](/blog/images/MT_Portfolio_exposure.png)
 
 # Conclusion 
 
