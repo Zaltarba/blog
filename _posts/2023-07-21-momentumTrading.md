@@ -39,6 +39,8 @@ TSLA_ticker_history = TSLA_ticker.history(period="max")
 
 ### Coding the strategy 
 
+We first make the required imports : 
+
 ```python
 from tqdm import tqdm
 import pandas as pd
@@ -49,6 +51,8 @@ import yfinance as yahooFinance
 from yfinance.tickers import Tickers
 from typing import List, Tuple
 ```
+
+We then define our constants 
 
 ```python
 N_DAYS = 2518
@@ -64,8 +68,10 @@ tickers = [
   ]
 ```
 
+We define our hurst estimator 
+
 ```python
-def hurst_moment_estimator(log_prices:np.ndarray)->float:
+def hurst_estimator(log_prices:np.ndarray)->float:
   """
   Computes the Hurst exponent of a log_prices
   Input:
@@ -79,6 +85,8 @@ def hurst_moment_estimator(log_prices:np.ndarray)->float:
   hurst = -1/2 * np.log2(numerator / (2 * denominator))
   return hurst
 ```
+
+We then implement our momentum trading strategy :
 
 ```python
 def strategy_positions(log_prices:np.ndarray, hurst_exponents:List[float])->np.ndarray:
@@ -178,7 +186,7 @@ def strategy(open_prices:pd.Series, close_prices:pd.Series)->Tuple[np.ndarray]:
   """
   log_prices = np.log(close_prices.shift(1).dropna())
   hurst_exponents = [
-      hurst_moment_estimator(
+      hurst_estimator(
           log_prices.iloc[i-HURST_PERIOD:i].values
           ) for i in range(
               HURST_PERIOD, len(close_prices)-HURST_PERIOD
@@ -192,6 +200,8 @@ def strategy(open_prices:pd.Series, close_prices:pd.Series)->Tuple[np.ndarray]:
   yields = strategy_yields(close_prices, open_prices, positions)
   return (exposure, capital_gains, yields)
 ```
+
+Finally we run the momentum trading strategy for each of the portfolio's stock : 
 
 ```python
 yields, capital_gains, positions = {}, {}, {}
