@@ -13,19 +13,45 @@ To assess the persistence of these price trends, traders and analysts can turn t
 
 This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent. Named after British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
 
-# Theorical foundations of the model 
+# Theoretical Foundations of the Model
 
-## The momentum trading strategy 
+## The Core Principle of Momentum Trading
 
-Speak about the momentum strategy
+At the heart of Momentum Trading lies a simple yet powerful principle: "Trend Persists." This fundamental notion suggests that assets exhibiting upward or downward price movements will continue to do so for a certain period. In essence, the idea is to ride the wave of an existing price trend and capitalize on its continuation.
 
-## The hurst exponent 
+Momentum traders identify assets that have demonstrated a sustained price increase over a specific historical period, indicating strong upward momentum. Similarly, they identify assets with a consistent price decline as potential candidates for shorting, representing downward momentum.
 
-Speak about Hurst 
+By recognizing and acting upon these persistent trends, momentum traders aim to capture profits by entering and exiting positions strategically. However, it is essential to recognize that momentum trading, like any investment strategy, comes with inherent risks, and traders must employ risk management techniques to safeguard their portfolios.
 
-## Using of Hurst exponent in the momentum strategy 
+## The Hurst Exponent
 
-Speak about both 
+The Hurst exponent is a critical mathematical tool used to quantify the degree of persistence in a time series data, such as an asset's price history. Named after Harold Edwin Hurst, who first introduced it while studying hydrology, this metric has found its way into various fields, including finance.  
+
+The Hurst exponent's value ranges between 0 and 1, where:  
+
+1. H = 0.5 suggests a random walk or a price series with no persistence.  
+2. H > 0.5 indicates a persistent time series with a tendency to follow trends.  
+3. H < 0.5 suggests an anti-persistent series, where price reversals are more likely.  
+
+In the context of finance, a high Hurst exponent value signifies that an asset's price movements are likely to show strong persistence, making it an attractive candidate for momentum trading strategies. Conversely, a low Hurst exponent value indicates that the asset's price movements might be more unpredictable or mean-reverting, less suitable for momentum trading.  
+
+## How to exploit the Hurst exponent in a Momentum Trading strategy   
+
+Combining momentum trading with the Hurst exponent involves a systematic approach to identify assets with persistent price trends. The process can be summarized in the following steps:  
+
+1. Calculating the Hurst Exponent :
+
+To begin, traders calculate the Hurst exponent for various assets of interest. This is done by analyzing their historical price data and applying mathematical techniques like the Rescaled Range Analysis (R/S Analysis) or the Detrended Fluctuation Analysis (DFA) to estimate the exponent. In this post we use a method I discribed in this article.
+
+4. Selecting Assets with High Hurst Exponent :
+
+Assets with a Hurst exponent greater than 0.5 are considered to exhibit persistent price movements. These are the assets that align well with the core principle of momentum trading, as they are more likely to maintain their current trends over a certain period.
+
+5. Implementing the Momentum Strategies : 
+
+Once assets with high Hurst exponents, indicating a likelihood of persistent price trends, are identified, this blog focuses on a more specific approach to momentum trading. For the purpose of this article, we will concentrate on the variations observed in the last 10 days of an asset's price history. Instead of employing traditional technical indicators like Moving Averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD), our focus lies on the recent positive variations in the asset's price movements.
+
+The rationale behind this approach is to capture the momentum of the asset's recent upward movements. By selecting assets with consistent positive variations in the short term, we aim to ride the wave of their upward trends and potentially benefit from their continued price appreciation.
 
 # A pratical implementation 
 
