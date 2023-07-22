@@ -15,15 +15,11 @@ The momentum strategy is a widely-used investment approach based on the belief t
 
 Within this blog post, we endeavor to unravel a "humble" momentum strategy that augments its power through the application of the lesser-known yet potent metric, the Hurst exponent. Named after the eminent British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
 
-The Hurst exponent assumes a pivotal role in comprehending underlying trends and persistence within financial time series data, thereby enriching our momentum-based approach. By merging the principles of momentum trading with the analytical prowess of the Hurst exponent, we aim to gain a deeper appreciation of how this strategy may potentially outperform the market and refine our investment decisions.
-
-Throughout this exposition, we shall expound upon the theoretical underpinnings of the humble momentum strategy and delve into the intricacies of calculating and interpreting the Hurst exponent. Additionally, empirical evidence and backtesting results shall be presented to illustrate the strategy's efficacy across diverse market conditions.
-
-So, if you are eager to traverse the realm of momentum trading, heightened by the mathematical prowess of the Hurst exponent, we invite you to join us on this journey of exploring the full potential of this captivating strategy.
-
 ## Theorical foundations of the model 
 
-Speak about mBm ect
+### The hurst exponent 
+
+Speak about Hurst 
 
 ## A pratical implementation 
 
