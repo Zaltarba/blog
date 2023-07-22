@@ -15,9 +15,17 @@ Within this blog post, we endeavor to unravel a "humble" momentum strategy that 
 
 # Theorical foundations of the model 
 
+## The momentum trading strategy 
+
+Speak about the momentum strategy
+
 ## The hurst exponent 
 
 Speak about Hurst 
+
+## Using of Hurst exponent in the momentum strategy 
+
+Speak about both 
 
 # A pratical implementation 
 
