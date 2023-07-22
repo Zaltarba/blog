@@ -82,7 +82,7 @@ from yfinance.tickers import Tickers
 from typing import List, Tuple
 ```
 
-We then define some constants that we come handy in the folowing :
+We then define some constants that will come in handy for the folowing :
 
 ```python
 N_DAYS = 2518
