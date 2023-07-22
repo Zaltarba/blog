@@ -239,23 +239,23 @@ def strategy(open_prices:pd.Series, close_prices:pd.Series)->Tuple[np.ndarray]:
 Finally we run the momentum trading strategy for each of the portfolio's stock : 
 
 ```python
-yields, capital_gains, positions = {}, {}, {}
 portfolio = {stock:{} for stock in tickers}
 
 for stock in tqdm(portfolio):
 
   df = yahooFinance.Ticker(stock).history(period="10y")
+
   open_prices = df["Open"]
   close_prices = df["Close"]
 
   stock_strategy = strategy(open_prices, close_prices)
+
   portfolio[stock]["exposure"] = stock_strategy[0]
   portfolio[stock]["capital_gains"] = stock_strategy[1]
   portfolio[stock]["yields"] = stock_strategy[2]
-
-  mean_exposure = np.mean(np.cumsum(stock_strategy[0]))
+  first_price = close_prices.iloc[0]
   portfolio[stock]["benchmark"] = close_prices.apply(
-      lambda x : mean_exposure * ((x/ first_price)-1)
+      lambda x : MISE * ((x/first_price)-1)
       )
 ```
 
