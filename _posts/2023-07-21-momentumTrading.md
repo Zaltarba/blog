@@ -56,7 +56,12 @@ HOLDING_PERIOD = 2
 PERSISTENT_THRESHOLD = 0.60
 HURST_PERIOD = 20
 MISE = 10
-tickers = ["PG", "JNJ", "KO", "XOM", "IBM", "C", "GE", "F", "T", "MMM", "WMT", "JPM", "MCD", "DIS",]
+tickers = [
+  "JNJ", "XOM", "IBM",
+  "C", "GE", "F", "T",
+  "MMM", "WMT", "JPM",
+  "MCD", "DIS", "PG", "KO",
+  ]
 ```
 
 ```python
