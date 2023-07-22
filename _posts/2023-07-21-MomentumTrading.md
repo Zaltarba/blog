@@ -55,6 +55,8 @@ The rationale behind this approach is to capture the momentum of the asset's rec
 
 # A pratical implementation 
 
+Let's now implement that in python ! 
+
 ## Importing the data 
 
 In this project we will use the yahoo Finance API to get daily values. Using python, we can get the historical values of the Tesla stock for instance : 
