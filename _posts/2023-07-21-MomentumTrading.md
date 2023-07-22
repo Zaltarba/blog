@@ -265,11 +265,11 @@ Now that we an coded our momentum strategy, we can take a look at our results. T
 
 First we can look at the strategy performance for each stock :
 
-![figure](/blog/images/MT_Stocks_capital_gain.png)
+![Figure 1](/blog/images/MT_Stocks_capital_gain.png)
 
 We then can look at the portfolio performance :
 
-![figure](/blog/images/MT_Portfolio_capital_gain.png)
+![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
 
 # Conclusion 
 
