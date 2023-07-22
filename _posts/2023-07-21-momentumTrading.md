@@ -40,16 +40,24 @@ TSLA_ticker_history = TSLA_ticker.history(period="max")
 ### Coding the strategy 
 
 ```python
+from tqdm import tqdm
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import yfinance as yahooFinance
+from yfinance.tickers import Tickers
+from typing import List, Tuple
+```
+
+```python
 N_DAYS = 2518
 HOLDING_PERIOD = 2
 PERSISTENT_THRESHOLD = 0.60
 HURST_PERIOD = 20
 MISE = 10
-tickers = [
-  "PG", "JNJ", "KO",
-  "XOM", "IBM", "C",
-  "GE", "F", "T",
-  "MMM", "WMT", "JPM",
-  "MCD", "DIS",
-  ]
+tickers = ["PG", "JNJ", "KO", "XOM", "IBM", "C", "GE", "F", "T", "MMM", "WMT", "JPM", "MCD", "DIS",]
+```
+
+
 
