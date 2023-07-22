@@ -267,9 +267,11 @@ First we can look at the strategy performance for each stock :
 
 ![Figure 1](/blog/images/MT_Stocks_capital_gain.png)
 
-We then can look at the portfolio performance :
+First of all, both strategies have gained capital for some stock and loss capital for some stocks. But from this graph, it doesn't seems our momentum trading strategy added value in comparaison to the buy and hold strategy. In order to check that, we look at the portfolio performance :
 
 ![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
+
+Indeed, it appears we have almost no extra capital gain with our strategy. Yet, if look at both strategies performance, our trading strategy seems to get smoother returns.  
 
 # Conclusion 
 
