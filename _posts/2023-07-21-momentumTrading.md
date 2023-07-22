@@ -25,7 +25,7 @@ So, if you are eager to traverse the realm of momentum trading, heightened by th
 
 Speak about mBm ect
 
-## A praticalm implementation 
+## A pratical implementation 
 
 ### Importing the data 
 
@@ -202,7 +202,9 @@ for stock in tqdm(portfolio):
   close_prices = df["Close"]
   close_prices.plot()
   portfolio[stock]["exposure"], portfolio[stock]["capital_gains"], portfolio[stock]["yields"] = strategy(open_prices, close_prices)
-``
+```
+
+### Results
 
 ```python
 portfolio_capital_gain = np.zeros(N_DAYS)
@@ -217,6 +219,11 @@ ax.set_xlabel("Date")
 ax.set_ylabel("Capital gains")
 fig.suptitle("Capital gains of our portfolio's stocks")
 plt.show()
+```
+
+[Insert graph]
+
+```python
 fig, ax = plt.subplots(1, 1, figsize=(7, 5))
 sns.lineplot(x=df.index, y=portfolio_capital_gain,)
 ax.set_xlabel("Date")
@@ -224,6 +231,8 @@ ax.set_ylabel("Capital gains")
 fig.suptitle("Capital gains of our portfolio")
 plt.show()
 ```
+
+[Insert graph]
 
 ```python
 portfolio_exposure = np.zeros(N_DAYS-1)
