@@ -2,16 +2,16 @@
 layout: post
 title: Unveiling the Potential of the Momentum Strategy Enhanced by the Hurst Exponent 
 categories: [Personnal Project, Coding]
-excerpt: Just for fun 
+excerpt: This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent. Named after British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements. 
 ---
 
 # Introduction
 
-Welcome to this post, where we delve into the captivating domain of finance and investment strategies. Today, we try to enhance the performance of the momentum strategy with the hurst exponent.
+In the vast landscape of financial markets, various trading strategies have emerged over the years, each offering its unique approach to profiting from price movements. One such method is "Momentum Trading." This trading strategy capitalizes on the belief that assets exhibiting persistent price trends tend to continue moving in the same direction for a period.
 
-The momentum strategy is a widely-used investment approach based on the belief that assets with recent strong performance will continue to perform well, while those with weak performance will continue to underperform. It involves buying assets with positive price trends and selling those with negative trends over a specific time frame. This strategy relies on herding behavior and has shown effectiveness over time, but it comes with inherent risks and requires careful research and risk management.
+To assess the persistence of these price trends, traders and analysts can turn to a mathematical tool known as the "Hurst exponent". The Hurst exponent is a valuable indicator, providing insights into the long-term behavior of an asset's price movements.
 
-Within this blog post, we endeavor to unravel a "humble" momentum strategy that augments its power through the application of the lesser-known yet potent metric, the Hurst exponent. Named after the eminent British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
+This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent. Named after British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
 
 # Theorical foundations of the model 
 
