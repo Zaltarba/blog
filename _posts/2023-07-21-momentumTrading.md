@@ -204,7 +204,6 @@ def strategy(open_prices:pd.Series, close_prices:pd.Series)->Tuple[np.ndarray]:
 Finally we run the momentum trading strategy for each of the portfolio's stock : 
 
 ```python
-yields, capital_gains, positions = {}, {}, {}
 portfolio = {stock:{} for stock in tickers}
 for stock in tqdm(portfolio):
   df = yahooFinance.Ticker(stock).history(period="10y")
