@@ -55,7 +55,7 @@ The rationale behind this approach is to capture the momentum of the asset's rec
 
 We will use the folowing approach : 
   1. We check if the Hurst exponent is above 0.6
-  2. If it is the case, we either take a long position if stock is bullish or short position if the stock is bearish.
+  2. If it is the case, we either take a long position if stock is bullish or short position if the stock is bearish. In both cases we will put 10 bucks.
   3. We then hold the stock for 3 days 
 
 # A pratical implementation 
