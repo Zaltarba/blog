@@ -69,7 +69,7 @@ TSLA_ticker_history = TSLA_ticker.history(period="max")
 
 ## Coding the strategy 
 
-We first make the required imports : 
+First of all, since we work on python we have to make to necessary imports : 
 
 ```python
 from tqdm import tqdm
@@ -82,7 +82,7 @@ from yfinance.tickers import Tickers
 from typing import List, Tuple
 ```
 
-We then define our constants 
+We then define some constants that we come handy in the folowing :
 
 ```python
 N_DAYS = 2518
@@ -98,7 +98,7 @@ tickers = [
   ]
 ```
 
-We define our hurst estimator 
+Since we need the Hurst exponent, we have to construct an estimator. We will use the folowing :
 
 ```python
 def hurst_estimator(log_prices:np.ndarray)->float:
@@ -116,7 +116,7 @@ def hurst_estimator(log_prices:np.ndarray)->float:
   return hurst
 ```
 
-We then implement our momentum trading strategy :
+Finally, lets implement our momentum trading strategy. To do so we will use a functionnal approach : 
 
 ```python
 def strategy_positions(log_prices:np.ndarray, hurst_exponents:List[float])->np.ndarray:
