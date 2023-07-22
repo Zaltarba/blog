@@ -7,11 +7,11 @@ excerpt: This blog post is an humble attempt at implementing a momentum strategy
 
 # Introduction
 
-In the vast landscape of financial markets, various trading strategies have emerged over the years, each offering an approach to profiting from price movements. One such method is "Momentum Trading". This trading strategy capitalizes on the belief that assets exhibiting persistent price trends tend to continue moving in the same direction for a period.
+In the history of the financial markets, various trading strategies have emerged over the years, each offering an approach to profiting from price movements. One such method is "Momentum Trading". This trading strategy capitalizes on the belief that assets exhibiting persistent price trends tend to continue moving in the same direction for a period.
 
 To assess the persistence of these price trends, traders and analysts can turn to a mathematical tool known as the "Hurst exponent". The Hurst exponent is a valuable indicator, providing insights into the long-term behavior of an asset's price movements.
 
-This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent. Named after British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
+In this blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent. Named after British hydrologist, Harold Edwin Hurst, this mathematical tool has found diverse applications in various disciplines, including finance, owing to its ability to reveal valuable insights into asset price movements.
 
 # Theoretical Foundations of the Model
 
