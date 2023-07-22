@@ -256,52 +256,11 @@ for stock in tqdm(portfolio):
 
 ## Results
 
-```python
-portfolio_capital_gain = np.zeros(N_DAYS)
-portfolio_benchmark = np.zeros(N_DAYS)
-
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
-
-for stock in tqdm(portfolio):
-
-  stock_capital_gain = np.cumsum(portfolio[stock]["capital_gains"])
-  portfolio_capital_gain += stock_capital_gain
-  sns.lineplot(x=df.index, y=stock_capital_gain, ax=ax1)
-  benchmark_stock = portfolio[stock]["benchmark"]
-  portfolio_benchmark += portfolio[stock]["benchmark"]
-  sns.lineplot(x=df.index, y=benchmark_stock, ax=ax2)
-
-ax1.set_xlabel("Date")
-ax1.set_ylabel("Capital gain")
-ax1.set_title("Momentum strategy")
-ax2.set_xlabel("Date")
-ax2.set_ylabel("Capital gain")
-ax2.set_title("Buy and Hold strategy")
-fig.suptitle("Capital gains of our portfolio's stocks")
-plt.savefig("Stocks_capital_gain.png")
-plt.show()
-```
+Let's take a look at the stocks capital gain :
 
 ![figure](/blog/images/MT_Stocks_capital_gain.png)
 
-
-```python
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
-
-sns.lineplot(x=df.index, y=portfolio_capital_gain, ax=ax1)
-sns.lineplot(x=df.index, y=portfolio_benchmark, ax=ax2)
-
-ax1.set_xlabel("Date")
-ax1.set_ylabel("Capital gains")
-ax1.set_title("Momentum strategy")
-ax2.set_xlabel("Date")
-ax2.set_ylabel("Capital gains")
-ax2.set_title("Buy and Hold strategy")
-
-fig.suptitle("Capital gains of our portfolio")
-plt.savefig("Portfolio_capital_gain.png")
-plt.show()
-```
+When we agglomerate these results, we get the folowing protfolio performance :
 
 ![figure](/blog/images/MT_Portfolio_capital_gain.png)
 
