@@ -81,7 +81,7 @@ In this post, we will work we a small selection of historical American stocks :
   - GE: General Electric Company
   - F: Ford Motor Company
   - T: AT&T Inc.
-  - MMM: 3M Company (formerly known as Minnesota Mining and Manufacturing Company)
+  - MMM: 3M Company (formerly Minnesota Mining and Manufacturing Company)
   - WMT: Walmart Inc.
   - JPM: JPMorgan Chase & Co.
   - MCD: McDonald's Corporation
