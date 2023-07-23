@@ -50,12 +50,12 @@ Graduating student with in-depth knowledge in finance, machine learning, statist
 # Personal and academic project 🎓
 
 - **Bayesian Statistics Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
-The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on the folowing [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series).
+The aim of this project is to group a set of time series into clusters, and to estimate the model describing each cluster. Based on the folowing [article](https://www.researchgate.net/publication/4756297_Model-Based_Clustering_of_Multiple_Time_Series). More info in [this post](https://zaltarba.github.io/blog/BayesianArticle/).
 
 - **Hidden Markov Models Project** - *2022*  
 Study of the article "A closed-form filter for binary time series", published by Fanaso and al. in 2021.
 The aim of this project is to study and benchmark the performance of the "Optimal Particle Filter", which is
-presented in Section 4.2 of the article, with the well-known Bootstrap Filter algorithm.
+presented in Section 4.2 of the article, with the well-known Bootstrap Filter algorithm. More info in [this post](https://zaltarba.github.io/blog/HiddenMarkov/).
 
 - **Hackathon with Ostrum Asset Management** - *2022*  
 First prize for the ESG topic, focusing on the influence of companies' carbon footprints on their default risk  
