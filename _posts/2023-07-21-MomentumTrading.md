@@ -72,6 +72,22 @@ TSLA_ticker = yahooFinance.Ticker("TSLA")
 TSLA_ticker_history = TSLA_ticker.history(period="max")
 ```
 
+In this post, we will work we a small selection of American stocks : 
+  - JNJ
+  - XOM
+  - IBM
+  - C
+  - GE
+  - F
+  - T
+  - MMM
+  - WMT
+  - JPM
+  - MCD
+  - DIS
+  - PG
+  - KO
+    
 ## Coding the strategy 
 
 First of all, since we work on python we have to make to necessary imports : 
