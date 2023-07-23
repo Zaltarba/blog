@@ -72,22 +72,27 @@ TSLA_ticker = yahooFinance.Ticker("TSLA")
 TSLA_ticker_history = TSLA_ticker.history(period="max")
 ```
 
-In this post, we will work we a small selection of American stocks : 
-  - JNJ
-  - XOM
-  - IBM
-  - C
-  - GE
-  - F
-  - T
-  - MMM
-  - WMT
-  - JPM
-  - MCD
-  - DIS
-  - PG
-  - KO
-    
+In this post, we will work we a small selection of historical American stocks : 
+
+  - JNJ: Johnson & Johnson
+  - XOM: Exxon Mobil Corporation
+  - IBM: International Business Machines Corporation
+  - C: Citigroup Inc.
+  - GE: General Electric Company
+  - F: Ford Motor Company
+  - T: AT&T Inc.
+  - MMM: 3M Company (formerly known as Minnesota Mining and Manufacturing Company)
+  - WMT: Walmart Inc.
+  - JPM: JPMorgan Chase & Co.
+  - MCD: McDonald's Corporation
+  - DIS: The Walt Disney Company
+  - PG: Procter & Gamble Company
+  - KO: The Coca-Cola Company
+
+These stocks had over the last 10 years the folowing evolution :
+
+[Insert graph]
+
 ## Coding the strategy 
 
 First of all, since we work on python we have to make to necessary imports : 
