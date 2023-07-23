@@ -47,6 +47,8 @@ To begin, traders calculate the Hurst exponent for various assets of interest. T
 
 Assets with a Hurst exponent greater than 0.5 are considered to exhibit persistent price movements. These are the assets that align well with the core principle of momentum trading, as they are more likely to maintain their current trends over a certain period. In this article, we will consider the assets with an hurst exponent above of 0.6 as in persistent state.
 
+To see more about the Hurst exponent and it's estimation, check my previous article [here](https://zaltarba.github.io/blog/HurstEstimatorsReview/).
+
 ### Implementing the Momentum Strategies
 
 Once assets with high Hurst exponents, indicating a likelihood of persistent price trends, are identified, we will focus on a more specific approach to momentum trading. For the purpose of this article, we will concentrate on the variations observed in the last 10 days of an asset's price history. Instead of employing traditional technical indicators like Moving Averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD), our focus lies on the recent positive variations in the asset's price movements.
