@@ -91,7 +91,7 @@ In this post, we will work we a small selection of historical American stocks :
 
 These stocks had over the last 10 years the folowing evolution :
 
-[Insert graph]
+![Figure 1](/blog/images/MT_Evolution_of_stocks.png)
 
 ## Coding the strategy 
 
@@ -286,11 +286,11 @@ Now that we an coded our momentum strategy, we can take a look at our results. T
 
 First we can look at the strategy performance for each stock :
 
-![Figure 1](/blog/images/MT_Stocks_capital_gain.png)
+![Figure 2](/blog/images/MT_Stocks_capital_gain.png)
 
 First of all, both strategies have gained capital for some stock and loss capital for some stocks. But from this graph, it doesn't seems our momentum trading strategy added value in comparaison to the buy and hold strategy. In order to check that, we look at the portfolio performance :
 
-![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
+![figure 3](/blog/images/MT_Portfolio_capital_gain.png)
 
 Indeed, it appears we have almost no extra capital gain with our strategy. Yet, if look at both strategies performance, our trading strategy seems to get smoother returns.  
 
