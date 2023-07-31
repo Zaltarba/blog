@@ -8,3 +8,4 @@ permalink: /contact/
 - 🔗 [Github](https://github.com/Zaltarba)
 - 📧 [Academic email](mailto:balthazar.courvoisier@polytechnique.edu)
 - 📧 [Personal email](mailto:balthazar.courvoisier@gmail.com)
+- [Research Gate](https://www.researchgate.net/profile/Balthazar-Courvoisier)
