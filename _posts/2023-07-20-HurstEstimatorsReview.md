@@ -94,7 +94,7 @@ $$
 6. Calculate the standard deviation of the series $\mathbf{S}$ :  
 $$
 \mathbf{S}_\mathbf{t} = \sqrt{\frac{1}{\mathbf{t}-1}\sum_{\mathbf{i}=1}^{\mathbf{t}} \left(\mathbf{X}_\mathbf{i}-\mathbf{u}\right)^2}, \quad \mathbf{t}=1, 2, \ldots, \mathbf{n}
-$$
+$$  
 It should be noted that a slight bias in this method has been identified since 1955. A corrected estimator, still based on the R/S method, therefore exists. For the sake of brevity, its implementation is not detailed. However, it is available in the documentation (source 5).
 
 Sources : 
