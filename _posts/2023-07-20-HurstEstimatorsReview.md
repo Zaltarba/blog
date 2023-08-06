@@ -9,9 +9,9 @@ excerpt: In this post we will make a theorical review of several Hurst exponent 
 
 The Hurst exponent lies between 0 and 1 and is usually denoted H. Its use and formal definition vary according to context. It can be used as a measure of long-term memory for time series. In the fBm context, for example, it is linked to the autocorrelations of the increment series and the speed at which these evolve as the lag increases. It thus quantifies the relative tendency of a time series to regress strongly towards the mean or to cluster in one direction. In this context, we distinguish three cases depending on its value, indicating the different properties of the process:	
 	
- 	- H = ½, the process is a Standard Brownian motion.
-	- H > ½, the process increments are anti-persistent. They indicate positive correlations and a long memory process. Values of H that deviate further from ½ seem favorable to the application of Momentum Strategy.
-	- H < ½, process increments are then persistent. They indicate negative correlations between points and mean-reverting behavior.
+- H = ½, the process is a Standard Brownian motion.
+- H > ½, the process increments are anti-persistent. They indicate positive correlations and a long memory process. Values of H that deviate further from ½ seem favorable to the application of Momentum Strategy.
+- H < ½, process increments are then persistent. They indicate negative correlations between points and mean-reverting behavior.
 
 Consequently, if we estimate a Hurst exponent $H = \frac{1}{2}$, then the evolution of the series is partly predictable. If estimated correctly, it can therefore add value to a mechanism such as a Stop Loss Take Profit. 
 
@@ -22,31 +22,34 @@ Sources :
 - https://en.wikipedia.org/wiki/Hurst_exponent
 - https://arxiv.org/pdf/1406.6018.pdf
 
-# II Estimateur basé sur l’autocorrélation 
+# II Autocorrelation-based estimator 
 
-On tire ici profit de la relation suivante, qui trouve un fondement théorique dans le cadre des fBm :
-$\mathbf{Cov}(\mathbf{X}_{t+\mathbf{lag}},\ \mathbf{X}_t) = \mathbf{C} \times \mathbf{lag}^{2\mathbf{H}}$
-Il est alors possible ainsi d’évaluer le coefficient de Hurst à partir de la covariance pour différents lags et d’une régression linéaire.
-Une explication de la relation dans un cadre moins formalisé est proposée en annexe. 
+Here we take advantage of the following relationship, which has a theoretical basis in the fBm framework:
+
+$$
+\mathbf{Cov}(\mathbf{X}_{t+\mathbf{lag}},\ \mathbf{X}_t) = \mathbf{C} \times \mathbf{lag}^{2\mathbf{H}}
+$$
+
+It is then possible to estimate the Hurst coefficient from the covariance for different lags and a linear regression.
+An explanation of the relationship in a less formalized framework is given in the appendix. 
 
 Sources : 
 
 - https://towardsdatascience.com/introduction-to-the-hurst-exponent-with-code-in-python-4da0414ca52e
 - https://mahowald.github.io/hurst/
 
-# III Estimateur basé sur la méthode RS 
+# III RS-based estimator 
 
-L’exposant de basé sur la méthode R/S est l’estimateur historique, introduit par Hurst. Cet estimateur est basé sur la statistique R/S elle aussi introduite par Hurst. A l’aide de cette méthode, un coefficient de Hurst peut ainsi être calculé pour toute série temporelle. Cependant, en l’absence de modèle le coefficient ne peut alors que servir (difficilement) à infirmer la nature stationnaire d’un processus. Lorsqu’on se place dans le cadre des fBm, l’estimateur R/S est pertinent bien que non optimal. Il faut cependant bien noter que la série a considéré est alors la série des incréments (qui suit un fGm), et non le fBm.
-Là encore le calcul de l’exposant de Hurst va s’appuyer sur une relation asymptotique :
+The exponent based on the R/S method is the historical estimator, introduced by Hurst. This estimator is based on the R/S statistic, also introduced by Hurst. Using this method, a Hurst coefficient can be calculated for any time series. However, in the absence of a model, the coefficient can only be used (with difficulty) to refute the stationary nature of a process. In the case of fBm, the R/S estimator is relevant, though not optimal. It should be noted, however, that the series considered is then the series of increments (which follows an fGm), and not the fBm.
+Here again, calculation of the Hurst exponent is based on an asymptotic relationship:
+$$
 \mathbit{E}[{(\mathbit{R}/\mathbit{S})}_\mathbit{t}]= C×tH
+$$
+This relationship can be explained within the formal framework of fBm. It was, however, simply inferred by Hurst in his early work.
+To calculate Hurst's coefficient using the R/S analysis method, we need to :
 
-Cette relation trouve une explication dans le cadre formelle des fBm. Elle a pour autant été simplement inférée par Hurst dans ses premiers travaux.
-Afin de calculer par la méthode d’analyse R/S le coefficient de Hurst, il faut :
-
-Calculer les Séries des plages Rescaled (R/S)
-
-{(\mathbit{R}/\mathbit{S})}_\mathbit{t}=\mathbit{R}_\mathbit{t}/\mathbit{S}_\mathbit{t}\ \ \ \ \ \ \mathbit{t}=\ \mathbf{2},\ \cdots,\ \mathbit{n}}
-
+1. Calculate the Rescaled Range Series (R/S)
+${(\mathbit{R}/\mathbit{S})}_\mathbit{t}=\mathbit{R}_\mathbit{t}/\mathbit{S}_\mathbit{t}\ \ \ \ \ \ \mathbit{t}=\ \mathbf{2},\ \cdots,\ \mathbit{n}}$
 Avec R_t\ et\ S_t définis plus bas
 L’espérance de {(\mathbit{R}/\mathbit{S})}_\mathbit{t}}
 est calculée en divisant l’ensemble des données en intervalles de même taille t : les régions 
@@ -62,19 +65,24 @@ L’exposant de Hurst peut ainsi être calculé à l’aide d’une régression 
 La méthode de calcul employée est un paramètre optimisable de l’algorithme
 Les séries des plages Rescaled sont-elles calculées de la manière suivante : 
 
-Calculer la Valeur moyenne du processus \mathbf{X}.
+2. Calculer la Valeur moyenne du processus \mathbf{X}.
 
 \mathbit{m}=\ \frac{\mathbf{1}}{\mathbit{N}}\sum_{\mathbit{i}=\mathbf{1}}^{\mathbit{t}}\mathbit{X}_\mathbit{i}
-	Calculer la moyenne ajustée de la série \mathbf{Y}
+
+3. Calculer la moyenne ajustée de la série \mathbf{Y}
 \mathbit{Y}_\mathbit{i}=\ \mathbit{X}_\mathbit{i}-\mathbit{m},\ \ \ \ \ \ \ \mathbit{i}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{t}
-	Calculer la série d’écart \mathbf{Z}
+
+4. Calculer la série d’écart \mathbf{Z}
 \mathbit{Z}_\mathbit{i}=\sum_{\mathbit{k}=\mathbf{1}}^{\mathbit{t}}\mathbit{Y}_\mathbit{k}\ \ \ \ \ \ \mathbit{i}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{t}
-	Calculer la série de plages R
+
+5. Calculer la série de plages R
 \mathbit{R}=\ \mathbit{max}\left(\mathbit{Z}_\mathbf{1},\ \cdots,\ \mathbit{Z}_\mathbit{t}\right)-\mathbit{min}\left(\mathbit{Z}_\mathbf{1},\ \cdots,\ \mathbit{Z}_\mathbit{t}\right)
-	Calculer l'écart-type de la série S
+
+6. Calculer l'écart-type de la série S
 \mathbit{S}_\mathbit{t}=\sqrt{\frac{\mathbf{1}}{\mathbit{t}-\mathbf{1}}\sum_{\mathbit{i}=\mathbf{1}}^{\mathbit{t}}\left(\mathbit{X}_\mathbit{i}-\mathbit{u}\right)^\mathbf{2}}\ \ \ \ \ \ \mathbit{t}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{n}
 
 Il est à noter qu’un léger biais de cette méthode a depuis 1955 été identifié. Un estimateur corrigé, toujours basé sur la méthode R/S existe ainsi. Dans un souci de concision, son implémentation n’est pas détaillée. Elle est néanmoins accessible dans la documentation (source 5).
+
 Sources : 
 
 - https://github.com/Mottl/hurst/
