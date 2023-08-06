@@ -50,46 +50,52 @@ $$
 This relationship can be explained within the formal framework of fBm. It was, however, simply inferred by Hurst in his early work.
 To calculate Hurst's coefficient using the R/S analysis method, we need to :
 
-1. Calculate the Rescaled Range Series (R/S) : 
+At first calculate the Rescaled Range Series (R/S) : 
 
 $$
 \left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t = \frac{\mathbf{R}_t}{\mathbf{S}_t} \quad \mathbf{t} = 2, \ldots, \mathbf{n}
 $$
 
-Avec $R_t$ et $S_t$ définis plus bas
-L’espérance de $\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t$
-est calculée en divisant l’ensemble des données en intervalles de même taille t : les régions 
+With $R_t$ et $S_t$ defined below.
+The expectation of $\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t$
+is calculated by dividing the data set into intervals of equal size t: the regions 
 $\left[ \mathbf{X}_1, \mathbf{X}_t \right], \quad \left[ \mathbf{X}_{t+1}, \mathbf{X}_{2t} \right]$
- jusqu’à $\left[ \mathbf{X}_{(\mathbf{m}-1)\mathbf{t}+1}, \mathbf{X}_{\mathbf{mt}} \right]$ où $\mathbf{m} = \lfloor \frac{\mathbf{n}}{\mathbf{t}} \rfloor$.
+up to $\left[ \mathbf{X}_{(\mathbf{m}-1)\mathbf{t}+1}, \mathbf{X}_{\mathbf{mt}} \right]$ with $\mathbf{m} = \lfloor \frac{\mathbf{n}}{\mathbf{t}} \rfloor$.
  
 In practice, to use all the data for the calculation, we choose a value of t that is proportional to n.
 The choice of t values to be used in the implementation is a parameter of the optimizable algorithm.
 Some authors recommend using m>50 to reduce the variance of the estimator.
-The Hurst exponent is given by the equation below 
+
+The Hurst exponent is then given by the equation below 
 
 \mathbf{ln}{(\mathbit{E}[(\mathbit{R}/\mathbit{S})}_\mathbit{t}]=ln( C×tH)=ln(C)+H×ln(t)
 
 The Hurst exponent can thus be calculated using linear regression. 
 The calculation method used is an optimizable parameter of the algorithm.
+
 Rescaled range series are calculated as follows:
 
-2. Calculer la Valeur moyenne du processus \mathbf{X}.
-
-\mathbit{m}=\ \frac{\mathbf{1}}{\mathbit{N}}\sum_{\mathbit{i}=\mathbf{1}}^{\mathbit{t}}\mathbit{X}_\mathbit{i}
-
-3. Calculer la moyenne ajustée de la série \mathbf{Y}
-\mathbit{Y}_\mathbit{i}=\ \mathbit{X}_\mathbit{i}-\mathbit{m},\ \ \ \ \ \ \ \mathbit{i}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{t}
-
-4. Calculer la série d’écart \mathbf{Z}
-\mathbit{Z}_\mathbit{i}=\sum_{\mathbit{k}=\mathbf{1}}^{\mathbit{t}}\mathbit{Y}_\mathbit{k}\ \ \ \ \ \ \mathbit{i}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{t}
-
-5. Calculer la série de plages R
-\mathbit{R}=\ \mathbit{max}\left(\mathbit{Z}_\mathbf{1},\ \cdots,\ \mathbit{Z}_\mathbit{t}\right)-\mathbit{min}\left(\mathbit{Z}_\mathbf{1},\ \cdots,\ \mathbit{Z}_\mathbit{t}\right)
-
-6. Calculer l'écart-type de la série S
-\mathbit{S}_\mathbit{t}=\sqrt{\frac{\mathbf{1}}{\mathbit{t}-\mathbf{1}}\sum_{\mathbit{i}=\mathbf{1}}^{\mathbit{t}}\left(\mathbit{X}_\mathbit{i}-\mathbit{u}\right)^\mathbf{2}}\ \ \ \ \ \ \mathbit{t}=\mathbf{1},\ \mathbf{2},\ \cdots,\ \mathbit{n}
-
-Il est à noter qu’un léger biais de cette méthode a depuis 1955 été identifié. Un estimateur corrigé, toujours basé sur la méthode R/S existe ainsi. Dans un souci de concision, son implémentation n’est pas détaillée. Elle est néanmoins accessible dans la documentation (source 5).
+1. Calculate Average Process Value $\mathbf{X}$.
+$$
+\mathbf{m} = \frac{1}{\mathbf{N}}\sum_{\mathbf{i}=1}^{\mathbf{t}}\mathbf{X}_{\mathbf{i}}
+$$
+2. Calculate the adjusted mean of the series $\mathbf{Y}$
+$$
+\mathbf{Y}_\mathbf{i} = \mathbf{X}_\mathbf{i} - \mathbf{m}, \quad \mathbf{i}=1, 2, \ldots, \mathbf{t}
+$$
+4. Calculate the deviation series $\mathbf{Z}$
+$$
+\mathbf{Z}_\mathbf{i} = \sum_{\mathbf{k}=1}^{\mathbf{t}} \mathbf{Y}_\mathbf{k}, \quad \mathbf{i} = 1, 2, \ldots, \mathbf{t}
+$$
+5. Calculate the range series $\mathbf{R}$
+$$
+\mathbf{R} = \max\left(\mathbf{Z}_1, \ldots, \mathbf{Z}_\mathbf{t}\right) - \min\left(\mathbf{Z}_1, \ldots, \mathbf{Z}_\mathbf{t}\right)
+$$
+6. Calculate the standard deviation of the series $\mathbf{S}$
+$$
+\mathbf{S}_\mathbf{t} = \sqrt{\frac{1}{\mathbf{t}-1}\sum_{\mathbf{i}=1}^{\mathbf{t}} \left(\mathbf{X}_\mathbf{i}-\mathbf{u}\right)^2}, \quad \mathbf{t}=1, 2, \ldots, \mathbf{n}
+$$
+It should be noted that a slight bias in this method has been identified since 1955. A corrected estimator, still based on the R/S method, therefore exists. For the sake of brevity, its implementation is not detailed. However, it is available in the documentation (source 5).
 
 Sources : 
 
