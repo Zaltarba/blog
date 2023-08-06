@@ -57,8 +57,14 @@ $$
 $$
 
 With $R_t$ et $S_t$ defined below.  
-The expectation of $\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t$ is calculated by dividing the data set into intervals of equal size t: the regions 
-$\left[ \mathbf{X}_1, \mathbf{X}_t \right], \quad \left[ \mathbf{X}_{t+1}, \mathbf{X}_{2t} \right]$ up to $\left[ \mathbf{X}_{(\mathbf{m}-1)\mathbf{t}+1}, \mathbf{X}_{\mathbf{mt}} \right]$ with $\mathbf{m} = \lfloor \frac{\mathbf{n}}{\mathbf{t}} \rfloor$.  
+The expectation of 
+$$\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t$$
+is calculated by dividing the data set into intervals of equal size t: the regions 
+$$\left[ \mathbf{X}_1, \mathbf{X}_t \right], \quad \left[ \mathbf{X}_{t+1}, \mathbf{X}_{2t} \right]$$ 
+up to 
+$$\left[ \mathbf{X}_{(\mathbf{m}-1)\mathbf{t}+1}, \mathbf{X}_{\mathbf{mt}} \right]$$ 
+with 
+$$\mathbf{m} = \lfloor \frac{\mathbf{n}}{\mathbf{t}} \rfloor$$.  
  
 In practice, to use all the data for the calculation, we choose a value of t that is proportional to n.  
 The choice of t values to be used in the implementation is a parameter of the optimizable algorithm.  
