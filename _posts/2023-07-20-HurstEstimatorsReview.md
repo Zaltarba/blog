@@ -56,20 +56,22 @@ $$
 \left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t = \frac{\mathbf{R}_t}{\mathbf{S}_t} \quad \mathbf{t} = 2, \ldots, \mathbf{n}
 $$
 
-Avec R_t\ et\ S_t définis plus bas
-L’espérance de {(\mathbit{R}/\mathbit{S})}_\mathbit{t}}
+Avec $R_t$ et $S_t$ définis plus bas
+L’espérance de $\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t$
 est calculée en divisant l’ensemble des données en intervalles de même taille t : les régions 
-\left[\mathbit{X}_\mathbf{1},\mathbit{X}_\mathbit{t}\right], \left[\mathbit{X}_{\mathbit{t}+\mathbf{1}},\mathbit{X}_{\mathbf{2}\mathbit{t}}\right] jusqu’à \left[\mathbit{X}_{(\mathbit{m}-\mathbf{1})\mathbit{t}+\mathbf{1}},\mathbit{X}_{\mathbit{mt}}\right] où \mathbit{m}=\mathbf{floor}(\frac{\mathbit{n}}{\mathbit{t}}).
-En pratique, pour utiliser toutes les données pour le calcul, on choisit une valeur de t qui est proportionnelle à n.
-Le choix des valeurs de t à utiliser dans l’implémentation est un paramètre de l’algorithme optimisable
-Il est recommandé par certains auteurs afin de diminuer la variance de l’estimateur d’utiliser m>50
-Ainsi l’exposant de Hurst est donné par l’équation ci-dessous 
+$\left[ \mathbf{X}_1, \mathbf{X}_t \right], \quad \left[ \mathbf{X}_{t+1}, \mathbf{X}_{2t} \right]$
+ jusqu’à $\left[ \mathbf{X}_{(\mathbf{m}-1)\mathbf{t}+1}, \mathbf{X}_{\mathbf{mt}} \right]$ où $\mathbf{m} = \lfloor \frac{\mathbf{n}}{\mathbf{t}} \rfloor$.
+ 
+In practice, to use all the data for the calculation, we choose a value of t that is proportional to n.
+The choice of t values to be used in the implementation is a parameter of the optimizable algorithm.
+Some authors recommend using m>50 to reduce the variance of the estimator.
+The Hurst exponent is given by the equation below 
 
 \mathbf{ln}{(\mathbit{E}[(\mathbit{R}/\mathbit{S})}_\mathbit{t}]=ln( C×tH)=ln(C)+H×ln(t)
 
-L’exposant de Hurst peut ainsi être calculé à l’aide d’une régression linéaire. 
-La méthode de calcul employée est un paramètre optimisable de l’algorithme
-Les séries des plages Rescaled sont-elles calculées de la manière suivante : 
+The Hurst exponent can thus be calculated using linear regression. 
+The calculation method used is an optimizable parameter of the algorithm.
+Rescaled range series are calculated as follows:
 
 2. Calculer la Valeur moyenne du processus \mathbf{X}.
 
