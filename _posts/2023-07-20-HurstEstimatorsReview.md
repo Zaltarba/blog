@@ -5,19 +5,18 @@ categories: [Personal project, Theorical paper]
 excerpt: In this post we will make a theorical review of several Hurst exponent estimators from the litterature.
 ---
 
-Revue de littérature
-Exposants de Hurst
+# I A reminder on the Hurst exponent 
 
-# I Rappels sur l’exposant de Hurst 
+The Hurst exponent lies between 0 and 1 and is usually denoted H. Its use and formal definition vary according to context. It can be used as a measure of long-term memory for time series. In the fBm context, for example, it is linked to the autocorrelations of the increment series and the speed at which these evolve as the lag increases. It thus quantifies the relative tendency of a time series to regress strongly towards the mean or to cluster in one direction. In this context, we distinguish three cases depending on its value, indicating the different properties of the process:	
+	
+ 	- H = ½, the process is a Standard Brownian motion.
+	- H > ½, the process increments are anti-persistent. They indicate positive correlations and a long memory process. Values of H that deviate further from ½ seem favorable to the application of Momentum Strategy.
+	- H < ½, process increments are then persistent. They indicate negative correlations between points and mean-reverting behavior.
 
-L’exposent de Hurst est compris entre 0 et 1 et est noté H la plupart du temps. Selon le contexte son emploi et sa définition formelle varient. Il peut être utilisé comme mesure de la mémoire à long terme pour des séries terme des séries temporelles. Dans le contexte des fBm par exemple : il est lié aux autocorrélations de la séries des incréments et à la vitesse à laquelle ceux-ci évolue à mesure que le décalage augmente. Il quantifie alors la tendance relative d’une série temporelle à régresser fortement vers la moyenne ou à se regrouper dans une direction. Dans ce contexte, on distingue trois cas suivant sa valeur indiquant les différentes propriétés du processus :	
-	H = ½, le processus est alors un mouvement Brownien Standard.
-	H > ½, les incréments du processus sont alors anti-persistants. Ils indiquent des corrélations positives et un processus à longue mémoire. Les valeurs de H qui s’écarte d’avantage de ½ semble favorable à l’application de Stratégie de Momentum.
-	H < ½, les incréments du processus sont alors persistants. Ils indiquent des corrélations négatives entre les points et un comportement de retour à la moyenne.
-Par conséquent, si nous estimons un exposant de Hurst H\ \neq\ \frac{1}{2}, alors l’évolution la série est en partie prévisible. Si estimé correctement, il peut ainsi apporter une plus-value à un mécanisme telle qu’un Stop Loss Take Profit. 
-Le mouvement brownien fractionnaire (fBm) fournit un cadre de modélisation approprié pour les processus stochastiques non stationnaires autosimilaires. Il a été largement utilisé pour modéliser des phénomènes aléatoires liés à différents domaines de recherche. Lorsqu’on travaille avec des taux par exemple, ceux-ci peuvent être modéliser comme des mouvements browniens fractionnaires. Leurs incréments sont alors des bruits gaussiens fractionnaires.
-Enfin, et pour compléter cette introduction sur le coefficient de Hurst, il est utile de rappeler qu’il a été introduit en 1955 par Harold Hurst lorsqu’il découvrit que la statistique R/S (et que l’on décrit par la suite) qu’il avait construite ne converger pas vers 0.5 (valeur théorie pour les modèles alors utilisés) mais 0.7 pour de nombreuses séries.
-Sources : 
+Consequently, if we estimate a Hurst exponent H\ \frac{1}{2}, then the evolution of the series is partly predictable. If estimated correctly, it can therefore add value to a mechanism such as a Stop Loss Take Profit. 
+
+Fractional Brownian motion (fBm) provides a suitable modeling framework for self-similar non-stationary stochastic processes. It has been widely used to model random phenomena in various fields of research. When working with rates, for example, these can be modeled as fractional Brownian motions. Their increments are then fractional Gaussian noise.
+Finally, and to complete this introduction to the Hurst coefficient, it's worth recalling that it was introduced in 1955 by Harold Hurst when he discovered that the R/S statistic (and which we describe below) he had constructed did not converge to 0.5 (the theoretical value for the models then in use) but 0.7 for many series.
 
 - https://en.wikipedia.org/wiki/Hurst_exponent
 - https://arxiv.org/pdf/1406.6018.pdf
