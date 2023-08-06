@@ -68,7 +68,9 @@ Some authors recommend using m>50 to reduce the variance of the estimator.
 
 The Hurst exponent is then given by the equation below 
 
-\mathbf{ln}{(\mathbit{E}[(\mathbit{R}/\mathbit{S})}_\mathbit{t}]=ln( C×tH)=ln(C)+H×ln(t)
+$$
+\ln\left( \mathbf{E}\left[ \left(\frac{\mathbf{R}}{\mathbf{S}} \right)_t \right] \right) = \ln(C \times t^H) = \ln(C) + H \times \ln(t)
+$$
 
 The Hurst exponent can thus be calculated using linear regression. 
 The calculation method used is an optimizable parameter of the algorithm.
