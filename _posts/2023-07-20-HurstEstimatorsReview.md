@@ -13,18 +13,19 @@ The Hurst exponent lies between 0 and 1 and is usually denoted H. Its use and fo
 	- H > ½, the process increments are anti-persistent. They indicate positive correlations and a long memory process. Values of H that deviate further from ½ seem favorable to the application of Momentum Strategy.
 	- H < ½, process increments are then persistent. They indicate negative correlations between points and mean-reverting behavior.
 
-Consequently, if we estimate a Hurst exponent H\ \frac{1}{2}, then the evolution of the series is partly predictable. If estimated correctly, it can therefore add value to a mechanism such as a Stop Loss Take Profit. 
+Consequently, if we estimate a Hurst exponent $H = \frac{1}{2}$, then the evolution of the series is partly predictable. If estimated correctly, it can therefore add value to a mechanism such as a Stop Loss Take Profit. 
 
 Fractional Brownian motion (fBm) provides a suitable modeling framework for self-similar non-stationary stochastic processes. It has been widely used to model random phenomena in various fields of research. When working with rates, for example, these can be modeled as fractional Brownian motions. Their increments are then fractional Gaussian noise.
 Finally, and to complete this introduction to the Hurst coefficient, it's worth recalling that it was introduced in 1955 by Harold Hurst when he discovered that the R/S statistic (and which we describe below) he had constructed did not converge to 0.5 (the theoretical value for the models then in use) but 0.7 for many series.
 
+Sources : 
 - https://en.wikipedia.org/wiki/Hurst_exponent
 - https://arxiv.org/pdf/1406.6018.pdf
 
 # II Estimateur basé sur l’autocorrélation 
 
 On tire ici profit de la relation suivante, qui trouve un fondement théorique dans le cadre des fBm :
-\mathbf{Cov}(\mathbit{X}_{\mathbit{t}+\mathbf{lag}},\ \mathbit{X}_\mathbit{t})=\mathbit{C}\ \times{\mathbf{lag}}^{\mathbf{2}\mathbit{H}}
+$\mathbf{Cov}(\mathbf{X}_{t+\mathbf{lag}},\ \mathbf{X}_t) = \mathbf{C} \times \mathbf{lag}^{2\mathbf{H}}$
 Il est alors possible ainsi d’évaluer le coefficient de Hurst à partir de la covariance pour différents lags et d’une régression linéaire.
 Une explication de la relation dans un cadre moins formalisé est proposée en annexe. 
 
