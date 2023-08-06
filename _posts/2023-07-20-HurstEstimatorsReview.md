@@ -93,10 +93,10 @@ Sources :
 
 # IV Estimateur basé sur la méthode des moments 
 
-Ce dernier estimateur a été construit dans le cadre des fBm. Sans décrire de manière exhaustive les propriétés du mouvement brownien fractionnaire, cet estimateur s’appuie sur l’espérance suivante :
+The latter estimator has been constructed in the fBm framework. Without exhaustively describing the properties of fractional Brownian motion, this estimator is based on the following expectation :
   
-Il est alors possible à partir de celle de construire un estimateur convergent du coefficient du Hurst : 
- 
+From this, it is then possible to construct a convergent estimator of the Hurst coefficient: 
+
 Sources : 
 
 - https://www.researchgate.net/publication/335758275_Fractal_analysis_of_the_multifractality_of_foreign_exchange_rates
