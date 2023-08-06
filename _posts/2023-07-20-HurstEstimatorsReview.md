@@ -43,12 +43,18 @@ Sources :
 The exponent based on the R/S method is the historical estimator, introduced by Hurst. This estimator is based on the R/S statistic, also introduced by Hurst. Using this method, a Hurst coefficient can be calculated for any time series. However, in the absence of a model, the coefficient can only be used (with difficulty) to refute the stationary nature of a process. In the case of fBm, the R/S estimator is relevant, though not optimal. It should be noted, however, that the series considered is then the series of increments (which follows an fGm), and not the fBm.
 Here again, calculation of the Hurst exponent is based on an asymptotic relationship:
 $$
+\mathbf{E}\left[ \left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t \right] = C \times t^H
+$$
+
+$$
 \mathbit{E}[{(\mathbit{R}/\mathbit{S})}_\mathbit{t}]= C×tH
 $$
+
 This relationship can be explained within the formal framework of fBm. It was, however, simply inferred by Hurst in his early work.
 To calculate Hurst's coefficient using the R/S analysis method, we need to :
 
 1. Calculate the Rescaled Range Series (R/S)
+$\left( \frac{\mathbf{R}}{\mathbf{S}} \right)_t = \frac{\mathbf{R}_t}{\mathbf{S}_t} \quad \mathbf{t} = 2, \ldots, \mathbf{n}$
 ${(\mathbit{R}/\mathbit{S})}_\mathbit{t}=\mathbit{R}_\mathbit{t}/\mathbit{S}_\mathbit{t}\ \ \ \ \ \ \mathbit{t}=\ \mathbf{2},\ \cdots,\ \mathbit{n}}$
 Avec R_t\ et\ S_t définis plus bas
 L’espérance de {(\mathbit{R}/\mathbit{S})}_\mathbit{t}}
