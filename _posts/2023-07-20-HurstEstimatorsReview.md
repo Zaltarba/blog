@@ -5,6 +5,8 @@ categories: [Personal project, Theorical paper]
 excerpt: In this post we will make a theorical review of several Hurst exponent estimators from the litterature.
 ---
 
+WIP Article 
+
 # I A reminder on the Hurst exponent 
 
 The Hurst exponent lies between 0 and 1 and is usually denoted H. Its use and formal definition vary according to context. It can be used as a measure of long-term memory for time series. In the fBm context, for example, it is linked to the autocorrelations of the increment series and the speed at which these evolve as the lag increases. It thus quantifies the relative tendency of a time series to regress strongly towards the mean or to cluster in one direction. In this context, we distinguish three cases depending on its value, indicating the different properties of the process:  
