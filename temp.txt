@@ -1,0 +1,932 @@
+TO DO LIST 
+
+04/05/2023
+
+- Mail RH congé sans solde GOOD 
+- Documentation et mise en forme de la méthodologie 
+	- Définitions d'un StopLoss et d'un TakeProfit GOOD
+	- Signal basé sur le sous jacent ? le PnL ? les deux ?
+	- Si sur sous jacent -> usage volatilité ? 
+	- Si PnL définition d'une perte acceptable 
+- Installation de VS Code GOOD
+- Pistes maths 
+	- Variations méthodes de calculs de la volatilité 
+	- 
+	-
+
+05/05/2023
+
+- Documentation et mise en forme de la méthodologie 
+	- Exposants de Hurst GOOD 
+	- Exploration de nouvelles méthodes GOOD (exposants de Hurst)
+	- Mesure de la performance 
+- Création PowerPoint GOOD
+- Ajout dans l'excel d'autres stratégies GOOD
+- Python 
+	- Analyse et premiers graphiques GOOD
+	- Creations premières analyses sur la volatilité, le process 
+	- Analyse série temporelles GOOD
+
+10/05/2023
+
+- Analyse des papiers et reviews 
+- Q&A avec Charles 
+	1. Stop Loss implémenté mais toujours une review manuelle de la position ?
+		-> Si retour à la moyenne mais avant la prise de décision alors pertinence de backtester en prenant 
+		en compte les décisions prises ?
+	2. Stop Loss / Take Profit peut il dire de re rentrer dans la position ?
+
+11/05/2023
+
+- Contuiner excel clean pour chaque méthode puis création d'un tableau "user friendly"
+	- Chaque Méthode : GOOD 
+	- Création tableau clean 
+- Reprise des power point : définition des stop loss take profit et des t0 de la méthode 
+- Bibliography ?
+- Accès à la base de données depuis python 
+- Point Charles 15h : 
+	-  Reprendre Excel (formules + mise en page + optimisation + graphs)
+
+12/05/2023
+
+- Excel : Faire le solveur, reprendre les noms des variables et ajouter les définitions 
+- PP : lire la documentation existante 
+- Word : reprendre la documentation
+
+	- Question suite lecture pp : mise en avant du Stop Loss et Take Profit dans le cadre de Stress Test
+	Besoin de définir le Stop Loss comme un montant de pertes ?? Si Stop Loss sur sous jacent alors différente définition 
+	- Pour H = 1/2 SL/TP = C*Skills mais possible, espérance nulle 
+	- Possible faute de frappe avec un quantile à 99% et pas 95%
+	- On parle de pp de stratégie de SL/TP : censé être une méthode ou une stratégie ???
+	- t_0 peu clair dans ce contexte : date telle que expo différent de 0 donc pas juste telle que expo i différent de expo i+1
+	- SL/TP est ici implémenté sur l'ensemble du portefeuille, obligation de faire de même dans notre cas ?
+
+15/05/2023
+
+- Analyse des résultats à l'aide de visuels + de statistiques ? 
+- CReéation de visuels avec zoom 
+- Mise au propre de la feuille optimisée : enlever les stratégies non optimisées
+- Regler bug sur definition des stops 
+
+16/05/2023
+
+- Relire prez 
+- Point SL TP :
+	Mise au clair perimètre et méthodes : quelles classes d'actifs et avec qui 
+	taux aggregate, faire plus et suite de moussa. SLTP sur l'ensemble de Manhattan 
+	debrief du poc, amide fractionnaire, 
+	perf globale portefeuille modele
+	prise en compte "
+	volatilté -> reflexion sur l'estimateur (reste en daily sauf poc montre value de l'intra day)
+- TO DO : statistqiues, exposants de Hurst, réflexion stats sur le sous jacent ?
+- Reflexion SARIMAX : prise en compte données externes
+- Test de stationnarités, analyse différence deux, premier modèle arima 
+
+
+TO DO : 
+
+-Changementy EXCEL : 
+	- Date innit (changement de signe), barrière fixée à la date d'entrée, colonne nouveau poids 
+-word simple (que definitions) 
+
+17/05/2023	
+
+- Exploration sur python extrcation signal à base de moyennes mobiles
+
+19/05/2023 
+
+- POC finalisé 
+- Exploration python : création méthode identification des signaux à posteriori à l'aide de moyenne mobille -> permet un entrainement supervisé 
+- Pistes : transformation en un problème de classification 
+
+22/05/2023
+
+- Exploration python : mise au propre des recherches amorcées
+- Création de visualisatio intercative à l'aide de widgets 
+- Word Méthodologie 
+- Export des résultats dans excel 
+
+
+23/05/2023
+
+To do : ?
+Garch ? Etude et reflexion sur utilité possible 
+Comment utiliser les points d'inflexion utilisé ? Création d'une métrique? Les points d'inflexion devraient sont 
+précédés d'une hausse et d'une baisse.
+
+Fait : 
+Nouveaux graphiques + nouvelles approches sur python + analyse bivariées pour analyse de signal 
+réunion cybersécurité 
+
+Point Avancement : 
+	- Fichier excel avec les dates de STOP pour les stratégies 
+	- Travail exposants de Hurst 
+
+To do : Réflexions sur rapport scalable ? Dash ? 
+
+224/05/2023
+
+Ajout des threshold sur le nouvel excel GOOD
+Ajout avant covid et apres covid -> GOOD
+Optimisation avant covid et apres covid
+Réaliser l'étude pour l'autre stratégie 
+
+Etude PnL 
+
+Baisse des taux vs Hausse des taux 
+Min et Max sur les mécanismes 
+Focus sur Peristence / Non persistence
+
+Fix excel calcul delta 
+
+25/05/2023
+
+Rectifications formules delta PX_LAST, PnL cumulés 
+Recitifications niveau SLTP
+
+To do : 
+Optimisation sur excel des performances pour : 
+	- POC v2 - GOOD 
+	- POC hausse v3 - GOOD
+	- POC baisse v3 - GOOD
+	- POC new strat - GOOD
+
+Optimisation et construction pour nouvelle stratégie 
+
+Min, MAx, Aléatoire ? pour avoir une idée de la plus value 
+
+Min, Max fait sur les deux stratégies 
+
+ACtualiser POC_results avec les poids ...
+
+Piste : RL 
+
+26/05/2023
+
+Finalisation des optimisations PnL - GOOD
+Faire la function en VBA - GOOD 
+Actualiser les fichiers excel pour run clean python 
+
+To do : Power Point présentation des résultats 
+To do : SL et TP séparés 
+
+To do : 
+Mettre en forme les excels 
+Ranger le depot : 
+	- Ajouter pp 
+	- Clean les excels 
+
+30/05/2023
+Excel, PP, Clean et création fichier py
+
+31/05/2023
+To do : 
+Fichier py en daily - GOOD, pour les deux 
+Clean results sur euro agg 
+Continuer pp 
+
+Statistqiue Min / Max SLTP Duration et EuroAgg Good 
+Puis pp WIP 
+stats hausse et baisse des taux 
+ajouter dans le pp 
+et clean les stats + metrqiues dans un excel clean 
+
+01/06/2023
+Excel : baisse et hausse des taux -> min et max
+To do : 
+	- Création fichier exel avec les statisques pour chaque configuration(all, baisse, hausse, euroAgg)
+	- Powerpoint : travail slides
+
+02/06/2023
+
+- Min_MAx_SLTP : ajout baisse et hausse des taux WIP
+- Tableau avec les statisques fait 
+Piste : analyse avec des poids selon le PnL produit
+
+To do : 
+- Ajouter dans les slides les graphs 
+
+Reprise du fichier Min_Max_SLTP (car précédent trop lourd à cause des collages speciaux)
+
+Préciser model normal + retirer premières slides 
+Estimation perte, 
+Ajoputer Taux Euro 
+
+05/06/2023
+
+To do : 
+Travail exposants de Hurst 
+- Articles de recherches sur compréhension + calcul 
+- Création d'un notebook clean 
+- Création fichier py -> output fichier excel avec la valeurs du coefiicent de Hurst à chaque étape 
+
+- Fichier py retourne les exponsant -> GOOD
+
+- Regarder travail précédant 
+- Articles 
+
+06/06/2023
+
+Code python : Notebook vizualization
+AMelioration des fichier .py 
+
+Review des articles 
+Excel : Reprise et mise en page, changement de formules,
+PP : Clean de la présentation et actualisation
+Excel : Tableaux des statistiques
+
+07/06/2023
+
+Excel : finalisation du tableau 
+PP : actualisation 
+PP : modification avec les conseils de charles
+Excel : uniformisation + ajout / modif selon reco de Charles
+
+09/06/2023
+Words methode RS 
+Papier histoire hurst 
+VItesse de convergence 
+résultats sur des données générées 
+
+ajouter hurst_RS
+
+12/06/2023
+Continuer wirds 
+continuer résultats distribution générées
+
+Did : 
+Résultats empirique avec la méthode R/S python github wikipedia + méthode naive 
+
+To do : 
+
+Ajouter la méthode R/S de Moussa 
+Continuer le word 
+Review clean en txt de tous les articles 
+
+13/06/2023
+
+Travail sur les points py, formattage, nouveau graphiques, fihiers README, words sur bibliograph RS methode, 
+comparaiuson théroique et empirique 
+
+14/06/2023
+
+To do list :
+	- Création d'un dossier avec fichiers excel et récapitulatifs des résultats - DONE
+	- Compléter le README - DONE 
+	- Ajouter les paramètres du modèle dans les fichiers excel - DONE 
+	- Ajouter avantages et incovénients - DONE
+	- Méthode R/S avec les lags - DONE (implémentation)
+
+15/06/2023
+
+To do : 
+	- Clean code / name of the files, update docstring, ...
+	- Travail sur évolution avec les lags - DONE 
+	- Ajouter algorithme de moussa au boostrapping - WIP (algo très lent) - DONE 
+	- Modification sur les lags, puis cocmpris pk pas pertinents, il faut changer l'écghantillonage uniquement 
+		- Switch vers la méthode des moments (permets d'utiliser moins de données)
+		- Nouveau résultats avec nouvelles méthode 
+		- A première veuu -> dur d'interpeter ce qui se passe mais diférences significative 
+		- POur comprendre si pertinent ou pas reprise des articles de recherche sur mBm et H(t)
+	
+
+
+A etudier : 
+	- Comment lisser les prédictions dans le temps 
+
+Discussion : 
+	- Possible améliorations de la méthode RS : influence nbr de variable, changement brusque de pentes pour prédire, quels échnatillonage et quelles data ?
+	- Subdivision par deux ? tous les entiers ? quels algorithme d'optimisaation ? 
+	- utiliser le min et le max à l'intérieur d'une journée ?
+
+To do : 
+	- Lire aerticle 
+	- Mise au propre Word 
+	- bac a sable avec les SLTP ? NN mais création métrique Hit ratio 
+	- Bac a sable -> dur de sortir du chapeau transfo pertinente, 
+	- Création d'une métrique pour faire brute force avec du transport optimal ?
+	- Encore plus simple, brute force pour avec la plus grosse correlation sur 
+
+
+19/06/2023:
+
+
+•	Mise au propre dans un document Word des résultats avec des données générées pour l’exposant de Hurst +avec donnée réels 
+GOOD 
+Code clean + débuts de figures, reste à mettre sur papier 
+
+Next steps : construire une méthode qui marcherait d'un ^point de vuye théorique pour évaluer le coefficient de Hurst en glissant // autre 
+
+•	Test influence du paramètre H dans le calcul de la volatilité 1 semaine / 1 mois / 1 an à partir de la volatilité journalière non pas forcement
+	Simplement refaire le calcul de volatilité sur des pas 1days, 1w,1months et 3M et 1y et comparer avec le résultat en resqualant par la racine du temps
+
+Chemin : M:\DIR\Recherche Quantitative\Taux Agg & Tot Return\Manhattan_all_Process\Projet StopLoss_TakeProfit_2023\ancien projet ou projet encore en prod
+
+•	Exploration des anciens répertoires portant sur le projet SLTP 
+	Lire les modules SLTP VBA existant +les autres projet VBA sur les stop loss
+
+•	Distribution des variations du sous-jacent – variation abs du taux 10y EUR ??????????
+•	Mise en place d’un mécanisme stoploss & take profit avec la prise en compte de l’exposant de Hurst ?????????????
+Guideline ? Reprise de l'qrbre de décision implémenté 
+
+21/06/2023
+
+Réunion, microsoft access et nouvel ordinateur
+
+22/06/2023
+
+Tests théoriques exposants de Hurst 
+
+23/06/2023
+
+To do :
+SLTP with Hurst 
+SIgnal persistant avec méthode des moments, 
+Signal Antipersistant avec méthode autocorrélation
+Fenetre de 30 jours, 
+Lissage mean pour moments, lissage max pour autocorrélations 
+
+26/03/2023
+
+Grid_search python, continuer evaluation des paramètres optimaux pour implémentation SLTP 
+Mise au propre Révue de littérature estimateurs coeffcients de Hurst 
+Exploration bases de données Access 
+Python : etude théorique, méthode des moments avec d'autres mBm but : recherche rolling et echantillonage optimal 
+
+
+To do access : 
+	- 3 jours Acess 
+To do Hurst : 
+	- Quelle fréquence d'échantillonnage ? Test des données
+	- Comment lisser ?
+	- Quel choix pour les paramètres ?
+	- Paramètre Sl et TP à déterminer avec le métier 
+
+tO DO / 
+REFLECHIR 0 LA FR2QUENCE QUE L4ON SOUHGAITE AVOIR : 
+Réactivité pour les crises ? les crises ne sont pas traitées par le SLTPO, 
+plutot l=opportunités de marchés qui existent et sont prévisibles. 
+est le cas pendant 1 jours, 1 semaine, 1 an ? 
+
+
+27/06/2023
+
+To do : 
+	- clean le code GOOD (reste les notebooks)
+	- clean les repo (GOOD)
+To do :
+	- notebook propre sur le SLTP 
+	- continuer travail sur access 
+
+Découverte Hurst mùoment clean : 
+Permet une meilleure gestion pouyr la crise grecque en mai 2015 : 
+on sort d'une hausse et on est en période persistante -> les pertes sont directement coupées 
+
+28/06/2023
+
+To do :
+
+Word clean sur les résultats du SLTP : in progress 
+graphiques fait, 
+Résultats calculés sur EuroAGg 
+Arbre de décision 
+
+To do : 
+Résultats clean sur Hurst avec SLTP 
+
+29/06/2023
+
+Résultats SLTP Hurst Taux Euro et Euro Agg -> notebbok + word résumant la tsratgie etr les résultats fait 
+To do : export les dataframe en exel avec des graphs 
+
+30/06/2023
+
+Export des datframe en excel -> GOOD 
+Code clean (à peu pres) -> GOOD 
+Formations : finies  -> GOOD
+To do : 
+Etude statistique avec des données sur une période glissante(30 jours) avec intervalles de confiance au lieu de 1 trajectoire seulement 
+
+03/07/2023
+
+To do 4 the week : 
+- full Manhattan 
+- Ré"ussir a manipuler des tables dans un premier temps 
+- Puis essayer avec la base de données SQL 
+- Implémenter l'arbre de décision fait en VBA 
+- Chercher d'autres stratégie sur lesquelles appliquer le mécanisme avec ARMEN ?
+- Finir étude théorique sur estimateur
+
+- Implémentation en VBA de function PnL, function SLTP 
+- To do : function Hurst
+- Comprendre comment gérer les bases SQL ...
+
+DID : 
+- Création Function VBA PnL 
+- Création Function VBA variance
+- Création functoin VBA pour le SLTP 
+- Tutoriels SQL pour mieux comprendre
+
+To do: 
+Faire un essai sur les bases de données SQL 
+FInir le code excel 
+FAire un pseudo code avce le SQL 
+
+04/07/2023
+
+To do : 
+
+Un premier script test qui ouve un base dans pirsme et update une base dans prisme 
+Pseudo Code SLTP pour Microsoft Access 
+Lire et Comprendre les codes déjà existant 
+Pseudo Code et Liaisons des codes déjà existants 
+
+Did : 
+
+Clean output fichiers excel
+Apprentissage SQL 
+	- Fichiers CODE_SQL 
+Exploration fichiers base Micros
+
+To do :
+Bien comprendre le nécessaire -> excel faire clean vba avec le minimum de variables 
+Prochaines étapes : ouvrir une table sur Microsoft Acess et réaliser des updates 
+
+05/07/2023:
+
+To do : 
+FAire POC avec VBA 
+Lire code VBA/Access
+
+VBA a peu pres clean (pas la vol mais exizste deja dans access, pas hurst mais wip)
+Lecture du code Access existant, compréhension de l'architecture et de toute les étapes GOOD
+
+To do : 
+
+Explorer les tables SQL appellées initialiement dans le code SLTP access 
+Faire des requetes SQL, chercher des moyen de faire plus vite
+
+
+Tables SQL explorée, réalisation d'un SLTP constant avec des requetes SQL (pour 1 stratégie seulement + pas de stockage mais clair avec la méthode)
+Requete SQL pour avoir les données en agregée avec les poids 
+A priori besoin de VBA  pour la variance PX_LAST or multiples sous jacents -> probleme à reglker 
+
+
+06/07/2023
+
+Formation obligatoire sur Teams
+
+To do : 
+Préparer résultats à montrer à charles 
+Faire des requetes SQL dans Microsftr Access
+
+Powerpoint résultats 
+Graphiques excel 
+
+Powerpoint 
+Requetes SQL : architecture pour faire un SLTP constant sur les données
+Usage du INSERT INTO 
+
+07/07/2023
+
+To do :
+Mettre des data dan sune table test
+
+10/07/2023
+To do : 
+Clean docstrings, 
+Peintures graphs ct, 
+Questions Charles : 
+	- Pour SLTP, reprerise code ?
+	- Access :: Mauvaise pratique le SQL ?
+	- Créer des bases pour s'entrainer 
+	- Comment savoir quelle plage d'intervalles prendre ? Pb buisness car coté théoriaque trop long a faire (avis personnel) 
+		- Sinon , étude empirique : on définit une mesure et grid search, seulement quelques paramètres : bornes threshold et fenetre + manière de roll (reste pôint de détail sur comment créer le signal)
+	
+	- ??? 
+	- Axes d'amélioration -> comment identifier une tendance / un fin de tendance 
+		Poser les équation maths : on travaille sur P(y(t+1)|y(t), H(t))
+			E(y(t+1)|y(t), y(t-1), H(t)) = E(y(t+1)-y(t)|H(t), y(t)-y(t-1)) + y(t)
+			Puis calcul nouvell eesperance -> cherche à predire son signe donc travail sur la loi jjointe 
+
+
+11/07/2023
+
+Lectures articles de recherches sur SLTP (avec ou sans hurst)
+Debut revue de littérature -> résultats intéressant : certains article plus value mais que pour la persisatnce 
+La pluspart du temps, article avec un etsratégie de trading (momentum) pas exactement le meme cadre donc
+Existance d'indicateur technique pour estimateur si tendance ou non -> peut etre l'utilisé 
+Point avec charles 
+Did : Travail sur Excel, Access 
+Ecrire sur un excel à partir de la base de données access 
++ Mettre si Long ou short en fonction du signe de la position du portefeuille 
+
+12/07/2023
+
+Access VBA + Excel VBA 
+Ecrire sur un access a partir d'un excel 
+Point avec Charle 
+Création base test sur sql serveur 
+Ecriture sur cette base avec excel vba 
+Débrief (WIP) sur le doc word 
+
+To do :
+Clean Word : Good ?
+Montrer le reste à Charles 
+Poser les questions déjà identifier 
+Parler backtest et impélmentation sur d'autres stratégies 
+
+13/07/02023
+
+To do :
+Refaire les arbres de décison + graphique avec les quantiles + changer le code python 
+Refaire avec d'abord Variations puis hurst 
+
+Arbre de décsion rafit sur pp pour le mécanisme de SLTP basé siur le sous jacent 
+Graphique avec les quantiles 
+Changement du code pour ce faire 
+Debug du code (nouveau arguments don cpb...) 
+Recherches coefficients pertinents -> GOOD 
+Mise à jour du Word, nouveau + actualisatoin des graphiques 
+To do : script clean instead of notebook ?
+
+17/07/2023
+
+To do : 
+- Mise à jour différents supports (pp + word), relire partie théorique et préparé des questrions 
+- Rdv 10h15 avec Charles.
+- Rdv : mise à jour coquilles et update sur le code à fair e
+	- CODE : GOOD (changement barrière déterminée à la date d'initialisation
+	- Multiples scénarios essayé avec les valeur de sigma, pas de sauvegardes clean mais slides à disposition 
+	- Scenario retenu avec les valeurs proches de celles déjà en productions 
+	- Modifications faites sur les lsides et les graphs cpomme discutés (coquilles, y au lieu de PX_lAST, ...)
+	- Ajout des probas correpsondantes selon la valeurs devant la vol choisie 
+To do 
+	- docstrings du code 
+	- création d'un fichier py clean qu'on peut run et qui fait tout 
+
+Did : 
+	Architecture clean pour le code (tout run, fichiers py en scripts)
+To do : 
+	docstrings
+	clean code
+	liste questions 
+
+18/07/23
+
+To do : 
+	- Liste questions 
+	- Doctstrings
+	- Readme
+
+Questions : 
+	- Méthode pour évaluer les meilleurs seuils ?
+	- Méthode pour évaluer le caractère persistant / antipersistant ?
+		- Imaginer un nombre de scénarios théoriques pour le mBm
+		- Tester quellles approches marchent le mieux 
+		- Idée : LSTM ? GRU ? Decision Tree ? en mélangeant les différents estimateurs 
+	- Méthodologie pour le backtest ?
+
+To do : 
+	- List conditions arbre pour calcul sur les dfférentes stratégies -> reprendre l'architecture des bases de dobnnées TauxEuro + voir quels strategies ont un osus jacent ...
+	- Implémenté Hurst en VBA
+
+19/07/2023
+
+Did :
+	- Excel sur les sous jacent // stratégies de Taux EURO 
+To do : 
+	- Calcul vol histo pour Euro AGG
+	- Implémentation de Hurst 
+	- Ajout Realtive Value pour TauxEUro Vol histo
+
+Suivre comités auj, demain, lundi et mardi (taux souveraignn, inflation, ...) et noter questions pour Charle ensuite
+
+DID: 
+	- Calcul vol pour certaines stratégies de EuroAgg, pb : architecture à revoir + Code pas existant -> pas immédiat à faire 
+	- Comité CAPM IG, listes questions pour Charles, cad Qualités des données // Fiabilités + Pourquoi ne pas intégrer les vues dans le modèle (réponse est non, déjà evocqué mais pas de raison me viennent en tête)
+
+To do : 
+	- Hurst sur Access -> Prendre les 30 dernières valeurs et les output Hurst dans une Table
+	- Faire une fonction qui pour une tranche de valeur compute Hurst 
+	- Faire une sub qui pour chaque sous jacent compute Hurst et exporte dans une Table 
+
+20/07/2023
+
+To do : 
+	- Préparer réunion avec Charles à 15h30 
+Did 
+	- Clean du code 
+	- Ajout des strategies relative value 
+	- Pb de comment definir sous jacent 
+
+24/07/2023 
+
+To do : 
+	- Réunion Charles GOOD
+	- RV pour Taux Euro GOOD
+	- RV pour Euro Agg GOOD
+	- Agencies / Covered pour Core et Periph sur EuroAgg
+
+Then : 
+
+	- Faire une fonction qui pour une tranche de valeur compute Hurst - GOOOD
+	- Faire une sub qui pour chaque sous jacent compute Hurst et exporte dans une Table - GOOOD
+	
+Then :
+	- Hurst sur EuroAgg
+
+To do :
+	- Documentation travail effectuer - WIP
+	- Lire méthode calcul perf RelativeValue- WIP
+	- Réfléchir modèle sous jacent Hurst - WIP 
+	- Envoyer mail avec powerpoint - GOOD
+
+25/07/2023
+
+	- Reliere code Access dejha en prod pour performance s
+	- Powerpoint avec Charles : modif + ajouts 
+	- AJout constantes dans les modules access : seuil tp , seuil sl , risk aversion 
+	- Clean name des modules vba 
+
+26/07/2023
+
+	To do : 
+		- Implémenter SLTP sur Access pour Taux Euro
+		- Reprendre d'abord au propre le SLTP sur PnL
+		- Puis modifier pour avoir le SLTP sur le sous jacent 
+		- Création tables : 
+			- Exposant de Hurst 
+			- Level SL/TP -> 4, Faut stocker que la volatilité ?
+		- Adopter une archiutecture plus modulairez avce une function pour chaque sous ajcent
+		- Ajout sur le pp : Lien entre tracking Error TE et niveau de perte acceptables / gains souhaités
+
+Point Charles : Débrief sur quelles tables impélmenter, quelles table ajouter et si factorisation du code utile 
+To do : TE et perte acceptable à 20 %
+
+Did Te et perte acceptable en lien avec modèle normal 
+Reste la question / expo ou non ?
+
+Then : copier table pour avoir 
+	- Hurst 
+	- Sous jacent cumulé 
+
+27/07/2023
+
+Mail avec préparation du pp avec le code VBA 
+To do continuer les taches de la veille sur Access 
+
+28/07/2023
+
+To do : continuer sur Access
+Prévoir point avec Charles sur les résultats obtenus + pp 
+Erreurs nettoyée sur les autres macro 
+To do : voir si table prennent résultats
+To do : check les cas specifiques : derniers jours // premiers jours d'une stratégie si les end et start date correspondent bien  
+
+To do : ajouter missing part ? 
+
+To do : 
+	- Hurst good, 
+	- Sous jacent cumulé good 
+	- Maintenant écrire dans la table SLTP 
+	- Fichier py pour avoir exel avec les paramters + nouvelles strategie sous jacent uniquement sans le Hurst 
+
+https://github.com/northwesternfintech/2024QuantInternships
+
+- Sans hurst 
+- seuil SLTP p = 0.7 bouge pas  coefficient multiplication 0.2 à 2
+- seuil SLTP p = 0 à 10 
+- Avec hurst 
+- Varier C
+
+31/07/2023
+
+Commencer à coder la grille plus iplémenter .py pour la sauvegarder 
+Code clean de la grid search (à nettoyer encore)
+outpout dans un excel clean 
+en,voyé à charles
+Did excel clean grid search + ipywidgets pour avoir optimale
+
+To do : 
+- Powerpoint 
+- Microsoft Access continuer le code SLTP hurst 
+
+01/08/2023
+
+To do : 
+	- Access 
+	- Travailler la prez : avoir le plan pour pouvoir faire les mopdifications, créer une histoire ect ...
+	- Python : Clean le code pour les paramètres ?
+	- Créer une méthodologie de backtest robuste afin de déterminer les coefficients 
+		- Quelles coefficients sont figés par l'expertise méthier 
+			- Coef de proportionnalité par rapport à la vol ?
+			- Coef de SLTP en PnL ? 
+			- Hurst -> dépend sans doute de ces paramètres 
+	- Idée sur le tas : utiliser deux exposants de Hurst : le premier à un ans, le second à 2 ans -> s'approcher de l'analyse 
+	décompostion en série harmaonique, ne marche pas mais idée ede décomposition en long terme/ moyen terme / court terme 
+	- Parler à Charle publication article sur travail actuel avec mon propre researchgate.
+	- Travail précédent : plus value de Hurst sur le mécansime avec vol 
+	- Pour comparer celui basé sur le PnL -> remplacer la vol par le PnL dans l'arbre de décision (en utilisant Hurst sur le osu jacent)
+
+Changer en coefficient multiplicateur de la vol 
+
+02/08/2023
+
+To do :
+	- Excel : montrer repo à Charles 
+	- Mail avec Résultats Grid Search - GOOD
+	- Code Access Mail avec les noms des modules crées et leur utilité - GOOD
+	- Python : documentation Word - GOOD
+	- PnL : lien avec TE et Perte / Objectif acceptable -> Rajouter un graphique
+
+03/08/2023
+
+To do :
+	- Finir peinture sur Excel GridSearch
+	- PnL sur le pp 
+	- Pp à préparer le vendredi seulement 
+	- Continuer documentation du code
+	- Access ?  Charles avaity l'iair interessé
+
+	- Point 10h30 Charles : 
+		- Présenter dernière version de l'excel 
+		- Refaire un mail access avec les paramètres en constantes dans un module plus rajouter description sur le calcul module volatility.
+		- Description de ce qu'il e est pour EuroAgg 
+		- Module pour le sous jacent 
+
+	- Envoi mail -> Good 
+	- Lien entre niveau PnL et TE 
+	- Reprendre developpement Access -> WIP 
+
+To do : 
+	- Mail GOOD 
+	- Excel - WIP 
+	- Access - GOOD pour Duration, reste à faire toutes les autres stratégies (facilement scalable)
+	
+04/08/2023 :
+	- Access / VBA code finit pour le SLTP sur le sous jacent 
+
+To do : 
+	- Clean le code - GOOD 
+	- Faire un main - GOOD 
+	- A faire : ajouter aux tables les dates manquantes pour que le code run
+
+07/08/2023
+
+WIP : Ajouter des dates aux dates manquantes 
+Réunion présentation décalée 
+WIP : ajout des dates dans les tables semble marcher, 
+reste à faire un tableau excel aevc un reporting
+
+- GOOD export da	ns les tables et macro globales 
+To do n: ?
+
+-check si vol prise au bon moment, si ce n'est pas le cas changer ca c'est bien le cas 
+
+Faire un fichier excel qui peut lire danxs le tabl -> repredre leswx codes déjà fait, ajouter un bouteon puis reflechir à peinture.
+
+- Continuer excel sous jacent taux euro
+- Report avec le SLTP automatiser
+- SLTP_SDS module avec mail automatique 
+
+Macro pour faire un mail automatique ->tab clean, reste à bien tout comprendre puis adapter pour le cas de mon monitoring
+To do : 
+	- Mail automatique 
+	- Peindre le template ?
+	- Vérifier les sorties de chaque macro du Main() pour Taux Euro
+Ouput avec toutes les tables : check semble ok pas de mis confusion, a verifier le delta RF cumulé est bien reset à temps.
+
+08/08/2023
+
+Reprendre la version excel et l'implémentée sur access - GOOD
+Ajouter les autres colonnes - GOOD
+Sauvegarder et écrire en même temps - GOOD
+
+WIP : put the mail and export macro in access, actualy debugging the code 
+Export du mail -> GOOD 
+Sauvegarde du fichier -> GOOD 
+Ajout envoie d'un mail dans le fichier main -> GOOD 
+To do : ?
+	- PnL cumulé -> Retravailler le fichier de Moussa 
+	- Ajouter ce qui a été fait à la documentation commencée préalamblement 
+	- Mail : fonctionne mais visuel n'est pas celui souhaiter : reprise à partir d'excel : changer le template 
+
+To do : 
+	- Modifier le corps du mail -> WIP 
+	- Nouveau template avec des colonnes en plus et deux tableau différents : GOOD 
+	- WIP : mettre les images 
+
+09/08/2023
+
+Jours -> GOOD
+A faire : finir la rédaction du mail : créer deux capture d'écrans et les afficher.
+Puis ? Ajout de la documentation nom des subs ect ...
+Puis ? 
+
+A faire : 
+	- Continuer le mail - GOOD
+	- Modifier l'organisation du répertoire communs
+		- Créer pleins de sous dossiers 
+		- Enlever Bathazar 
+		- Faire / Ajouter / Updater la documentatoin 
+		- Pour Hurst_Exponents 
+		- Pour le backtest 
+
+Fait : Documentation Access / VBA : à jour 
+Fait : Rajout anciennes slides dans le pp actuel 
+Fait : Changement des fichiers py 
+ 
+A faire : VBA rajouter le SLTP selon le PnL 
+	- Créer une nouvelle table 
+	- Créer un nouveau module 
+	- Mettre à jour la documentation 
+
+Egalement : 
+	- Lire la présentation 
+	- Poser des questions / en préparer sur la méthodologie 
+	- Mettre à jour la documentation des fichiers python des nouveaux dossiers 
+
+A faire : 
+	- Ajouter Grid Search - GOOD
+	- Vérifier les fichiers MinMax.py - GOOD, problème avec la structure précedente cependant 
+	- SLTP PnL réfléchir comment faire le code - WIP
+	- Présentation 
+
+Changer les lieux des outputs 
+
+10/08/2023
+Todo : 
+
+	- Dossier output pour gridsearch
+	- Intégrer dans le main un SLTP basé sur le PnL
+	- Grid Search : GOOD 
+	- PnL : Rajouté dans le Main (avec une nouvelle table, nécessaire de mettre à jour les tables avec les données pour faire tourner les algorithmes 
+	- Faire l'arbre de décision mixte
+
+Did : 
+	- Update de la presentation : SLTP, WIP enleve, modification arbre basé sur le PnL (ajout de constantes)
+	- Update de la présentation : Ajout des sldies sur la borne minimum et maximum atteignable 
+	- Update de la présentation : 
+
+ToDo : 
+	- Enlever les coquilles dans la présentation - Coquilles plus delta y pour la vol GOOD 
+	- Formaliser les min et max sltp - WIP 
+	- Simuler des position - Idée 
+	- Juger en relatif le min et max SLTP - Idée  
+
+11/08/2023
+
+Hurst avec Charles
+
+17/08/2023
+
+Vizualisation des performances sur la correlations 
+
+Formalisation Temps d'arrets slide avec Chafic 
+Préparer réunion sur le mécansime // partie Hurst 
+	- etude théorique avec des mouvements simulés 
+	- étude prédiction des autocorrélations 
+
+To do : 
+	- Temps d'arret 
+	- Manhattan (demain)
+	- Demain Hurst sur plusieurs series 
+
+To do : 
+	- Mettre au propre la proposition sur ta 
+	- Réfléchir vizuel dans un plan en 2D pour la persistance / antiperistance 
+
+Did : 
+	- Slides pour le mùécanisme optimal 
+
+18/08/2023
+
+Réunion Avec cHarles arrivée tardives 
+Reproches sur comment je dépense mon temps libre (blog, cv, ...)
+
+Did : SLTP mixte : implémenté, reste à faire le mail ou l'on explique si 1 ou deux 
+Todo : 
+	- Mettre à jour la documentation du code Access - GOOD
+	- Rajouter définitions temps d'arret dans la présentation - GOOD 
+	- Todo : rajouter ET en plus du temps dans le Stop Loss - WIP 
+
+Todo 
+	- Enlever folder denrières versions - GOOD
+	- Corriger coquilles Hurst - Good 
+	- Changer le graph - GOOD 
+	- Ajouter Histplot - Daily et CR - GOOD pour CR
+	- ecrire un fichier txt / mail / word avec les étapes pour faire le backtest - GOOD 
+		- Remarque Charle ajout de description supplémentaire 
+	- Puis GridSearch - GOOD
+
+ToDo : 
+	- Ajouter Histplot - Daily - LATER : Remarque personnelles, cette vue ne sert à rien - WIP ???
+	- Reprendre les Histplots par CR - GODD
+	- Manhattan : Incorporer dans le mail les autres mécanismes 
+	- Préparer explication de mon code - WIP 
+		- Annotations du code + le relire bien - GOOD 
+		- Pb sur noms des fichiers exporté à corriger - GOOD 
+		- Vérifier les fichiers excels exporter 
+
+
