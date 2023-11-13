@@ -30,18 +30,26 @@ Modern Portfolio Theory offers a quantitative framework for assembling a portfol
 
 ### Key Equations
 In the heart of MPT are several key mathematical concepts:
-- **Expected Return of a Portfolio**: The expected return of a portfolio, denoted as \( E(R_p) \), is calculated as the weighted average of the expected returns of the individual assets in the portfolio. The formula is given by \( E(R_p) = \sum w_i E(R_i) \), where \( w_i \) represents the proportion of the portfolio's total value invested in each asset, and \( E(R_i) \) is the expected return of asset i.
-- **Portfolio Variance**: The variance of a portfolio, denoted as \( \sigma_p^2 \), measures the dispersion of the returns from the expected return. It's calculated using the formula \( \sigma_p^2 = \sum w_i^2 \sigma_i^2 + \sum\sum w_i w_j \sigma_i \sigma_j \rho_{ij} \), where \( \sigma_i \) and \( \sigma_j \) are the standard deviations of the returns on assets i and j, respectively, and \( \rho_{ij} \) is the correlation coefficient between the returns on these assets.
+- **Expected Return of a Portfolio**: The expected return of a portfolio, denoted as $E(R_p)$, is calculated as the weighted average of the expected returns of the individual assets in the portfolio. The formula is given by $E(R_p) = \sum w_i E(R_i)$, where $w_i$ represents the proportion of the portfolio's total value invested in each asset, and $E(R_i)$ is the expected return of asset i.
+- **Portfolio Variance**: The variance of a portfolio, denoted as $\sigma_p^2$, measures the dispersion of the returns from the expected return. It's calculated using the formula $\sigma_p^2 = \sum w_i^2 \sigma_i^2 + \sum\sum w_i w_j \sigma_i \sigma_j \rho_{ij}$, where $\sigma_i$ and $\sigma_j$ are the standard deviations of the returns on assets i and j, respectively, and $\rho_{ij}$ is the correlation coefficient between the returns on these assets.
 
 ## The Efficient Frontier
 The Efficient Frontier is a concept central to MPT. It represents a set of portfolios that provide the highest expected return for a given level of risk or, alternatively, the lowest risk for a given level of expected return.
 
 ### Mathematical Explanation
 The Efficient Frontier is derived from the optimization problem of finding the set of portfolios that maximize expected return for a specific level of risk or minimize risk for a given level of expected return. This optimization problem involves:
-- **Maximizing**: \( E(R_p) \), the expected return of the portfolio.
-- **Subject to**: The constraint that \( \sigma_p^2 \), the portfolio variance, remains within a specified range.
-- **Constraint**: The sum of the weights of the assets in the portfolio \( \sum w_i \) equals 1.
+- **Maximizing**: $E(R_p)$, the expected return of the portfolio.
+- **Subject to**: The constraint that $\sigma_p^2$, the portfolio variance, remains within a specified range.
+- **Constraint**: The sum of the weights of the assets in the portfolio $\sum w_i$ equals 1.
 
 ## NASDAQ Stock Examples
 Let's apply these concepts using hypothetical examples from NASDAQ-listed stocks. Imagine choosing between stocks A, B, and C, each with different levels of risk and expected returns.
 
+```python
+# Python code for generating an example graph
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Hypothetical data for stocks A, B, and C
+returns = np.array([0.12, 0.10, 0.08])  # Hypothetical returns
+risk = np.array([0.20, 0.15, 0
