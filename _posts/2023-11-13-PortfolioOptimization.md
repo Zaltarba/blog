@@ -25,6 +25,109 @@ Return, on the other hand, represents the gain or loss on an investment over a s
 ### Diversification
 Diversification is a strategy employed to reduce risk in a portfolio. It involves spreading investments across a variety of assets to minimize the impact of any single asset's performance on the overall portfolio. The idea is that a decline in one asset can be offset by gains in another, thereby reducing the potential for significant losses.
 
+## Calculating the Correlation Matrix
+
+The correlation matrix is a key element in portfolio theory, measuring the extent to which two securities move in relation to each other. We explore several methods for calculating it, each with its own approach and nuances.
+
+### Method 1: Historical Returns
+#### Description
+This method uses historical returns of assets to calculate the correlation coefficients.
+
+#### Mathematical Details
+- Calculate the returns for each asset over a set period.
+- Use the formula: 
+  $$
+  \rho_{ij} = \frac{Cov(R_i, R_j)}{\sigma_i \sigma_j}
+  $$
+  where $Cov(R_i, R_j)$ is the covariance between the returns of assets i and j, and $\sigma_i$ and $\sigma_j$ are their standard deviations.
+
+#### Pros
+- Intuitive and straightforward.
+- Based on actual historical data.
+
+#### Cons
+- Assumes past relationships between assets will continue.
+- May not capture new market dynamics.
+
+### Method 2: Factor Models
+#### Description
+Factor models like the CAPM or Fama-French model estimate correlations based on shared responses to economic factors.
+
+#### Mathematical Details
+- Identify relevant economic factors (e.g., market risk, size, value).
+- Estimate asset sensitivities to these factors.
+- Correlation is inferred from factor exposures.
+
+#### Pros
+- Considers broader market and economic influences.
+- Can be more forward-looking than historical data.
+
+#### Cons
+- Requires identifying the correct factors.
+- More complex to implement.
+
+## Computing the Expected Return of a Stock
+
+Several methods can be used to compute the expected return of a stock, each with its own mathematical approach and considerations:
+
+### Method 1: Historical Average Return
+#### Description
+Calculates the average return of a stock based on historical data.
+
+#### Mathematical Details
+- Formula: 
+  $$
+  E(R_i) = \frac{1}{N} \sum_{t=1}^{N} R_{i,t}
+  $$
+  where $R_{i,t}$ is the return in period t, and N is the number of periods.
+
+#### Pros
+- Simple and easy to understand.
+- Directly based on past performance.
+
+#### Cons
+- Assumes past performance indicates future results.
+- Sensitive to the time frame selected.
+
+### Method 2: Dividend Discount Model (DDM)
+#### Description
+The DDM estimates the stock's value based on its future dividend payments.
+
+#### Mathematical Details
+- Formula: 
+  $$
+  E(R_i) = \frac{D_{i,1}}{P_i} + g
+  $$
+  where $D_{i,1}$ is the expected dividend next year, $P_i$ is the current price, and g is the dividend growth rate.
+
+#### Pros
+- Incorporates future expectations.
+- Useful for dividend-paying stocks.
+
+#### Cons
+- Not applicable to non-dividend stocks.
+- Depends on growth rate accuracy.
+
+### Method 3: Capital Asset Pricing Model (CAPM)
+#### Description
+CAPM relates the expected return of a stock to its risk relative to the overall market.
+
+#### Mathematical Details
+- Formula: 
+  $$
+  E(R_i) = R_f + \beta_i (E(R_m) - R_f)
+  $$
+  where $R_f$ is the risk-free rate, $\beta_i$ is the stock's beta, and $E(R_m)$ is the expected market return.
+
+#### Pros
+- Accounts for systematic risk.
+- Widely used and accepted.
+
+#### Cons
+- Assumes a linear relationship between risk and return.
+- Beta may not be stable over time.
+
+
 ## Modern Portfolio Theory (MPT)
 Modern Portfolio Theory offers a quantitative framework for assembling a portfolio of assets that aims to maximize expected return for a given level of risk. It suggests that an investment's risk and performance should be assessed not in isolation but as part of the overall portfolio.
 
