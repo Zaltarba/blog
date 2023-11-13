@@ -145,14 +145,3 @@ The Efficient Frontier is derived from the optimization problem of finding the s
 - **Subject to**: The constraint that $\sigma_p^2$, the portfolio variance, remains within a specified range.
 - **Constraint**: The sum of the weights of the assets in the portfolio $\sum w_i$ equals 1.
 
-## NASDAQ Stock Examples
-Let's apply these concepts using hypothetical examples from NASDAQ-listed stocks. Imagine choosing between stocks A, B, and C, each with different levels of risk and expected returns.
-
-```python
-# Python code for generating an example graph
-import matplotlib.pyplot as plt
-import numpy as np
-
-# Hypothetical data for stocks A, B, and C
-returns = np.array([0.12, 0.10, 0.08])  # Hypothetical returns
-risk = np.array([0.20, 0.15, 0
