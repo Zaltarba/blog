@@ -4,7 +4,7 @@ title: Profile 🚀
 permalink: /about_me/
 ---
 
-Graduating student with in-depth knowledge in finance, machine learning, statistics and econometrics. Highly motivated for a quantitative researcher position involving the use of econometric methods. Seeking full-time employment.
+Quantitative Researcher with in-depth knowledge in finance, machine learning, statistics and econometrics. Stock markets enthusiast !
 
 # Education 🏫
 
