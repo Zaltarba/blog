@@ -60,7 +60,7 @@ But the devil hides in the details. I won't delve into all linear regression tem
 
 When you work with prices and not returns, this happens very frequently because of the temporal trend in the data.
 
-Let's consider two time series, \(Y_t\) and \(X_t\), both with linear trends. We can express them as:
+Let's consider two time series, $(Y_t)$ and $(X_t)$, both with linear trends. We can express them as:
 $$
 Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y
 $$
@@ -85,6 +85,7 @@ For simplicity, let \(\gamma' = \gamma + \delta \cdot \alpha_X\) and \(u_t' = \e
 $$
 \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma' + \delta \cdot \beta_X \cdot t + u_t'
 $$
+
 This equation shows that if both time series \(Y_t\) and \(X_t\) have a linear trend, the regression will reflect this trend rather than a meaningful relationship between the series. The term \(\delta \cdot \beta_X \cdot t\) suggests that the p-value might indicate a significant relationship due to the common trend \(\beta_X \cdot t\) and not due to any genuine correlation between \(\epsilon_t^Y\) and \(\epsilon_t^X\).
 
 This spurious correlation arises because both series share a common linear trend, leading the regression to falsely suggest a meaningful relationship.
