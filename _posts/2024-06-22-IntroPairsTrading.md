@@ -62,24 +62,46 @@ But the devil hides in the details. I won't delve into all linear regression tem
 
 When you work with prices and not returns, this happens very frequently because of the temporal trend in the data.
 
-Let's consider two time series, $(Y_t)$ and $(X_t)$, both with linear trends. We can express them as:
+Let's consider two time series, $(P_t^A)$ and $(P_t^B)$, both prices and created from uncorrelated white noises. 
+Let's consider two time series of returns, \(r_t^A\) and \(r_t^B\), which are both uncorrelated white noise processes:
+$$
+r_t^A \sim WN(0, \sigma_A^2)
+$$
+$$
+r_t^B \sim WN(0, \sigma_B^2)
+$$
 
-$Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y$
-and 
-$X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X$
+The prices of stocks A and B can be expressed as the cumulative sums of these returns:
+$$
+P_t^A = P_0^A + \sum_{i=1}^{t} r_i^A
+$$
+$$
+P_t^B = P_0^B + \sum_{i=1}^{t} r_i^B
+$$
 
-where $\alpha_Y$ and $\alpha_X$ are constants, $\beta_Y$ and $\beta_X$ are the coefficients of the linear trends, and $(\epsilon_t^Y)$ and $(\epsilon_t^X)$ are the error terms.
+Now, let's perform a regression of \(P_t^A\) on \(P_t^B\):
+$$
+P_t^A = \gamma + \delta \cdot P_t^B + u_t
+$$
 
-Now, let's perform a regression of $(Y_t)$ on $(X_t)$:
-$$Y_t = \gamma + \delta \cdot X_t + u_t$$
-Substituting the expressions for \(Y_t\) and \(X_t\):
-$$\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot (\alpha_X + \beta_X \cdot t + \epsilon_t^X) + u_t$$
+Substituting the cumulative sums into the regression equation:
+$$
+P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot \left( P_0^B + \sum_{i=1}^{t} r_i^B \right) + u_t
+$$
+
 Rearranging terms, we get:
-$$\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot \alpha_X + \delta \cdot \beta_X \cdot t + \delta \cdot\epsilon_t^X + u_t$$
-For simplicity, let $\gamma' = \gamma + \delta \cdot \alpha_X$ and $u_t' = \epsilon_t^Y - \delta \cdot \epsilon_t^X + u_t$, so:
-$$\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma' + \delta \cdot \beta_X \cdot t + u_t'$$ 
+$$
+P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot P_0^B + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t
+$$
 
-This equation shows that if both time series $(Y_t)$ and $(X_t)$ have a linear trend, the regression will reflect this trend rather than a meaningful relationship between the series. The term $(\delta \cdot \beta_X \cdot t\)$ suggests that the p-value might indicate a significant relationship due to the common trend $(\beta_X \cdot t\)$ and not due to any genuine correlation between $(\epsilon_t^Y)$ and $(\epsilon_t^X)$.
+For simplicity, let \(\gamma' = \gamma + \delta \cdot P_0^B\) and \(u_t' = u_t\), so:
+$$
+P_0^A + \sum_{i=1}^{t} r_i^A = \gamma' + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t'
+$$
+
+Given that \(r_t^A\) and \(r_t^B\) are both uncorrelated white noise processes, the sums \(\sum_{i=1}^{t} r_i^A\) and \(\sum_{i=1}^{t} r_i^B\) will both follow a random walk. Despite the lack of true correlation between \(r_t^A\) and \(r_t^B\), the random walks introduce a trend over time, leading to an apparent but spurious relationship in their cumulative sums.
+
+This spurious correlation arises because the cumulative sums (prices) of uncorrelated white noise processes (returns) will exhibit a high probability of coincidental trends, causing the regression to falsely suggest a meaningful relationship.
 
 This spurious correlation arises because both series share a common linear trend, leading the regression to falsely suggest a meaningful relationship.
 
