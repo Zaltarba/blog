@@ -64,16 +64,12 @@ When you work with prices and not returns, this happens very frequently because 
 
 Let's consider two time series, $(Y_t)$ and $(X_t)$, both with linear trends. We can express them as:
 
-$
-Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y
-$
+$ Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y $
 Then 
-$
-X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X
-$
-where \(\alpha_Y\) and \(\alpha_X\) are constants, \(\beta_Y\) and \(\beta_X\) are the coefficients of the linear trends, and \(\epsilon_t^Y\) and \(\epsilon_t^X\) are the error terms.
+$ X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X $
+where $\alpha_Y$ and $\alpha_X$ are constants, $\beta_Y$ and $\beta_X$ are the coefficients of the linear trends, and $(\epsilon_t^Y)$ and $(\epsilon_t^X)$ are the error terms.
 
-Now, let's perform a regression of \(Y_t\) on \(X_t\):
+Now, let's perform a regression of $(Y_t)$ on $(X_t)$:
 $$
 Y_t = \gamma + \delta \cdot X_t + u_t
 $$
