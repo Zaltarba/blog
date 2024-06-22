@@ -37,3 +37,5 @@ with
 - $beta_B$, $alpha_B$, $r_t^B$ and $eps_t^B$ the capm components for stock B
 
 As you can see, the market part has here disapeared. Theorecally, buying $beta_B$ stock A and shorting $beta_A$ stock B should give you an market neutral portfolio for any stock. Where the hitch ? Well warning here, an assumption of the CAPM model is here that eps_t is an idiosyncratic risk, meaning the correlation between $eps_t^A$ and $eps_t^B$ is null. That's a big step to take and why have being warning some much about this framework. We will see more usefull frameworks in next posts.
+
+**Terminology Alert** : in practice, strategies tend to go long on stock A and short $frac{beta_A}{beta_B}$. Thus we introduce the hedge ratio $rhau =  frac{beta_A}{beta_B}$.
