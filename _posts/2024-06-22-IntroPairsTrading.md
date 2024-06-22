@@ -29,7 +29,9 @@ Pairs trading is a specific framework with the purpose of creating market-neutra
 
 Under the CAPM model (again, this approach is outdated and if you are looking for practical advice, you should work with a multi-factor model at least) you get:
 
-$$ \beta_B \cdot r_t^A - \beta_A \cdot r_t^B = \beta_B \cdot \alpha_A - \beta_A \cdot \alpha_B + \epsilon_t^A + \epsilon_t^B $$
+$$ 
+\beta_B \cdot r_t^A - \beta_A \cdot r_t^B = \beta_B \cdot \alpha_A - \beta_A \cdot \alpha_B + \epsilon_t^A + \epsilon_t^B 
+$$
 
 with
 
@@ -61,12 +63,14 @@ But the devil hides in the details. I won't delve into all linear regression tem
 When you work with prices and not returns, this happens very frequently because of the temporal trend in the data.
 
 Let's consider two time series, $(Y_t)$ and $(X_t)$, both with linear trends. We can express them as:
-$$
+
+$
 Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y
-$$
-$$
+$
+Then 
+$
 X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X
-$$
+$
 where \(\alpha_Y\) and \(\alpha_X\) are constants, \(\beta_Y\) and \(\beta_X\) are the coefficients of the linear trends, and \(\epsilon_t^Y\) and \(\epsilon_t^X\) are the error terms.
 
 Now, let's perform a regression of \(Y_t\) on \(X_t\):
