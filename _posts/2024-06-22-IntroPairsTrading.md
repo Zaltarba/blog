@@ -64,29 +64,22 @@ When you work with prices and not returns, this happens very frequently because 
 
 Let's consider two time series, $(Y_t)$ and $(X_t)$, both with linear trends. We can express them as:
 
-$ Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y $
+$Y_t = \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y$
 Then 
-$ X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X $
+$X_t = \alpha_X + \beta_X \cdot t + \epsilon_t^X$
+
 where $\alpha_Y$ and $\alpha_X$ are constants, $\beta_Y$ and $\beta_X$ are the coefficients of the linear trends, and $(\epsilon_t^Y)$ and $(\epsilon_t^X)$ are the error terms.
 
 Now, let's perform a regression of $(Y_t)$ on $(X_t)$:
-$$
-Y_t = \gamma + \delta \cdot X_t + u_t
-$$
+$$ Y_t = \gamma + \delta \cdot X_t + u_t $$
 Substituting the expressions for \(Y_t\) and \(X_t\):
-$$
-\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot (\alpha_X + \beta_X \cdot t + \epsilon_t^X) + u_t
-$$
+$$ \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot (\alpha_X + \beta_X \cdot t + \epsilon_t^X) + u_t $$
 Rearranging terms, we get:
-$$
-\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot \alpha_X + \delta \cdot \beta_X \cdot t + \delta \cdot \epsilon_t^X + u_t
-$$
+$$ \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma + \delta \cdot \alpha_X + \delta \cdot \beta_X \cdot t + \delta \cdot\epsilon_t^X + u_t $$
 For simplicity, let \(\gamma' = \gamma + \delta \cdot \alpha_X\) and \(u_t' = \epsilon_t^Y - \delta \cdot \epsilon_t^X + u_t\), so:
-$$
-\alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma' + \delta \cdot \beta_X \cdot t + u_t'
-$$
+$$ \alpha_Y + \beta_Y \cdot t + \epsilon_t^Y = \gamma' + \delta \cdot \beta_X \cdot t + u_t'$$ 
 
-This equation shows that if both time series \(Y_t\) and \(X_t\) have a linear trend, the regression will reflect this trend rather than a meaningful relationship between the series. The term \(\delta \cdot \beta_X \cdot t\) suggests that the p-value might indicate a significant relationship due to the common trend \(\beta_X \cdot t\) and not due to any genuine correlation between \(\epsilon_t^Y\) and \(\epsilon_t^X\).
+This equation shows that if both time series $(Y_t)$ and $(X_t)$ have a linear trend, the regression will reflect this trend rather than a meaningful relationship between the series. The term $(\delta \cdot \beta_X \cdot t\)$ suggests that the p-value might indicate a significant relationship due to the common trend $(\beta_X \cdot t\)$ and not due to any genuine correlation between $(\epsilon_t^Y)$ and $(\epsilon_t^X)$.
 
 This spurious correlation arises because both series share a common linear trend, leading the regression to falsely suggest a meaningful relationship.
 
