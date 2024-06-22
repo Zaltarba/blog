@@ -17,12 +17,23 @@ The return of an asset can be expressed as $r_t - r_f = \alpha + (\beta \cdot (r
 - $r_f$ the risk-free return
 - $r_m$ the market return
 - $\alpha$ the expected excess return
-- $\beta$ the correlation with the market
+- $\beta$ the sensitivity of the asset's returns to the market returns
 
-With this framework, if you manage to construct a portfolio with a null beta (i.e., the linear combination of the assets within is such that the sum of their betas is null), you then get a portfolio whose returns are uncorrelated from those of the market! Bear and bull markets don't matter anymore! What's the point? Why not just OTM calls with one week until expiration and pray to get rich? Well, to that, I would say, based on my understanding of Harry Markowitz's works, that you surely should do both. I am sure an efficient frontier exists mixing those strategies. 
+With this framework, if you manage to construct a portfolio with a null beta (i.e., the linear combination of the assets within is such that the sum of their betas is null), you then get a portfolio whose returns are uncorrelated from those of the market! Bear and bull markets don't matter anymore! What's the point? Why not just buy OTM calls with one week until expiration and pray to get rich? Well, to that, I would say, based on my understanding of Harry Markowitz's works, that you surely should do both. I am sure an efficient frontier exists mixing those strategies. 
 
 Anyway, when working on a market-neutral strategy, the quant researcher's role is thus to reduce its strategy's beta as much as possible and to maximize its alpha (i.e., its expected outperformance).
 
 ## About Pairs Trading 
 
-Sorry had to go to lunch 
+Pairs trading is specific framework with the purpose of creating market neutral strategies. The way to do so used by HF quants is the folowing : a use a linear combination of two stock to remove the beta from the market. Let's considers two stocks : stock A and stock B.
+
+Under the CAPM model (again this approach is today outdated and if you are looking for pratical advise you should more work with a multi factor model at least) you get :
+
+$ beta_B * r_t^A - beta_A * r_t^B = beta_B * alpha_B - beta_B * alpha_A + eps_t^A + eps_t^B $
+
+with 
+
+- $beta_A$, $alpha_A$, $r_t^A$ and $eps_t^A$ the capm components for stock A
+- $beta_B$, $alpha_B$, $r_t^B$ and $eps_t^B$ the capm components for stock B
+
+As you can see, the market part has here disapeared. Theorecally, buying $beta_B$ stock A and shorting $beta_A$ stock B should give you an market neutral portfolio for any stock. Where the hitch ? Well warning here, an assumption of the CAPM model is here that eps_t is an idiosyncratic risk, meaning the correlation between $eps_t^A$ and $eps_t^B$ is null. That's a big step to take and why have being warning some much about this framework. We will see more usefull frameworks in next posts.
