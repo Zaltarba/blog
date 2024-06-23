@@ -72,7 +72,7 @@ $$
 R_B(t) = \frac{P_B(t) - P_B(t-1)}{P_B(t-1)}
 $$
 
-If we assume the returns are driven by the market model:
+Assuming the returns are driven by the market model:
 
 $$
 R_A(t) = \alpha_A + \beta_A \cdot R_m(t) + \epsilon_A(t)
@@ -92,25 +92,51 @@ $$
 R_B(t) = \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)
 $$
 
-Now, consider the price ratio of stocks A and B:
+Now, let's examine the difference between the log prices of the two stocks:
 
 $$
-\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot (1 + R_A(t))}{P_B(t-1) \cdot (1 + R_B(t))}
+\log(P_A(t)) - k \cdot \log(P_B(t))
 $$
 
-Substituting the expressions for $R_A(t)$ and $R_B(t)$:
+The log return of stock A and stock B can be expressed as:
 
 $$
-\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot \left(1 + \alpha_A + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)\right)}{P_B(t-1) \cdot \left(1 + \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)\right)}
+\log(P_A(t)) - \log(P_A(t-1)) = R_A(t)
 $$
 
-For simplicity, let's assume $\alpha_A = \alpha_B = 0$, which gives us:
-
 $$
-\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot \left(1 + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)\right)}{P_B(t-1) \cdot \left(1 + \beta_B \cdot R_m(t) + \epsilon_B(t)\right)}
+\log(P_B(t)) - \log(P_B(t-1)) = R_B(t)
 $$
 
-Because $\beta_A = k \cdot \beta_B$, any deviation in the price ratio $\frac{P_A(t)}{P_B(t)}$ will revert to its mean over time, implying a stationary series. Hence, stocks A and B are cointegrated.
+Using the market model for returns:
+
+$$
+\log(P_A(t)) - \log(P_A(t-1)) = \alpha_A + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)
+$$
+
+$$
+\log(P_B(t)) - \log(P_B(t-1)) = \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)
+$$
+
+Substitute these into our difference equation:
+
+$$
+\log(P_A(t)) - k \cdot \log(P_B(t)) - \left( \log(P_A(t-1)) - k \cdot \log(P_B(t-1)) \right) = \left( \alpha_A + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t) \right) - k \cdot \left( \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t) \right)
+$$
+
+Simplify to:
+
+$$
+\log(P_A(t)) - k \cdot \log(P_B(t)) = \log(P_A(t-1)) - k \cdot \log(P_B(t-1)) + \alpha_A - k \cdot \alpha_B + \epsilon_A(t) - k \cdot \epsilon_B(t)
+$$
+
+Assuming $\alpha_A = k \cdot \alpha_B$, this reduces to:
+
+$$
+\log(P_A(t)) - k \cdot \log(P_B(t)) = \log(P_A(t-1)) - k \cdot \log(P_B(t-1)) + \epsilon_A(t) - k \cdot \epsilon_B(t)
+$$
+
+This shows that $\log(P_A(t)) - k \cdot \log(P_B(t))$ is a stationary series if $\epsilon_A(t) - k \cdot \epsilon_B(t)$ is stationary. Therefore, stocks A and B are cointegrated.
 
 So, when stocks A and B have proportional betas, they are cointegrated. This means that despite short-term deviations, their prices will move together in the long run. The opposite is also true: if two stocks are cointegrated, their betas will be proportional.
 
