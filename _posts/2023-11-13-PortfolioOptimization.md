@@ -3,6 +3,7 @@ layout: post
 title: About Portfolio Optimization
 categories: [Personnal project]
 excerpt: Let's talk about modern Portfolio Optimization !
+hidden: true
 ---
 
 # Portfolio Optimization: Balancing Risk and Return
