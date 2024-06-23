@@ -43,7 +43,7 @@ Let's now explain the link between the beta of two stocks and their cointegratio
 In mathematical terms
 
 $$
-\betas_A = k \times \betas_B
+(\beta_A, s_A, h_A) = k \times (\beta_B, s_B, h_B)
 $$
 
 for some constant $k$. 
