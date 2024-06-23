@@ -30,7 +30,7 @@ Pairs trading is a specific framework with the purpose of creating market-neutra
 Under the CAPM model (again, this approach is outdated and if you are looking for practical advice, you should work with a multi-factor model at least) you get:
 
 $$ 
-\beta_B \cdot r_t^A - \beta_A \cdot r_t^B = \beta_B \cdot \alpha_A - \beta_A \cdot \alpha_B + \epsilon_t^A + \epsilon_t^B 
+\beta_B \times r_t^A - \beta_A \times r_t^B = \beta_B \times \alpha_A - \beta_A \times \alpha_B + \epsilon_t^A + \epsilon_t^B 
 $$
 
 with
@@ -148,5 +148,3 @@ When people use these two tools, the process is typically as follows:
   5. Create entry and exit thresholds to trade on low/mid-frequency
 
 This approach is explained by Gatev et al. in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615).
-
-
