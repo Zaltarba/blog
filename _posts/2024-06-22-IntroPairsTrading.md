@@ -13,7 +13,7 @@ I have started working on pairs trading and market-neutral trading strategies in
 
 Before speaking of pairs trading, let's first define market-neutral strategies. A market-neutral strategy aims to provide uncorrelated sources of returns from the market. The Capital Asset Pricing Model (CAPM), even if now outdated, provides a nice framework to explain the intuition:
 
-The return of an asset can be expressed as $r_t - r_f = \alpha + (\beta \cdot (r_m - r_f)) + \epsilon_t$, with:
+The return of an asset can be expressed as $r_t - r_f = \alpha + (\beta \times (r_m - r_f)) + \epsilon_t$, with:
 - $r_f$ the risk-free return
 - $r_m$ the market return
 - $\alpha$ the expected excess return
