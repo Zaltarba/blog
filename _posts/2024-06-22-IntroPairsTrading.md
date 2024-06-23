@@ -73,7 +73,7 @@ With issue here is $Var(P_t^A) = t \dot sigma_A^2$ which means we have a non sta
 
 Doing some simulation with the folowing code : 
 
-'''python
+```python
     import numpy as np
     import pandas as pd
     import statsmodels.api as sm
@@ -122,7 +122,8 @@ Doing some simulation with the folowing code :
     # Call the main function to execute the simulation
     if __name__ == "__main__":
         p_values = main()
-'''
+```
+
 You get the folowing graph :
 
 ![Figure 1](/blog/images/spurious p values.png)
