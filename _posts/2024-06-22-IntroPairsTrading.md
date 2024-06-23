@@ -50,11 +50,15 @@ Now that we are clear on what market neutral means, let's get into some of the b
 
 Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense/intuitions, it's not so good for modeling today's market.
 
-A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices:
-$$P_t^A = cst + \rho \cdot P_t^B + \epsilon_t$$
-You are then able to compute the hedge ratio from a simple regression. Moreover, you can get a confidence interval and p-value to ensure it is significantly non-null. Great!
+A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices if and only if:
 
-But the devil hides in the details. I won't delve into all linear regression temporal aspects and its application for sequential data (refer to a handbook on time series prediction for more knowledge), but one has to be very careful.
+$$P_t^A = cst + \rho \cdot P_t^B + \epsilon_t$$
+
+with $(\epsilon_t)$ being stationnary. 
+
+You are then in this case able to compute the hedge ratio from a simple regression. Moreover, you can get a confidence interval and p-value to ensure it is significantly non-null. Great!
+
+But the devil hides in the details. I won't delve into all linear regression temporal aspects and its application for sequential data (refer to a handbook on time series prediction for more knowledge), but one has to be very careful. We are indeed working on non stationnary variables. 
 
 **Terminology Alert**: A spurious regression is a regression where the p-value indicates a statistically significant relationship between variables, but this relationship is actually meaningless or random, often due to underlying trends in the data rather than a true correlation.
 
@@ -130,4 +134,8 @@ You get the folowing graph :
 
 As you can see, despite have two unrelated random walk we get an significant relationship most of the time.
 
-So to resume, cointegration could a great tool, allowing us to compute the hedge ratio, but can be complety spurious and hypothesis testing is required in order to use it. See, the p-value will be correct only under some conditions, one being that the errors have to be stationary. That's where the cointegration's best friend comes into play: the **stationarity test**.
+So to resume, cointegration could a great tool, allowing us to compute the hedge ratio. But one has to ensure the hypothesis of cointegration are meet, meaning hypothesis testing on the stationnarity of the residual is required in order to use it. That's where the cointegration's best friend comes into play: the **stationarity test**.
+
+Several stationarity test exist. They can be used in tandem or just on their one. The two main ones are the KPSS and the ADF test. They allow us to test is a serie is likely to be stationnary or not. 
+
+With both 
