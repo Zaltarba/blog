@@ -51,9 +51,7 @@ Now that we are clear on what market neutral means, let's get into some of the b
 Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense/intuitions, it's not so good for modeling today's market.
 
 A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices:
-$$
-P_t^A = cst + \rho \cdot P_t^B + \epsilon_t
-$$
+$$P_t^A = cst + \rho \cdot P_t^B + \epsilon_t$$
 You are then able to compute the hedge ratio from a simple regression. Moreover, you can get a confidence interval and p-value to ensure it is significantly non-null. Great!
 
 But the devil hides in the details. I won't delve into all linear regression temporal aspects and its application for sequential data (refer to a handbook on time series prediction for more knowledge), but one has to be very careful.
