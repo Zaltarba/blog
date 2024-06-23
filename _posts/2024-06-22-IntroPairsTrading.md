@@ -47,33 +47,32 @@ Pair trading is all about working on spreads between the two assets and to const
 Now that we are clear on what market neutral means, let's get into some of the basic tools.
 
 ## Some Technical Aspects
-
-Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense/intuitions, it's not so good for modeling today's market.
+Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense and intuitions, it's not so good for modeling today's market.
 
 A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices if and only if:
 
-$$P_t^A = cst + \rho \cdot P_t^B + \epsilon_t$$
+$$P_t^A = \text{const} + \rho \cdot P_t^B + \epsilon_t$$
 
-with $(\epsilon_t)$ being stationnary. 
+with $(\epsilon_t)$ being stationary. 
 
-You are then in this case able to compute the hedge ratio from a simple regression. Moreover, you can get a confidence interval and p-value to ensure it is significantly non-null. Great!
+In this case, you are able to compute the hedge ratio from a simple regression. Moreover, you can get a confidence interval and p-value to ensure it is significantly non-null. Great! I have to say that linking cointegration with achieving a market-neutral strategy is not straightforward. It indeed requires at least some modeling or further assumptions/requirements. But for now, let's admit it gets us closer.
 
-But the devil hides in the details. I won't delve into all linear regression temporal aspects and its application for sequential data (refer to a handbook on time series prediction for more knowledge), but one has to be very careful. We are indeed working on non stationnary variables. 
+But the devil hides in the details. I won't delve into all the linear regression temporal aspects and its application for sequential data (refer to a handbook on time series prediction for more knowledge), but one has to be very careful. We are indeed working on non-stationary variables.
 
 **Terminology Alert**: A spurious regression is a regression where the p-value indicates a statistically significant relationship between variables, but this relationship is actually meaningless or random, often due to underlying trends in the data rather than a true correlation.
 
-Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's model both of them with a random walk, and with uncorrelated noise. So we get 
+Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's model both of them with a random walk and with uncorrelated noise. So we get:
 
 $$P_t^A = P_0^A + \sum_{i=1}^{t} \epsilon_i^A$$
 $$P_t^B = P_0^B + \sum_{i=1}^{t} \epsilon_i^B$$
 
-with :
+with:
 
-$$\epsilon_t^A \sim WN(0, \sigma_A^2)$$
-and 
-$$\epsilon_t^B \sim WN(0, \sigma_B^2)$$
+$$\epsilon_t^A \sim \text{WN}(0, \sigma_A^2)$$
+and
+$$\epsilon_t^B \sim \text{WN}(0, \sigma_B^2)$$
 
-With issue here is $Var(P_t^A) = t \dot sigma_A^2$ which means we have a non stationnary variable. Thus the linear regression requirements are not meet. If you attemps to do one the issue is that the usual test statistics (like t-statistics) do not follow their standard distributions under the null hypothesis. P-value will not be interpretable since it has to follow a uniform law between 0 and 1 under the null hypothesis. 
+The issue here is $Var(P_t^A) = t \cdot \sigma_A^2$, which means we have a non-stationary variable. Thus, the linear regression requirements are not met. If you attempt to do one, the issue is that the usual test statistics (like t-statistics) do not follow their standard distributions under the null hypothesis. P-values will not be interpretable since they need to follow a uniform distribution between 0 and 1 under the null hypothesis.
 
 Doing some simulation with the folowing code : 
 
@@ -132,19 +131,22 @@ You get the folowing graph :
 
 ![Figure 1](/blog/images/IPT_spurious_pvalues.png)
 
-As you can see, despite have two unrelated random walk we get an significant relationship most of the time.
+As you can see, despite having two unrelated random walks, we get a significant relationship most of the time.
 
-So to resume, cointegration could a great tool, allowing us to compute the hedge ratio. But one has to ensure the hypothesis of cointegration are meet, meaning hypothesis testing on the stationnarity of the residual is required in order to use it. That's where the cointegration's best friend comes into play: the **stationarity test**.
+To summarize, cointegration could be a great tool, allowing us to compute the hedge ratio. However, one must ensure the hypothesis of cointegration is met, meaning hypothesis testing on the stationarity of the residuals is required in order to use it. That's where cointegration's best friend comes into play: the **stationarity test**.
 
-Several stationarity test exist. They can be used in tandem or just on their one. The two main ones are the KPSS and the ADF test. They allow us to test is a serie is likely to be stationnary or not. 
+Several stationarity tests exist. They can be used in tandem or on their own. The two main ones are the KPSS and the ADF tests. They allow us to test if a series is likely to be stationary or not. I would advise again to read [Time series Analysis](https://civil.colorado.edu/~balajir/CVEN6833/lectures/wwts-book.pdf) if you are looking to go into the maths.
 
-When people used those two tools it was in the folowing order : 
-    - Compute the linear regression 
-    - Realize a stationnarity test on the residuals 
-    - If they are stationary, use the linear regression coefficients to get the hedge ratio 
-    - Get your market neutral portfolio
-    - Create entry and exit thresholds to trade on low / mid frequency
+If say you suceed to find two stock which cointegrated prices, you are then able to construct a stationanry portfolio longing one share of stock A and shorting \rhau share of stock B. You can then can exploid the mean reversion properties of a stationnary process. Meaning, you will short this portfolio when it is bellow its long term mean and short it when its above its long term mean (you actually can greatly improve from this but again, we keep it simple for now).
 
-This approach is explained by Gatev et al in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615)
+When people use these two tools, the process is typically as follows:
+
+  1. Compute the linear regression
+  2. Perform a stationarity test on the residuals
+  3. If the residuals are stationary, use the linear regression coefficients to get the hedge ratio
+  4. Obtain your market-neutral portfolio
+  5. Create entry and exit thresholds to trade on low/mid-frequency
+
+This approach is explained by Gatev et al. in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615).
 
 
