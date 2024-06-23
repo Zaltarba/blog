@@ -5,7 +5,7 @@ categories: [Personal project, Theorical paper]
 excerpt: In this post we will make a theorical review of several Hurst exponent estimators from the litterature.
 ---
 
-# I A reminder on the Hurst exponent 
+## A reminder on the Hurst exponent 
 
 The Hurst exponent lies between 0 and 1 and is usually denoted H. Its use and formal definition vary according to context. It can be used as a measure of long-term memory for time series. In the fBm context, for example, it is linked to the autocorrelations of the increment series and the speed at which these evolve as the lag increases. It thus quantifies the relative tendency of a time series to regress strongly towards the mean or to cluster in one direction. In this context, we distinguish three cases depending on its value, indicating the different properties of the process:  
 	
@@ -22,7 +22,7 @@ Sources :
 - https://en.wikipedia.org/wiki/Hurst_exponent
 - https://arxiv.org/pdf/1406.6018.pdf
 
-# II Autocorrelation-based estimator 
+## Autocorrelation-based estimator 
 
 Here we take advantage of the following relationship, which has a theoretical basis in the fBm framework:  
 
@@ -111,7 +111,7 @@ Sources :
 - https://www.ijert.org/research/stock-market-data-analysis-using-rescaled-range-rs-analysis-technique-IJERTV3IS20736.pdf
 - https://neuropsychology.github.io/NeuroKit/_modules/neurokit2/complexity/fractal_hurst.html#fractal_hurst
 
-# IV Estimateur basé sur la méthode des moments 
+## A moment based estimator 
 
 The latter estimator has been constructed in the fBm framework. Without exhaustively describing the properties of fractional Brownian motion, this estimator is based on the following expectation :
   
