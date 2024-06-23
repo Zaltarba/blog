@@ -38,9 +38,6 @@ So, instead of just betting on the market, the Fama-French model gives us a more
 
 ## Link with the Cointegration 
 
-Let's now explain why the link between the beta of two stocks and their cointegration. Let's say we have two stocks A and B, why the same betas. What can we say about them ? 
-## Link with the Cointegration 
-
 Let's now explain the link between the beta of two stocks and their cointegration. Let's say we have two stocks, A and B, with proportional betas. What can we say about them?
 
 In mathematical terms
@@ -64,5 +61,60 @@ R_C = \alpha_A - k \times \alpha_B + \epsilon_A - k \times \epsilon_B
 $$
 
 $\epsilon_A$ and $\epsilon_B$ are both two idiosyncratic risk. We thus get a stationnary serie. DOesn't it means that A and B are cointegrated ? Let's see.
+
+To prove they are cointegrated, we need to consider their stock prices and how these prices relate to their returns. Let $P_A(t)$ and $P_B(t)$ be the prices of stocks A and B at time $t$. The returns $R_A(t)$ and $R_B(t)$ are given by:
+
+$$
+R_A(t) = \frac{P_A(t) - P_A(t-1)}{P_A(t-1)}
+$$
+
+$$
+R_B(t) = \frac{P_B(t) - P_B(t-1)}{P_B(t-1)}
+$$
+
+If we assume the returns are driven by the market model:
+
+$$
+R_A(t) = \alpha_A + \beta_A \cdot R_m(t) + \epsilon_A(t)
+$$
+
+$$
+R_B(t) = \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)
+$$
+
+Given $\beta_A = k \cdot \beta_B$, we can say:
+
+$$
+R_A(t) = \alpha_A + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)
+$$
+
+$$
+R_B(t) = \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)
+$$
+
+Now, consider the price ratio of stocks A and B:
+
+$$
+\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot (1 + R_A(t))}{P_B(t-1) \cdot (1 + R_B(t))}
+$$
+
+Substituting the expressions for $R_A(t)$ and $R_B(t)$:
+
+$$
+\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot \left(1 + \alpha_A + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)\right)}{P_B(t-1) \cdot \left(1 + \alpha_B + \beta_B \cdot R_m(t) + \epsilon_B(t)\right)}
+$$
+
+For simplicity, let's assume $\alpha_A = \alpha_B = 0$, which gives us:
+
+$$
+\frac{P_A(t)}{P_B(t)} = \frac{P_A(t-1) \cdot \left(1 + k \cdot \beta_B \cdot R_m(t) + \epsilon_A(t)\right)}{P_B(t-1) \cdot \left(1 + \beta_B \cdot R_m(t) + \epsilon_B(t)\right)}
+$$
+
+Because $\beta_A = k \cdot \beta_B$, any deviation in the price ratio $\frac{P_A(t)}{P_B(t)}$ will revert to its mean over time, implying a stationary series. Hence, stocks A and B are cointegrated.
+
+So, when stocks A and B have proportional betas, they are cointegrated. This means that despite short-term deviations, their prices will move together in the long run. The opposite is also true: if two stocks are cointegrated, their betas will be proportional.
+
+This relationship is crucial for pairs trading strategies, as it allows traders to predict that any divergence in the prices of cointegrated stocks will eventually correct itself, providing opportunities for profit. It's like having a reliable compass that always points you back to equilibrium, no matter how far you stray!
+
 
 ## Conclusion 
