@@ -126,7 +126,7 @@ Doing some simulation with the folowing code :
 
 You get the folowing graph :
 
-![Figure 1](/blog/images/spurious p values.png)
+![Figure 1](/blog/images/IPT_spurious_p_values.png)
 
 As you can see, despite have two unrelated random walk we get an significant relationship most of the time.
 
