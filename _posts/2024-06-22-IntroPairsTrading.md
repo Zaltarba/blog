@@ -58,31 +58,26 @@ But the devil hides in the details. I won't delve into all linear regression tem
 
 **Terminology Alert**: A spurious regression is a regression where the p-value indicates a statistically significant relationship between variables, but this relationship is actually meaningless or random, often due to underlying trends in the data rather than a true correlation.
 
-When you work with prices and not returns, this happens very frequently because of the temporal trend in the data.
+Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's model both of them with a random walk, and with uncorrelated noise. So we get 
 
-Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's note their returns, $(r_t^A)$ and $(r_t^B)$, both uncorrelated white noise processes:
+$$P_t^A = P_0^A + \sum_{i=1}^{t} \epsilon_i^A$$
+$$P_t^B = P_0^B + \sum_{i=1}^{t} \epsilon_i^B$$
 
-$$r_t^A \sim WN(0, \sigma_A^2)$$
-$$r_t^B \sim WN(0, \sigma_B^2)$$
+with :
 
-The prices of stocks A and B can be expressed as the cumulative sums of these returns:
-$$P_t^A = P_0^A + \sum_{i=1}^{t} r_i^A$$
-$$P_t^B = P_0^B + \sum_{i=1}^{t} r_i^B$$
+$$\epsilon_t^A \sim WN(0, \sigma_A^2)$$
+and 
+$$\epsilon_t^B \sim WN(0, \sigma_B^2)$$
 
 Now, let's perform a regression of $(P_t^A)$ on $(P_t^B)$:
+
 $$P_t^A = \gamma + \delta \cdot P_t^B + u_t$$
 
-Substituting the cumulative sums into the regression equation:
-$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot \left( P_0^B + \sum_{i=1}^{t} r_i^B \right) + u_t$$
+Given that $(\epsilon_t^A)$ and $(\epsilon_t^B)$ are both uncorrelated white noise processes, the sums $(\sum_{i=1}^{t} \epsilon_i^A)$ and $(\sum_{i=1}^{t} \epsilon_i^B)$ will both follow a random walk. Despite the lack of true correlation between $(\epsilon_t^A)$ and $(\epsilon_t^B)$, the random walks introduce a trend over time, leading to an apparent but spurious relationship in their cumulative sums.
 
-Rearranging terms, we get:
-$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot P_0^B + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t$$
+Indeed doing some simulation with the folowing code : 
 
-For simplicity, let $(\gamma' = \gamma + \delta \cdot P_0^B)$ and $(u_t' = u_t)$, so:
-$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma' + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t
-$$
-
-Given that $(r_t^A)$ and $(r_t^B)$ are both uncorrelated white noise processes, the sums $(\sum_{i=1}^{t} r_i^A)$ and $(\sum_{i=1}^{t} r_i^B)$ will both follow a random walk. Despite the lack of true correlation between $(r_t^A)$ and $(r_t^B)$, the random walks introduce a trend over time, leading to an apparent but spurious relationship in their cumulative sums.
+''python
 
 This spurious correlation arises because the cumulative sums (prices) of uncorrelated white noise processes (returns) will exhibit a high probability of coincidental trends, causing the regression to falsely suggest a meaningful relationship.
 
