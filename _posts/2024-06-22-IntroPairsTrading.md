@@ -138,4 +138,13 @@ So to resume, cointegration could a great tool, allowing us to compute the hedge
 
 Several stationarity test exist. They can be used in tandem or just on their one. The two main ones are the KPSS and the ADF test. They allow us to test is a serie is likely to be stationnary or not. 
 
-With both 
+When people used those two tools it was in the folowing order : 
+    - Compute the linear regression 
+    - Realize a stationnarity test on the residuals 
+    - If they are stationary, use the linear regression coefficients to get the hedge ratio 
+    - Get your market neutral portfolio
+    - Create entry and exit thresholds to trade on low / mid frequency
+
+This approach is explained by Gatev et al in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615)
+
+
