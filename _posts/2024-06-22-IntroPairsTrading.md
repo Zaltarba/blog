@@ -47,6 +47,7 @@ Pair trading is all about working on spreads between the two assets and to const
 Now that we are clear on what market neutral means, let's get into some of the basic tools.
 
 ## Some Technical Aspects
+
 Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense and intuitions, it's not so good for modeling today's market.
 
 A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices if and only if:
@@ -147,4 +148,18 @@ When people use these two tools, the process is typically as follows:
   4. Obtain your market-neutral portfolio
   5. Create entry and exit thresholds to trade on low/mid-frequency
 
-This approach is explained by Gatev et al. in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615).
+This approach is explained by Gatev et al. in [Pairs Trading: Performance of a Relative Value Arbitrage Rule](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=141615). Trading the spreads is not something I will explain here but known it can be approach with stochastic calculus (OU model,  ...).
+
+## The pratical challenges 
+
+So far, we have a well-documented approach, complete with specified mathematics and models, that should enable us to consistently make money. So, what's the catch? To generate consistent profits, you need to identify several pairs and trade them. I believe the identification phase is one of the most challenging aspects. If one opts for a brute force approach and applies the Augmented Dickey-Fuller (ADF) test to all possible pairs, the number of false positives will likely skyrocket.
+
+The hedge against other players is created in this phase. The question then becomes: How will you define your universe? There are many existing stock universes that involve methods such as clustering, setting thresholds on the Hurst exponents of the spreads, and multiple stationarity tests, among others.
+
+Additionally, there is a second challenge: you should aim to trade pairs with the fastest mean reversion speed. This is also be difficult to achieve and I will leave it an open question for now.
+
+## Conclusion
+
+In conclusion, while the theory behind pair trading and market-neutral strategies appears robust, implementing these strategies effectively requires navigating a complex landscape of challenges. Identifying viable pairs, maintaining a truly market-neutral position, and capitalizing on mean reversion speed are just the tip of the iceberg. Each phase, from defining your universe to executing trades, demands rigorous analysis and a critical approach to data. The true test lies not only in the selection and application of models but also in our ability to adapt and refine these strategies in response to evolving market conditions. As we move forward, the subsequent posts will explore more advanced tools and techniques, aiming to enhance our understanding and execution of these sophisticated trading strategies. Stay tuned for a deeper dive into the nuances that can make or break the success of pair trading.
+
+
