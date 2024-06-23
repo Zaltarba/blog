@@ -18,7 +18,7 @@ When we speak about the multi-factor model, we generally refer to a generalizati
 The Fama-French model expands on the CAPM by adding two more factors to better capture the returns of a portfolio. Instead of just looking at the market return, it also considers the size of firms and the book-to-market values. The model is typically represented by the following equation:
 
 $$
-R_i = R_f + \beta_i (R_m - R_f) + s_i \cdot SMB + h_i \cdot HML + \alpha_i + \epsilon_i
+R_i - R_f = \beta_i (R_m - R_f) + s_i \cdot SMB + h_i \cdot HML + \alpha_i + \epsilon_i
 $$
 
 Here's a quick breakdown:
@@ -30,10 +30,39 @@ Here's a quick breakdown:
 - $HML$: Value premium (High Minus Low)
 - $s_i$ and $h_i$: Sensitivities to SMB and HML respectively
 - $\alpha_i$: Alpha, representing the stock-specific return
-- $\epsilon_i$: Error term
+- $\epsilon_i$: Error term, idiosyncratic
+
+**Terminoly Alert** : For the folowing I will refer to the regression coefficients as the betas and the intercept as the alpha
 
 So, instead of just betting on the market, the Fama-French model gives us a more nuanced view by adding these size and value factors. It's like getting a more detailed map for navigating the stock market! Good news about this model, French makes available to us those regressors (not live frequently updated). If you are a fellow quant doing some research you can look it [here](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html#Research).
 
 ## Link with the Cointegration 
+
+Let's now explain why the link between the beta of two stocks and their cointegration. Let's say we have two stocks A and B, why the same betas. What can we say about them ? 
+## Link with the Cointegration 
+
+Let's now explain the link between the beta of two stocks and their cointegration. Let's say we have two stocks, A and B, with proportional betas. What can we say about them?
+
+In mathematical terms
+
+$$
+\betas_A = k \times \betas_B
+$$
+
+for some constant $k$. 
+
+Then let's denote C the linear combination of A and minus $k \times B$.
+
+$$
+R_C = R_A - k \times R_B
+$$
+
+When substituting the expressions for $R_A$ and $R_B$, we get:
+
+$$
+R_C = \alpha_A - k \times \alpha_B + \epsilon_A - k \times \epsilon_B
+$$
+
+$\epsilon_A$ and $\epsilon_B$ are both two idiosyncratic risk. We thus get a stationnary serie. DOesn't it means that A and B are cointegrated ? Let's see.
 
 ## Conclusion 
