@@ -60,44 +60,29 @@ But the devil hides in the details. I won't delve into all linear regression tem
 
 When you work with prices and not returns, this happens very frequently because of the temporal trend in the data.
 
-Let's consider two time series, $(P_t^A)$ and $(P_t^B)$, both prices and created from uncorrelated white noises. 
-Let's consider two time series of returns, \(r_t^A\) and \(r_t^B\), which are both uncorrelated white noise processes:
-$$
-r_t^A \sim WN(0, \sigma_A^2)
-$$
-$$
-r_t^B \sim WN(0, \sigma_B^2)
-$$
+Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's note their returns, $(r_t^A)$ and $(r_t^B)$, both uncorrelated white noise processes:
+
+$$r_t^A \sim WN(0, \sigma_A^2)$$
+$$r_t^B \sim WN(0, \sigma_B^2)$$
 
 The prices of stocks A and B can be expressed as the cumulative sums of these returns:
-$$
-P_t^A = P_0^A + \sum_{i=1}^{t} r_i^A
-$$
-$$
-P_t^B = P_0^B + \sum_{i=1}^{t} r_i^B
-$$
+$$P_t^A = P_0^A + \sum_{i=1}^{t} r_i^A$$
+$$P_t^B = P_0^B + \sum_{i=1}^{t} r_i^B$$
 
-Now, let's perform a regression of \(P_t^A\) on \(P_t^B\):
-$$
-P_t^A = \gamma + \delta \cdot P_t^B + u_t
-$$
+Now, let's perform a regression of $(P_t^A)$ on $(P_t^B)$:
+$$P_t^A = \gamma + \delta \cdot P_t^B + u_t$$
 
 Substituting the cumulative sums into the regression equation:
-$$
-P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot \left( P_0^B + \sum_{i=1}^{t} r_i^B \right) + u_t
-$$
+$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot \left( P_0^B + \sum_{i=1}^{t} r_i^B \right) + u_t$$
 
 Rearranging terms, we get:
-$$
-P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot P_0^B + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t
+$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma + \delta \cdot P_0^B + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t$$
+
+For simplicity, let $(\gamma' = \gamma + \delta \cdot P_0^B)$ and $(u_t' = u_t)$, so:
+$$P_0^A + \sum_{i=1}^{t} r_i^A = \gamma' + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t
 $$
 
-For simplicity, let \(\gamma' = \gamma + \delta \cdot P_0^B\) and \(u_t' = u_t\), so:
-$$
-P_0^A + \sum_{i=1}^{t} r_i^A = \gamma' + \delta \cdot \sum_{i=1}^{t} r_i^B + u_t'
-$$
-
-Given that \(r_t^A\) and \(r_t^B\) are both uncorrelated white noise processes, the sums \(\sum_{i=1}^{t} r_i^A\) and \(\sum_{i=1}^{t} r_i^B\) will both follow a random walk. Despite the lack of true correlation between \(r_t^A\) and \(r_t^B\), the random walks introduce a trend over time, leading to an apparent but spurious relationship in their cumulative sums.
+Given that $(r_t^A)$ and $(r_t^B)$ are both uncorrelated white noise processes, the sums $(\sum_{i=1}^{t} r_i^A)$ and $(\sum_{i=1}^{t} r_i^B)$ will both follow a random walk. Despite the lack of true correlation between $(r_t^A)$ and $(r_t^B)$, the random walks introduce a trend over time, leading to an apparent but spurious relationship in their cumulative sums.
 
 This spurious correlation arises because the cumulative sums (prices) of uncorrelated white noise processes (returns) will exhibit a high probability of coincidental trends, causing the regression to falsely suggest a meaningful relationship.
 
