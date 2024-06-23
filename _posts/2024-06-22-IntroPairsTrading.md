@@ -72,7 +72,7 @@ $$\epsilon_t^A \sim \text{WN}(0, \sigma_A^2)$$
 and
 $$\epsilon_t^B \sim \text{WN}(0, \sigma_B^2)$$
 
-The issue here is $Var(P_t^A) = t \cdot \sigma_A^2$, which means we have a non-stationary variable. Thus, the linear regression requirements are not met. If you attempt to do one, the issue is that the usual test statistics (like t-statistics) do not follow their standard distributions under the null hypothesis. P-values will not be interpretable since they need to follow a uniform distribution between 0 and 1 under the null hypothesis.
+The issue here is $Var(P_t^A) = t \dot \sigma_A^2$, which means we have a non-stationary variable. Thus, the linear regression requirements are not met. If you attempt to do one, the issue is that the usual test statistics (like t-statistics) do not follow their standard distributions under the null hypothesis. P-values will not be interpretable since they need to follow a uniform distribution between 0 and 1 under the null hypothesis.
 
 Doing some simulation with the folowing code : 
 
