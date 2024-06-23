@@ -123,8 +123,10 @@ def main():
 if __name__ == "__main__":
     p_values = main()
 '''
-
 You get the folowing graph :
 
+![Figure 1](/blog/images/spurious p values.png)
 
-See, the p-value is correct only under some conditions, one being that the errors have to be stationary. That's where the cointegration's best friend comes into play: the **stationarity test**.
+As you can see, despite have two unrelated random walk we get an significant relationship most of the time.
+
+So to resume, cointegration could a great tool, allowing us to compute the hedge ratio, but can be complety spurious and hypothesis testing is required in order to use it. See, the p-value will be correct only under some conditions, one being that the errors have to be stationary. That's where the cointegration's best friend comes into play: the **stationarity test**.
