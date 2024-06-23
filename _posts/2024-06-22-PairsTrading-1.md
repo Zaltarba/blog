@@ -19,9 +19,13 @@ The return of an asset can be expressed as $r_t - r_f = \alpha + (\beta \times (
 - $\alpha$ the expected excess return
 - $\beta$ the sensitivity of the asset's returns to the market returns
 
-With this framework, if you manage to construct a portfolio with a null beta (i.e., the linear combination of the assets within is such that the sum of their betas is null), you then get a portfolio whose returns are uncorrelated from those of the market! Bear and bull markets don't matter anymore! What's the point? Why not just buy OTM calls with one week until expiration and pray to get rich? Well, to that, I would say, based on my understanding of Harry Markowitz's works, that you surely should do both. I am sure an efficient frontier exists mixing those strategies. 
+With this framework, if you manage to construct a portfolio with a null beta (i.e., the linear combination of the assets within is such that the sum of their betas is null), you then get a portfolio whose returns are uncorrelated from those of the market! The quant researcher's role is thus to reduce its strategy's beta as much as possible and to maximize its alpha (i.e., its expected outperformance). Bear and bull markets don't matter anymore! But what's the point? 
 
-Anyway, when working on a market-neutral strategy, the quant researcher's role is thus to reduce its strategy's beta as much as possible and to maximize its alpha (i.e., its expected outperformance).
+## Why do market neutral startegies 
+
+Why not just buy OTM calls with one week until expiration and pray to get rich? Joke aside, why not just be a bullish investors and be directional ? Warrent Buffet for sure isn't a market neutral player. 
+
+This is I believe a legitimate question for any investors (motivations from the Quants side are mostly about the challenge, the maths behind and the elegance of it). Well first all, this allows you to perform consistent return (doesn't mean you will suceed). Market can indeed go upside but also downside. Their is also the diversification play : since Markowitz's work and modern portfolio theory adoption investor are looking for uncorrelated strategies in order to improve their sharpe or sortino ratio. 
 
 ## About Pairs Trading
 
