@@ -74,54 +74,55 @@ With issue here is $Var(P_t^A) = t \dot sigma_A^2$ which means we have a non sta
 Doing some simulation with the folowing code : 
 
 '''python
-import numpy as np
-import pandas as pd
-import statsmodels.api as sm
-import matplotlib.pyplot as plt
 
-def simulate_random_walk(n):
-    """ Generate a random walk series. """
-    # Random walk starts at zero
-    walk = np.zeros(n)
-    # Generate random steps, add to previous
-    for i in range(1, n):
-        walk[i] = walk[i - 1] + np.random.normal()
-    return walk
-
-def perform_regression(x, y):
-    """ Perform linear regression and return the p-value. """
-    x = sm.add_constant(x)  # Adding a constant for the intercept
-    model = sm.OLS(y, x)
-    results = model.fit()
-    return results.pvalues[1]  # p-value for the slope
-
-def main():
-    num_simulations = 1000
-    num_points = 1000  # Number of points in each random walk
-    p_values = []
-
-    for _ in range(num_simulations):
-        # Generate two independent random walks
-        x = simulate_random_walk(num_points)
-        y = simulate_random_walk(num_points)
-        
-        # Perform regression and get the p-value
-        p_value = perform_regression(x, y)
-        p_values.append(p_value)
-
-    # Plotting the distribution of p-values
-    plt.hist(p_values, bins=100, edgecolor='black')
-    plt.xlabel('P-value')
-    plt.ylabel('Frequency')
-    plt.title('Distribution of P-values for 100 Regressions of Independent Random Walks')
-    plt.show()
-
-    # Optionally, return or print p_values or any other statistics
-    return p_values
-
-# Call the main function to execute the simulation
-if __name__ == "__main__":
-    p_values = main()
+    import numpy as np
+    import pandas as pd
+    import statsmodels.api as sm
+    import matplotlib.pyplot as plt
+    
+    def simulate_random_walk(n):
+        """ Generate a random walk series. """
+        # Random walk starts at zero
+        walk = np.zeros(n)
+        # Generate random steps, add to previous
+        for i in range(1, n):
+            walk[i] = walk[i - 1] + np.random.normal()
+        return walk
+    
+    def perform_regression(x, y):
+        """ Perform linear regression and return the p-value. """
+        x = sm.add_constant(x)  # Adding a constant for the intercept
+        model = sm.OLS(y, x)
+        results = model.fit()
+        return results.pvalues[1]  # p-value for the slope
+    
+    def main():
+        num_simulations = 1000
+        num_points = 1000  # Number of points in each random walk
+        p_values = []
+    
+        for _ in range(num_simulations):
+            # Generate two independent random walks
+            x = simulate_random_walk(num_points)
+            y = simulate_random_walk(num_points)
+            
+            # Perform regression and get the p-value
+            p_value = perform_regression(x, y)
+            p_values.append(p_value)
+    
+        # Plotting the distribution of p-values
+        plt.hist(p_values, bins=100, edgecolor='black')
+        plt.xlabel('P-value')
+        plt.ylabel('Frequency')
+        plt.title('Distribution of P-values for 100 Regressions of Independent Random Walks')
+        plt.show()
+    
+        # Optionally, return or print p_values or any other statistics
+        return p_values
+    
+    # Call the main function to execute the simulation
+    if __name__ == "__main__":
+        p_values = main()
 '''
 You get the folowing graph :
 
