@@ -3,7 +3,7 @@ layout: post
 title: Linking Cointegration and the Multi Factor Model 
 categories: [Personnal project, Practical paper]
 excerpt: This post is the second of our serie about pair trading and market neutral strategies ...
-hidden:True
+hidden: True
 ---
 
 ## Introduction
