@@ -54,9 +54,9 @@ Now that we are clear on what market neutral means, let's get into some of the b
 
 Let's dive into some technical aspects. I will stop using the CAPM model from now on. Despite it being great for gaining some common sense and intuitions, it's not so good for modeling today's market.
 
-A common framework for years has been **cointegration**. Basically, you consider stocks A and B being linearly correlated in prices if and only if:
+A common framework for years has been **cointegration**. Basically, you consider stocks A and B being cointegrated if and only if you can get a stationnary series from a linear combinaison of their log prices (which are not stationnary):
 
-$$P_t^A = \text{const} + \rho \cdot P_t^B + \epsilon_t$$
+$$\log(P_t^A) = \text{const} + \rho \times \log(P_t^B) + \epsilon_t$$
 
 with $(\epsilon_t)$ being stationary. 
 
@@ -66,10 +66,10 @@ But the devil hides in the details. I won't delve into all the linear regression
 
 **Terminology Alert**: A spurious regression is a regression where the p-value indicates a statistically significant relationship between variables, but this relationship is actually meaningless or random, often due to underlying trends in the data rather than a true correlation.
 
-Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's model both of them with a random walk and with uncorrelated noise. So we get:
+Let's consider two stock prices, $(P_t^A)$ and $(P_t^B)$. Let's model both stock prices logarithm by a random walk and with uncorrelated noise. So we get:
 
-$$P_t^A = P_0^A + \sum_{i=1}^{t} \epsilon_i^A$$
-$$P_t^B = P_0^B + \sum_{i=1}^{t} \epsilon_i^B$$
+$$\log(P_t^A) = \log(P_0^A) + \sum_{i=1}^{t} \epsilon_i^A$$
+$$\log(P_t^B) = \log(P_0^B) + \sum_{i=1}^{t} \epsilon_i^B$$
 
 with:
 
