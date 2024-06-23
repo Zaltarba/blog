@@ -9,4 +9,8 @@ excerpt: This post is the second of our serie about pair trading and market neut
 
 Just so you known, this article will be a direct folow up of my [first article](https://zaltarba.github.io/blog/PairsTrading-1/) about pairs trading.
 
+## The Multi Factor Model 
+
+## Link with the Cointegration 
+
 ## Conclusion 
