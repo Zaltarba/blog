@@ -5,8 +5,13 @@ layout: default
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.hidden %}
-      <article class="post">
-        <div class="content">
+      <article class="post" style="display: flex; align-items: center;">
+        {% if post.image %}
+        <div class="post-image" style="flex: 1; margin-right: 20px;">
+          <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto;">
+        </div>
+        {% endif %}
+        <div class="content" style="flex: 2;">
           <a href="{{ site.baseurl }}{{ post.url }}">
             <h1>{{ post.title }}</h1>
           </a>
@@ -16,11 +21,6 @@ layout: default
           </div>
           <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
         </div>
-        {% if post.image %}
-        <div class="post-image">
-          <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}">
-        </div>
-        {% endif %}
       </article>
     {% endunless %}
   {% endfor %}
