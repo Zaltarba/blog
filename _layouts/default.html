@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
     {% seo title=false %}
     {% include meta.html %}
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon-32x32.png">
     {% include analytics_head.html %}
 
     <style>
-      .post {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .content, .post-image {
-        flex-basis: 50%;
-        padding-right: 20px;
-      }
-      .post-image img {
-        width: 75%;
-        height: auto;
-        border-radius: 8px;
-      }
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
         .post {
-          flex-direction: column;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
         }
         .content, .post-image {
-          flex-basis: 100%;
+            flex-basis: 50%;
+            padding-right: 20px;
         }
-        .post-image {
-          margin-top: 20px; /* Add some space between the text and the image */
+        .post-image img {
+            width: 75%;
+            height: auto;
+            border-radius: 8px;
         }
-      }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .post {
+                flex-direction: column;
+            }
+            .content, .post-image {
+                flex-basis: 100%;
+            }
+            .post-image {
+                margin-top: 20px; /* Add some space between the text and the image */
+            }
+        }
+        .site-info h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
     </style>
+</head>
 
-  </head>
 
   <body>
     <div id="bar"></div>
