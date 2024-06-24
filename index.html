@@ -2,11 +2,47 @@
 layout: default
 ---
 
+<style>
+  .post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .post-image {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .content {
+    flex: 2;
+    margin-right: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .post {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .post-image {
+      max-width: 100%;
+      order: 2; /* Puts the image below the content on small screens */
+    }
+
+    .content {
+      order: 1;
+      margin-right: 0;
+    }
+  }
+</style>
+
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.hidden %}
-      <article class="post" style="display: flex; align-items: center; justify-content: space-between;">
-        <div class="content" style="flex: 2; margin-right: 20px;">
+      <article class="post">
+        <div class="content">
           <a href="{{ site.baseurl }}{{ post.url }}">
             <h1>{{ post.title }}</h1>
           </a>
@@ -17,7 +53,7 @@ layout: default
           <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
         </div>
         {% if post.image %}
-        <div class="post-image" style="flex: 1;">
+        <div class="post-image">
           <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto;">
         </div>
         {% endif %}
