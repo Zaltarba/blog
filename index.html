@@ -5,24 +5,26 @@ layout: default
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.hidden %}
-      <article class="post">
-        {% if post.image %}
-        <div class="post-image">
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="max-width: 100%; height: auto;">
-          </a>
-        </div>
-        {% endif %}
+      <article class="post" style="display: flex; flex-direction: column;">
         <a href="{{ site.baseurl }}{{ post.url }}">
           <h1>{{ post.title }}</h1>
-          <div>
-            <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-          </div>
         </a>
-        <div class="entry">
-          {{ post.excerpt }}
+        <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
+          <div style="flex-grow: 1; margin-right: 20px;">
+            <div>
+              <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
+            </div>
+            <div class="entry">
+              {{ post.excerpt }}
+            </div>
+            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+          </div>
+          {% if post.image %}
+          <div class="post-image" style="width: 30%; min-width: 120px;">
+            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto;">
+          </div>
+          {% endif %}
         </div>
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
       </article>
     {% endunless %}
   {% endfor %}
