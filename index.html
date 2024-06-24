@@ -13,17 +13,20 @@ layout: default
           <div style="flex-grow: 1; margin-right: 20px;">
             <div>
               <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
+              {% if post.image %}
+              <div class="post-image" style="width: 100%; max-width: 200px; align-self: center; margin-top: 20px;">
+                <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto;">
+              </div>
+              {% endif %}
             </div>
             <div class="entry">
               {{ post.excerpt }}
             </div>
             <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
           </div>
-          {% if post.image %}
-          <div class="post-image" style="width: 40%; min-width: 200px;">
-            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto; max-height: 300px;">
+          <div style="flex-grow: 1; min-width: 200px;">
+            <!-- This div is to ensure spacing if there is no image, can add conditional rendering or adjust styles based on requirements -->
           </div>
-          {% endif %}
         </div>
       </article>
     {% endunless %}
@@ -41,7 +44,7 @@ layout: default
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
         <span class="webjeda">{{ page }}</span>
-      {% elsif page == 1 %}
+      {% elsif page is number 1 %}
         <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
       {% else %}
         <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
