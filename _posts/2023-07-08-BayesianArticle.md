@@ -3,7 +3,7 @@ layout: post
 title:  How to cluster time series within a bayesian framework
 categories: [Academic project]
 excerpt: The purpose of this project is to group a set of time series into different clusters and, in doing so, estimate the statistical model describing the time series of each cluster. To conduct our estimations, we adopt a Bayesian framework and utilize Monte Carlo simulation methods and hidden Markov chains.
-image: /blog/images/BNP.png
+image: /images/BNP.png
 ---
 
 # A model-based clustering of multiple time-series algorithm
