@@ -5,19 +5,7 @@ layout: default
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.hidden %}
-  ---
-layout: default
----
-
-<div class="posts">
-  {% for post in paginator.posts %}
-    {% unless post.hidden %}
       <article class="post">
-        <div class="post-image">
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}">
-          </a>
-        </div>
         <a href="{{ site.baseurl }}{{ post.url }}">
           <h1>{{ post.title }}</h1>
           <div>
@@ -58,5 +46,4 @@ layout: default
     {% endif %}
   </div>
   {% endif %}
-  
 </div>
