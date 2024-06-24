@@ -23,18 +23,20 @@ layout: default
   @media (max-width: 768px) {
     .post {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .post-image {
       max-width: 50%;
       order: 2; /* Puts the image below the content on small screens */
       align-items: center;
+      justify-content: center; /* Center the image within the post-image div */
     }
 
     .content {
       order: 1;
       margin-right: 0;
+      width: 95%;
     }
   }
 </style>
