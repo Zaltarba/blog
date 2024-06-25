@@ -34,11 +34,11 @@ layout: default
     .post {
       display: flex;
       flex-direction: row;
-      margin-bottom: 30px;
+      margin-bottom: 0px;
     }
     .post-image {
       flex: 1; /* Smaller part of the golden ratio */
-      max-width: 30%;
+      max-width: 33%;
       display: flex;
       justify-content: center; /* Centers the image horizontally */
       align-items: center; /* Centers the image vertically (if needed) */
@@ -47,6 +47,12 @@ layout: default
     .content {
       flex: 1.618;
       margin-right: 20px;
+    }
+    h1 {
+        font-size: 1rem; /* Smaller title */
+    }
+    .entry {
+        font-size: 0.75rem; /* Smaller text for summary */
     }
   }
   .pagination a, .pagination span {
