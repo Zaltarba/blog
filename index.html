@@ -11,12 +11,22 @@ layout: default
   }
 
   .post-image {
-    flex: 1;
-    max-width: 50%;
+      flex: 1; /* Smaller part of the golden ratio */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  h1 {
+      font-size: 1.25rem; /* Smaller title */
+  }
+  
+  .entry {
+      font-size: 0.875rem; /* Smaller text for summary */
   }
 
   .content {
-    flex: 2;
+    flex: 1.618;
     margin-right: 20px;
   }
 
