@@ -7,7 +7,6 @@ layout: default
   body {
       font-size: 16px;
   }
-  
   .post {
       display: flex;
       flex-direction: row;
@@ -21,18 +20,34 @@ layout: default
       align-items: center; /* Centers the image vertically (if needed) */
       height: auto; /* Maintains the aspect ratio of the image */
   }
-  
   h1 {
       font-size: 1.25rem; /* Smaller title */
   }
-  
   .entry {
       font-size: 0.875rem; /* Smaller text for summary */
   }
-
   .content {
     flex: 1.618;
     margin-right: 20px;
+  }
+  @media (max-width: 768px) {
+    .post {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .post-image {
+      max-width: 30%;
+      order: 2; /* Puts the image below the content on small screens */
+      display: flex;
+      justify-content: center; /* Center the image within the post-image div */
+    }
+
+    .content {
+      order: 1;
+      margin-right: 0;
+      width: 95%;
+    }
   }
   .pagination a, .pagination span {
     font-size: 0.875rem;
