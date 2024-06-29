@@ -8,7 +8,7 @@ image: /images/PairTrading1.png
 
 ## Introduction
 
-I have started working on pairs trading and market-neutral trading strategies in the US equity market over the last few months. Man, what a challenge! Here, I will try to give a clear and concise introduction to the topic and introduce the frameworks I will be delving into more deeply in the next posts.
+I have started working on pairs trading and market-neutral trading strategies in the US equity market over the last few months. Here, I will try to give a clear and concise introduction to the topic and introduce the frameworks I will be delving into more deeply in the next posts.
 
 ## General Overview
 
