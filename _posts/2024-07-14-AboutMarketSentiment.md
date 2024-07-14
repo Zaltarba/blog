@@ -25,7 +25,13 @@ Some traders use the highest open interest strike price as a marker for potentia
 
 ### Analyzing the Put/Call Ratio
 
-The put/call ratio measures the volume of trading in puts versus calls. A higher ratio indicates more put buying (commonly seen as bearish sentiment), whereas a lower ratio suggests more call buying (typically viewed as bullish sentiment). This ratio can act as a contrarian indicator, hinting at possible reversals if predominantly one type of option outweighs the other significantly.
+**Terminology Alert** : The put/call ratio measures the volume of trading in puts versus calls.
+
+$$ \text{Put/Call Ratio} = \frac{\text{Volume of Puts Traded}}{\text{Volume of Calls Traded}} $$
+
+This ratio is calculated by dividing the total volume of puts traded by the total volume of calls traded over a specific period, typically one trading day. In practice, the put/call ratio can be derived from options across all strikes and maturities, not just those with the same strike price or expiration date. This comprehensive approach provides a broader view of market sentiment, capturing the general trading behavior towards puts versus calls across the entire options market. Traders use this ratio to gauge overall market sentiment, identifying whether there's a prevailing bearish or bullish inclination among participants.
+
+A higher ratio indicates more put buying (commonly seen as bearish sentiment), whereas a lower ratio suggests more call buying (typically viewed as bullish sentiment). This ratio can act as a contrarian indicator, hinting at possible reversals if predominantly one type of option outweighs the other significantly.
 
 Traders often look for extremes in this ratio on their trading platforms to assess whether the market sentiment is overly pessimistic or optimistic, which might indicate a potential reversal in the stock's price movement.
 
