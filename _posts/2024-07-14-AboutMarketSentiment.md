@@ -17,7 +17,7 @@ Options data, often overlooked by those who don't directly trade options, can be
 - **Put/Call Ratio**
 - **IV Skewness**
 
-These metrics provide valuable insights into market dynamics and potential trend shifts in stock prices.
+These metrics provide valuable insights into market dynamics and potential trend shifts in stock prices. If you want to use them easily, feel free to check my app [here](https://is-it-time-to-buy.streamlit.app/)
 
 **Practical Tip** : Option data can easily be access for major stock with yfinance for free
 
