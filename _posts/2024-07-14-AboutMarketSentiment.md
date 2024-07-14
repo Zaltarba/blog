@@ -19,6 +19,33 @@ Options data, often overlooked by those who don't directly trade options, can be
 
 These metrics provide valuable insights into market dynamics and potential trend shifts in stock prices.
 
+**Practical Tip** : Option data can easily be access for major stock with yfinance for free
+
+import yfinance as yf
+import pandas as pd
+'''python 
+def get_options_data(ticker):
+    # Load the ticker data
+    stock = yf.Ticker(ticker)
+    # Get available options expirations
+    expirations = stock.options
+    # Initialize an empty DataFrame to hold all options data
+    all_options = pd.DataFrame()
+    # Loop through all available expiration dates and get the options data
+    for date in expirations:
+        # Fetch the call and put data for the current expiration date
+        opt = stock.option_chain(date)
+        # Combine the call and put data
+        current_options = pd.concat([opt.calls, opt.puts])
+        current_options['Expiration'] = date  # Add the expiration date to the DataFrame
+        # Append the current options data to the all_options DataFrame
+        all_options = pd.concat([all_options, current_options])
+    # Clearly Identify Call and Puts 
+    all_options["Type"] = all_options["contractSymbol"].copy()
+    all_options["Type"] = all_options["Type"].apply(lambda x:x.split(ticker)[1][6])
+    all_options["Type"] = all_options ["Type"].map({"C":"Call", "P":"Put"})
+    return all_options
+'''
 ## Understanding Open Interest
 
 Open interest represents the total number of outstanding options contracts that have not been settled. For each new option contract that is opened, open interest increases by one; it decreases by one for every contract that is closed. This number gives traders an idea of the liquidity and size of the market for a particular option.
