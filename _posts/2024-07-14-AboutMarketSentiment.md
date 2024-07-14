@@ -21,9 +21,9 @@ These metrics provide valuable insights into market dynamics and potential trend
 
 **Practical Tip** : Option data can easily be access for major stock with yfinance for free
 
+```python
 import yfinance as yf
 import pandas as pd
-'''python 
 def get_options_data(ticker):
     # Load the ticker data
     stock = yf.Ticker(ticker)
@@ -45,7 +45,8 @@ def get_options_data(ticker):
     all_options["Type"] = all_options["Type"].apply(lambda x:x.split(ticker)[1][6])
     all_options["Type"] = all_options ["Type"].map({"C":"Call", "P":"Put"})
     return all_options
-'''
+```
+
 ## Understanding Open Interest
 
 Open interest represents the total number of outstanding options contracts that have not been settled. For each new option contract that is opened, open interest increases by one; it decreases by one for every contract that is closed. This number gives traders an idea of the liquidity and size of the market for a particular option.
