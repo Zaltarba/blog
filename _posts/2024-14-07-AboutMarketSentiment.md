@@ -4,7 +4,7 @@ title: Leveraging Options Data for Stock Sentiment Analysis
 categories: [Personnal project, Practical paper, Trading]
 excerpt: Learn how Open Interest, Put/Call Ratio, and the Sizzle Index can enhance your understanding of market sentiment and stock trends
 hidden: False
-image: /images/PairTrading1.png
+image: /images/AboutMarketSentiment.png
 ---
 
 Options data, often overlooked by those who don't directly trade options, can be a goldmine for assessing market sentiment and gauging potential stock movements. Here, we explore three key options metrics that can serve as a sentiment barometer for any stock trader:
