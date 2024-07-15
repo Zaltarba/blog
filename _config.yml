@@ -13,7 +13,6 @@ description: Welcome to my blog !
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/DALL·E 2023-07-08 23.58.10 - a cyberpunk illustration of dog playing poker, digital art.png
-
 #
 # Flags below are optional
 #
@@ -41,7 +40,7 @@ footer-links:
 disqus: 
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-43339302-11
+google_analytics: GTM-NN73HD9T
 
 # For newer "GA4" analytics, use the following instead of the "UA" entry above
 #google_analytics_ga4: G-GABC1DEFG
