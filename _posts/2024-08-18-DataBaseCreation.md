@@ -19,7 +19,11 @@ Before jumping into the code, let's discuss why HDF5 is so beneficial:
 - **Scalability**: It’s designed to store and organize large amounts of data across multiple datasets.
 - **Flexibility**: HDF5 files can be easily sliced and diced for different analyses without needing to load the entire dataset into memory.
 
-These characteristics make HDF5 a valuable tool for research, especially when working with high-frequency trading data, which can accumulate quickly. Want some proof ? Here is an comparaison between .csv and .h5 files for a small dataset.
+These characteristics make HDF5 a valuable tool for research, especially when working with high-frequency trading data, which can accumulate quickly.   
+
+Want some proof ? Here is an comparaison between .csv and .h5 files for a small dataset.  
+
+For the **writing speed** :
 
 ```python
 %time df.to_csv("data/speed_test.csv")
@@ -35,6 +39,9 @@ Wall time: 123 ms
 CPU times: total: 0 ns
 Wall time: 14.7 ms
 ```
+
+For the **reading speed** : 
+
 ```python
 %time a = pd.read_csv("data/speed_test.csv")
 ```
@@ -49,6 +56,8 @@ Wall time: 32 ms
 CPU times: total: 15.6 ns
 Wall time: 11.7 ms
 ```
+
+As you can see, the csv format can't compete.
 
 ## Getting Started with Python Imports
 
