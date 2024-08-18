@@ -7,19 +7,48 @@ image: /images/DataBaseCreation.png
 hidden: False
 ---
 
-## Exploring the HDF5 File Format for Cryptocurrency Data Storage
+## Exploring the HDF5 File Format 
 
-When handling large datasets, especially in research, the choice of file format is crucial. HDF5 (Hierarchical Data Format version 5) is a powerful data model that is ideal for managing and storing enormous amounts of data efficiently. It's designed to store data in a hierarchical structure, making it a perfect choice for large, complex datasets—like cryptocurrency trading data. Let's dive into how you can leverage HDF5 to store crypto data fetched from Binance.
+When handling large datasets, especially in research, the choice of file format is crucial. [HDF5](https://fr.wikipedia.org/wiki/Hierarchical_Data_Format) (Hierarchical Data Format version 5) is a powerful data model that is ideal for managing and storing enormous amounts of data efficiently. It's designed to store data in a hierarchical structure, making it a perfect choice for large, complex datasets—like cryptocurrency trading data. Let's dive into how you can leverage HDF5 to store crypto data fetched from [Binance](https://www.binance.com/en).
 
 ## Why HDF5?
 
 Before jumping into the code, let's discuss why HDF5 is so beneficial:
 
-- **Efficiency**: HDF5 is built for speed. It can handle massive datasets much more efficiently than traditional file formats like CSV.
+- **Efficiency**: HDF5 is built for writing and reading speed. It can handle massive datasets much more efficiently than traditional file formats like CSV.
 - **Scalability**: It’s designed to store and organize large amounts of data across multiple datasets.
 - **Flexibility**: HDF5 files can be easily sliced and diced for different analyses without needing to load the entire dataset into memory.
 
-These characteristics make HDF5 a valuable tool for research, especially when working with high-frequency trading data, which can accumulate quickly.
+These characteristics make HDF5 a valuable tool for research, especially when working with high-frequency trading data, which can accumulate quickly. Want some proof ? Here is an comparaison between .csv and .h5 files for a small dataset.
+
+```python
+%time df.to_csv("data/speed_test.csv")
+```
+```bash
+CPU times: total: 93.8 ms
+Wall time: 123 ms
+```
+```python
+%time df.to_hdf("data/speed_test.h5", key="data", mode="w")
+```
+```bash
+CPU times: total: 0 ns
+Wall time: 14.7 ms
+```
+```python
+%time a = pd.read_csv("data/speed_test.csv")
+```
+```bash
+CPU times: total: 15.6 ms
+Wall time: 32 ms
+```
+```python
+%time b = pd.read_hdf("data/speed_test.h5", key="data")
+```
+```bash
+CPU times: total: 15.6 ns
+Wall time: 11.7 ms
+```
 
 ## Getting Started with Python Imports
 
