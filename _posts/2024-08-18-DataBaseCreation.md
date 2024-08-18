@@ -2,11 +2,12 @@
 layout: post
 title:  Efficient Cryptocurrency Data Management: Fetching and Storing Binance Data with HDF5
 categories: [Algo Trading, Personal project, Data Engeenering] 
-excerpt: Discover how to efficiently manage cryptocurrency data by fetching and storing Binance candlestick data using HDF5. This guide provides a step-by-step approach to organizing large datasets for research or analysis, offering practical insights into handling high-frequency crypto data with ease. 
+excerpt: Discover how to efficiently manage cryptocurrency data by fetching and storing Binance candlestick data using HDF5. 
 image: /images/DataBaseCreation.png
+hidden: False
 ---
 
-# Exploring the HDF5 File Format for Cryptocurrency Data Storage
+## Exploring the HDF5 File Format for Cryptocurrency Data Storage
 
 When handling large datasets, especially in research, the choice of file format is crucial. HDF5 (Hierarchical Data Format version 5) is a powerful data model that is ideal for managing and storing enormous amounts of data efficiently. It's designed to store data in a hierarchical structure, making it a perfect choice for large, complex datasets—like cryptocurrency trading data. Let's dive into how you can leverage HDF5 to store crypto data fetched from Binance.
 
