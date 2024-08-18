@@ -123,11 +123,11 @@ def fetch_candlestick_data(symbol, interval, start_date, end_date, limit=10000, 
 
 Breaking Down the Function : 
 
-API Request: The function sends a request to Binance's API for candlestick data. We loop through time intervals using the start_ts and end_ts timestamps to ensure we gather data over a specified period.
+- API Request: The function sends a request to Binance's API for candlestick data. We loop through time intervals using the start_ts and end_ts timestamps to ensure we gather data over a specified period.
 
-Data Processing: The JSON response is converted into a pandas DataFrame, making it easier to work with. We format the data by converting timestamps and changing numeric columns to their appropriate types.
+- Data Processing: The JSON response is converted into a pandas DataFrame, making it easier to work with. We format the data by converting timestamps and changing numeric columns to their appropriate types.
 
-HDF5 Storage: Finally, we store the DataFrame in an HDF5 file. This allows us to append new data over time, making it an efficient method for long-term storage.
+- HDF5 Storage: Finally, we store the DataFrame in an HDF5 file. This allows us to append new data over time, making it an efficient method for long-term storage.
 
 ## Running the Data Collection
 
@@ -154,5 +154,7 @@ if __name__ == "__main__":
 ## Final Thoughts
 
 By using HDF5, you gain a powerful tool for managing large datasets, ensuring that your research is both scalable and efficient. Whether you're analyzing historical price data or developing trading strategies, this approach provides a robust foundation for your work.
+
+Moreover, you can expand your database by storing additional cryptocurrency pairs in the same HDF5 file. Accessing them is straightforward—simply use pd.read_hdf() with the desired key, allowing you to seamlessly retrieve and analyze data across multiple assets.
 
 Happy coding, and may your data always be manageable!
