@@ -119,7 +119,7 @@ def fetch_candlestick_data(symbol, interval, start_date, end_date, limit=10000, 
             ])
             
             # Convert timestamps to datetime
-            df['Open_Time'] = pd.to_datetime(df['Open_Time'], unit='ms')
+            df['Open_Time'] = pd.to_datetime(df['Open_Time'], unit='ns')
             del df['Close_Time']
             # Convert numeric columns to appropriate types
             df['Open'] = pd.to_numeric(df['Open'])
