@@ -11,13 +11,11 @@ hidden: False
 
 In our [previous post](https://zaltarba.github.io/blog/DataBaseCreation/), we explored how to fetch and store Binance candlestick data using HDF5, laying the groundwork for efficient data management in cryptocurrency research. Efficient data handling is crucial when dealing with large datasets, especially in the fast-paced world of crypto trading.
 
-Now, we're taking the next step in our journey by delving into the analysis of this data. This is the first part of a three-part series where we'll dive deep into estimating Bitcoin's volatility using different methods. Understanding volatility is key to making informed trading decisions, managing risk, and developing robust trading strategies.
+Now, we're taking the next step in our journey by delving into the analysis of this data. This is the first part of a three-part series where we'll dive deep into estimating Bitcoin's volatility using different methods. 
 
-But first **Terminology Alert** : What is volatility ?
+**Terminology Alert** : Volatility is a fundamental concept in finance, representing the degree of variation in the price of a financial asset over time. In simpler terms, it measures how much and how quickly the value of an asset changes. 
 
-Volatility is a fundamental concept in finance, representing the degree of variation in the price of a financial asset over time. In simpler terms, it measures how much and how quickly the value of an asset changes. However, it's important to note that volatility is not directly observable—it's a **hidden variable** that must be estimated from market data. Its value can vary depending on the estimation model used, making it a crucial yet complex component in financial analysis.
-
-High volatility indicates that an asset's price can change dramatically over a short period, signaling higher risk but also the potential for significant returns. Conversely, low volatility suggests more stable price movements, implying lower risk and steadier returns.
+It's important to note that volatility is not directly observable—it's a **hidden variable** that must be estimated from market data. Its value can vary depending on the estimation model used, making it a crucial yet complex component in financial analysis.
 
 There are two main types of volatility:
 
@@ -25,16 +23,18 @@ There are two main types of volatility:
 
 - **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. Implied volatility is extracted using option pricing models like the Black-Scholes model. Because it depends on the model's assumptions and inputs, implied volatility is also an estimate and can vary between models.
 
-Understanding that volatility is an estimated, model-dependent variable underscores the importance of selecting appropriate models and methods for its calculation. This awareness is essential for accurate risk assessment, option pricing, and the development of effective trading strategies.
+Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, and the other to follow, **we will focus on the historical volatility**.
 
-By acknowledging the hidden nature of volatility and its reliance on estimation, we can better interpret volatility measures and make more informed decisions in the inherently uncertain landscape of financial markets.
-### The Significance of Bitcoin's Volatility
+### Why Study Historical Volatility?
 
-Bitcoin is known for its significant price swings, which can present both opportunities and risks for traders and investors. Understanding and accurately estimating its volatility is crucial for:
+Understanding historical volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Historical volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing historical volatility is essential:
 
-- **Risk Management**: Helping traders set appropriate stop-loss orders and position sizes.
-- **Option Pricing**: Essential for valuing derivatives accurately.
-- **Portfolio Diversification**: Assisting in making informed decisions about asset allocation.
+1. Risk Assessment and Management : Historical volatility is a key indicator of the risk associated with an asset. By analyzing how much Bitcoin's price has fluctuated in the past, traders and investors can gauge the potential risk of future price movements. This understanding allows for:
+2. Strategic Trading Decisions : Studying historical volatility can help traders develop effective trading strategies by recognizing periods of high or low volatility to choose appropriate trading approaches (e.g., trend following in high volatility, mean reversion in low volatility). 
+3. Option Pricing and Derivative Valuation: Since volatility is a hidden variable and not directly observable, historical volatility serves as an essential estimate.
+4. Getting Risk-Adjusted Returns: Evaluating whether the potential returns justify the risks based on historical volatility.
+
+In essence, studying historical volatility is **not just an academic** exercise—it's a practical necessity. It equips traders and investors with the knowledge to navigate the complexities of the financial markets, particularly the dynamic and often unpredictable cryptocurrency landscape. By acknowledging that volatility is a hidden variable dependent on estimation models, we can appreciate the importance of selecting appropriate methods to measure and interpret it. This understanding ultimately leads to better risk management, more effective trading strategies, and informed decision-making in the pursuit of financial goals.
 
 ## Preparing the Data
 
