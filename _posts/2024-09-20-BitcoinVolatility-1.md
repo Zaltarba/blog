@@ -49,11 +49,7 @@ import pandas as pd
 
 # Load the data from the HDF5 file
 df = pd.read_hdf('data/crypto_database.h5', key='BTCUSDT')
-
-# Display the first few rows
-print(df.head())
 ```
-
 This will give us access to the Bitcoin candlestick data with 1-minute granularity.
 
 ### Data Cleaning and Preprocessing
@@ -105,9 +101,6 @@ df['log_returns'] = np.log(df['Close'] / df['Close'].shift(1))
 
 # Drop the NaN value created by the shift
 df.dropna(subset=['log_returns'], inplace=True)
-
-# Display the first few log returns
-print(df['log_returns'].head())
 ```
 
 Now, let's visualize the log returns to get a sense of their behavior.
@@ -126,9 +119,11 @@ plt.show()
 
 ## Introducing the EWMA Method
 
-### Understanding EWMA
+The Exponentially Weighted Moving Average (EWMA) is a powerful statistical technique that assigns exponentially decreasing weights to past observations, giving more significance to recent data points. This responsiveness to the latest market information makes EWMA particularly valuable in volatile markets like cryptocurrency, where conditions can change rapidly.
 
-The Exponentially Weighted Moving Average (EWMA) is a method that gives more weight to recent observations while not discarding older data entirely. This makes it highly responsive to recent changes in volatility, which is particularly useful in volatile markets like cryptocurrency.
+EWMA was popularized by **J.P. Morgan** in the early 1990s through their development of the [**RiskMetrics**](https://www.phy.pmf.unizg.hr/~bp/TD4ePt_2.pdf) system. RiskMetrics provided a standardized framework for measuring and managing market risk, introducing EWMA as an effective method for estimating volatility. By emphasizing recent price movements without entirely discarding older data, EWMA captures the persistence and clustering of volatility often observed in financial time series.
+
+John Hull's book [*"Options, Futures, and Other Derivatives"*](https://archive.org/details/options-futures-et-autres-actifs-derives) discusses EWMA as an effective method for volatility estimation, particularly in the context of RiskMetrics developed by J.P. Morgan. The method's ability to adapt quickly to market changes makes it valuable for risk management and derivative pricing.
 
 The EWMA volatility is calculated using the formula:
 
@@ -141,10 +136,6 @@ Where:
 - $ \sigma_t^2 $ is the variance at time $ t $.
 - $ \lambda $ is the decay factor (0 < $ \lambda $ < 1).
 - $ r_t $ is the return at time $ t $.
-
-### Reference to Hull's Methodology
-
-John Hull's book *"Options, Futures, and Other Derivatives"* discusses EWMA as an effective method for volatility estimation, particularly in the context of RiskMetrics developed by J.P. Morgan. The method's ability to adapt quickly to market changes makes it valuable for risk management and derivative pricing.
 
 ## Estimating Volatility Using EWMA
 
@@ -207,12 +198,8 @@ Stay tuned for deeper insights into the fascinating world of financial volatilit
 
 ## Additional Resources
 
-- **Code Repository**: [GitHub Link](#) *(Replace with actual link)*
-- **Further Reading**:
-  - John Hull's *Options, Futures, and Other Derivatives*
-  - J.P. Morgan's RiskMetrics Technical Document
-
-## Closing Remarks
+- **Code Repository**: [GitHub Link](#) 
+- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives*
 
 Feel free to share your thoughts or ask questions in the comments below. I encourage you to experiment with the code, try different decay factors, and see how it affects the volatility estimates.
 
