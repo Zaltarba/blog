@@ -38,7 +38,7 @@ In essence, studying historical volatility is **not just an academic** exerciseâ
 
 ## Preparing the Data
 
-Before we can estimate volatility, we need to prepare our data.
+Before we can estimate volatility, we need to prepare our data. The database we will use is the one we created in [this post](https://zaltarba.github.io/blog/DataBaseCreation/).
 
 ### Loading Data from HDF5
 
@@ -217,8 +217,3 @@ Stay tuned for deeper insights into the fascinating world of financial volatilit
 Feel free to share your thoughts or ask questions in the comments below. I encourage you to experiment with the code, try different decay factors, and see how it affects the volatility estimates.
 
 Happy analyzing, and may your trading decisions be ever informed!
-
----
-
-*Note: Remember to replace `#` with the actual URL of your code repository.*
-```
