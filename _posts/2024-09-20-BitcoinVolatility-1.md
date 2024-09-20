@@ -4,25 +4,30 @@ title:  Estimating Bitcoin's Volatility: An Introduction Using EWMA
 categories: [Algo Trading, Personal Project, Quantitative Analysis]
 excerpt: Dive into the first part of our three-part series on computing Bitcoin's volatility with Binance data.
 image: /images/BayesianClustering.png
+hidden: False
 ---
 
 ## Introduction
 
-In our previous post, we explored how to fetch and store Binance candlestick data using HDF5, laying the groundwork for efficient data management in cryptocurrency research. Efficient data handling is crucial when dealing with large datasets, especially in the fast-paced world of crypto trading.
+In our [previous post](https://zaltarba.github.io/blog/DataBaseCreation/), we explored how to fetch and store Binance candlestick data using HDF5, laying the groundwork for efficient data management in cryptocurrency research. Efficient data handling is crucial when dealing with large datasets, especially in the fast-paced world of crypto trading.
 
 Now, we're taking the next step in our journey by delving into the analysis of this data. This is the first part of a three-part series where we'll dive deep into estimating Bitcoin's volatility using different methods. Understanding volatility is key to making informed trading decisions, managing risk, and developing robust trading strategies.
 
-## Understanding Volatility in Financial Markets
+But first **Terminology Alert** : What is volatility ?
 
-### What is Volatility?
+Volatility is a fundamental concept in finance, representing the degree of variation in the price of a financial asset over time. In simpler terms, it measures how much and how quickly the value of an asset changes. However, it's important to note that volatility is not directly observable—it's a **hidden variable** that must be estimated from market data. Its value can vary depending on the estimation model used, making it a crucial yet complex component in financial analysis.
 
-Volatility is a statistical measure of the dispersion of returns for a given security or market index. In simpler terms, it represents how much and how quickly the value of an asset changes. High volatility means an asset's value can change dramatically over a short period, while low volatility indicates more steady price movements.
+High volatility indicates that an asset's price can change dramatically over a short period, signaling higher risk but also the potential for significant returns. Conversely, low volatility suggests more stable price movements, implying lower risk and steadier returns.
 
 There are two main types of volatility:
 
-- **Historical Volatility**: Calculated from past market prices.
-- **Implied Volatility**: Derived from the market price of a market-traded derivative (especially options).
+- **Historical Volatility**: Calculated from past market prices, it reflects the asset's actual price movements over a specified period. Since volatility is hidden and not directly measurable, we estimate historical volatility using statistical models applied to historical return data. The choice of model and time frame can significantly impact the volatility estimate.
 
+- **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. Implied volatility is extracted using option pricing models like the Black-Scholes model. Because it depends on the model's assumptions and inputs, implied volatility is also an estimate and can vary between models.
+
+Understanding that volatility is an estimated, model-dependent variable underscores the importance of selecting appropriate models and methods for its calculation. This awareness is essential for accurate risk assessment, option pricing, and the development of effective trading strategies.
+
+By acknowledging the hidden nature of volatility and its reliance on estimation, we can better interpret volatility measures and make more informed decisions in the inherently uncertain landscape of financial markets.
 ### The Significance of Bitcoin's Volatility
 
 Bitcoin is known for its significant price swings, which can present both opportunities and risks for traders and investors. Understanding and accurately estimating its volatility is crucial for:
