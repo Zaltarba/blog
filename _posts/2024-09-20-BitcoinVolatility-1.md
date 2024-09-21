@@ -13,19 +13,19 @@ In our [previous post](https://zaltarba.github.io/blog/DataBaseCreation/), we ex
 
 Now, we're taking the next step in our journey by delving into the analysis of this data. This is the first part of a three-part series where we'll dive deep into estimating Bitcoin's volatility using different methods. 
 
-**Terminology Alert** : Volatility is a fundamental concept in finance, representing the degree of variation in the price of a financial asset over time. In simpler terms, it measures how much and how quickly the value of an asset changes. 
+**Terminology Alert** : Volatility measures how much and how quickly the value of an asset changes. 
 
-It's important to note that volatility is not directly observable—it's a **hidden variable** that must be estimated from market data. Its value can vary depending on the estimation model used, making it a crucial yet complex component in financial analysis.
+It's important to note that volatility is not directly observable. It's a **hidden variable** that must be estimated from market data. Its value can vary depending on the estimation model used, making it a crucial yet complex component in financial analysis.
 
 There are two main types of volatility:
 
-- **Historical Volatility**: Calculated from past market prices, it reflects the asset's actual price movements over a specified period. Since volatility is hidden and not directly measurable, we estimate historical volatility using statistical models applied to historical return data. The choice of model and time frame can significantly impact the volatility estimate.
+- **Historical Volatility**: Calculated from past market prices, it reflects the asset's actual price movements over a specified period. 
 
-- **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. Implied volatility is extracted using option pricing models like the Black-Scholes model. Because it depends on the model's assumptions and inputs, implied volatility is also an estimate and can vary between models.
+- **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. 
 
 Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, and the other to follow, **we will focus on the historical volatility**.
 
-### Why Study Historical Volatility?
+## Why Study Historical Volatility?
 
 Understanding historical volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Historical volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing historical volatility is essential:
 
