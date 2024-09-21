@@ -29,10 +29,10 @@ Why this difference ? Well, it happens volatility is far easier to predict than 
 
 Understanding historical volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Historical volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing historical volatility is essential:
 
-1. Risk Assessment and Management : Historical volatility is a key indicator of the risk associated with an asset. By analyzing how much Bitcoin's price has fluctuated in the past, traders and investors can gauge the potential risk of future price movements. This understanding allows for:
-2. Strategic Trading Decisions : Studying historical volatility can help traders develop effective trading strategies by recognizing periods of high or low volatility to choose appropriate trading approaches (e.g., trend following in high volatility, mean reversion in low volatility). 
-3. Option Pricing and Derivative Valuation: Since volatility is a hidden variable and not directly observable, historical volatility serves as an essential estimate.
-4. Getting Risk-Adjusted Returns: Evaluating whether the potential returns justify the risks based on historical volatility.
+1. **Risk Assessment and Management**: Historical volatility is a key indicator of the risk associated with an asset. By analyzing how much Bitcoin's price has fluctuated in the past, traders and investors can gauge the potential risk of future price movements. This understanding allows for:
+2. **Strategic Trading Decisions**: Studying historical volatility can help traders develop effective trading strategies by recognizing periods of high or low volatility to choose appropriate trading approaches (e.g., trend following in high volatility, mean reversion in low volatility). 
+3. **Option Pricing and Derivative Valuation**: Since volatility is a hidden variable and not directly observable, historical volatility serves as an essential estimate.
+4. **Getting Risk-Adjusted Returns**: Evaluating whether the potential returns justify the risks based on historical volatility.
 
 In essence, studying historical volatility is **not just an academic** exercise—it's a practical necessity. It equips traders and investors with the knowledge to navigate the complexities of the financial markets, particularly the dynamic and often unpredictable cryptocurrency landscape. By acknowledging that volatility is a hidden variable dependent on estimation models, we can appreciate the importance of selecting appropriate methods to measure and interpret it. This understanding ultimately leads to better risk management, more effective trading strategies, and informed decision-making in the pursuit of financial goals.
 
@@ -46,6 +46,8 @@ First, let's load the Bitcoin data we previously stored in our HDF5 file.
 
 ```python
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
 
 # Load the data from the HDF5 file
 df = pd.read_hdf('data/crypto_database.h5', key='BTCUSDT')
@@ -67,6 +69,22 @@ df['Open_Time'] = pd.to_datetime(df['Open_Time'])
 # Set 'Open_Time' as the index
 df.set_index('Open_Time', inplace=True)
 ```
+
+### Taking a look at the data 
+
+Let's ensure we have interpretable data by plotting the evolution of the Bitcoin Price.
+
+```python
+# Plot the log returns
+plt.figure(figsize=(12, 6))
+df['Close'].plot()
+plt.title('Bitcoin Price')
+plt.xlabel('Date')
+plt.ylabel('BTC USDT')
+plt.show()
+```
+
+![figure 1](/blog/images/MT_Portfolio_capital_gain.png)
 
 ## Calculating Log Returns
 
@@ -94,8 +112,6 @@ Where:
 Let's calculate the log returns of the 'Close' price.
 
 ```python
-import numpy as np
-
 # Calculate log returns
 df['log_returns'] = np.log(df['Close'] / df['Close'].shift(1))
 
@@ -106,8 +122,6 @@ df.dropna(subset=['log_returns'], inplace=True)
 Now, let's visualize the log returns to get a sense of their behavior.
 
 ```python
-import matplotlib.pyplot as plt
-
 # Plot the log returns
 plt.figure(figsize=(12, 6))
 df['log_returns'].plot()
@@ -116,6 +130,8 @@ plt.xlabel('Date')
 plt.ylabel('Log Return')
 plt.show()
 ```
+
+![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
 
 ## Introducing the EWMA Method
 
@@ -157,9 +173,6 @@ df['ewma_variance'] = df['log_returns'].ewm(alpha=alpha, adjust=False).var()
 
 # Calculate the EWMA volatility
 df['ewma_volatility'] = np.sqrt(df['ewma_variance'])
-
-# Display the first few EWMA volatility values
-print(df['ewma_volatility'].head())
 ```
 
 ### Visualization
@@ -175,6 +188,8 @@ plt.xlabel('Date')
 plt.ylabel('Volatility')
 plt.show()
 ```
+
+![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
 
 ## Interpreting the Results
 
