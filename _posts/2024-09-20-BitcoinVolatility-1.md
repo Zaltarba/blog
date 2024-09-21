@@ -84,7 +84,7 @@ plt.ylabel('BTC USDT')
 plt.show()
 ```
 
-![figure 1](/blog/images/MT_Portfolio_capital_gain.png)
+![figure 1](/blog/images/BitcoinVolatility-1-figure-1.png)
 
 ## Calculating Log Returns
 
@@ -131,7 +131,7 @@ plt.ylabel('Log Return')
 plt.show()
 ```
 
-![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
+![figure 2](/blog/images/BitcoinVolatility-1-figure-2.png)
 
 ## Introducing the EWMA Method
 
@@ -189,7 +189,7 @@ plt.ylabel('Volatility')
 plt.show()
 ```
 
-![figure 2](/blog/images/MT_Portfolio_capital_gain.png)
+![figure 3](/blog/images/BitcoinVolatility-1-figure-3.png)
 
 ## Interpreting the Results
 
