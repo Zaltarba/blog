@@ -205,7 +205,7 @@ By examining the plot, we can observe periods where volatility spikes, indicatin
 
 While the EWMA model is a useful tool for estimating historical volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
 
-- **No Predictive Power for Future Volatility**: The EWMA model is excellent for estimating **historical** volatility by focusing on recent past returns. However, it is not designed to **predict future volatility**. The model assumes that recent patterns in volatility will persist, but it doesn't incorporate any underlying economic factors, structural market changes, or forward-looking information.
+- **No Predictive Power for Future Volatility**: The EWMA model is excellent for estimating **historical** volatility by focusing on recent past returns. However, it is not suitable for predicting **future volatility**. When simulating future values of the model, the expectation $ E[\sigma_{t+h}] $ tends to 0 as $ h $ increases, meaning the model effectively predicts no future volatility (assuming $ E[ r_t] = 0 $ ). This limitation arises because EWMA only reacts to past data without incorporating any forward-looking information or structural changes in the market.
   
 - **Constant Decay Factor**: The choice of the decay factor $ \lambda $ is critical to the model's performance. However, EWMA uses a constant $ \lambda $, which assumes that the rate at which past data becomes less relevant is fixed over time. This might not be realistic during periods of sudden market regime shifts, where volatility patterns change dramatically.
 
