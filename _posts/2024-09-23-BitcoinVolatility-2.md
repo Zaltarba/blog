@@ -32,28 +32,24 @@ Then the following empirical properties cannot be modelized :
 1. **Volatility Clustering** : One of the most well-documented phenomena in financial markets. This refers to the empirical observation that large price changes tend to be followed by large price changes, and small changes tend to be followed by small changes, regardless of the direction of the price movement. 
 2. **Heavy-Tailed Distributions** : Another well-known stylized fact about financial returns. Extreme events (large price changes) happen more often than a normal distribution would predict. Simple volatility models that assume normality tend to underestimate the likelihood of these extreme events.
 
-How to ensure those properties are 
+From a mathematical standpoint:
+
+$$
+\text{Cov}(\epsilon_t^2, \epsilon_{t+k}^2) > 0 \quad \text{for small } k
+$$
+
+$$
+\text{Kurt}(\epsilon_t) = \frac{\mathbb{E}[(\epsilon_t - \mu)^4]}{\sigma^4} > 3
+$$
+
+This autocorrelation in the squared residuals is one of the fundamental motivations for using a GARCH model, which specifically models the conditional variance based on past squared residuals and past conditional variances.
 
 **GARCH models** are specifically designed to capture this clustering behavior. The model dynamically adjusts the variance based on both past returns and past volatility, allowing it to accommodate periods of high and low volatility naturally. This is crucial in markets like cryptocurrencies, where volatility tends to persist over time after major events. GARCH models are particularly useful here because they don’t impose normality on the returns directly. Instead, by modeling volatility dynamically and accounting for changes in variance over time, they can better accommodate the heavy-tailed nature of returns, which is frequently observed in financial markets. This ability to model volatility fluctuations means GARCH models can better handle extreme price movements, like those often seen in Bitcoin or other cryptocurrencies.
-
-3. **Mean Reversion in Volatility** : In financial markets, volatility tends to revert to a long-term average after periods of extreme movements. This is known as **mean reversion** in volatility. Simpler models like using the last observed volatility or EWMA may react too slowly to changing market conditions and fail to capture this reversion effect properly.
-
-GARCH models naturally incorporate mean reversion through the interplay of their \(\alpha\), \(\beta\), and \(\omega\) parameters. While recent shocks are considered (\(\alpha\)), the model also ensures that volatility eventually returns to a baseline level (\(\omega\)), preventing the volatility estimate from drifting too far in one direction for too long. This behavior is important for making more accurate volatility forecasts over multiple time periods.
-
-4. **Real-World Applications** : Empirical evidence from both academic research and industry use cases supports the effectiveness of GARCH models in financial markets. Studies have shown that GARCH models outperform simpler alternatives like the constant volatility assumption or moving average methods when applied to stock markets, foreign exchange markets, and commodities. For example:
 
 - **Bollerslev (1986)** demonstrated the success of GARCH models in explaining time-varying volatility in exchange rates.
 - **Engle (1982)**, who pioneered the ARCH model (the predecessor to GARCH), showed how volatility clustering in financial markets can be modeled effectively with these frameworks.
 
-GARCH models are also widely used by practitioners in risk management and option pricing. The ability to dynamically adjust volatility estimates based on market conditions makes them invaluable tools for managing portfolios, pricing derivatives, and assessing market risk.
-
-In conclusion, while it’s tempting to stick with simpler models like EWMA or using the last observed volatility, they often fall short of capturing critical market behaviors like volatility clustering, heavy tails, and mean reversion. A GARCH(p, q) model, with its balance of flexibility and precision, provides a well-suited alternative for financial time series, especially in volatile markets like Bitcoin. It avoids over-engineering by focusing on real, documented characteristics of asset returns, making it a robust and empirically validated approach.
-
-
 The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model was developped by [Tim Bollerslev](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf) and is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in!
-
-###
-
 
 ### What is a GARCH Model?
 
