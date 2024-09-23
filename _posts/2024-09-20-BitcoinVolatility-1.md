@@ -207,7 +207,7 @@ While the EWMA model is a useful tool for estimating historical volatility, it h
 
 - **No Predictive Power for Future Volatility**: The EWMA model is excellent for estimating **historical** volatility by focusing on recent past returns. However, it is not designed to **predict future volatility**. The model assumes that recent patterns in volatility will persist, but it doesn't incorporate any underlying economic factors, structural market changes, or forward-looking information.
   
-- **Constant Decay Factor**: The choice of the decay factor \( \lambda \) is critical to the model's performance. However, EWMA uses a constant \( \lambda \), which assumes that the rate at which past data becomes less relevant is fixed over time. This might not be realistic during periods of sudden market regime shifts, where volatility patterns change dramatically.
+- **Constant Decay Factor**: The choice of the decay factor $ \lambda $ is critical to the model's performance. However, EWMA uses a constant $ \lambda $, which assumes that the rate at which past data becomes less relevant is fixed over time. This might not be realistic during periods of sudden market regime shifts, where volatility patterns change dramatically.
 
 - **Sensitivity to Large Shocks**: While EWMA adapts to volatility changes, it might still **overreact to short-term shocks**. Large price movements (like flash crashes) can disproportionately affect the estimated volatility in the short term, without accounting for whether these movements represent structural shifts or noise.
 
