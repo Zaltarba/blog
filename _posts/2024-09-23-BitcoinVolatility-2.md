@@ -13,9 +13,9 @@ In our [last post](https://zaltarba.github.io/blog/BitcoinVolatility-1/), we dis
 
 ## Motivations 
 
-When modeling financial volatility, it’s crucial to choose a model that captures the unique characteristics of asset price returns without unnecessary complexity. While simple models like the random walk with gaussian increments might seem sufficient for short-term forecasts, they often miss important features of financial time series. 
+When modeling financial volatility, it’s crucial to choose a model that captures the unique characteristics of asset price returns without unnecessary complexity. While simple models like the random walk with gaussian increments might seem sufficient for short-term forecasts, they miss important features of financial time series. 
 
-Indeed if we consider 
+Let's consider the random walk model :
 
 $$
 p_{t+1} = p_t + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
@@ -36,12 +36,14 @@ $$
 \text{Kurt}(\epsilon_t) = \frac{\mathbb{E}[(\epsilon_t - \mu)^4]}{\sigma^4} > 3
 $$
 
-This autocorrelation in the squared residuals is one of the fundamental motivations for using a GARCH model, which specifically models the conditional variance based on past squared residuals and past conditional variances. From these mathematical properties, we can design statistical tests to assess whether the use of a GARCH model is appropriate for a given time series.
+For any financial time series exhibiting these characteristics (volatility clustering and heavy tails) using a more sophisticated model becomes necessary. Fortunately, we can identify these properties through rigorous statistical tests :
 
 1. **Autocorrelation Tests**: To detect volatility clustering, we can apply tests like the [**Ljung-Box Q-test**](https://en.wikipedia.org/wiki/Ljung%E2%80%93Box_test) on the squared residuals $\epsilon_t^2$. 
-2. **Kurtosis Test**: Since heavy tails (excess kurtosis) are often observed in financial returns, we can perform a [**Jarque-Bera test**](https://en.wikipedia.org/wiki/Jarque%E2%80%93Bera_test) to check whether the distribution of the residuals significantly deviates from normality. 
+2. **Kurtosis Test**: Since heavy tails (excess kurtosis) are often observed in financial returns, we can perform a [**Jarque-Bera test**](https://en.wikipedia.org/wiki/Jarque%E2%80%93Bera_test) to check whether the distribution of the residuals significantly deviates from normality.
 
-By performing these tests, we can statistically confirm whether the time series exhibits characteristics like autocorrelation in the squared residuals and heavy tails, which are key indicators that a GARCH model is appropriate for capturing the dynamic behavior of volatility.
+Moreover we also have the GARCH model, which is specifically designed to capture and replicate such behaviors. When applied, the GARCH model accounts for these empirical features, allowing the time series to exhibit the volatility clustering and non-normal distributions that are often observed in financial markets. But enough teasing and let's explain it !
+
+## About The GARCH Model 
 
 **GARCH models** are specifically designed to capture this clustering behavior. The model dynamically adjusts the variance based on both past returns and past volatility, allowing it to accommodate periods of high and low volatility naturally. This is crucial in markets like cryptocurrencies, where volatility tends to persist over time after major events. GARCH models are particularly useful here because they don’t impose normality on the returns directly. Instead, by modeling volatility dynamically and accounting for changes in variance over time, they can better accommodate the heavy-tailed nature of returns, which is frequently observed in financial markets. This ability to model volatility fluctuations means GARCH models can better handle extreme price movements, like those often seen in Bitcoin or other cryptocurrencies.
 
@@ -55,15 +57,16 @@ The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteros
 While EWMA focuses only on recent data to estimate volatility, **GARCH** (Generalized Autoregressive Conditional Heteroskedasticity) integrates both recent returns and a long-term average variance, capturing more information from the dataset. A **GARCH(p, q)** model extends this idea by considering a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory.
 
 The general form of the **GARCH(p, q)** model is given by:
-\[
+
+$$
 \sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \cdot r_{t-i}^2 + \sum_{j=1}^{p} \beta_j \cdot \sigma_{t-j}^2
-\]
+$$
 
 Where:
-- \(\sigma_t^2\) is the current variance estimate (volatility squared),
-- \(\omega\) represents the long-term variance (baseline level of volatility),
-- \(\alpha_i\) weights the impact of past squared returns \((r_{t-i}^2)\), capturing how recent market shocks influence volatility,
-- \(\beta_j\) weights the impact of past variances \((\sigma_{t-j}^2)\), reflecting how long-term volatility persists over time.
+- $\sigma_t^2$ is the current variance estimate (volatility squared),
+- $\omega$ represents the long-term variance (baseline level of volatility),
+- $\alpha_i$ weights the impact of past squared returns $(r_{t-i}^2)$, capturing how recent market shocks influence volatility,
+- $\beta_j$ weights the impact of past variances $(\sigma_{t-j}^2)$, reflecting how long-term volatility persists over time.
 
 By adjusting the **p** and **q** parameters, the **GARCH(p, q)** model becomes highly versatile. It can capture both **volatility clustering** (the tendency for large changes to follow large changes) and **mean reversion** (volatility eventually returning to a long-term average), which are essential characteristics in financial markets, especially in assets with erratic price movements like cryptocurrencies.
 
