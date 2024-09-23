@@ -8,13 +8,13 @@ hidden: False
 ---
 
 ## Introduction
-In our last post, we discussed the Exponentially Weighted Moving Average (EWMA) method for estimating Bitcoin’s volatility. We used historical data from Binance and implemented the EWMA model to track volatility with more weight given to recent data. In this post, we’ll take it a step further by introducing the **GARCH(1,1)** model—a more sophisticated method used to estimate volatility that can capture both short-term changes and long-term volatility trends.
+In our [last post](https://zaltarba.github.io/blog/BitcoinVolatility-1/), we discussed the Exponentially Weighted Moving Average (EWMA) method for estimating Bitcoin’s volatility. We used historical data from Binance and implemented the EWMA model to track volatility. In this post, we’ll take it a step further by introducing the **GARCH(p,q)** model—a more sophisticated method used to estimate volatility that can capture both short-term changes and long-term volatility trends.
 
-The **GARCH** (Generalized Autoregressive Conditional Heteroskedasticity) model, introduced by Tim Bollerslev, is a popular choice for financial volatility modeling, especially in markets like cryptocurrency where volatility tends to cluster over time. Let’s dive in!
+The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model, introduced by Tim Bollerslev in [this article](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf), is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in!
 
-### What is the GARCH(1,1) Model?
+### What is a GARCH Model?
 
-While EWMA focuses only on recent data to predict volatility, **GARCH** integrates both recent returns and a long-term average variance, capturing more information from the dataset. The GARCH(1,1) model uses the following equation to calculate volatility:
+While EWMA focuses only on recent data to estimate volatility, **GARCH** integrates both recent returns and a long-term average variance, capturing more information from the dataset. A GARCH(p,q) model uses the following equation to calculate volatility:
 
 $$
 \sigma_t^2 = \omega + \alpha \cdot r_{t-1}^2 + \beta \cdot \sigma_{t-1}^2
@@ -28,11 +28,14 @@ Where:
 
 **GARCH(1,1)** allows us to model both **volatility clustering** and **mean reversion**, which are key characteristics of financial time series, particularly in crypto markets.
 
+**Terminology Alert** : Volatility Clustering is a well documented phenomenum in markets returns distribution where ...
+
 ### Why Use GARCH for Bitcoin Volatility?
 
 Bitcoin's notorious price swings make it a perfect candidate for a volatility model that adjusts over time. Where EWMA adapts well to sudden changes, GARCH is more versatile, accounting for periods of high and low volatility over time. By using **GARCH(1,1)**, we can estimate the conditional variance for future price movements while factoring in historical volatility.
 
 ### Preparing the Data
+
 Before we fit the GARCH model, let’s load and clean our data, just like we did in the previous post with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values.
 
 ```python
