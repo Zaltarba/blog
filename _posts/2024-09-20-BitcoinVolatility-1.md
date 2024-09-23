@@ -23,7 +23,7 @@ There are two main types of volatility:
 
 - **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. 
 
-Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, and the other to follow, **we will focus on the historical volatility**.
+Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, **we will focus on the historical volatility**.
 
 ## Why Study Historical Volatility?
 
@@ -200,6 +200,18 @@ By examining the plot, we can observe periods where volatility spikes, indicatin
 - **Responsiveness**: EWMA adjusts quickly to changes, making it suitable for volatile markets.
 - **Simplicity**: It's straightforward to implement and doesn't require complex modeling.
 - **Weighted Data**: By giving more importance to recent data, EWMA provides a more current view of market volatility.
+
+### Drawbacks and Limitations of the EWMA Model
+
+While the EWMA model is a useful tool for estimating historical volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
+
+- **No Predictive Power for Future Volatility**: The EWMA model is excellent for estimating **historical** volatility by focusing on recent past returns. However, it is not designed to **predict future volatility**. The model assumes that recent patterns in volatility will persist, but it doesn't incorporate any underlying economic factors, structural market changes, or forward-looking information.
+  
+- **Constant Decay Factor**: The choice of the decay factor \( \lambda \) is critical to the model's performance. However, EWMA uses a constant \( \lambda \), which assumes that the rate at which past data becomes less relevant is fixed over time. This might not be realistic during periods of sudden market regime shifts, where volatility patterns change dramatically.
+
+- **Sensitivity to Large Shocks**: While EWMA adapts to volatility changes, it might still **overreact to short-term shocks**. Large price movements (like flash crashes) can disproportionately affect the estimated volatility in the short term, without accounting for whether these movements represent structural shifts or noise.
+
+Due to these limitations, the EWMA method is generally more appropriate for **historical analysis** and not for forecasting future volatility. More advanced models, like GARCH, are better suited for predicting future volatility because they account for the persistence and reversion tendencies in volatility over time.
 
 ## Conclusion and Next Steps
 
