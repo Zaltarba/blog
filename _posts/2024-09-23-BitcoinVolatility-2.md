@@ -13,12 +13,6 @@ In our [last post](https://zaltarba.github.io/blog/BitcoinVolatility-1/), we dis
 
 ## Motivations 
 
-Certainly! Below is a well-documented **Motivations** section, which explains why a **GARCH model** is suitable for estimating financial volatility compared to simpler models, while avoiding over-engineering. This section addresses key reasons like heavy-tailed distributions, volatility clustering, and other stylized facts of financial time series.
-
----
-
-## Motivations
-
 When modeling financial volatility, it’s crucial to choose a model that captures the unique characteristics of asset price returns without unnecessary complexity. While simple models like the random walk with gaussian increments might seem sufficient for short-term forecasts, they often miss important features of financial time series. 
 
 Indeed if we consider 
