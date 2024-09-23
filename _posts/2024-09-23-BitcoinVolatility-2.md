@@ -45,18 +45,11 @@ Moreover we also have the GARCH model, which is specifically designed to capture
 
 ## About The GARCH Model 
 
-**GARCH models** are specifically designed to capture this clustering behavior. The model dynamically adjusts the variance based on both past returns and past volatility, allowing it to accommodate periods of high and low volatility naturally. This is crucial in markets like cryptocurrencies, where volatility tends to persist over time after major events. GARCH models are particularly useful here because they don’t impose normality on the returns directly. Instead, by modeling volatility dynamically and accounting for changes in variance over time, they can better accommodate the heavy-tailed nature of returns, which is frequently observed in financial markets. This ability to model volatility fluctuations means GARCH models can better handle extreme price movements, like those often seen in Bitcoin or other cryptocurrencies.
-
-- **Bollerslev (1986)** demonstrated the success of GARCH models in explaining time-varying volatility in exchange rates.
-- **Engle (1982)**, who pioneered the ARCH model (the predecessor to GARCH), showed how volatility clustering in financial markets can be modeled effectively with these frameworks.
-
-The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model was developped by [Tim Bollerslev](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf) and is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in!
-
 ### What is a GARCH Model?
 
-While EWMA focuses only on recent data to estimate volatility, **GARCH** (Generalized Autoregressive Conditional Heteroskedasticity) integrates both recent returns and a long-term average variance, capturing more information from the dataset. A **GARCH(p, q)** model extends this idea by considering a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory.
+The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model was developped by [Tim Bollerslev](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf) and is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in
 
-The general form of the **GARCH(p, q)** model is given by:
+A **GARCH** model need two parameters for it's definition : p and q. It considers a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory. The general form of the **GARCH(p, q)** model is given by:
 
 $$
 \sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \cdot r_{t-i}^2 + \sum_{j=1}^{p} \beta_j \cdot \sigma_{t-j}^2
@@ -74,9 +67,11 @@ By adjusting the **p** and **q** parameters, the **GARCH(p, q)** model becomes h
 
 Bitcoin's notorious price swings make it a perfect candidate for a volatility model that adjusts over time. Where EWMA adapts well to sudden changes, GARCH is more versatile, accounting for periods of high and low volatility over time. By using **GARCH(1,1)**, we can estimate the conditional variance for future price movements while factoring in historical volatility.
 
-### Preparing the Data
+## Preparing the Data
 
 Before we fit the GARCH model, let’s load and clean our data, just like we did in the previous post with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values.
+
+### Loading Data from HDF5
 
 ```python
 import pandas as pd
@@ -89,9 +84,23 @@ df['log_returns'] = np.log(df['Close'] / df['Close'].shift(1))
 df.dropna(subset=['log_returns'], inplace=True)
 ```
 
+### Data Cleaning and Preprocessing 
+
+### Taking a Look at the Data
+
 After calculating the log returns, we’re ready to move forward with fitting our GARCH model.
 
-### Fitting the GARCH(1,1) Model
+## Testing for ARCH effects 
+
+### Auto correlation 
+
+### Kurtokis 
+
+## Fitting a GARCH Model
+
+### Model Selection 
+
+### 
 
 We’ll use Python’s `arch` package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
 
@@ -114,6 +123,7 @@ The summary output from fitting the model provides us with estimated values for 
 For Bitcoin, we often observe high beta values, indicating that periods of volatility tend to last for extended periods.
 
 ### Forecasting Volatility Using GARCH
+
 Once we have fitted the model, we can use it to forecast future volatility. The **GARCH(1,1)** model allows us to generate conditional forecasts for the next few periods.
 
 ```python
@@ -125,6 +135,7 @@ print(forecasts.variance[-1:])
 The result will show us the variance forecast over the next five periods, which we can use to adjust trading strategies or risk management plans.
 
 ### Visualization
+
 Finally, let’s plot the realized volatility against the GARCH forecast for a better understanding of how well the model captures Bitcoin's volatility over time.
 
 ```python
@@ -145,6 +156,8 @@ In the next post, we’ll explore more advanced volatility models such as GARCH 
 
 - **Code Repository**: [GitHub Link](https://github.com/Zaltarba/BitcoinVolatilityEstimation/tree/main) 
 - **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives*
+- **Bollerslev (1986)** demonstrated the success of GARCH models in explaining time-varying volatility in exchange rates.
+- **Engle (1982)**, who pioneered the ARCH model (the predecessor to GARCH), showed how volatility clustering in financial markets can be modeled effectively with these frameworks.
 
 Feel free to check out the GitHub repository for the complete code and try experimenting with different parameters to see how they affect volatility estimates.
 
