@@ -270,6 +270,9 @@ p > img {
 
 .masthead {
   padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid $lightGray;
 
   @include mobile {
