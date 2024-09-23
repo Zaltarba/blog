@@ -19,7 +19,7 @@ It's important to note that volatility is not directly observable. It's a **hidd
 
 There are two main types of volatility:
 
-- **Historical Volatility**: Calculated from past market prices, it reflects the asset's actual price movements over a specified period. 
+- **Realized Volatility**: Calculated from past market prices, it reflects the asset's actual price movements over a specified period. 
 
 - **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. 
 
@@ -72,7 +72,7 @@ df.set_index('Open_Time', inplace=True)
 
 ### Taking a look at the data 
 
-Let's ensure we have interpretable data by plotting the evolution of the Bitcoin Price.
+Let's ensure we have good quality data by plotting the evolution of the Bitcoin Price.
 
 ```python
 # Plot the log returns
@@ -109,7 +109,7 @@ Where:
 
 ### Implementing Log Returns Calculation
 
-Let's calculate the log returns of the 'Close' price.
+Let's calculate the log returns using the 'Close' price. While this approach is common, it's important to note that volatility estimation doesn't have to rely solely on the 'Close' price; other data points like the 'Open', 'High', and 'Low' during a time interval are also meaningful and can provide additional insights. However, for simplicity in this post, we'll only use the 'Close' price.
 
 ```python
 # Calculate log returns
