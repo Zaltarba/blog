@@ -162,11 +162,12 @@ plt.show()
 In financial time series, it’s crucial to test for **ARCH effects** (Autoregressive Conditional Heteroskedasticity), which means that the volatility of the series changes over time and is not constant. If ARCH effects are present, we can use models like **GARCH** to capture the volatility dynamics. For the folowing statistical tests, we will as an example a 3 months period, keeping the last month as an out of sample dataset.
 
 ```python
-training_data_mask = df.index < pd.to_datetime("2019-04-01")
+split_date = pd.to_datetime("2019-04-01")
+training_data_mask = df.index < split_date
 returns = df.loc[training_data_mask, 'log_returns']
 ```
 
-### 1. Stationarity
+### Stationarity Test 
 
 Before testing for ARCH effects, we must first check if the series is **stationary**. This is indeed a required features to fit a GARCH model on the serie. We typically can use the [**Augmented Dickey-Fuller (ADF) test**](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test). The null hypothesis of the ADF test is that the series has a unit root, i.e., it is non-stationary.
 
@@ -187,7 +188,7 @@ p-value: 0.0
 
 The **p-value** is below 0.05, we reject the null hypothesis, implying that the series is stationary.
   
-### 2. Autocorrelation
+### Autocorrelation Test
 
 Once stationarity is confirmed, we check for autocorrelation in the **squared returns**. The presence of autocorrelation in squared returns indicates volatility clustering, a key sign of ARCH effects.
 
@@ -208,7 +209,7 @@ print(ljung_box_test)
 
 A significant p-value (below 0.05) for the Ljung-Box test means that there is significant autocorrelation in the squared returns, suggesting the presence of ARCH effects.
 
-### 3. Kurtosis
+### Normality Test
 
 The **Jarque-Bera test** assesses whether the skewness and kurtosis of the series significantly deviate from those of a normal distribution. The null hypothesis is that the data follows a normal distribution.
 
