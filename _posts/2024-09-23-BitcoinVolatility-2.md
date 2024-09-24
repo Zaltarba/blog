@@ -69,7 +69,7 @@ The decision to make a blog post about using **GARCH model** for estimating Bitc
 
 But the model’s ability to incorporate past variances and shocks into future volatility estimates makes it a compelling choice for researchers and practitioners alike. Academically, it’s exciting to explore how well the GARCH model fits different time series data, especially in markets as volatile as cryptocurrencies, where price swings happen frequently.
 
-In financial time series like Bitcoin’s returns, there are well-documented **ARCH effects**—**Autoregressive Conditional Heteroskedasticity**, where volatility changes over time and exhibits clustering. This means simple models that assume constant volatility will fail to adequately describe the data. Moreover, it seems legit to assume Bitcoin’s return distribution exhibits **fat tails**, meaning extreme price changes occur more frequently than predicted by a normal distribution. This heavy-tailed behavior is another reason to use a GARCH model. 
+In financial time series like Bitcoin’s returns, there are well-documented **ARCH effects**. Volatility changes over time and exhibits clustering. This means simple models that assume constant volatility will fail to adequately describe the data. Moreover, it seems legit to assume Bitcoin’s return distribution exhibits **fat tails**, meaning extreme price changes occur more frequently than predicted by a normal distribution. This heavy-tailed behavior is another reason to use a GARCH model. 
 
 ## Preparing the Data
 
