@@ -47,9 +47,14 @@ Moreover we also have the GARCH model, which is specifically designed to capture
 
 ### What is a GARCH Model?
 
-The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model was developped by [Tim Bollerslev](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf) and is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in
+The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity) (Generalized Autoregressive Conditional Heteroskedasticity) model was developped by [Tim Bollerslev](https://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf) and is a popular choice for financial volatility modeling, especially in markets where volatility tends to cluster over time. Let’s dive in.
 
-A **GARCH** model need two parameters for it's definition : p and q. It considers a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory. The general form of the **GARCH(p, q)** model is given by:
+We modelize the log returns with : 
+$$
+r_t = \log(p_t) - \log(p_{t-1}) \quad \text{where} \quad \epsilon_t \sim \mathcal{N}(0, \sigma_t^2)
+$$
+
+Here, $\sigma_t^2$ is the time-varying volatility, which is gonna be modeled by the GARCH model. A **GARCH** model need two parameters for it's definition : p and q. It considers a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory. The general form of the **GARCH(p, q)** model is given by:
 
 $$
 \sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \cdot r_{t-i}^2 + \sum_{j=1}^{p} \beta_j \cdot \sigma_{t-j}^2
@@ -151,13 +156,57 @@ plt.show()
 
 ![figure 2](/blog/images/BitcoinVolatility-2-figure-2.png)
 
-## Testing for ARCH effects 
+## Testing for ARCH Effects
 
-### Auto correlation 
+In financial time series, it’s crucial to test for **ARCH effects** (Autoregressive Conditional Heteroskedasticity), which means that the volatility of the series changes over time and is not constant. If ARCH effects are present, we can use models like **GARCH** to capture the volatility dynamics.
 
-### Kurtokis 
+### 1. Stationarity
 
-## Fitting a GARCH Model
+Before testing for ARCH effects, we must first check if the series is **stationary**. A stationary series has a constant mean and variance over time, which is important for applying time series models like GARCH. 
+
+To test for stationarity, we typically use the **Augmented Dickey-Fuller (ADF) test**. The null hypothesis of the ADF test is that the series has a unit root, i.e., it is non-stationary.
+
+```python
+import pandas as pd
+from statsmodels.tsa.stattools import adfuller
+
+# Assuming 'returns' is a Pandas Series of your financial returns
+result = adfuller(returns)
+
+print(f'ADF Statistic: {result[0]}')
+print(f'p-value: {result[1]}')
+```
+
+- If the **p-value** is below 0.05, we reject the null hypothesis, implying that the series is stationary.
+  
+### 2. Autocorrelation
+
+Once stationarity is confirmed, we check for autocorrelation in the **squared returns**. The presence of autocorrelation in squared returns indicates volatility clustering, a key sign of ARCH effects.
+
+To test for autocorrelation, we can use the **Ljung-Box Q-test**. This test checks for autocorrelation at multiple lags.
+
+```python
+from statsmodels.stats.diagnostic import acorr_ljungbox
+
+# Check autocorrelation in squared returns
+ljung_box_test = acorr_ljungbox(returns**2, lags=[10], return_df=True)
+
+print(ljung_box_test)
+```
+
+A significant p-value (below 0.05) for the Ljung-Box test means that there is significant autocorrelation in the squared returns, suggesting the presence of ARCH effects.
+
+### 3. Kurtosis
+
+Financial returns often exhibit **fat tails** or excess kurtosis, meaning that extreme returns occur more frequently than under a normal distribution. 
+
+Kurtosis values greater than 3 suggest that the series has heavy tails, which is another indication that a GARCH model may be appropriate.
+
+```python
+print(f'Kurtosis: {returns.kurtosis()}')
+```
+
+A kurtosis value greater than 3 implies that the series has heavy tails and more extreme values than a normal distribution, which aligns with the use of a GARCH model.
 
 ### Model Selection 
 
