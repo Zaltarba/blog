@@ -218,7 +218,7 @@ Stay tuned for deeper insights into the fascinating world of financial volatilit
 ## Additional Resources
 
 - **Code Repository**: [GitHub Link](https://github.com/Zaltarba/BitcoinVolatilityEstimation/tree/main) 
-- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives*
+- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives* and Collin Bennet's *Trading Volatility*
 
 Feel free to share your thoughts or ask questions in the comments below. I encourage you to experiment with the code, try different decay factors, and see how it affects the volatility estimates.
 
