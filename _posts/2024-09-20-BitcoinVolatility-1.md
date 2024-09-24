@@ -86,11 +86,9 @@ plt.show()
 
 ![figure 1](/blog/images/BitcoinVolatility-1-figure-1.png)
 
-## Calculating Log Returns
+### Calculating Log Returns
 
-### Why Use Log Returns?
-
-Logarithmic returns, or log returns, are preferred over simple returns for several reasons:
+Logarithmic returns, or log returns, can be preferred over simple returns for several reasons:
 
 - **Time Additivity**: Log returns are additive over time, which simplifies calculations.
 - **Normality**: They often better approximate a normal distribution, which is a common assumption in financial models.
@@ -106,8 +104,6 @@ Where:
 
 - $ r_t $ is the log return at time $ t $.
 - $ P_t $ is the price at time $ t $.
-
-### Implementing Log Returns Calculation
 
 Let's calculate the log returns using the 'Close' price. While this approach is common, it's important to note that volatility estimation doesn't have to rely solely on the 'Close' price; other data points like the 'Open', 'High', and 'Low' during a time interval are also meaningful and can provide additional insights. However, for simplicity in this post, we'll only use the 'Close' price.
 
@@ -133,7 +129,9 @@ plt.show()
 
 ![figure 2](/blog/images/BitcoinVolatility-1-figure-2.png)
 
-## Introducing the EWMA Method
+## Estimating Volatility Using EWMA
+
+### Introducing the EWMA Method
 
 The Exponentially Weighted Moving Average (EWMA) is a powerful statistical technique that assigns exponentially decreasing weights to past observations, giving more significance to recent data points. This responsiveness to the latest market information makes EWMA particularly valuable in volatile markets like cryptocurrency, where conditions can change rapidly.
 
@@ -150,8 +148,6 @@ Where:
 - $ \sigma_t^2 $ is the variance at time $ t $.
 - $ \lambda $ is the decay factor (0 < $ \lambda $ < 1).
 - $ r_t $ is the return at time $ t $.
-
-## Estimating Volatility Using EWMA
 
 ### Setting the Decay Factor (Lambda)
 
@@ -189,19 +185,15 @@ plt.show()
 
 ![figure 3](/blog/images/BitcoinVolatility-1-figure-3.png)
 
-## Interpreting the Results
+### Analyzing the Results
 
-### Analyzing Volatility Patterns
+By analyzing the plot, we can identify periods of sharp volatility spikes, which signal higher risk and potentially greater reward opportunities. These spikes are often triggered by significant market events or news impacting Bitcoin. This behavior is known as **volatility clustering**, where high-volatility periods are followed by similarly turbulent periods, while low-volatility phases exhibit smaller, more stable fluctuations.
 
-By examining the plot, we can observe periods where volatility spikes, indicating higher risk and potentially higher reward opportunities. These spikes often correspond to significant market events or news affecting Bitcoin.
-
-### Benefits of Using EWMA
+### Benefits and Limitations of Using EWMA
 
 - **Responsiveness**: EWMA adjusts quickly to changes, making it suitable for volatile markets.
 - **Simplicity**: It's straightforward to implement and doesn't require complex modeling.
 - **Weighted Data**: By giving more importance to recent data, EWMA provides a more current view of market volatility.
-
-### Drawbacks and Limitations of the EWMA Model
 
 While the EWMA model is a useful tool for estimating realized volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
 
@@ -211,7 +203,9 @@ While the EWMA model is a useful tool for estimating realized volatility, it has
 
 - **Sensitivity to Large Shocks**: While EWMA adapts to volatility changes, it might still **overreact to short-term shocks**. Large price movements (like flash crashes) can disproportionately affect the estimated volatility in the short term, without accounting for whether these movements represent structural shifts or noise.
 
-Due to these limitations, the EWMA method is generally more appropriate for **historical analysis** and not for forecasting future volatility. More advanced models, like GARCH, are better suited for predicting future volatility because they account for the persistence and reversion tendencies in volatility over time.
+Lastly, as explained by Collin Bennet in his book [Trading Volatility](https://www.trading-volatility.com/Trading-Volatility.pdf) Exponentially weighted volatility models struggle to account for recurring volatility-inducing events like earnings reports. Just before an earnings announcement—when future volatility is expected to rise—the model places the least weight on previous earnings-related volatility spikes. Conversely, right after the earnings event—when future volatility is likely to decrease—the model assigns the most weight to these prior events. However, these models may still have some applicability when analyzing indices.
+
+Due to these limitations, the EWMA method is suitable only for **historical analysis** and not for forecasting future volatility. More advanced models, like GARCH, are better suited for predicting future volatility because they account for the persistence and reversion tendencies in volatility over time.
 
 ## Conclusion and Next Steps
 
