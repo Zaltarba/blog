@@ -123,7 +123,33 @@ plt.ylabel('BTC USDT')
 plt.show()
 ```
 
-![figure 1](/blog/images/BitcoinVolatility-1-figure-1.png)
+![figure 1](/blog/images/BitcoinVolatility-2-figure-1.png)
+
+### Calculating Log Returns
+
+Let's calculate here again the log returns using the 'Close' price. 
+
+```python
+# Calculate log returns
+df['log_returns'] = np.log(df['Close'] / df['Close'].shift(1))
+
+# Drop the NaN value created by the shift
+df.dropna(subset=['log_returns'], inplace=True)
+```
+
+Now, let's visualize the log returns to get a sense of their behavior.
+
+```python
+# Plot the log returns
+plt.figure(figsize=(12, 6))
+df['log_returns'].plot()
+plt.title('Bitcoin Log Returns')
+plt.xlabel('Date')
+plt.ylabel('Log Return')
+plt.show()
+```
+
+![figure 2](/blog/images/BitcoinVolatility-2-figure-2.png)
 
 ## Testing for ARCH effects 
 
