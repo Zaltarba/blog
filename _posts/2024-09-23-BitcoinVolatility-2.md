@@ -180,6 +180,10 @@ result = adfuller(returns)
 print(f'ADF Statistic: {result[0]}')
 print(f'p-value: {result[1]}')
 ```
+```bash
+ADF Statistic: -53.002111501058444
+p-value: 0.0
+```
 
 The **p-value** is below 0.05, we reject the null hypothesis, implying that the series is stationary.
   
@@ -196,6 +200,10 @@ from statsmodels.stats.diagnostic import acorr_ljungbox
 ljung_box_test = acorr_ljungbox(returns**2, lags=[10], return_df=True)
 
 print(ljung_box_test)
+```
+```bash
+         lb_stat  lb_pvalue
+10  34331.948673        0.0
 ```
 
 A significant p-value (below 0.05) for the Ljung-Box test means that there is significant autocorrelation in the squared returns, suggesting the presence of ARCH effects.
@@ -220,6 +228,10 @@ jb_test_stat, jb_p_value = jarque_bera(returns)
 print(f'Jarque-Bera Test Statistic: {jb_test_stat}')
 print(f'P-value: {jb_p_value}')
 ```
+```bash
+Jarque-Bera Test Statistic: 85728124.76566969
+P-value: 0.0
+```
 
 A **p-value** lower than 0.05 indicates that we reject the null hypothesis, implying that the returns do not follow a normal distribution. This further strengthens the case for using models like GARCH, which can handle non-normal characteristics such as fat tails and volatility clustering.
 
@@ -230,10 +242,33 @@ A **p-value** lower than 0.05 indicates that we reject the null hypothesis, impl
 We’ll use Python’s `arch` package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
 
 ```python
-# Fit the GARCH(1,1) model
-model = arch_model(df['log_returns'], vol='Garch', p=1, q=1)
-garch_fit = model.fit()
-print(garch_fit.summary())
+from arch import arch_model
+scaling_factor = 1000
+for p in range(1, 4):
+    for q in range(0, 4):
+        # GARCH(p,q) model
+        model = arch_model(
+            df['log_returns']*scaling_factor, 
+            mean='Zero', 
+            vol='GARCH', 
+            p=p, q=q
+            )
+        res = model.fit(disp='off', last_obs=split_date,)
+        print(f'GARCH({p},{q}) AIC: {res.aic}, BIC: {res.bic}')
+```
+```bash
+GARCH(1,0) AIC: 175540.79659658077, BIC: 175560.3354339455
+GARCH(1,1) AIC: 151662.94092316425, BIC: 151692.24917921136
+GARCH(1,2) AIC: 150227.85465395244, BIC: 150266.9323286819
+GARCH(1,3) AIC: 150746.29683750868, BIC: 150795.14393092052
+GARCH(2,0) AIC: 166223.16418857573, BIC: 166252.47244462284
+GARCH(2,1) AIC: 151015.75193265954, BIC: 151054.829607389
+GARCH(2,2) AIC: 153347.75328247808, BIC: 153396.60037588992
+GARCH(2,3) AIC: 149918.00773812976, BIC: 149976.62425022395
+GARCH(3,0) AIC: 160970.76963022564, BIC: 161009.8473049551
+GARCH(3,1) AIC: 155776.01361340753, BIC: 155824.86070681937
+GARCH(3,2) AIC: 155058.9626537681, BIC: 155117.5791658623
+GARCH(3,3) AIC: 153747.4205368927, BIC: 153815.80646766926
 ```
 
 This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
