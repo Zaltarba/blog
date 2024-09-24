@@ -43,7 +43,7 @@ For any financial time series exhibiting these characteristics (volatility clust
 
 Moreover we also have the GARCH model, which is specifically designed to capture and replicate such behaviors. When applied, the GARCH model accounts for these empirical features, allowing the time series to exhibit the volatility clustering and non-normal distributions that are often observed in financial markets. But enough teasing and let's explain it !
 
-## About The GARCH Model 
+## The GARCH Model 
 
 ### What is a GARCH Model?
 
@@ -63,13 +63,17 @@ Where:
 
 By adjusting the **p** and **q** parameters, the **GARCH(p, q)** model becomes highly versatile. It can capture both **volatility clustering** (the tendency for large changes to follow large changes) and **mean reversion** (volatility eventually returning to a long-term average), which are essential characteristics in financial markets, especially in assets with erratic price movements like cryptocurrencies.
 
-### Why Use GARCH for Bitcoin Volatility?
+### Why Use a GARCH Model Here?
 
-Bitcoin's notorious price swings make it a perfect candidate for a volatility model that adjusts over time. Where EWMA adapts well to sudden changes, GARCH is more versatile, accounting for periods of high and low volatility over time. By using **GARCH(1,1)**, we can estimate the conditional variance for future price movements while factoring in historical volatility.
+The decision to make a blog post about using **GARCH model** for estimating Bitcoin’s volatility stems from both academic motivations and empirical necessities. Fitting a GARCH model is not just an exercise in financial theory, but is also one let's be honnest here. 
+
+But the model’s ability to incorporate past variances and shocks into future volatility estimates makes it a compelling choice for researchers and practitioners alike. Academically, it’s exciting to explore how well the GARCH model fits different time series data, especially in markets as volatile as cryptocurrencies, where price swings happen frequently.
+
+In financial time series like Bitcoin’s returns, there are well-documented **ARCH effects**—**Autoregressive Conditional Heteroskedasticity**, where volatility changes over time and exhibits clustering. This means simple models that assume constant volatility will fail to adequately describe the data. Moreover, it seems legit to assume Bitcoin’s return distribution exhibits **fat tails**, meaning extreme price changes occur more frequently than predicted by a normal distribution. This heavy-tailed behavior is another reason to use a GARCH model. 
 
 ## Preparing the Data
 
-Before we fit the GARCH model, let’s load and clean our data, just like we did in the previous post with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values.
+Before we fit a GARCH model, let’s load and clean our data, just like we did in the previous post with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values. Because we are gonna use plenty of statistical test, we are gonna have to tackle some hardware limitations. For this modelling we will work with 3 months historic and keep one months for out of sample testing.
 
 ### Loading Data from HDF5
 
@@ -78,11 +82,15 @@ First, let's load the Bitcoin data we previously stored in our HDF5 file.
 ```python
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
+# Define the date range 
+start_date = '2019-01-01'
+end_date = '2019-05-01'
 # Load the data from the HDF5 file
-df = pd.read_hdf('data/crypto_database.h5', key='BTCUSDT')
+df = pd.read_hdf('data/crypto_database.h5', key='BTCUSDT', where=f"index >= '{start_date}' and index <= '{end_date}'")
 ```
+
 This will give us access to the Bitcoin candlestick data with 1-minute granularity.
 
 ### Data Cleaning and Preprocessing 
