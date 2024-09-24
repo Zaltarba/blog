@@ -23,18 +23,18 @@ There are two main types of volatility:
 
 - **Implied Volatility**: Derived from the market price of a traded derivative, especially options. It represents the market's expectation of future volatility. 
 
-Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, **we will focus on the historical volatility**.
+Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, **we will focus on the realized volatility**.
 
-## Why Study Historical Volatility?
+## Why Study Realized Volatility ?
 
-Understanding historical volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Historical volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing historical volatility is essential:
+Understanding realized volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Realized volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing realized volatility is essential:
 
-1. **Risk Assessment and Management**: Historical volatility is a key indicator of the risk associated with an asset. By analyzing how much Bitcoin's price has fluctuated in the past, traders and investors can gauge the potential risk of future price movements. This understanding allows for:
-2. **Strategic Trading Decisions**: Studying historical volatility can help traders develop effective trading strategies by recognizing periods of high or low volatility to choose appropriate trading approaches (e.g., trend following in high volatility, mean reversion in low volatility). 
-3. **Option Pricing and Derivative Valuation**: Since volatility is a hidden variable and not directly observable, historical volatility serves as an essential estimate.
-4. **Getting Risk-Adjusted Returns**: Evaluating whether the potential returns justify the risks based on historical volatility.
+1. **Risk Assessment and Management**: Realized volatility is a key indicator of the risk associated with an asset. By analyzing how much Bitcoin's price has fluctuated in the past, traders and investors can gauge the potential risk of future price movements. 
+2. **Strategic Trading Decisions**: Studying realized volatility can help traders develop effective trading strategies by recognizing periods of high or low volatility to choose appropriate trading approaches (e.g., trend following in high volatility, mean reversion in low volatility). 
+3. **Option Pricing and Derivative Valuation**: Since volatility is a hidden variable and not directly observable, realized volatility serves as an essential estimate.
+4. **Getting Risk-Adjusted Returns**: Evaluating whether the potential returns justify the risks based on realized volatility.
 
-In essence, studying historical volatility is **not just an academic** exercise—it's a practical necessity. It equips traders and investors with the knowledge to navigate the complexities of the financial markets, particularly the dynamic and often unpredictable cryptocurrency landscape. By acknowledging that volatility is a hidden variable dependent on estimation models, we can appreciate the importance of selecting appropriate methods to measure and interpret it. This understanding ultimately leads to better risk management, more effective trading strategies, and informed decision-making in the pursuit of financial goals.
+In essence, studying realized volatility is **not just an academic** exercise—it's a practical necessity. It equips traders and investors with the knowledge to navigate the complexities of the financial markets, particularly the dynamic and often unpredictable cryptocurrency landscape. By acknowledging that volatility is a hidden variable dependent on estimation models, we can appreciate the importance of selecting appropriate methods to measure and interpret it. This understanding ultimately leads to better risk management, more effective trading strategies, and informed decision-making in the pursuit of financial goals.
 
 ## Preparing the Data
 
@@ -203,9 +203,9 @@ By examining the plot, we can observe periods where volatility spikes, indicatin
 
 ### Drawbacks and Limitations of the EWMA Model
 
-While the EWMA model is a useful tool for estimating historical volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
+While the EWMA model is a useful tool for estimating realized volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
 
-- **No Predictive Power for Future Volatility**: The EWMA model is excellent for estimating **historical** volatility by focusing on recent past returns. However, it is not suitable for predicting **future volatility**. When simulating future values of the model, the expectation $ E[\sigma_{t+h}] $ tends to 0 as $ h $ increases, meaning the model effectively predicts no future volatility (assuming $ E[ r_t] = 0 $ ). This limitation arises because EWMA only reacts to past data without incorporating any forward-looking information or structural changes in the market.
+- **No Predictive Power for Future Volatility**: The EWMA estimator is not suitable for predicting **future volatility**. When simulating future values of the model, the expectation $ E[\sigma_{t+h}] $ tends to 0 as $ h $ increases, meaning the model effectively predicts no future volatility (assuming $ E[ r_t] = 0 $ ). This limitation arises because EWMA only reacts to past data without incorporating any forward-looking information or structural changes in the market.
   
 - **Constant Decay Factor**: The choice of the decay factor $ \lambda $ is critical to the model's performance. However, EWMA uses a constant $ \lambda $, which assumes that the rate at which past data becomes less relevant is fixed over time. This might not be realistic during periods of sudden market regime shifts, where volatility patterns change dramatically.
 
