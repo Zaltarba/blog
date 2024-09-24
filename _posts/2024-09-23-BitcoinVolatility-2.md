@@ -73,22 +73,49 @@ Before we fit the GARCH model, let’s load and clean our data, just like we did
 
 ### Loading Data from HDF5
 
+First, let's load the Bitcoin data we previously stored in our HDF5 file.
+
 ```python
 import pandas as pd
 import numpy as np
-from arch import arch_model
+import matplotlib.pyplot as plt 
 
-# Load Bitcoin data
+# Load the data from the HDF5 file
 df = pd.read_hdf('data/crypto_database.h5', key='BTCUSDT')
-df['log_returns'] = np.log(df['Close'] / df['Close'].shift(1))
-df.dropna(subset=['log_returns'], inplace=True)
 ```
+This will give us access to the Bitcoin candlestick data with 1-minute granularity.
 
 ### Data Cleaning and Preprocessing 
 
-### Taking a Look at the Data
+Ensuring data quality is paramount. We'll check for missing values and ensure that the data types are appropriate.
 
-After calculating the log returns, we’re ready to move forward with fitting our GARCH model.
+```python
+# Check for missing values
+print(df.isnull().sum())
+
+# Convert 'Open_Time' to datetime if not already done
+df.reset_index(inplace=True)
+df['Open_Time'] = pd.to_datetime(df['Open_Time'])
+
+# Set 'Open_Time' as the index
+df.set_index('Open_Time', inplace=True)
+```
+
+### Taking a look at the data 
+
+Let's ensure we have good quality data by plotting the evolution of the Bitcoin Price.
+
+```python
+# Plot the log returns
+plt.figure(figsize=(12, 6))
+df['Close'].plot()
+plt.title('Bitcoin Price')
+plt.xlabel('Date')
+plt.ylabel('BTC USDT')
+plt.show()
+```
+
+![figure 1](/blog/images/BitcoinVolatility-1-figure-1.png)
 
 ## Testing for ARCH effects 
 
@@ -99,8 +126,6 @@ After calculating the log returns, we’re ready to move forward with fitting ou
 ## Fitting a GARCH Model
 
 ### Model Selection 
-
-### 
 
 We’ll use Python’s `arch` package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
 
@@ -114,6 +139,7 @@ print(garch_fit.summary())
 This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
 
 ### Interpreting the GARCH Parameters
+
 The summary output from fitting the model provides us with estimated values for the parameters:
 
 - **Omega (ω)**: Represents the constant or baseline variance. A smaller omega indicates less baseline noise in the market.
