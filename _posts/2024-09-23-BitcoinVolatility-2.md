@@ -158,13 +158,16 @@ plt.show()
 
 ## Testing for ARCH Effects
 
-In financial time series, it’s crucial to test for **ARCH effects** (Autoregressive Conditional Heteroskedasticity), which means that the volatility of the series changes over time and is not constant. If ARCH effects are present, we can use models like **GARCH** to capture the volatility dynamics.
+In financial time series, it’s crucial to test for **ARCH effects** (Autoregressive Conditional Heteroskedasticity), which means that the volatility of the series changes over time and is not constant. If ARCH effects are present, we can use models like **GARCH** to capture the volatility dynamics. For the folowing statistical tests, we will as an example a 3 months period, keeping the last month as an out of sample dataset.
+
+```python
+training_data_mask = df.index < pd.to_datetime("2019-04-01")
+returns = df.loc[training_data_mask, 'log_returns']
+```
 
 ### 1. Stationarity
 
-Before testing for ARCH effects, we must first check if the series is **stationary**. A stationary series has a constant mean and variance over time, which is important for applying time series models like GARCH. 
-
-To test for stationarity, we typically use the **Augmented Dickey-Fuller (ADF) test**. The null hypothesis of the ADF test is that the series has a unit root, i.e., it is non-stationary.
+Before testing for ARCH effects, we must first check if the series is **stationary**. This is indeed a required features to fit a GARCH model on the serie. We typically can use the [**Augmented Dickey-Fuller (ADF) test**](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test). The null hypothesis of the ADF test is that the series has a unit root, i.e., it is non-stationary.
 
 ```python
 import pandas as pd
@@ -177,7 +180,7 @@ print(f'ADF Statistic: {result[0]}')
 print(f'p-value: {result[1]}')
 ```
 
-- If the **p-value** is below 0.05, we reject the null hypothesis, implying that the series is stationary.
+The **p-value** is below 0.05, we reject the null hypothesis, implying that the series is stationary.
   
 ### 2. Autocorrelation
 
@@ -198,15 +201,28 @@ A significant p-value (below 0.05) for the Ljung-Box test means that there is si
 
 ### 3. Kurtosis
 
-Financial returns often exhibit **fat tails** or excess kurtosis, meaning that extreme returns occur more frequently than under a normal distribution. 
+The **Jarque-Bera test** assesses whether the skewness and kurtosis of the series significantly deviate from those of a normal distribution. The null hypothesis is that the data follows a normal distribution.
 
-Kurtosis values greater than 3 suggest that the series has heavy tails, which is another indication that a GARCH model may be appropriate.
+The test checks both **skewness** and **kurtosis**:
+
+- **Skewness** indicates asymmetry in the distribution.
+- **Kurtosis** measures the tail heaviness of the distribution.
+
+A high Jarque-Bera test statistic suggests that the series is not normally distributed, which is often the case with financial returns, where we observe fat tails and non-symmetric behavior.
 
 ```python
-print(f'Kurtosis: {returns.kurtosis()}')
+from scipy.stats import jarque_bera
+
+# Perform Jarque-Bera test on returns
+jb_test_stat, jb_p_value = jarque_bera(returns)
+
+print(f'Jarque-Bera Test Statistic: {jb_test_stat}')
+print(f'P-value: {jb_p_value}')
 ```
 
-A kurtosis value greater than 3 implies that the series has heavy tails and more extreme values than a normal distribution, which aligns with the use of a GARCH model.
+A **p-value** lower than 0.05 indicates that we reject the null hypothesis, implying that the returns do not follow a normal distribution. This further strengthens the case for using models like GARCH, which can handle non-normal characteristics such as fat tails and volatility clustering.
+
+## GARCH Model 
 
 ### Model Selection 
 
