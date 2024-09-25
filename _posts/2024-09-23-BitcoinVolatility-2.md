@@ -286,7 +286,7 @@ After evaluating multiple GARCH(p, q) models, we select the **GARCH(2, 3)** mode
 
 ### Model Selection 
 
-We’ll use Python’s `arch` package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
+We’ll use Python’s arch package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
 
 ```python
 from arch import arch_model
@@ -390,9 +390,6 @@ beta[3]        0.2600  3.244e-02      8.014  1.111e-15     [  0.196,  0.324]
 
 Covariance estimator: robust
 ```
-
-
-
 
 This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
 
