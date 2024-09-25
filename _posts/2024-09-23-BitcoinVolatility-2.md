@@ -246,7 +246,7 @@ from arch import arch_model
 
 ### Model Selection
 
-In this section, we will systematically evaluate several different GARCH model configurations to find the one that best fits the data. To do this, we'll estimate multiple models by varying the parameters $ p $ (the lag of past volatilities) and $ q $ (the lag of past squared returns) in the GARCH model.
+In this section, we will systematically evaluate several different GARCH model configurations to find the one that best fits the data. To do this, we'll estimate multiple models by varying the parameters p (the lag of past volatilities) and q (the lag of past squared returns) in the GARCH model.
 
 We will evaluate several combinations of GARCH(p, q) models, ranging from simple to more complex configurations, and compare their AIC and BIC values. The model with the **lowest [Akaike Information Criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion) (AIC)** is generally favored when focusing on model fit, while the **lowest [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion) (BIC)** is preferred when penalizing more complex models to avoid overfitting.
 
