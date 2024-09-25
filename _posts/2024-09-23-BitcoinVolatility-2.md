@@ -236,19 +236,30 @@ P-value: 0.0
 
 A **p-value** lower than 0.05 indicates that we reject the null hypothesis, implying that the returns do not follow a normal distribution. This further strengthens the case for using models like GARCH, which can handle non-normal characteristics such as fat tails and volatility clustering.
 
-## Implementing our Model 
+## Model Selection
 
-We’ll use Python’s `arch` package to fit the GARCH model.
+We now have to select the p (the lag of past volatilities) and q (the lag of past squared returns) orders of our GARCH model. Goal here is thus to find the configuration that best fits the data. To do this, we'll estimate multiple models by varying the parameters p and q in the GARCH model, ranging from simple to more complex configurations, and compare their AIC and BIC values. The model with the **lowest [Akaike Information Criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion) (AIC)** is generally favored when focusing on model fit, while the **lowest [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion) (BIC)** is preferred when penalizing more complex models to avoid overfitting.
 
-```python
-from arch import arch_model
-```
+Some pratical considerations now : 
 
-### Model Selection
+1. We’ll use Python’s `arch` package to fit the GARCH model.
+2. We'll apply a **scaling factor** of 1000 to the log returns.
+3. We'll we used a **zero mean** assumption for the log returns.
 
-In this section, we will systematically evaluate several different GARCH model configurations to find the one that best fits the data. To do this, we'll estimate multiple models by varying the parameters p (the lag of past volatilities) and q (the lag of past squared returns) in the GARCH model.
+### Why scale the data ? 
 
-We will evaluate several combinations of GARCH(p, q) models, ranging from simple to more complex configurations, and compare their AIC and BIC values. The model with the **lowest [Akaike Information Criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion) (AIC)** is generally favored when focusing on model fit, while the **lowest [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion) (BIC)** is preferred when penalizing more complex models to avoid overfitting.
+This is necessary because GARCH models tend to perform better when the input data is scaled to more manageable levels, especially with high-frequency data like minute-by-minute returns. Without scaling, the small magnitude of log returns can lead to numerical instability in the estimation process. Scaling helps to improve the model's convergence and interpretability of the parameter estimates.
+
+### Why assume a zero drift ?
+
+, following the argument presented by Collin Bennett in his book *Trading Volatility*. Bennett explains that when calculating volatility, it is often **best to assume zero drift**. 
+
+The calculation for standard deviation measures the deviation from the average log return (drift), which must be estimated from the sample. This estimation can lead to misleading volatility calculations if the sample period includes unusually high or negative returns. For example, if a stock rises by 10% every day for ten days, the standard deviation would be zero because there is no deviation from the 10% average return. However, such trends are unrealistic over the long term, and using the sample log return as the expected future return can distort the volatility estimate.
+
+By assuming a **zero mean** or drift, we prevent the volatility calculation from being influenced by extreme sample returns. In theory, over the long term, the expected return should be close to zero, as the forward price of an asset should reflect this assumption. This is why volatility calculations are typically more accurate when assuming **zero drift**.
+4.
+
+### Results
 
 ```python
 from arch import arch_model
