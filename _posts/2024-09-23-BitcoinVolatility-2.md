@@ -391,9 +391,13 @@ plt.show()
 
 At first glance, the situation looks concerning: we observe clear volatility clustering, with high volatility in the initial months, and numerous extreme values, suggesting the residuals may deviate from normality. 
 
-Let’s confirm this with **rigorous statistical testing**.
+---
+
+We have to do some **rigorous statistical testing** here again.
 
 ![figure 4](/blog/images/here_we_go_again.png)
+
+---
 
 ### Autocorrelation of Residuals
 
