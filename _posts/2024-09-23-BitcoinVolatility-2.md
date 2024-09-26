@@ -395,7 +395,7 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
 
 ## Goodness-of-fit Check 
 
-After fitting our selected GARCH model, it is highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity). We will work on the standardized residuals 
+After fitting our selected GARCH model, it is however highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity). We will work on the standardized residuals 
 
 ```python
 # Standardized residuals from the GARCH model
@@ -420,15 +420,11 @@ plt.show()
 
 At first glance, the situation looks concerning: we observe clear volatility clustering, with high volatility in the initial months, and numerous extreme values, suggesting the residuals may deviate from normality. 
 
----
-
 <div style="text-align: center;">
-We have to do some <strong>rigorous statistical testing</strong> here again.
+We again need to realize some <strong>rigorous statistical testing</strong> to confirm or affirm this proposal.
 </div>
 
 ![figure 4](/blog/images/here_we_go_again.png)
-
----
 
 ### Autocorrelation of Residuals
 
@@ -476,12 +472,11 @@ P-value: 0.0
 
 The **p-value** bellow 0.05 indicates that the residuals do significantly deviate from normality. 
 
----
-After running the goodness-of-fit checks, the results indicate that **the model’s residuals have issues**. 
+After running both test, the results indicate that **the model’s residuals have issues**. 
 
 ### What Might Actually Improve the Model?
 
-To improve the fit of the GARCH model, we can consider several adjustments. The following table outlines possible strategies for improving the model:
+To improve the fit of the GARCH model, we could consider several adjustments. The following table outlines possible strategies for improving the model:
 
 <table style="width:100%; border-collapse:collapse;">
   <thead>
@@ -509,6 +504,8 @@ To improve the fit of the GARCH model, we can consider several adjustments. The 
     </tr>
   </tbody>
 </table>
+
+But should we really bother ?
 
 ### Should We Discard the Current GARCH Model?
 
