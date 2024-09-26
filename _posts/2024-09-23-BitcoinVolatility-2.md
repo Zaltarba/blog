@@ -345,42 +345,42 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
 <table style="width:100%; border-collapse:collapse;">
   <thead>
     <tr>
-      <th style="text-align:center;"><strong>Parameter</strong></th>
-      <th style="text-align:center;"><strong>Value</strong></th>
-      <th style="text-align:center;"><strong>Description</strong></th>
-      <th style="text-align:center;"><strong>Interpretation</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Parameter</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Value</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Description</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Interpretation</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:center;">$\omega$</td>
-      <td style="text-align:center;">0.0180</td>
-      <td style="text-align:center;">Represents the <strong>long-term or baseline variance</strong>.</td>
-      <td style="text-align:center;">Small, positive, and significant $\omega$. Spikes in volatility are largely driven by recent shocks and historical persistence.</td>
+      <th style="text-align:center; vertical-align:middle;">$\omega$</td>
+      <th style="text-align:center; vertical-align:middle;">0.0180</td>
+      <th style="text-align:center; vertical-align:middle;">Represents the <strong>long-term or baseline variance</strong>.</td>
+      <th style="text-align:center; vertical-align:middle;">Small, positive, and significant $\omega$. Spikes in volatility are largely driven by recent shocks and historical persistence.</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$\alpha_1$</td>
-      <td style="text-align:center;">0.1996</td>
-      <td style="text-align:center;">Captures the impact of <strong>recent squared returns</strong> ($r_{t-1}^2$) on current volatility.</td>
-      <td style="text-align:center;">About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">$\alpha_1$</td>
+      <th style="text-align:center; vertical-align:middle;">0.1996</td>
+      <th style="text-align:center; vertical-align:middle;">Captures the impact of <strong>recent squared returns</strong> ($r_{t-1}^2$) on current volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility.</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$\beta_1$</td>
-      <td style="text-align:center;">0.3958</td>
-      <td style="text-align:center;">Reflects the <strong>persistence of past volatility</strong> on current volatility.</td>
-      <td style="text-align:center;">Around 40% of previous volatility persists into the current period. This explains the <strong>volatility clustering</strong> phenomenon, where high volatility tends to follow high volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">$\beta_1$</td>
+      <th style="text-align:center; vertical-align:middle;">0.3958</td>
+      <th style="text-align:center; vertical-align:middle;">Reflects the <strong>persistence of past volatility</strong> on current volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">Around 40% of previous volatility persists into the current period. This explains the <strong>volatility clustering</strong> phenomenon, where high volatility tends to follow high volatility.</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$\beta_2$</td>
-      <td style="text-align:center;">0.1163</td>
-      <td style="text-align:center;">Represents the influence of the <strong>second lag of volatility</strong> on current volatility.</td>
-      <td style="text-align:center;">$\beta_2$ is <strong>not statistically significant</strong> (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">$\beta_2$</td>
+      <th style="text-align:center; vertical-align:middle;">0.1163</td>
+      <th style="text-align:center; vertical-align:middle;">Represents the influence of the <strong>second lag of volatility</strong> on current volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">$\beta_2$ is <strong>not statistically significant</strong> (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility.</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$\beta_3$</td>
-      <td style="text-align:center;">0.2756</td>
-      <td style="text-align:center;">Measures the impact of the <strong>third lag of volatility</strong> on current volatility.</td>
-      <td style="text-align:center;">The third lag is statistically significant with a <strong>t-statistic</strong> of <strong>7.455</strong>. This reinforces the idea that Bitcoin volatility has a <strong>long memory</strong>.</td>
+      <th style="text-align:center; vertical-align:middle;">$\beta_3$</td>
+      <th style="text-align:center; vertical-align:middle;">0.2756</td>
+      <th style="text-align:center; vertical-align:middle;">Measures the impact of the <strong>third lag of volatility</strong> on current volatility.</td>
+      <th style="text-align:center; vertical-align:middle;">The third lag is statistically significant with a <strong>t-statistic</strong> of <strong>7.455</strong>. This reinforces the idea that Bitcoin volatility has a <strong>long memory</strong>.</td>
     </tr>
   </tbody>
 </table>
