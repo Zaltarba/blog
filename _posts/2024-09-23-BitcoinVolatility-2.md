@@ -434,13 +434,17 @@ After running the goodness-of-fit checks, the results indicate that **the model�
 
 To improve the model fit, there are more appropriate adjustments we could consider:
 
-**Use a higher-order GARCH**: Increasing the number of lags in the GARCH terms (i.e., moving to **GARCH(2, 3)**) could better capture the autocorrelation if volatility has a longer memory. This would allow for more flexibility in modeling both short-term and longer-term volatility effects.
+#### Use a higher-order GARCH 
 
-**Use an EGARCH or GJR-GARCH model**: If the market exhibits **asymmetry** in volatility (i.e., large negative returns cause higher volatility than large positive returns), a **GARCH** model may not fully capture these dynamics. An **EGARCH** (Exponential GARCH) or **GJR-GARCH** model can account for this asymmetry, and they often perform better in capturing volatility clustering and shocks in markets like Bitcoin.
+Increasing the number of lags in the GARCH terms (i.e., moving to **GARCH(2, 3)**) could better capture the autocorrelation if volatility has a longer memory. This would allow for more flexibility in modeling both short-term and longer-term volatility effects.
 
-**Change the residual distribution**: If the **Jarque-Bera** test shows that the residuals deviate significantly from normality, consider using a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. This change can help capture the fat tails observed in financial time series more effectively than the standard normal distribution.
+#### Use an EGARCH or GJR-GARCH model 
 
-**Re-evaluate data transformations or pre-processing**: Sometimes, residual autocorrelation can be a sign that the data itself is not fully stationary or that further transformations (such as using logarithmic differences or returns) are needed. Double-checking that the series is adequately pre-processed (stationary) is critical.
+If the market exhibits **asymmetry** in volatility (i.e., large negative returns cause higher volatility than large positive returns), a **GARCH** model may not fully capture these dynamics. An **EGARCH** (Exponential GARCH) or **GJR-GARCH** model can account for this asymmetry, and they often perform better in capturing volatility clustering and shocks in markets like Bitcoin.
+
+#### Change the residual distribution 
+
+If the **Jarque-Bera** test shows that the residuals deviate significantly from normality, consider using a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. This change can help capture the fat tails observed in financial time series more effectively than the standard normal distribution.
 
 ### Should We Discard the Current GARCH Model?
 
@@ -476,7 +480,7 @@ plt.ylabel('Volatility')
 plt.show()
 ```
 
-![figure 5](/blog/images/here_we_go_again.png)
+![figure 5](/blog/images/BitcoinVolatility-2-figure-4.png)
 
 The plot shows how volatility fluctuates over time, capturing periods of heightened risk (volatility clustering) and more stable periods. 
 
@@ -512,7 +516,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![figure 6](/blog/images/here_we_go_again.png)
+![figure 6](/blog/images/BitcoinVolatility-2-figure-5.png)
 
    - **Observation**: The GARCH model consistently shows higher volatility estimates compared to the EWMA model.
    - **Explanation**: This is a typical feature of the GARCH model, which captures both the recent volatility and its persistence over time. Unlike EWMA, which gives more weight to recent data while smoothing out fluctuations, GARCH is designed to account for longer-term volatility clustering, making it more responsive to periods of heightened market stress.
@@ -522,24 +526,25 @@ plt.show()
 
 ### Forecasting Volatility 
 
-The **GARCH(1,3)** model allows us to generate conditional forecasts for the next few periods.
+The **GARCH(1,3)** model allows us to generate conditional forecasts over future periods. Let's expirement forecasting the volatility on unseen data.
 
 ```python
-# Forecast future volatility
-forecasts = garch_fit.forecast(horizon=60)
+forecasts = res.forecast(horizon=60, start=split_date)
+forecasted_variance = forecasts.variance
+forecasted_volatility = np.sqrt(forecasted_variance)    
+
+# Plot the conditional volatility
+plt.figure(figsize=(12, 6))
+forecasted_volatility["h.60"].plot()
+plt.title(f'Forecast Volatility from GARCH({p},{q}) Model')
+plt.xlabel('Date')
+plt.ylabel('Volatility')
+plt.show()
 ```
 
-The result will show us the variance forecast over the next five periods, which we can use to adjust trading strategies or risk management plans.
+![figure 6](/blog/images/BitcoinVolatility-2-figure-6.png)
 
-Finally, let’s plot the realized volatility against the GARCH forecast for a better understanding of how well the model captures Bitcoin's volatility over time.
-
-```python
-# Plot the actual vs. forecasted volatility
-df['volatility_forecast'] = np.sqrt(forecasts.variance.values[-1, :])
-df[['realized_volatility', 'volatility_forecast']].dropna().plot()
-```
-
-By visualizing these two metrics, we can see periods where Bitcoin's realized volatility was much higher than expected and how well the GARCH model adapts to these shocks.
+The plot shows how volatility is expected to behave over the next 60 minutes. Spikes in forecasted volatility would indicate heightened market risk, while a more stable line would suggest a calmer market.
 
 ## Conclusion
 
@@ -550,9 +555,7 @@ In the next post, we’ll explore more advanced volatility models such as GARCH 
 ## Additional Resources
 
 - **Code Repository**: [GitHub Link](https://github.com/Zaltarba/BitcoinVolatilityEstimation/tree/main) 
-- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives*
-- **Bollerslev (1986)** demonstrated the success of GARCH models in explaining time-varying volatility in exchange rates.
-- **Engle (1982)**, who pioneered the ARCH model (the predecessor to GARCH), showed how volatility clustering in financial markets can be modeled effectively with these frameworks.
+- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives* and 
 
 Feel free to check out the GitHub repository for the complete code and try experimenting with different parameters to see how they affect volatility estimates.
 
