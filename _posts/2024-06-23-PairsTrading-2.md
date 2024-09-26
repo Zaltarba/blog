@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linking Cointegration and the Multi Factor Model 
-categories: [Personnal Project,Algo Trading]
+categories: [Personal Project,Algo Trading]
 excerpt: This post is the second of our serie about pair trading and market neutral strategies ...
 hidden: True
 ---
