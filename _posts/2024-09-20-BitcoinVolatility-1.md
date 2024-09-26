@@ -194,8 +194,9 @@ By analyzing the plot, we can identify periods of sharp volatility spikes, which
 - **Responsiveness**: EWMA adjusts quickly to changes, making it suitable for volatile markets.
 - **Simplicity**: It's straightforward to implement and doesn't require complex modeling.
 - **Weighted Data**: By giving more importance to recent data, EWMA provides a more current view of market volatility.
+- **Easy Online Learning**: EWMA is well-suited for real-time or online learning, where data is processed sequentially. In production environments, where data arrives continuously, this feature ensures the system can easily adapt without reprocessing the entire dataset each time.
 
-While the EWMA model is a useful tool for estimating realized volatility, it has some important limitations that should be considered, especially when thinking about future predictions:
+These characteristics make EWMA a highly practical tool for production applications, especially in environments where real-time data processing is critical. Yet it has some important limitations that should be considered, especially when thinking about future predictions:
 
 - **No Predictive Power for Future Volatility**: The EWMA estimator is not suitable for predicting **future volatility**. When simulating future values of the model, the expectation $ E[\sigma_{t+h}] $ tends to 0 as $ h $ increases, meaning the model effectively predicts no future volatility (assuming $ E[ r_t] = 0 $ ). This limitation arises because EWMA only reacts to past data without incorporating any forward-looking information or structural changes in the market.
   
