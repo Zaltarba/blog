@@ -362,30 +362,28 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
       <td style="text-align:center; vertical-align:middle;">$\alpha_1$</td>
       <td style="text-align:center; vertical-align:middle;">0.1996</td>
       <td style="text-align:center; vertical-align:middle;">Captures the impact of <strong>recent squared returns</strong> ($r_{t-1}^2$) on current volatility.</td>
-      <td style="text-align:center; vertical-align:middle;">About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility. The high <strong>t-statistic</strong> of <strong>11.497</strong> confirms strong influence of recent price movements on future volatility.</td>
+      <td style="text-align:center; vertical-align:middle;">About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility.</td>
     </tr>
     <tr>
       <td style="text-align:center; vertical-align:middle;">$\beta_1$</td>
       <td style="text-align:center; vertical-align:middle;">0.3958</td>
       <td style="text-align:center; vertical-align:middle;">Reflects the <strong>persistence of past volatility</strong> on current volatility.</td>
-      <td style="text-align:center; vertical-align:middle;">Around 40% of previous volatility persists into the current period. This explains the <strong>volatility clustering</strong> phenomenon, where high volatility tends to follow high volatility. The high <strong>t-statistic</strong> indicates this persistence is substantial and long-lasting.</td>
+      <td style="text-align:center; vertical-align:middle;">Around 40% of previous volatility persists into the current period. This explains the <strong>volatility clustering</strong> phenomenon, where high volatility tends to follow high volatility.</td>
     </tr>
     <tr>
       <td style="text-align:center; vertical-align:middle;">$\beta_2$</td>
       <td style="text-align:center; vertical-align:middle;">0.1163</td>
       <td style="text-align:center; vertical-align:middle;">Represents the influence of the <strong>second lag of volatility</strong> on current volatility.</td>
-      <td style="text-align:center; vertical-align:middle;">$\beta_2$ is <strong>not statistically significant</strong> (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility. Most of the volatility is explained by more recent volatility patterns.</td>
+      <td style="text-align:center; vertical-align:middle;">$\beta_2$ is <strong>not statistically significant</strong> (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility.</td>
     </tr>
     <tr>
       <td style="text-align:center; vertical-align:middle;">$\beta_3$</td>
       <td style="text-align:center; vertical-align:middle;">0.2756</td>
       <td style="text-align:center; vertical-align:middle;">Measures the impact of the <strong>third lag of volatility</strong> on current volatility.</td>
-      <td style="text-align:center; vertical-align:middle;">The third lag is statistically significant with a <strong>t-statistic</strong> of <strong>7.455</strong>, indicating that even three periods back still have a strong effect on volatility. This reinforces the idea that Bitcoin volatility has a <strong>long memory</strong>.</td>
+      <td style="text-align:center; vertical-align:middle;">The third lag is statistically significant with a <strong>t-statistic</strong> of <strong>7.455</strong>. This reinforces the idea that Bitcoin volatility has a <strong>long memory</strong>.</td>
     </tr>
   </tbody>
 </table>
-
-
 
 | **Parameter**   | **Value**  | **Description**                                                                                             | **Interpretation**                                                                                                                 |
 |-----------------|------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
