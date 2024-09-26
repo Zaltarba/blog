@@ -456,7 +456,69 @@ In summary, while the current model may not be perfect, it provides a solid foun
 
 Once we have select and fit one model, we can use it both to estimate realized volatility and for forecast. 
 
-### Estimating Volatility 
+### Estimating Realized Volatility
+
+In this subsection, we'll estimate **realized volatility** using our **GARCH model** and compare it to an alternative method like the **EWMA** estimator. This comparison will give us a clearer picture of how well the GARCH model captures the dynamics of Bitcoin’s volatility compared to simpler approaches.
+
+Using the following code, we extract and plot the **conditional volatility** from our GARCH model:
+
+```python
+# Get conditional volatility
+cond_vol = res.conditional_volatility
+cond_vol.dropna(inplace=True)
+
+# Plot the conditional volatility
+plt.figure(figsize=(12, 6))
+cond_vol.plot()
+plt.title(f'Conditional Volatility from GARCH({p},{q}) Model')
+plt.xlabel('Date')
+plt.ylabel('Volatility')
+plt.show()
+```
+
+![figure 5](/blog/images/here_we_go_again.png)
+
+The plot shows how volatility fluctuates over time, capturing periods of heightened risk (volatility clustering) and more stable periods. 
+
+The **Exponentially Weighted Moving Average (EWMA)** model is another method often used to estimate realized volatility, giving more weight to recent observations. To compute and compare the EWMA volatility, we can use the following code:
+
+```python
+# Compute EWMA volatility
+lambda_ = 0.94  # Decay factor as used in RiskMetrics
+ewma_vol = (scaling_factor*returns).ewm(alpha=(1 - lambda_), adjust=False).std()
+
+# Create a figure with two subplots (2 rows, 1 column)
+fig, axs = plt.subplots(2, 1, figsize=(12, 12))
+
+# First subplot: GARCH vs EWMA Volatility
+axs[0].plot(cond_vol, label='GARCH Conditional Volatility', color='blue')
+axs[0].plot(ewma_vol, label='EWMA Volatility', color='orange')
+axs[0].set_title('GARCH vs. EWMA Volatility')
+axs[0].set_xlabel('Date')
+axs[0].set_ylabel('Volatility')
+axs[0].legend()
+
+# Second subplot: GARCH vs EWMA Volatility Ratio
+axs[1].plot((cond_vol - ewma_vol) / ewma_vol, label='GARCH Conditional Volatility vs EWMA Volatility Ratio', color='blue')
+axs[1].plot(((cond_vol - ewma_vol) / ewma_vol).rolling(60*24).mean(), label='Rolling Mean', color='red')
+axs[1].set_title('GARCH vs. EWMA Volatility Ratio')
+axs[1].set_xlabel('Date')
+axs[1].set_ylabel('Volatility Ratio')
+axs[1].legend()
+
+# Adjust layout to prevent overlap
+plt.tight_layout()
+# Display the figure
+plt.show()
+```
+
+![figure 6](/blog/images/here_we_go_again.png)
+
+   - **Observation**: The GARCH model consistently shows higher volatility estimates compared to the EWMA model.
+   - **Explanation**: This is a typical feature of the GARCH model, which captures both the recent volatility and its persistence over time. Unlike EWMA, which gives more weight to recent data while smoothing out fluctuations, GARCH is designed to account for longer-term volatility clustering, making it more responsive to periods of heightened market stress.
+
+   - **Observation**: The EWMA model displays smoother, more stable volatility estimates over time.
+   - **Explanation**: EWMA assigns exponentially decreasing weights to past data, which dampens the impact of older, more volatile periods. This explains why EWMA produces lower volatility values, as it focuses more on recent changes without accounting for the persistent volatility that the GARCH model captures.
 
 ### Forecasting Volatility 
 
