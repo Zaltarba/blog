@@ -359,21 +359,38 @@ The summary output from fitting the **GARCH(1, 3)** model provides us with the e
 
 ## Goodness-of-fit Check 
 
-After fitting our selected GARCH model, it is highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity).
-
-### Autocorrelation of Residuals
-
-After fitting the GARCH model, the standardized residuals (the residuals divided by their estimated volatility) should no longer show any significant autocorrelation. We can here again use the **Ljung-Box Q-test** to test whether there is any remaining autocorrelation in the residuals or squared residuals.
+After fitting our selected GARCH model, it is highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity). We will work on the standardized residuals 
 
 ```python
-from statsmodels.stats.diagnostic import acorr_ljungbox
-
 # Standardized residuals from the GARCH model
 std_residuals = res.resid / res.conditional_volatility
 # Because of the last obs arguments we have NaNs
-std_residuals = std_residuals.dropna() 
+std_residuals = std_residuals.dropna()
+```
 
+Let's vizualize those residuals :
 
+```python
+# Plot the standardized residuals from the GARCH model
+plt.figure(figsize=(12, 6))
+std_residuals.plot()
+plt.title('Standardized residuals from the GARCH model')
+plt.xlabel('Date')
+plt.ylabel('Standardized residuals')
+plt.show()
+```
+
+![figure 3](/blog/images/BitcoinVolatility-2-figure-3.png)
+
+At first glance, the situation looks concerning: we observe clear volatility clustering, with high volatility in the initial months, and numerous extreme values, suggesting the residuals may deviate from normality. Let’s confirm this with rigorous statistical testing.
+
+![figure 3](/blog/images/here_we_go_again.png)
+
+### Autocorrelation of Residuals
+
+The standardized residuals (the residuals divided by their estimated volatility) should no longer show any significant autocorrelation. We can here again use the **Ljung-Box Q-test** to test whether there is any remaining autocorrelation in the residuals or squared residuals.
+
+```python
 # Ljung-Box test for residuals (no autocorrelation should be present)
 ljung_box_res = acorr_ljungbox(std_residuals, lags=[10], return_df=True)
 print('Ljung-Box test for residuals')
@@ -384,12 +401,21 @@ ljung_box_sq_res = acorr_ljungbox(std_residuals**2, lags=[10], return_df=True)
 print('Ljung-Box test for squared residuals')
 print(ljung_box_sq_res)
 ```
+```bash
+Ljung-Box test for residuals
+       lb_stat     lb_pvalue
+10  163.434818  6.326210e-30
+
+Ljung-Box test for squared residuals
+      lb_stat  lb_pvalue
+10  19.082143   0.039232
+```
 
 The **p-values** are bellow 0.05, this indicates that there is statistically significant autocorrelation in the residuals or squared residuals, suggesting that the GARCH model has not effectively captured all the volatility structure.
 
 ### Normality of Residuals 
 
-After fitting the model, you should also check whether the residuals follow a normal distribution. The **Jarque-Bera test** can be used for this:
+The standardized residuals should follow a normal distribution. The **Jarque-Bera test** can be used for this:
 
 ```python
 from scipy.stats import jarque_bera
@@ -400,9 +426,7 @@ print(f'Jarque-Bera Test Statistic: {jb_stat}')
 print(f'P-value: {jb_p_value}')
 ```
 
-- A **p-value** greater than 0.05 indicates that the residuals do not significantly deviate from normality. However, financial returns often exhibit fat tails, so it’s common for the residuals to deviate slightly from normality.
-
-We can confirm that our model is well-suited for the data and provides reliable forecasts of volatility.
+The **p-value** bellow 0.05 indicates that the residuals do significantly deviate from normality. 
 
 ## Forecasting Volatility Using GARCH
 
@@ -412,6 +436,10 @@ Once we have select and fit one model, we can use it to forecast future volatili
 # Forecast future volatility
 forecasts = garch_fit.forecast(horizon=60)
 print(forecasts.variance[-1:])
+```
+```bash
+Jarque-Bera Test Statistic: 5551677.823833454
+P-value: 0.0
 ```
 
 The result will show us the variance forecast over the next five periods, which we can use to adjust trading strategies or risk management plans.
