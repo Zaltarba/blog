@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimating Bitcoin's Volatility using a GARCH Model
-categories: [Algo Trading,Personal Project]
+categories: [Personal Project,Algo Trading]
 tags: [binance,trading,garch,volatility]
 excerpt: Dive into the second part of our three-part series on computing Bitcoin's volatility with Binance data.
 image: /thumbnails/BitcoinVolatility2.jpeg
