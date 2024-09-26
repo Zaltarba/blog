@@ -505,22 +505,6 @@ To improve the fit of the GARCH model, we can consider several adjustments. The 
   </tbody>
 </table>
 
-### What might actually improve the model?
-
-To improve the model fit, there are more appropriate adjustments we could consider:
-
-#### Use a higher-order GARCH 
-
-Increasing the number of lags in the GARCH terms (i.e., moving to **GARCH(2, 3)**) could better capture the autocorrelation if volatility has a longer memory. This would allow for more flexibility in modeling both short-term and longer-term volatility effects.
-
-#### Use an EGARCH or GJR-GARCH model 
-
-If the market exhibits **asymmetry** in volatility (i.e., large negative returns cause higher volatility than large positive returns), a **GARCH** model may not fully capture these dynamics. An **EGARCH** (Exponential GARCH) or **GJR-GARCH** model can account for this asymmetry, and they often perform better in capturing volatility clustering and shocks in markets like Bitcoin.
-
-#### Change the residual distribution 
-
-If the **Jarque-Bera** test shows that the residuals deviate significantly from normality, consider using a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. This change can help capture the fat tails observed in financial time series more effectively than the standard normal distribution.
-
 ### Should We Discard the Current GARCH Model?
 
 Although the Ljung-Box tests for residuals and squared residuals show statistically significant autocorrelation, and the Jarque-Bera test indicates that the residuals deviate from normality, these results do not necessarily invalidate the use of the GARCH model. This indeed does not imply that the model is entirely ineffective. GARCH models are specifically designed to capture **conditional heteroskedasticity**—volatility that changes over time based on past returns and variances. While the remaining autocorrelation suggests there are still some dynamics unexplained by the model, the GARCH framework remains usefull to capture volatility clustering.
