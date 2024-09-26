@@ -385,16 +385,6 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
   </tbody>
 </table>
 
-| **Parameter**   | **Value**  | **Description**                                                                                             | **Interpretation**                                                                                                                 |
-|-----------------|------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **$\omega$**  | 0.0180     | Represents the **long-term or baseline variance**.                                                           | A small, positive, and significant $\omega$ indicates a constant underlying volatility in the returns. Spikes in volatility are largely driven by recent shocks and historical persistence.                                                                                                 |
-| **$\alpha_1$**| 0.1996     | Captures the impact of **recent squared returns** ($r_{t-1}^2$) on current volatility.                      | About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility. The high **t-statistic** of **11.497** confirms strong influence of recent price movements on future volatility. |
-| **$\beta_1$** | 0.3958     | Reflects the **persistence of past volatility** on current volatility.                                        | Around 40% of previous volatility persists into the current period. This explains the **volatility clustering** phenomenon, where high volatility tends to follow high volatility. The high **t-statistic** indicates this persistence is substantial and long-lasting.  |
-| **$\beta_2$** | 0.1163     | Represents the influence of the **second lag of volatility** on current volatility.                           | $\beta_2$ is **not statistically significant** (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility. Most of the volatility is explained by more recent volatility patterns.                                             |
-| **$\beta_3$** | 0.2756     | Measures the impact of the **third lag of volatility** on current volatility.                                 | The third lag is statistically significant with a **t-statistic** of **7.455**, indicating that even three periods back still have a strong effect on volatility. This reinforces the idea that Bitcoin volatility has a **long memory**.                     |
-
----
-
 ### Key Insights:
 
 1. **Long-term volatility ($\omega$)** is relatively low, suggesting that Bitcoin’s baseline volatility is not extreme but driven by recent market shocks.
@@ -402,8 +392,6 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
 3. **Volatility persistence ($\beta_1$)** is high, reinforcing the **clustering of volatility** that is often observed in financial markets.
 4. **Second lag ($\beta_2$)** is not significant, indicating that further-back periods do not heavily influence the current volatility.
 5. **Third lag ($\beta_3$)** is significant, meaning that some past volatility still impacts the current market, showcasing Bitcoin’s long volatility memory.
-
----
 
 This format emphasizes clarity and quick reference through a table, making it easy to distinguish each parameter, its value, and its interpretation. The layout is cleaner, more structured, and offers an analytical overview with clear conclusions at the end.
 
@@ -492,11 +480,32 @@ After running the goodness-of-fit checks, the results indicate that **the model�
 
 To improve the fit of the GARCH model, we can consider several adjustments. The following table outlines possible strategies for improving the model:
 
-| **Adjustment**                          | **Description**                                                                                                                                                                                                                                                                          | **Benefit**                                                                                                                                                                                       |
-|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use a higher-order GARCH**            | Increase the number of lags in the GARCH terms, such as moving to **GARCH(2, 3)**. This adjustment could better capture the autocorrelation if volatility has a longer memory, thereby modeling both short-term and long-term volatility effects more effectively.                        | Provides more flexibility in capturing extended memory in the volatility series, which could improve the model’s fit in markets with persistent volatility patterns.                                |
-| **Use an EGARCH or GJR-GARCH model**    | A **GARCH variant** like **EGARCH** or **GJR-GARCH** can account for **asymmetric volatility** (where negative returns have a greater effect on volatility than positive returns).                 | Improves performance in modeling volatility clustering in assets with skewed returns, like Bitcoin. |
-| **Change the residual distribution**    | If the residuals deviate from normality (as indicated by the **Jarque-Bera test**), switch from a normal distribution to a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. | Better reflects the **non-normal** characteristics of financial time series, particularly fat tails, improving the model's ability to handle extreme events and outliers.                           |
+<table style="width:100%; border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th style="text-align:center; vertical-align:middle;"><strong>Adjustment</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Description</strong></th>
+      <th style="text-align:center; vertical-align:middle;"><strong>Benefit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center; vertical-align:middle;"><strong>Use a higher-order GARCH</strong></td>
+      <td style="text-align:center; vertical-align:middle;">Increase the number of lags in the GARCH terms, such as moving to <strong>GARCH(2, 3)</strong>. This adjustment could better capture the autocorrelation if volatility has a longer memory, thereby modeling both short-term and long-term volatility effects more effectively.</td>
+      <td style="text-align:center; vertical-align:middle;">Provides more flexibility in capturing extended memory in the volatility series, which could improve the model’s fit in markets with persistent volatility patterns.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; vertical-align:middle;"><strong>Use an EGARCH or GJR-GARCH model</strong></td>
+      <td style="text-align:center; vertical-align:middle;">A <strong>GARCH variant</strong> like <strong>EGARCH</strong> or <strong>GJR-GARCH</strong> can account for <strong>asymmetric volatility</strong> (where negative returns have a greater effect on volatility than positive returns).</td>
+      <td style="text-align:center; vertical-align:middle;">Improves performance in modeling volatility clustering in assets with skewed returns, like Bitcoin.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; vertical-align:middle;"><strong>Change the residual distribution</strong></td>
+      <td style="text-align:center; vertical-align:middle;">If the residuals deviate from normality (as indicated by the <strong>Jarque-Bera test</strong>), switch from a normal distribution to a <strong>Student’s t-distribution</strong> or <strong>Generalized Error Distribution (GED)</strong> for the residuals.</td>
+      <td style="text-align:center; vertical-align:middle;">Better reflects the <strong>non-normal</strong> characteristics of financial time series, particularly fat tails, improving the model's ability to handle extreme events and outliers.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### What might actually improve the model?
 
