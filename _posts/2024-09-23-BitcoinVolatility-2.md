@@ -393,8 +393,6 @@ The **GARCH(1, 3)** model provides several important parameters that give insigh
 4. **Second lag ($\beta_2$)** is not significant, indicating that further-back periods do not heavily influence the current volatility.
 5. **Third lag ($\beta_3$)** is significant, meaning that some past volatility still impacts the current market, showcasing Bitcoin’s long volatility memory.
 
-This format emphasizes clarity and quick reference through a table, making it easy to distinguish each parameter, its value, and its interpretation. The layout is cleaner, more structured, and offers an analytical overview with clear conclusions at the end.
-
 ## Goodness-of-fit Check 
 
 After fitting our selected GARCH model, it is highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity). We will work on the standardized residuals 
