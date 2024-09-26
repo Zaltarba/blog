@@ -3,7 +3,7 @@ layout: post
 title: An Introduction to Pair Trading and Market Neutral Strategies
 categories: [Personnal project,Algo Trading]
 excerpt: This post is the first of a serie about pair trading and market neutral strategies ...
-image: /images/PairTrading1.png
+image: /thumbnails/PairTrading1.jpeg
 ---
 
 ## Introduction
