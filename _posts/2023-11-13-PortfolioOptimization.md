@@ -1,7 +1,7 @@
 ---
 layout: post
 title: About Portfolio Optimization
-categories: [Personnal project]
+categories: [Personnal Project]
 excerpt: Let's talk about modern Portfolio Optimization !
 hidden: true
 ---
