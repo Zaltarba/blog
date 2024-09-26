@@ -336,7 +336,7 @@ beta[3]        0.2756  3.697e-02      7.455  9.010e-14     [  0.203,  0.348]
 Covariance estimator: robust
 ```
 
-This provides us with the key parameters of our model, that can analyze now !
+This provides us with the key parameters of our model, that we can analyze now !
 
 ## Interpreting the GARCH Parameters
 
@@ -357,17 +357,60 @@ The summary output from fitting the **GARCH(1, 3)** model provides us with the e
 5. **$\beta_3 = 0.2756$**:
    - **Interpretation**: The parameter $\beta_3$ is also statistically significant, with a **t-statistic** of **7.455** and a **p-value** close to zero. This indicates that even the third lag of volatility plays a role in determining current volatility. The impact of this third lag shows that Bitcoin volatility exhibits persistence beyond just the immediate past, reinforcing the long memory often observed in financial time series.
 
-### Conclusion
+## Goodness-of-fit Check 
 
-From the estimated parameters of the **GARCH(1, 3)** model, we can conclude that Bitcoin’s volatility is heavily influenced by both recent market shocks ($\alpha_1$) and past volatility ($\beta_1$ and $\beta_3$). The model captures both short-term and medium-term volatility clustering, where large price changes tend to be followed by periods of heightened volatility. However, the second lag of past volatility ($\beta_2$) appears to be less important, which might suggest that Bitcoin’s volatility decays relatively quickly after the first few periods. Overall, the **GARCH(1, 3)** model provides a robust framework for modeling Bitcoin’s complex volatility behavior.
+After fitting our selected GARCH model, it is highly recommended to perform a **goodness-of-fit check** on the residuals to ensure that the model adequately captures the dynamics of your time series. The main goal of such checks is to assess whether the model residuals behave as expected—ideally, they should resemble white noise, meaning they have no autocorrelation and constant variance (homoscedasticity).
 
-### Forecasting Volatility Using GARCH
+### Autocorrelation of Residuals
 
-Once we have fitted the model, we can use it to forecast future volatility. The **GARCH(1,1)** model allows us to generate conditional forecasts for the next few periods.
+After fitting the GARCH model, the standardized residuals (the residuals divided by their estimated volatility) should no longer show any significant autocorrelation. We can here again use the **Ljung-Box Q-test** to test whether there is any remaining autocorrelation in the residuals or squared residuals.
+
+```python
+from statsmodels.stats.diagnostic import acorr_ljungbox
+
+# Standardized residuals from the GARCH model
+std_residuals = res.resid / res.conditional_volatility
+# Because of the last obs arguments we have NaNs
+std_residuals = std_residuals.dropna() 
+
+
+# Ljung-Box test for residuals (no autocorrelation should be present)
+ljung_box_res = acorr_ljungbox(std_residuals, lags=[10], return_df=True)
+print('Ljung-Box test for residuals')
+print(ljung_box_res)
+
+# Ljung-Box test for squared residuals (no remaining ARCH effects should be present)
+ljung_box_sq_res = acorr_ljungbox(std_residuals**2, lags=[10], return_df=True)
+print('Ljung-Box test for squared residuals')
+print(ljung_box_sq_res)
+```
+
+The **p-values** are bellow 0.05, this indicates that there is statistically significant autocorrelation in the residuals or squared residuals, suggesting that the GARCH model has not effectively captured all the volatility structure.
+
+### Normality of Residuals 
+
+After fitting the model, you should also check whether the residuals follow a normal distribution. The **Jarque-Bera test** can be used for this:
+
+```python
+from scipy.stats import jarque_bera
+
+# Perform Jarque-Bera test on standardized residuals
+jb_stat, jb_p_value = jarque_bera(std_residuals)
+print(f'Jarque-Bera Test Statistic: {jb_stat}')
+print(f'P-value: {jb_p_value}')
+```
+
+- A **p-value** greater than 0.05 indicates that the residuals do not significantly deviate from normality. However, financial returns often exhibit fat tails, so it’s common for the residuals to deviate slightly from normality.
+
+We can confirm that our model is well-suited for the data and provides reliable forecasts of volatility.
+
+## Forecasting Volatility Using GARCH
+
+Once we have select and fit one model, we can use it to forecast future volatility. The **GARCH(1,3)** model allows us to generate conditional forecasts for the next few periods.
 
 ```python
 # Forecast future volatility
-forecasts = garch_fit.forecast(horizon=5)
+forecasts = garch_fit.forecast(horizon=60)
 print(forecasts.variance[-1:])
 ```
 
