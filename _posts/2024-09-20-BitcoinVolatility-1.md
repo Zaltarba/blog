@@ -3,7 +3,7 @@ layout: post
 title: Estimating Bitcoin's Volatility Using EWMA
 categories: [Algo Trading,Personal Project]
 excerpt: Dive into the first part of our three-part series on computing Bitcoin's volatility with Binance data.
-image: /thumbnails/BitcoinVolatility2.jpeg
+image: /thumbnails/BitcoinVolatility1.jpeg
 hidden: False
 ---
 
