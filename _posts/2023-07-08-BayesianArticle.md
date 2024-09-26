@@ -2,7 +2,7 @@
 layout: post
 title:  How to cluster time series within a bayesian framework
 categories: [Academic project]
-excerpt: Here is a Bayesian framework and utilizing Monte Carlo simulation methods and hidden Markov chains for time series clustering.
+excerpt: Let's explore a Bayesian framework enhanced by Monte Carlo simulation methods and hidden Markov chains for time series clustering.
 image: /images/BayesianClustering.png
 ---
 
