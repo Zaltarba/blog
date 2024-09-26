@@ -260,7 +260,11 @@ For example, if a stock rises by 10% every day for ten days, the standard deviat
 
 ```python
 from arch import arch_model
-scaling_factor = 1000
+
+scaling_factor = 60*24 # We get daily returns
+min_bic = 1e10
+selected_orders = (0, 0)
+
 for p in range(1, 4):
     for q in range(0, 4):
         # GARCH(p,q) model
@@ -272,61 +276,38 @@ for p in range(1, 4):
             )
         res = model.fit(disp='off', last_obs=split_date,)
         print(f'GARCH({p},{q}) AIC: {res.aic}, BIC: {res.bic}')
+        if res.bic < min_bic:
+            min_bic = res.bic
+            selected_orders = (p, q)
+p, q = selected_orders
+print(f'Selected model with BIC : p={p} and q={q}')
 ```
 ```bash
-GARCH(1,0) AIC: 175540.79659658077, BIC: 175560.3354339455
-GARCH(1,1) AIC: 151662.94092316425, BIC: 151692.24917921136
-GARCH(1,2) AIC: 150227.85465395244, BIC: 150266.9323286819
-GARCH(1,3) AIC: 150746.29683750868, BIC: 150795.14393092052
-GARCH(2,0) AIC: 166223.16418857573, BIC: 166252.47244462284
-GARCH(2,1) AIC: 151015.75193265954, BIC: 151054.829607389
-GARCH(2,2) AIC: 153347.75328247808, BIC: 153396.60037588992
-GARCH(2,3) AIC: 149918.00773812976, BIC: 149976.62425022395
-GARCH(3,0) AIC: 160970.76963022564, BIC: 161009.8473049551
-GARCH(3,1) AIC: 155776.01361340753, BIC: 155824.86070681937
-GARCH(3,2) AIC: 155058.9626537681, BIC: 155117.5791658623
-GARCH(3,3) AIC: 153747.4205368927, BIC: 153815.80646766926
+GARCH(1,0) AIC: 269793.01931055624, BIC: 269812.558147921
+GARCH(1,1) AIC: 245265.1323021801, BIC: 245294.44055822722
+GARCH(1,2) AIC: 244480.07736779848, BIC: 244519.15504252794
+GARCH(1,3) AIC: 244168.23045229167, BIC: 244217.0775457035
+GARCH(2,0) AIC: 260475.38690308636, BIC: 260504.69515913347
+GARCH(2,1) AIC: 245268.00954894855, BIC: 245307.087223678
+GARCH(2,2) AIC: 244482.07737045927, BIC: 244530.9244638711
+GARCH(2,3) AIC: 244170.230456519, BIC: 244228.8469686132
+GARCH(3,0) AIC: 255222.99234444185, BIC: 255262.0700191713
+GARCH(3,1) AIC: 245269.1326656593, BIC: 245317.97975907114
+GARCH(3,2) AIC: 244484.07805419483, BIC: 244542.69456628902
+GARCH(3,3) AIC: 244172.23049541027, BIC: 244240.61642618684
+Selected model with BIC : p=1 and q=3
 ```
 
-After evaluating multiple GARCH(p, q) models, we first select the **GARCH(2, 3)** model based on both information criterions. Let's take a look at the estimated parametrs then :
-
-```python
-# GARCH(2, 3) model
-model = arch_model(df['log_returns'] * 1000, mean='Zero', vol='GARCH', p=2, q=3)
-res = model.fit(last_obs=split_date, disp='off')
-print(res.summary())
-```
-```bash
-                       Zero Mean - GARCH Model Results                        
-==============================================================================
-Dep. Variable:            log_returns   R-squared:                       0.000
-Mean Model:                 Zero Mean   Adj. R-squared:                  0.000
-Vol Model:                      GARCH   Log-Likelihood:               -74953.0
-Distribution:                  Normal   AIC:                           149918.
-Method:            Maximum Likelihood   BIC:                           149977.
-                                        No. Observations:               129239
-Date:                Tue, Sep 24 2024   Df Residuals:                   129239
-Time:                        14:58:27   Df Model:                            0
-                               Volatility Model                              
-=============================================================================
-                 coef    std err          t      P>|t|       95.0% Conf. Int.
------------------------------------------------------------------------------
-omega      8.6867e-03  1.675e-03      5.186  2.148e-07  [5.404e-03,1.197e-02]
-alpha[1]       0.1996  1.778e-02     11.229  2.925e-29      [  0.165,  0.234]
-alpha[2]       0.0000  4.278e-02      0.000      1.000 [-8.384e-02,8.384e-02]
-beta[1]        0.3958      0.256      1.549      0.121      [ -0.105,  0.897]
-beta[2]        0.1163      0.192      0.607      0.544      [ -0.260,  0.492]
-beta[3]        0.2756  6.526e-02      4.223  2.408e-05      [  0.148,  0.404]
-=============================================================================
-
-Covariance estimator: robust
-```
-
-Although the **GARCH(2, 3)** model was initially selected based on the lowest AIC and BIC values, upon inspecting the model's output, we observed that the **\( \alpha_2 \)** coefficient was not statistically significant (p-value = 1.000). This suggests that the second lag of the ARCH term does not meaningfully contribute to explaining the volatility dynamics. As a result, we opted to simplify the model by selecting a **GARCH(1, 3)** specification, which retains the significant coefficients while reducing unnecessary complexity. This simplification helps improve the interpretability of the model without sacrificing much in terms of fit. Let's fit another model and look at the results then ! 
+After evaluating multiple GARCH(p, q) models, we first select the **GARCH(1, 3)** model based on both information criterions. Let's take a look at the estimated parameters then :
 
 ```python
 # GARCH(1, 3) model
-model = arch_model(df['log_returns'] * scaling_factor, mean='Zero', vol='GARCH', p=1, q=3)
+model = arch_model(
+    df['log_returns']*scaling_factor,
+    mean='Zero',
+    vol='GARCH',
+    p=p, q=q
+    )
 res = model.fit(last_obs=split_date, disp='off')
 print(res.summary())
 ```
@@ -335,21 +316,21 @@ print(res.summary())
 ==============================================================================
 Dep. Variable:            log_returns   R-squared:                       0.000
 Mean Model:                 Zero Mean   Adj. R-squared:                  0.000
-Vol Model:                      GARCH   Log-Likelihood:               -75368.1
-Distribution:                  Normal   AIC:                           150746.
-Method:            Maximum Likelihood   BIC:                           150795.
+Vol Model:                      GARCH   Log-Likelihood:               -122079.
+Distribution:                  Normal   AIC:                           244168.
+Method:            Maximum Likelihood   BIC:                           244217.
                                         No. Observations:               129239
-Date:                Wed, Sep 25 2024   Df Residuals:                   129239
-Time:                        10:49:40   Df Model:                            0
+Date:                Thu, Sep 26 2024   Df Residuals:                   129239
+Time:                        10:34:30   Df Model:                            0
                               Volatility Model                              
 ============================================================================
                  coef    std err          t      P>|t|      95.0% Conf. Int.
 ----------------------------------------------------------------------------
-omega      6.7208e-03  1.180e-03      5.694  1.239e-08 [4.408e-03,9.034e-03]
-alpha[1]       0.2000  1.258e-02     15.903  6.074e-57     [  0.175,  0.225]
-beta[1]        0.2600  4.694e-02      5.539  3.037e-08     [  0.168,  0.352]
-beta[2]        0.2600  7.132e-02      3.645  2.671e-04     [  0.120,  0.400]
-beta[3]        0.2600  3.244e-02      8.014  1.111e-15     [  0.196,  0.324]
+omega          0.0180  3.464e-03      5.200  1.991e-07 [1.122e-02,2.480e-02]
+alpha[1]       0.1996  1.736e-02     11.497  1.362e-30     [  0.166,  0.234]
+beta[1]        0.3958      0.103      3.859  1.140e-04     [  0.195,  0.597]
+beta[2]        0.1163      0.127      0.919      0.358     [ -0.132,  0.364]
+beta[3]        0.2756  3.697e-02      7.455  9.010e-14     [  0.203,  0.348]
 ============================================================================
 
 Covariance estimator: robust
