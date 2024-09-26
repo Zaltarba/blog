@@ -469,9 +469,14 @@ jb_stat, jb_p_value = jarque_bera(std_residuals)
 print(f'Jarque-Bera Test Statistic: {jb_stat}')
 print(f'P-value: {jb_p_value}')
 ```
+```bash
+Jarque-Bera Test Statistic: 5551677.823833454
+P-value: 0.0
+```
 
 The **p-value** bellow 0.05 indicates that the residuals do significantly deviate from normality. 
 
+---
 After running the goodness-of-fit checks, the results indicate that **the model’s residuals have issues**. 
 
 ### What Might Actually Improve the Model?
