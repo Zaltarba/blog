@@ -445,6 +445,16 @@ The **p-value** bellow 0.05 indicates that the residuals do significantly deviat
 
 After running the goodness-of-fit checks, the results indicate that **the model’s residuals have issues**. 
 
+### What Might Actually Improve the Model?
+
+To improve the fit of the GARCH model, we can consider several adjustments. The following table outlines possible strategies for improving the model:
+
+| **Adjustment**                          | **Description**                                                                                                                                                                                                                                                                          | **Benefit**                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Use a higher-order GARCH**            | Increase the number of lags in the GARCH terms, such as moving to **GARCH(2, 3)**. This adjustment could better capture the autocorrelation if volatility has a longer memory, thereby modeling both short-term and long-term volatility effects more effectively.                        | Provides more flexibility in capturing extended memory in the volatility series, which could improve the model’s fit in markets with persistent volatility patterns.                                |
+| **Use an EGARCH or GJR-GARCH model**    | Switch to a **GARCH variant** like **EGARCH** or **GJR-GARCH**, which can account for **asymmetric volatility** (where negative returns have a greater effect on volatility than positive returns). This is useful in markets where shocks are not symmetrically distributed.                 | Captures the **asymmetry** in volatility responses, which is often present in financial markets. Improves performance in modeling volatility clustering in assets with skewed returns, like Bitcoin. |
+| **Change the residual distribution**    | If the residuals deviate from normality (as indicated by the **Jarque-Bera test**), switch from a normal distribution to a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. These distributions are better suited to capturing **fat tails**. | Better reflects the **non-normal** characteristics of financial time series, particularly fat tails, improving the model's ability to handle extreme events and outliers.                           |
+
 ### What might actually improve the model?
 
 To improve the model fit, there are more appropriate adjustments we could consider:
