@@ -336,17 +336,30 @@ beta[3]        0.2756  3.697e-02      7.455  9.010e-14     [  0.203,  0.348]
 Covariance estimator: robust
 ```
 
-This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β_1, β_2, β_3)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
+This provides us with the key parameters of our model, that can analyze now !
 
-### Interpreting the GARCH Parameters
+## Interpreting the GARCH Parameters
 
-The summary output from fitting the model provides us with estimated values for the parameters:
+The summary output from fitting the **GARCH(1, 3)** model provides us with the estimated values of key parameters that offer insights into Bitcoin’s volatility dynamics. Let’s break them down:
 
-- **Omega (ω)**: Represents the constant or baseline variance. A smaller omega indicates less baseline noise in the market.
-- **Alpha (α)**: Controls how much weight recent returns have on future volatility. A higher alpha suggests that recent shocks have a large influence on volatility.
-- **Beta (β)**: Reflects how persistent volatility is over time. A higher beta means volatility tends to persist.
+1. **$\omega = 0.0180$**:
+   - **Interpretation**: The parameter $\omega$ represents the long-term or baseline variance. A positive and significant value for $\omega$ (with a **p-value** much less than 0.05) indicates that there is a constant underlying level of volatility present in the returns. This forms the base level of volatility around which the time-varying volatility fluctuates. The relatively small value here suggests that although Bitcoin is volatile, its baseline variance is not excessively high, implying that spikes in volatility are largely driven by recent shocks and historical persistence.
 
-For Bitcoin, we often observe high beta values, indicating that periods of volatility tend to last for extended periods.
+2. **$\alpha_1 = 0.1996$**:
+   - **Interpretation**: $\alpha_1$ captures the influence of recent squared returns ($r_{t-1}^2$) on current volatility. A value of **0.1996** shows that about 20% of the most recent market shock or price movement contributes to current volatility. This is quite significant, as it means that sudden, large price changes in Bitcoin will cause a noticeable increase in volatility. The highly significant **t-statistic** of **11.497** confirms that recent price movements strongly influence future volatility.
+
+3. **$\beta_1 = 0.3958$**:
+   - **Interpretation**: $\beta_1$ reflects the persistence of volatility. A value of **0.3958** indicates that about 40% of the previous period's volatility persists into the current period. This parameter highlights the **volatility clustering** effect: periods of high volatility are likely to be followed by more high-volatility periods. The significant **t-statistic** suggests that the impact of past volatility is substantial and long-lasting in Bitcoin's price series.
+
+4. **$\beta_2 = 0.1163$**:
+   - **Interpretation**: Although $\beta_2$ represents the influence of the second lag of volatility, its **p-value** of **0.358** shows that this term is not statistically significant. Therefore, this term contributes minimally to the model, and the second lagged volatility has little influence on current volatility in this dataset.
+
+5. **$\beta_3 = 0.2756$**:
+   - **Interpretation**: The parameter $\beta_3$ is also statistically significant, with a **t-statistic** of **7.455** and a **p-value** close to zero. This indicates that even the third lag of volatility plays a role in determining current volatility. The impact of this third lag shows that Bitcoin volatility exhibits persistence beyond just the immediate past, reinforcing the long memory often observed in financial time series.
+
+### Conclusion
+
+From the estimated parameters of the **GARCH(1, 3)** model, we can conclude that Bitcoin’s volatility is heavily influenced by both recent market shocks ($\alpha_1$) and past volatility ($\beta_1$ and $\beta_3$). The model captures both short-term and medium-term volatility clustering, where large price changes tend to be followed by periods of heightened volatility. However, the second lag of past volatility ($\beta_2$) appears to be less important, which might suggest that Bitcoin’s volatility decays relatively quickly after the first few periods. Overall, the **GARCH(1, 3)** model provides a robust framework for modeling Bitcoin’s complex volatility behavior.
 
 ### Forecasting Volatility Using GARCH
 
