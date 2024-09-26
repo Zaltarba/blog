@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fetching and Storing Binance Data with HDF5 
-categories: [Algo&nbsp;Trading, Personal&nbsp;project, Data&nbsp;Engineering] 
+categories: [Algo Trading, Personal Project, Data Engineering] 
 excerpt: Discover how to efficiently manage cryptocurrency data by fetching and storing Binance candlestick data using HDF5. 
 image: /images/DataBaseCreation.png
 hidden: False
