@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A theorical review of the Hurst Exponent estimators 
-categories: [Personal project, Theorical paper]
+categories: [Academic Project]
 excerpt: In this post we will make a theorical review of several Hurst exponent estimators from the litterature.
 image: /images/HurstEstimatorsReview.png
 ---
