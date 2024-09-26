@@ -393,9 +393,9 @@ At first glance, the situation looks concerning: we observe clear volatility clu
 
 ---
 
-<center>
+<div style="text-align: center;">
 We have to do some **rigorous statistical testing** here again.
-</center>
+</div>
 
 ![figure 4](/blog/images/here_we_go_again.png)
 
