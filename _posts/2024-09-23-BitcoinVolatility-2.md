@@ -421,7 +421,7 @@ plt.show()
 At first glance, the situation looks concerning: we observe clear volatility clustering, with high volatility in the initial months, and numerous extreme values, suggesting the residuals may deviate from normality. 
 
 <div style="text-align: center;">
-We again need to realize some <strong>rigorous statistical testing</strong> to confirm or affirm this proposal.
+We now need to realize some <strong>rigorous statistical testing</strong> to confirm that.
 </div>
 
 ![figure 4](/blog/images/here_we_go_again.png)
