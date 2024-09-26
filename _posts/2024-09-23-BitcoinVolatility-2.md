@@ -428,6 +428,57 @@ print(f'P-value: {jb_p_value}')
 
 The **p-value** bellow 0.05 indicates that the residuals do significantly deviate from normality. 
 
+After running the goodness-of-fit checks, the results indicate that the model’s residuals may still have issues. However, it’s possible to justify the continued use of the GARCH model even if all assumptions are not perfectly met. Here's how you can structure the follow-up:
+
+### What to do then ?
+
+Although the Ljung-Box tests for residuals and squared residuals show statistically significant autocorrelation (\(p < 0.05\)), and the Jarque-Bera test indicates that the residuals deviate from normality, these results do not necessarily invalidate the use of the GARCH model.
+
+The significant autocorrelation in the residuals suggests that the GARCH model has not fully captured all the volatility patterns in the data. However, this does not imply that the model is entirely ineffective. GARCH models are specifically designed to capture **conditional heteroskedasticity**—volatility that changes over time based on past returns and variances. While the remaining autocorrelation suggests there are still some dynamics unexplained by the model, the GARCH framework remains one of the most robust tools for capturing volatility clustering, a key feature of financial markets like Bitcoin.
+
+Additionally, it's possible that using an extended model, such as **EGARCH** (which captures asymmetric effects) or a **GARCH(1, 2)** or **GARCH(2, 1)**, may help address the autocorrelation issues. However, even with some remaining autocorrelation, GARCH still provides a more accurate representation of volatility compared to simpler models that assume constant variance.
+
+The Jarque-Bera test shows that the residuals deviate from normality, which is quite common with financial applications. Financial returns, especially in highly volatile markets like Bitcoin, often exhibit **fat tails** (excess kurtosis) and **skewness**, which deviate from the assumptions of normality. This behavior is well-documented and consistent with the observed **non-Gaussian** nature of financial returns.
+
+Even though the residuals do not follow a perfect normal distribution, the GARCH model can still provide valuable insights by capturing time-varying volatility. If we expect fat-tailed distributions, we could enhance the model by specifying a **non-normal distribution** (e.g., Student's t-distribution) for the residuals, which might better reflect the empirical properties of the data.
+
+While the assumption checks indicate some limitations, GARCH models still offer several advantages:
+- **Volatility Clustering**: GARCH is uniquely equipped to handle volatility clustering, which simpler models like moving averages or constant volatility models cannot capture.
+- **Risk Management**: Even if the residuals are not perfectly normal, GARCH provides a much better framework for measuring and managing risk, particularly in volatile markets like cryptocurrencies.
+- **Forecasting Accuracy**: Despite some residual issues, GARCH models often outperform simpler models in terms of volatility forecasting accuracy. The ability to dynamically adjust volatility estimates based on recent data makes GARCH models highly useful for real-world applications, including portfolio management, options pricing, and risk assessment.
+
+While the goodness-of-fit checks reveal some areas where the model could be improved, these results do not disqualify the use of the GARCH model. Financial time series are notoriously difficult to model perfectly, and violations of normality or remaining autocorrelation are expected in complex markets like cryptocurrencies. GARCH remains a valuable tool in capturing the essential dynamics of volatility, and with potential enhancements—such as using a different distribution for the residuals or exploring higher-order GARCH models—we can further refine the model for better performance.
+
+This approach justifies continuing with the GARCH model by acknowledging its limitations while emphasizing its practical usefulness in capturing important volatility dynamics.
+
+You're absolutely correct to question why a **GARCH(1, 2)** model might solve the issue, given that the current model is already **GARCH(1, 3)**. The suggestion of trying **GARCH(1, 2)** or **GARCH(2, 1)** typically comes from a process of **model refinement**, but in this case, simply reducing the number of lags in volatility would not directly address the autocorrelation issue if a higher-lag model like **GARCH(1, 3)** has already been fitted.
+
+### Why **GARCH(1, 2)** or **GARCH(2, 1)** might not solve the issue
+
+The issue you're encountering—remaining autocorrelation in the residuals and squared residuals—suggests that the current **GARCH(1, 3)** model is not fully capturing the volatility dynamics, but **reducing** the lag from 3 to 2 in **GARCH(1, 2)** may actually worsen the situation by omitting relevant lagged information that the model needs to capture.
+
+In fact, given that the model already has three lags for the volatility terms (\(\beta_j\)), decreasing the number of lags is unlikely to improve the model’s fit. If the issue lies in the residuals or ARCH effects, then simply switching to a lower-lag specification like **GARCH(1, 2)** may not resolve the problem, and it could even reduce the model's ability to capture longer-term volatility dynamics.
+
+### What might actually improve the model?
+
+To address the remaining autocorrelation and improve the model fit, there are more appropriate adjustments you could consider:
+
+**Consider a GARCH(2, 3) or higher-order GARCH**: Increasing the number of lags in the GARCH terms (i.e., moving to **GARCH(2, 3)** or **GARCH(2, 2)**) could better capture the autocorrelation if volatility has a longer memory. This would allow for more flexibility in modeling both short-term and longer-term volatility effects.
+
+**Use an EGARCH or GJR-GARCH model**: If the market exhibits **asymmetry** in volatility (i.e., large negative returns cause higher volatility than large positive returns), a **GARCH** model may not fully capture these dynamics. An **EGARCH** (Exponential GARCH) or **GJR-GARCH** model can account for this asymmetry, and they often perform better in capturing volatility clustering and shocks in markets like Bitcoin.
+
+**Change the residual distribution**: If the **Jarque-Bera** test shows that the residuals deviate significantly from normality, consider using a **Student’s t-distribution** or **Generalized Error Distribution (GED)** for the residuals. This change can help capture the fat tails observed in financial time series more effectively than the standard normal distribution.
+
+   ```python
+   model = arch_model(df['log_returns'], vol='Garch', p=1, q=3, dist='t')
+   res = model.fit(disp='off')
+   print(res.summary())
+   ```
+
+**Re-evaluate data transformations or pre-processing**: Sometimes, residual autocorrelation can be a sign that the data itself is not fully stationary or that further transformations (such as using logarithmic differences or returns) are needed. Double-checking that the series is adequately pre-processed (stationary) is critical.
+
+In summary, reducing the number of lags in the volatility equation from **GARCH(1, 3)** to **GARCH(1, 2)** may not necessarily resolve the autocorrelation issue. Instead, increasing the order of the GARCH terms, using an asymmetric model like **EGARCH**, or adopting a different residual distribution (e.g., Student’s t-distribution) are more promising solutions. These alternatives will allow the model to better handle complex volatility dynamics and deviations from normality, particularly in volatile assets like Bitcoin.
+
 ## Forecasting Volatility Using GARCH
 
 Once we have select and fit one model, we can use it to forecast future volatility. The **GARCH(1,3)** model allows us to generate conditional forecasts for the next few periods.
