@@ -548,14 +548,18 @@ The plot shows how volatility is expected to behave over the next 60 minutes. Sp
 
 ## Conclusion
 
-In this post, we’ve implemented a **GARCH(1,3)** model to estimate and forecast Bitcoin’s volatility. Unlike EWMA, GARCH gives us more flexibility by incorporating both recent returns and longer-term volatility trends. This model provides a valuable tool for traders and risk managers dealing with highly volatile assets like Bitcoin.
+In this post, we explored the use of the **GARCH model** for estimating and forecasting Bitcoin's volatility. Compared to simpler models like **EWMA**, GARCH provides a more robust framework for capturing the dynamic nature of financial markets, particularly in handling **volatility clustering** and **fat tails**—two key characteristics often present in cryptocurrency markets.
 
-In the next post, we’ll explore more advanced volatility models such as GARCH extensions that account for asymmetric market shocks. Stay tuned for more insights into the fascinating world of volatility modeling!
+We began by discussing the motivations for moving beyond simple models, then delved into the mechanics of the **GARCH(1, 3)** model, explaining how it captures both recent volatility shocks and their persistence. We demonstrated how to fit the GARCH model, perform essential **goodness-of-fit tests**, and interpret the resulting parameters. We encountered some issues with the residuals, but despite these imperfections our GARCH model still provides valuable insights into Bitcoin's volatility structure and that potential improvements, like changing the residual distribution or testing higher-order models, could further refine the model.
+
+We showed how the GARCH model can be used both to estimate **realized volatility** and to generate **volatility forecasts** for the next hour. This ability to project future volatility is incredibly useful for traders, risk managers, and anyone involved in high-frequency trading environments where knowing short-term risk is critical.
+
+In the next post, we will dive deeper into volatility forecasting by exploring alternative data points like Low and High. Stay tuned for the final part of our series as we continue to explore the fascinating world of volatility modeling for Bitcoin !
 
 ## Additional Resources
 
 - **Code Repository**: [GitHub Link](https://github.com/Zaltarba/BitcoinVolatilityEstimation/tree/main) 
-- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives* and 
+- **Adviced Reading**: John Hull's *Options, Futures, and Other Derivatives* and Collin Bennet's *Trading Volatility*
 
 Feel free to check out the GitHub repository for the complete code and try experimenting with different parameters to see how they affect volatility estimates.
 
