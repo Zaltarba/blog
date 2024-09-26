@@ -252,12 +252,9 @@ This is necessary because GARCH models tend to perform better when the input dat
 
 ### Why assume a zero drift ?
 
-, following the argument presented by Collin Bennett in his book *Trading Volatility*. Bennett explains that when calculating volatility, it is often **best to assume zero drift**. 
+The argument I will give here was presented by Collin Bennett in his book *Trading Volatility*. Bennett explains that when calculating volatility, it is often **best to assume zero drift**. The calculation for standard deviation measures the deviation from the average log return (drift), which must be estimated from the sample. This estimation can lead to misleading volatility calculations if the sample period includes unusually high or negative returns. 
 
-The calculation for standard deviation measures the deviation from the average log return (drift), which must be estimated from the sample. This estimation can lead to misleading volatility calculations if the sample period includes unusually high or negative returns. For example, if a stock rises by 10% every day for ten days, the standard deviation would be zero because there is no deviation from the 10% average return. However, such trends are unrealistic over the long term, and using the sample log return as the expected future return can distort the volatility estimate.
-
-By assuming a **zero mean** or drift, we prevent the volatility calculation from being influenced by extreme sample returns. In theory, over the long term, the expected return should be close to zero, as the forward price of an asset should reflect this assumption. This is why volatility calculations are typically more accurate when assuming **zero drift**.
-4.
+For example, if a stock rises by 10% every day for ten days, the standard deviation would be zero because there is no deviation from the 10% average return. However, such trends are unrealistic over the long term, and using the sample log return as the expected future return can distort the volatility estimate. By assuming a **zero mean** or drift, we prevent the volatility calculation from being influenced by extreme sample returns. In theory, over the long term, the expected return should be close to zero, as the forward price of an asset should reflect this assumption. This is why volatility calculations are typically more accurate when assuming **zero drift**.
 
 ### Results
 
@@ -291,51 +288,7 @@ GARCH(3,2) AIC: 155058.9626537681, BIC: 155117.5791658623
 GARCH(3,3) AIC: 153747.4205368927, BIC: 153815.80646766926
 ```
 
-In the model selection process, we also applied a **scaling factor** of 1000 to the log returns. This is necessary because GARCH models tend to perform better when the input data is scaled to more manageable levels, especially with high-frequency data like minute-by-minute returns. Without scaling, the small magnitude of log returns can lead to numerical instability in the estimation process. Scaling helps to improve the model's convergence and interpretability of the parameter estimates.
-
-After evaluating multiple GARCH(p, q) models, we select the **GARCH(2, 3)** model based on the **Akaike Information Criterion (AIC)**. The GARCH(2, 3) model has the lowest AIC value, indicating that it provides the best balance between goodness of fit and model complexity. Since the AIC penalizes models with more parameters but still favors those that explain the data well, selecting the model with the lowest AIC helps ensure we avoid overfitting while capturing the essential volatility dynamics in Bitcoin’s returns.
-
-### Model Selection 
-
-We’ll use Python’s arch package to fit the GARCH model. The **ARCH** (Autoregressive Conditional Heteroskedasticity) package is particularly useful for estimating financial volatility models like GARCH.
-
-```python
-from arch import arch_model
-scaling_factor = 1000
-for p in range(1, 4):
-    for q in range(0, 4):
-        # GARCH(p,q) model
-        model = arch_model(
-            df['log_returns']*scaling_factor, 
-            mean='Zero', 
-            vol='GARCH', 
-            p=p, q=q
-            )
-        res = model.fit(disp='off', last_obs=split_date,)
-        print(f'GARCH({p},{q}) AIC: {res.aic}, BIC: {res.bic}')
-```
-```bash
-GARCH(1,0) AIC: 175540.79659658077, BIC: 175560.3354339455
-GARCH(1,1) AIC: 151662.94092316425, BIC: 151692.24917921136
-GARCH(1,2) AIC: 150227.85465395244, BIC: 150266.9323286819
-GARCH(1,3) AIC: 150746.29683750868, BIC: 150795.14393092052
-GARCH(2,0) AIC: 166223.16418857573, BIC: 166252.47244462284
-GARCH(2,1) AIC: 151015.75193265954, BIC: 151054.829607389
-GARCH(2,2) AIC: 153347.75328247808, BIC: 153396.60037588992
-GARCH(2,3) AIC: 149918.00773812976, BIC: 149976.62425022395
-GARCH(3,0) AIC: 160970.76963022564, BIC: 161009.8473049551
-GARCH(3,1) AIC: 155776.01361340753, BIC: 155824.86070681937
-GARCH(3,2) AIC: 155058.9626537681, BIC: 155117.5791658623
-GARCH(3,3) AIC: 153747.4205368927, BIC: 153815.80646766926
-```
-
-In my GARCH model specification, I used a **zero mean** assumption, following the argument presented by Collin Bennett in his book *Trading Volatility*. Bennett explains that when calculating volatility, it is often **best to assume zero drift**. 
-
-The calculation for standard deviation measures the deviation from the average log return (drift), which must be estimated from the sample. This estimation can lead to misleading volatility calculations if the sample period includes unusually high or negative returns. For example, if a stock rises by 10% every day for ten days, the standard deviation would be zero because there is no deviation from the 10% average return. However, such trends are unrealistic over the long term, and using the sample log return as the expected future return can distort the volatility estimate.
-
-By assuming a **zero mean** or drift, we prevent the volatility calculation from being influenced by extreme sample returns. In theory, over the long term, the expected return should be close to zero, as the forward price of an asset should reflect this assumption. This is why volatility calculations are typically more accurate when assuming **zero drift**.
-
-After evaluating multiple GARCH(p, q) models, we select the **GARCH(2, 3)** model based on the **Akaike Information Criterion (AIC)**. The GARCH(2, 3) model has the lowest AIC value, indicating that it provides the best balance between goodness of fit and model complexity. Since the AIC penalizes models with more parameters but still favors those that explain the data well, selecting the model with the lowest AIC helps ensure we avoid overfitting while capturing the essential volatility dynamics in Bitcoin’s returns.
+After evaluating multiple GARCH(p, q) models, we first select the **GARCH(2, 3)** model based on both information criterions. Let's take a look at the estimated parametrs then :
 
 ```python
 # GARCH(2, 3) model
@@ -369,7 +322,7 @@ beta[3]        0.2756  6.526e-02      4.223  2.408e-05      [  0.148,  0.404]
 Covariance estimator: robust
 ```
 
-Although the **GARCH(2, 3)** model was initially selected based on the lowest AIC and BIC values, upon inspecting the model's output, we observed that the **\( \alpha_2 \)** coefficient was not statistically significant (p-value = 1.000). This suggests that the second lag of the ARCH term does not meaningfully contribute to explaining the volatility dynamics. As a result, we opted to simplify the model by selecting a **GARCH(1, 3)** specification, which retains the significant coefficients while reducing unnecessary complexity. This simplification helps improve the interpretability of the model without sacrificing much in terms of fit.
+Although the **GARCH(2, 3)** model was initially selected based on the lowest AIC and BIC values, upon inspecting the model's output, we observed that the **\( \alpha_2 \)** coefficient was not statistically significant (p-value = 1.000). This suggests that the second lag of the ARCH term does not meaningfully contribute to explaining the volatility dynamics. As a result, we opted to simplify the model by selecting a **GARCH(1, 3)** specification, which retains the significant coefficients while reducing unnecessary complexity. This simplification helps improve the interpretability of the model without sacrificing much in terms of fit. Let's fit another model and look at the results then ! 
 
 ```python
 # GARCH(1, 3) model
@@ -402,7 +355,7 @@ beta[3]        0.2600  3.244e-02      8.014  1.111e-15     [  0.196,  0.324]
 Covariance estimator: robust
 ```
 
-This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
+This provides us with the key parameters for our model : **omega (ω)**, **alpha (α)**, and **beta (β_1, β_2, β_3)**. These parameters give us insight into how much weight the model places on recent volatility and how much on long-term trends.
 
 ### Interpreting the GARCH Parameters
 
