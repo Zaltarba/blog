@@ -243,12 +243,12 @@ We now have to select the p (the lag of past volatilities) and q (the lag of pas
 Some pratical considerations now : 
 
 1. We’ll use Python’s `arch` package to fit the GARCH model.
-2. We'll apply a **scaling factor** of 1000 to the log returns.
+2. We'll apply a **scaling factor** of 1440 to the log returns.
 3. We'll we used a **zero mean** assumption for the log returns.
 
 ### Why scale the data ? 
 
-This is necessary because GARCH models tend to perform better when the input data is scaled to more manageable levels, especially with high-frequency data like minute-by-minute returns. Without scaling, the small magnitude of log returns can lead to numerical instability in the estimation process. Scaling helps to improve the model's convergence and interpretability of the parameter estimates.
+This is necessary because GARCH models tend to perform better when the input data is scaled to more manageable levels, especially with high-frequency data like minute-by-minute returns. Without scaling, the small magnitude of log returns can lead to numerical instability in the estimation process. Scaling helps to improve the model's convergence and interpretability of the parameter estimates. Here we choose to multiply the returns by the number of minutes in the day : 1440.
 
 ### Why assume a zero drift ?
 
