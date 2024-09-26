@@ -342,6 +342,49 @@ This provides us with the key parameters of our model, that we can analyze now !
 
 The **GARCH(1, 3)** model provides several important parameters that give insight into Bitcoin’s volatility. Below is a breakdown of each key parameter and its interpretation:
 
+<table style="width:100%; text-align:center; border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th><strong>Parameter</strong></th>
+      <th><strong>Value</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Interpretation</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**$\omega$**</td>
+      <td>0.0180</td>
+      <td>Represents the **long-term or baseline variance**.</td>
+      <td>A small, positive, and significant $\omega$ indicates a constant underlying volatility in the returns. Spikes in volatility are largely driven by recent shocks and historical persistence.</td>
+    </tr>
+    <tr>
+      <td>**$\alpha_1$**</td>
+      <td>0.1996</td>
+      <td>Captures the impact of **recent squared returns** ($r_{t-1}^2$) on current volatility.</td>
+      <td>About 20% of recent price movements influence current volatility. This suggests that large, sudden price changes significantly impact volatility. The high **t-statistic** of **11.497** confirms strong influence of recent price movements on future volatility.</td>
+    </tr>
+    <tr>
+      <td>**$\beta_1$**</td>
+      <td>0.3958</td>
+      <td>Reflects the **persistence of past volatility** on current volatility.</td>
+      <td>Around 40% of previous volatility persists into the current period. This explains the **volatility clustering** phenomenon, where high volatility tends to follow high volatility. The high **t-statistic** indicates this persistence is substantial and long-lasting.</td>
+    </tr>
+    <tr>
+      <td>**$\beta_2$**</td>
+      <td>0.1163</td>
+      <td>Represents the influence of the **second lag of volatility** on current volatility.</td>
+      <td>$\beta_2$ is **not statistically significant** (p-value = 0.358), suggesting the second lag has a minimal effect on current volatility. Most of the volatility is explained by more recent volatility patterns.</td>
+    </tr>
+    <tr>
+      <td>**$\beta_3$**</td>
+      <td>0.2756</td>
+      <td>Measures the impact of the **third lag of volatility** on current volatility.</td>
+      <td>The third lag is statistically significant with a **t-statistic** of **7.455**, indicating that even three periods back still have a strong effect on volatility. This reinforces the idea that Bitcoin volatility has a **long memory**.</td>
+    </tr>
+  </tbody>
+</table>
+
 | **Parameter**   | **Value**  | **Description**                                                                                             | **Interpretation**                                                                                                                 |
 |-----------------|------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | **$\omega$**  | 0.0180     | Represents the **long-term or baseline variance**.                                                           | A small, positive, and significant $\omega$ indicates a constant underlying volatility in the returns. Spikes in volatility are largely driven by recent shocks and historical persistence.                                                                                                 |
