@@ -8,6 +8,19 @@ image: /thumbnails/BitcoinVolatility2.jpeg
 hidden: false
 ---
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Motivations](#motivations)
+- [The GARCH Model](#the-garch-model)
+- [Preparing the data](#preparing-the-data)
+- [Testing for ARCH Effects](#testing-for-arch-effects)
+- [Model Selection](#model-selection)
+- [Interpreting the GARCH Parameters](#interpreting-the-garch-parameters)
+- [Goodness-of-fit Check](#goodness-of-fit-check)
+- [Estimating and Forecasting Volatility](#estimating-and-forecasting-volatility)
+- [Conclusion](#conclusion)
+
 ## Introduction
 
 In our [last post](https://zaltarba.github.io/blog/BitcoinVolatility-1/), we discussed the Exponentially Weighted Moving Average (EWMA) method for estimating Bitcoin’s volatility. We used historical data from Binance and implemented the EWMA model to track volatility. In this post, we’ll take it a step further by introducing the **GARCH** model, a more sophisticated method used to estimate but also forecast volatility. Let’s dive in!
