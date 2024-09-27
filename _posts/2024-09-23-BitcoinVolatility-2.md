@@ -625,5 +625,6 @@ In the next post, we will dive deeper into volatility forecasting by exploring a
 
 Feel free to check out the GitHub repository for the complete code and try experimenting with different parameters to see how they affect volatility estimates.
 
-Happy analyzing, and as always, may your trading strategies be well-informed!
+I'd love to hear your thoughts! Share your feedback, questions, or suggestions for future topics in the comments below.
 
+**Happy analyzing**, and as always, may your trading strategies be **well-informed**!
