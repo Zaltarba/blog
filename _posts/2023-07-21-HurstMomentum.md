@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Momentum Strategy enhanced with the Hurst Exponent 
-categories: [Personal project,Algo Trading]
+categories: [Personal Project,Algo Trading]
 excerpt: This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent
 image: /thumbnails/HurstMomentum.jpeg
 ---
