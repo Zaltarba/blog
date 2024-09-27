@@ -223,4 +223,7 @@ Stay tuned for deeper insights into the fascinating world of financial volatilit
 
 Feel free to share your thoughts or ask questions in the comments below. I encourage you to experiment with the code, try different decay factors, and see how it affects the volatility estimates.
 
-Happy analyzing, and may your trading decisions be ever informed!
+I'd love to hear your thoughts! Share your feedback, questions, or suggestions for future topics in the comments below.
+
+**Happy analyzing**, and as always, may your trading strategies be **well-informed**!
+
