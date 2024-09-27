@@ -195,4 +195,11 @@ By using HDF5, you gain a powerful tool for managing large datasets, ensuring th
 
 Moreover, you can expand your database by storing additional cryptocurrency pairs in the same HDF5 file. Accessing them is straightforward—simply use pd.read_hdf() with the desired key, allowing you to seamlessly retrieve and analyze data across multiple assets.
 
-Happy coding, and may your data always be manageable!
+## Additional Resources
+
+- **Code Repository**: [GitHub Link](https://github.com/Zaltarba/BitcoinVolatilityEstimation/tree/main) 
+- **Adviced Reading**: Yves Hilpish [*Python for Algorithmic Trading*](https://www.oreilly.com/library/view/python-for-algorithmic/9781492053347/)
+
+I'd love to hear your thoughts! Share your feedback, questions, or suggestions for future topics in the comments below.
+
+**Happy coding**, and may your data always be **manageable**!
