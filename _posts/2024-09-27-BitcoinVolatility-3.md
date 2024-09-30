@@ -9,6 +9,13 @@ hidden: False
 
 ## Table of Contents
 
+1. [Introduction](#introduction)
+2. [How to Create a Volatility Estimator?](#how-to-create-a-volatility-estimator)
+3. [Implementation on Bitcoin's Data](#implementation-on-bitcoins-data)
+4. [Considerations for Practical Use](#considerations-for-practical-use)
+5. [Conclusion](#conclusion)
+6. [References and Further Reading](#references-and-further-reading)
+
 ## Introduction
 
 In this third installment of our series on Bitcoin volatility, we delve into a new volatility estimator, this time based on High and Low data points. This approach not only leverages high and low price points but also offer more precise volatility estimations.
