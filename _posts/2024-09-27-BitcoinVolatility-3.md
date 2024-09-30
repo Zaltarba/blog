@@ -391,9 +391,11 @@ In essence, while using longer windows may reduce estimator variance, it risks i
 
 ## Conclusion
 
-**Key Takeaways:**
+In this post, we explored the Parkinson estimator as an alternative method for estimating Bitcoin's volatility, leveraging high and low data points to capture more precise intraday fluctuations. We compared it with the classic close-to-close estimator and observed how the Parkinson estimator provides a better representation of volatility during sharp market movements, such as Bitcoin's 2020 COVID-19 crash and its 2024 all-time high. While both methods have their merits, the choice of estimator ultimately depends on the nature of the data and the specific trading strategy.
 
-**Future Directions:**
+Stay tuned for the next post, where we continue our journey into volatility modeling, exploring more advanced estimators and their practical applications in trading!
+
+I’d love to hear your thoughts! Share your feedback, questions, or suggestions for future topics in the comments below.
 
 ## References and Further Reading
 
