@@ -68,6 +68,7 @@ Now that we have the variable $R$, whose expected value should be related to $ \
 **The Chicken and the Knife:** As a former physics teacher of mine used to say about thermodynamics equations: now you have the knife in your hand, and the chicken is right in front of you. Time to get to work! There's no simple trick to computing $ E\left[ R \right] $ in this case.
 
 ![figure 0](/blog/images/chicken_and_the_knife.webp)
+<img src="/blog/images/chicken_and_the_knife.webp" alt="figure 0" width="600px">
 
 Here, we're working with an expectation, and as probabilists, we naturally express this as an integral. To move forward, we need the probability distribution of the range, which, luckily, can be derived from the joint distribution of the minimum and maximum values along the paths.
 
