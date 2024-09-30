@@ -3,7 +3,7 @@ layout: post
 title: Estimating Bitcoin's Volatility Using the Parkinson Estimator
 categories: [Personal Project,Algo Trading]
 excerpt: Dive into the third part of our series on computing Bitcoin's volatility with Binance data.
-image: /thumbnails/BitcoinVolatility2.jpeg
+image: /thumbnails/BitcoinVolatility3.webp
 hidden: False
 ---
 
