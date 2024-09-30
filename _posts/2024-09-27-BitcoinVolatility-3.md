@@ -218,7 +218,7 @@ plt.tight_layout(rect=[0, 0, 1, 0.9])  # Leave space at the top for titles
 plt.show()
 ```
 
-![figure 1](/blog/images/BitcoinVOlatility-3-figure-1.png)
+![figure 1](/blog/images/BitcoinVolatility-3-figure-1.png)
 
 Great! It appears that both estimators show fairly similar behavior, which makes sense given that both are designed to be consistent measures of volatility. However, there are bound to be some differences between them. To better understand these variations, let's calculate the percentage difference between the two estimators:
 
@@ -290,7 +290,7 @@ plt.tight_layout(rect=[0, 0, 1, 0.9])  # Leave space at the top for titles
 plt.show()
 ```
 
-![figure 2](/blog/images/BitcoinVOlatility-3-figure-2.png)
+![figure 2](/blog/images/BitcoinVolatility-3-figure-2.png)
 
 From the visual analysis of Bitcoin's price and volatility during the 2020 COVID-19 crash, a few key observations emerge:
 
@@ -363,7 +363,7 @@ plt.tight_layout(rect=[0, 0, 1, 0.9])  # Leave space at the top for titles
 plt.show()
 ```
 
-![figure 3](/blog/images/BitcoinVOlatility-3-figure-3.png)
+![figure 3](/blog/images/BitcoinVolatility-3-figure-3.png)
 
 In the analysis of Bitcoin's price and volatility during its 2024 All-Time High (ATH), several insights can be observed:
 
