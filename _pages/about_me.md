@@ -22,7 +22,7 @@ Quantitative Researcher with in-depth knowledge in finance, machine learning, st
 - **Quant Research at [Queensfield AI](https://www.queensfield.ai/about-us.html)**
   - On going since January 2024
   - Successfully implemented a market-neutral alpha strategy based on pair trading
-  - Initiated preliminary research and explorations for a future PhD thesis
+  - Pursing a PhD thesis in collaboration with PSL LAMSADE
 
 - **Quant Researcher at [Ostrum Asset Management](https://www.ostrum.com/fr/ostrum-en-bref)**
   - 6 months internship in 2023
@@ -50,6 +50,10 @@ Quantitative Researcher with in-depth knowledge in finance, machine learning, st
 - **Mathematics tutor at [Ipesup](https://www.ipesup.fr)**
   - On going since 2019
   - Mathematics lessons and tutoring for students in CPGE
+    
+- **Python instructer at [Dauphine PSL](https://dauphine.psl.eu/formations/masters/finance/m2-gestion-actifs-asset-management)**
+  - On going since 2025
+  - Python for Finance Instructor, MSc in Asset Management
 
 # Personal and academic project 🎓
 
