@@ -6,7 +6,7 @@ permalink: /teaching/
 
 # Dauphine PSL - Master 222 
 
-This (https://github.com/Zaltarba/PSL_python_for_finance/tree/main)[GitHub Repository] contains all the materials for the course Introduction to Python 2025 at Université Paris Dauphine.
+This [GitHub Repository](https://github.com/Zaltarba/PSL_python_for_finance/tree/main) contains all the materials for the course Introduction to Python 2025 at Université Paris Dauphine.
 
 ### Session 1 
 
