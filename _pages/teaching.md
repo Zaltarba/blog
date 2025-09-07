@@ -8,4 +8,4 @@ permalink: /teaching/
 
 ### Session 1 
 
-Notebook google colab [link](https://www.google.com/search?q=test).
+Notebook google colab [link](https://colab.research.google.com/drive/1CqORqwimBL7wOwjkxMVbmPLyN9m9B7wf?usp=sharing).
