@@ -10,4 +10,4 @@ This (https://github.com/Zaltarba/PSL_python_for_finance/tree/main)[GitHub Repos
 
 ### Session 1 
 
-Notebook google colab [link]((https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1.ipynb).
+Notebook google colab [link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1.ipynb).
