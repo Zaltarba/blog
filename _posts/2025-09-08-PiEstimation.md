@@ -135,7 +135,7 @@ print(pi_estimate)
 
 Running this code with one million points gives a fairly good approximation of $\pi$. Increasing `n` will further improve accuracy.
 
-![figure 2](/blog/images/here_we_go_again.png)
+![figure 2](/blog/images/PiEstimation_figure_1.png)
 
 ## Conclusion  {#conclusion}
 
