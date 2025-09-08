@@ -114,8 +114,6 @@ $$
 \sigma_X  < \frac{1}{2}.
 $$
 
-
-
 ## Practical Implementation in Python  {#implementation}
 
 The implementation is straightforward:
@@ -135,7 +133,9 @@ pi_estimate = 4 * inside_circle.mean()
 print(pi_estimate)
 ```
 
-Running this code with one million points gives a fairly good approximation of $\\pi$. Increasing `n` will further improve accuracy.
+Running this code with one million points gives a fairly good approximation of $\pi$. Increasing `n` will further improve accuracy.
+
+![figure 2](/blog/images/here_we_go_again.png)
 
 ## Conclusion  {#conclusion}
 
