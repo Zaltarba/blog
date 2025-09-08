@@ -90,6 +90,32 @@ $$
 
 Thus, if we simulate many points uniformly in the square $[-1, 1]^2$ and check the fraction that lies within the unit circle, multiplying this fraction by 4 yields an approximation of $\pi$.
 
+We can for sure also ask ourself : what is the value of $\sigma_X$?  
+
+By definition,  
+$$
+\sigma_X = \sqrt{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}
+$$
+
+Here, $X$ is the indicator function of the event ${(X_1, X_2) \in \text{Unit Circle}}$. Since $X$ is an indicator, we have $X^2 = X$, thus :
+
+$$
+\mathbb{E}[X^2] = \mathbb{E}[X] = \frac{\pi}{4}.
+$$
+
+And so we find :  
+$$
+\sigma_X = \sqrt{\frac{\pi}{4} - \left(\frac{\pi}{4}\right)^2}
+= \sqrt{\frac{\pi}{4} \cdot \frac{4 - \pi}{4}}
+= \sqrt{\frac{\pi (4 - \pi)}{16}}.
+$$
+Thus,  
+$$
+\sigma_X  < \frac{1}{2}.
+$$
+
+
+
 ## Practical Implementation in Python  {#implementation}
 
 The implementation is straightforward:
