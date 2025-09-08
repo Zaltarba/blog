@@ -3,7 +3,7 @@ layout: post
 title: Estimating the Value of $\\pi$ with Python
 categories: [Statistics]
 excerpt: Let's explore how Monte Carlo methods allow us to approximate $\pi$ using Python.
-image: /thumbnails/MonteCarlo_Pi.jpeg
+image: /thumbnails/PiEstimation.jpeg
 hidden: True
 ---
 
