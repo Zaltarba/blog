@@ -5,6 +5,7 @@ categories: [Personal Project,Algo Trading,Data Engineering]
 excerpt: Discover how to efficiently manage cryptocurrency data by fetching and storing Binance candlestick data using HDF5. 
 image: /thumbnails/DataBaseCreation.jpeg
 hidden: False
+tags: [binance, trading, garch, volatility, quant, ewma,]
 ---
 
 ## Exploring the HDF5 File Format 
