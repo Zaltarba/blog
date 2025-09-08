@@ -80,7 +80,7 @@ This formula provides a practical guideline: once we know or estimate the varian
 
 ## From Uniform Randomness to $\pi$  {#probabilities}
 
-In practice, random number generation typically begins with pseudo-random draws from a uniform distribution, which can be transformed into other distributions. In Python, `numpy.random.uniform` provides a straightforward way to simulate such values.
+In practice, random number generation typically begins with pseudo-random draws from a uniform distribution, which can be transformed into other distributions.   In Python, numpy provides a straightforward way to simulate such values.
 
 Here is the key idea: let $X_1$ and $X_2$ be two i.i.d. uniform random variables on $[-1, 1]$. The probability that the point $(X_1, X_2)$ falls inside the unit circle is proportional to the ratio between the area of the circle and the area of the square:
 
