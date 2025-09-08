@@ -5,6 +5,7 @@ categories: [Personal Project,Algo Trading]
 excerpt: Dive into the third part of our series on computing Bitcoin's volatility with Binance data.
 image: /thumbnails/BitcoinVolatility3.webp
 hidden: False
+tags: [binance, trading, garch, volatility, parkinson, quant]
 ---
 
 ## Table of Contents
@@ -405,3 +406,4 @@ I’d love to hear your thoughts! Share your feedback, questions, or suggestions
 - Binance API Documentation: [Binance API](https://github.com/binance/binance-spot-api-docs)
 
 Feel free to explore these resources to deepen your understanding.
+
