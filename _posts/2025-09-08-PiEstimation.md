@@ -5,6 +5,7 @@ categories: [Statistics]
 excerpt: Let's explore how Monte Carlo methods allow us to approximate $\pi$ using Python.
 image: /thumbnails/PiEstimation.jpeg
 hidden: False
+tags: [Monte Carlo, Python, Pi]
 ---
 
 ## Table of Contents
