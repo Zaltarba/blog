@@ -25,15 +25,19 @@ Monte Carlo methods provide exactly this. By exploiting randomness and statistic
 
 ## Monte Carlo in a Nutshell  {#montecarlo}
 
-Monte Carlo methods rely on random sampling and the central limit theorem (CLT) to estimate expectations:
+Monte Carlo methods rely on random sampling and the central limit theorem (CLT) to estimate expectations. Indeed the CLT states that for $(X_i)_{i=1}^n$ $n$ independent and identically distributed random variables :
 
 $$
 \frac{1}{\sqrt{n}}\sum_{i=1}^{n}(X_i - \mu) \xrightarrow[]{d} N(0, \sigma^2)
 $$
 
-If we can find a random variable $X$ such that $\mathbb{E}[X] = \pi$, then simulating $X$ repeatedly and averaging gives us an estimate of $\pi$. The more samples we take, the closer we get to the true value, with the rate of convergence governed by the variance of $X$.
+If we can find a random variable $X$ such that $\mathbb{E}[X] = \pi$, then simulating $X$ repeatedly and averaging would us an estimate of $\pi$ ! The more samples we take, the closer we get to the true value, with the rate of convergence governed by the variance of $X$.
 
-More precisely, if $\text{Var}(X) = \sigma^2$, then by the Central Limit Theorem, the sample mean
+But this here is a quant blog. Suppose we want the absolute error to be less than $\varepsilon > 0$ with probability at least $1 - \alpha$. Can we solve this problem ? Answer is yes, but with some maths.
+
+![figure 1](/blog/images/here_we_go_again.png)
+
+Let's consider $\text{Var}(X) = \sigma^2$, then by the Central Limit Theorem, the sample mean
 
 $$
 \hat{\pi}_n = \frac{1}{n} \sum_{i=1}^n X_i
@@ -51,9 +55,7 @@ $$
 \text{SE}(\hat{\pi}_n) = \frac{\sigma}{\sqrt{n}}.
 $$
 
-### How many simulations do we need?
-
-Suppose we want the absolute error to be less than $\varepsilon > 0$ with probability at least $1 - \alpha$. Using the normal approximation, we require
+Using the normal approximation, we require
 
 $$
 \mathbb{P}\big( |\hat{\pi}_n - \pi| < \varepsilon \big) \approx 1 - \alpha.
@@ -73,7 +75,7 @@ $$
 n \geq \left( \frac{z_{1-\alpha/2} \cdot \sigma}{\varepsilon} \right)^2.
 $$
 
-This formula provides a practical guideline: once we know or estimate the variance $\sigma^2$ of the Monte Carlo variable, we can determine how many simulations are needed to achieve a desired accuracy $\varepsilon$ with a given confidence level $1 - \\alpha$.
+This formula provides a practical guideline: once we know or estimate the variance $\sigma^2$ of the Monte Carlo variable, we can determine how many simulations are needed to achieve a desired accuracy $\varepsilon$ with a given confidence level $1 - \alpha$.
 
 
 ## From Uniform Randomness to $\pi$  {#probabilities}
@@ -117,4 +119,4 @@ Estimating $\pi$ with Monte Carlo is a beautiful demonstration of how probabilit
 
 - [Monte Carlo Method — Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_method)  
 - [Central Limit Theorem — Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)  
-- Gentle, J. E. (2003). *Random Number Generation and Monte Carlo Methods*. Springer.  
+- Gentle, J. E. (2003). *Random Number Generation and Monte Carlo Methods*. Springer. 
