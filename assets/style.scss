@@ -1189,7 +1189,7 @@ Modules - reusable parts of our design
 .newsletter-form input[type="submit"] {
   flex: 0 0 auto;
   padding: 0.6em 1.2em;
-  background-color: #e63946; /* red button like screenshot */
+  background-color: #28a745; /* GitHub green */
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -1200,8 +1200,9 @@ Modules - reusable parts of our design
 }
 
 .newsletter-form input[type="submit"]:hover {
-  background-color: #d62839;
+  background-color: #218838; /* slightly darker green for hover */
 }
+
 
 .newsletter-footer {
   font-size: 0.8em;
