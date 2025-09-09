@@ -214,7 +214,7 @@ Due to these limitations, the EWMA method is suitable only for **historical anal
 
 In this post, we've introduced the concept of volatility and its importance in financial markets, particularly for Bitcoin. We've shown how to estimate volatility using the EWMA method, which provides a responsive and practical approach for traders and analysts.
 
-This is just the beginning. In the next posts of this series, we'll explore more sophisticated methods like GARCH models for volatility estimation.
+This is just the beginning. In the [next posts](https://zaltarba.github.io/blog/BitcoinVolatility-2/) of this series, we'll explore more sophisticated methods like GARCH models for volatility estimation.
 
 Stay tuned for deeper insights into the fascinating world of financial volatility analysis!
 
