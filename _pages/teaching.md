@@ -10,9 +10,7 @@ This [GitHub Repository](https://github.com/Zaltarba/PSL_python_for_finance/tree
 
 ### Session 1 
 
-Notebook google colab [link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1.ipynb).
-
-Notebook google colab corrected [link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1_corrected.ipynb).
+Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1.ipynb) and [TP correction  link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_1_corrected.ipynb).
 
 
 ### Session 2 
