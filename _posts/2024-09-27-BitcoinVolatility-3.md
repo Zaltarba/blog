@@ -1,12 +1,13 @@
 ---
 layout: post
-title: Estimating Bitcoin's Volatility Using the Parkinson Estimator
-categories: [Personal Project,Algo Trading]
-excerpt: Dive into the third part of our series on computing Bitcoin's volatility with Binance data.
+title: Bitcoin Volatility Estimation with the Parkinson Estimator in Python
+categories: [Quant Finance, Algo Trading]
+excerpt: Learn how to estimate Bitcoin's volatility using the Parkinson estimator in Python with Binance data. Includes theory, implementation, and comparisons to classic volatility measures.
 image: /thumbnails/BitcoinVolatility3.webp
-hidden: False
-tags: [binance, trading, garch, volatility, parkinson, quant]
+hidden: false
+tags: [bitcoin, crypto, volatility, parkinson estimator, range based, risk management, forecasting, binance, python, quant finance]
 ---
+
 
 ## Table of Contents
 
@@ -17,7 +18,7 @@ tags: [binance, trading, garch, volatility, parkinson, quant]
 5. [Conclusion](#conclusion)
 6. [References and Further Reading](#references-and-further-reading)
 
-## Introduction
+## Introduction to the Parkinson Estimator for Bitcoin Volatility
 
 In this third installment of our series on Bitcoin volatility, we delve into a new volatility estimator, this time based on High and Low data points. This approach not only leverages high and low price points but also offer more precise volatility estimations.
 
@@ -34,7 +35,7 @@ The estimator we'll discuss is not my original creation; its roots trace back to
 
 By the end of this post, you'll gain a deeper understanding of how a volatility estimator can be constructed, making it a valuable guide for quantitative researchers.
 
-## How to create a volatility estimator ? 
+## How to Build a Volatility Estimator: Parkinson’s Range-Based Method
 
 What steps should a quant researcher follow when searching for an estimator ?
 
@@ -120,9 +121,9 @@ $$
 
 By the central limit theorem, as the sample size $ n $ increases, the estimator $ \hat{\sigma}^2 $ converges to the true variance $ \sigma^2 $, and its distribution approaches normality. Let's get moving now on a pratical implemention on Bitcoin data. 
 
-## Implementation on Bitcoin's Data
+## Implementing the Parkinson Volatility Estimator on Bitcoin Data
 
-### Data Preparation
+### Binance Bitcoin Data Preparation
 
 As we've done in previous articles, we’ll follow a similar data preparation process here. For those needing a refresher, we previously explained how to fetch and store Binance data in an HDF5 file in [this post](https://zaltarba.github.io/blog/DataBaseCreation/). It's this dataset we will exploit here.
 
@@ -142,7 +143,7 @@ df['Open_Time'] = pd.to_datetime(df['Open_Time'])
 df.set_index('Open_Time', inplace=True)
 ```
 
-### Applying the Classic Volatility Estimator
+### Close-to-Close Volatility Estimator for Bitcoin
 
 To provide a meaningful comparison, we'll calculate the **Close-to-Close volatility estimator** over the same time frame as the Parkinson estimator (1 hour, or 60 data points). 
 
@@ -154,7 +155,7 @@ T = 60
 df['classic_std'] = df['log_returns'].apply(lambda x:x**2).rolling(T).mean()**0.5
 ```
 
-### Applying Parkinson's Estimator
+### Python Implementation of the Parkinson Volatility Estimator
 
 We then implement the **Parkinson Volatility Estimator**, which uses the high-low range of prices to capture intraday volatility more effectively. 
 
@@ -169,7 +170,7 @@ def parkinson_std(R:float)->float:
 df["parkinson_std"] = df["log_range"].apply(lambda x:parkinson_std(x)).rolling(T).mean()
 ```
 
-### Visualizing the Results
+### Parkinson vs Classic Volatility in Bitcoin
 
 Now that we've computed the Parkinson volatility, let's visually compare it with our classic close to close volatility estimator to better understand how they behave across different time periods.
 
@@ -230,7 +231,7 @@ df['volatility_diff'] = 100 * (df['parkinson_std'] - df['close_close_std']) / df
 
 Let's focus on specific time periods to examine the differences between the two estimators more closely, as visualizing all the data at once would likely result in a cluttered and unclear display.
 
-#### Event 1: Bitcoin's 2020 COVID-19 Crash
+#### Parkinson Volatility During Bitcoin’s 2020 COVID-19 Crash
 
 - **Background:** In March 2020, Bitcoin's price plummeted by over 50% within a week amidst the global financial turmoil caused by the COVID-19 pandemic.
 
@@ -305,7 +306,7 @@ From the visual analysis of Bitcoin's price and volatility during the 2020 COVID
 
 Overall, this period reflects heightened volatility due to the COVID-19 market shock, with significant short-term fluctuations and a high divergence between intraday and closing-price volatility.
 
-#### Event 2: Bitcoin's 2024 All-Time High
+#### Parkinson Volatility During Bitcoin’s 2024 ATH
 
 - **Background:** In 2024, Bitcoin surged to a new all-time high, driven by increasing institutional adoption, macroeconomic instability, and growing recognition of Bitcoin as a hedge against inflation. The price rise was fueled by heightened demand for alternative assets, pushing Bitcoin beyond previous record levels set in 2021.
 
@@ -378,7 +379,7 @@ In the analysis of Bitcoin's price and volatility during its 2024 All-Time High 
 
 Overall, this analysis highlights the heightened volatility in both intraday and closing price movements as Bitcoin surged to its 2024 ATH, with Parkinson volatility capturing sharper intraday price changes compared to the classic volatility measure.
 
-## Considerations for Pratical Use
+## Practical Considerations when working on Volatility
 
 A critical decision when implementing a volatility model is selecting the appropriate rolling window length for historical volatility estimation. As Collin Bennett discusses in *Trading Volatility*, this choice is far from trivial and carries important implications for the accuracy of the model. Specifically, the number of data points used in the rolling window directly impacts the variance of the estimator: a longer window reduces variance but assumes that the underlying market conditions, particularly volatility, remain constant over a longer period.
 
@@ -406,4 +407,5 @@ I’d love to hear your thoughts! Share your feedback, questions, or suggestions
 - Binance API Documentation: [Binance API](https://github.com/binance/binance-spot-api-docs)
 
 Feel free to explore these resources to deepen your understanding.
+
 
