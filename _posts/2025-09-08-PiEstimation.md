@@ -1,19 +1,20 @@
 ---
 layout: post
-title: Estimating the Value of $\pi$ with Python
-categories: [Statistics]
-excerpt: Let's explore how Monte Carlo methods allow us to approximate $\pi$ using Python.
+title: Estimating Pi (π) with Monte Carlo Simulation in Python
+categories: [Statistics, Python]
+excerpt: Learn how to estimate the value of π using Monte Carlo simulation in Python. A step-by-step guide with math, code, and visualization.
 image: /thumbnails/PiEstimation.jpeg
-hidden: False
-tags: [Monte Carlo, Python, Pi]
+hidden: false
+tags: [monte carlo simulation, python, estimate pi, statistics, pi approximation, random sampling]
 ---
+
 
 ## Table of Contents
 
 1. [Introduction](#introduction)  
-2. [Monte Carlo in a Nutshell](#montecarlo)  
-3. [From Uniform Randomness to $\pi$](#probabilities)  
-4. [Practical Implementation in Python](#implementation)  
+2. [Monte Carlo Simulation Basics](#montecarlo)  
+3. [Using Random Sampling to Estimate Pi](#probabilities)  
+4. [Python Implementation of Monte Carlo Pi Estimation](#implementation)  
 5. [Conclusion](#conclusion)  
 6. [References and Further Reading](#references-and-further-reading)
 
@@ -21,9 +22,9 @@ tags: [Monte Carlo, Python, Pi]
 
 How can we estimate the value of $\pi$? While we know $\pi$ is irrational and cannot be expressed as a finite closed formula, approximations like $3.14$ or $22/7$ are widely used. But what if we want a systematic, simulation-based method to approximate $\pi$ with arbitrary precision?
 
-Monte Carlo methods provide exactly this. By exploiting randomness and statistical principles, we can approximate $\\pi$ in a surprisingly elegant way.
+Monte Carlo methods provide exactly this. By exploiting randomness and statistical principles, we can approximate $\pi$ in a surprisingly elegant way. This tutorial walks step by step through the mathematics and Python code.
 
-## Monte Carlo in a Nutshell  {#montecarlo}
+## Monte Carlo Simulation Basics {#montecarlo}
 
 Monte Carlo methods rely on random sampling and the central limit theorem (CLT) to estimate expectations. Indeed the CLT states that for $(X_i)_{i=1}^n$ $n$ independent and identically distributed random variables :
 
@@ -35,7 +36,7 @@ If we can find a random variable $X$ such that $\mathbb{E}[X] = \pi$, then simul
 
 But this here is a quant blog. Suppose we want the absolute error to be less than $\varepsilon > 0$ with probability at least $1 - \alpha$. Can we solve this problem ? Answer is yes, but with some maths.
 
-![figure 1](/blog/images/here_we_go_again.png)
+![funny math meme](/blog/images/here_we_go_again.png)
 
 Let's consider $\text{Var}(X) = \sigma^2$, then by the Central Limit Theorem, the sample mean
 
@@ -78,7 +79,7 @@ $$
 This formula provides a practical guideline: once we know or estimate the variance $\sigma^2$ of the Monte Carlo variable, we can determine how many simulations are needed to achieve a desired accuracy $\varepsilon$ with a given confidence level $1 - \alpha$.
 
 
-## From Uniform Randomness to $\pi$  {#probabilities}
+## Using Random Sampling to Estimate $\pi$ {#probabilities}
 
 In practice, random number generation typically begins with pseudo-random draws from a uniform distribution, which can be transformed into other distributions.   In Python, numpy provides a straightforward way to simulate such values.
 
@@ -117,7 +118,7 @@ $$
 \sigma_X  < \frac{1}{2}.
 $$
 
-## Practical Implementation in Python  {#implementation}
+## Python Implementation of Monte Carlo Pi Estimation {#implementation}
 
 The implementation is straightforward:
 
