@@ -20,7 +20,7 @@ tags: [bitcoin, crypto, volatility, parkinson estimator, range based, risk manag
 
 ## Introduction to the Parkinson Estimator for Bitcoin Volatility
 
-In this third installment of our series on Bitcoin volatility, we delve into a new volatility estimator, this time based on High and Low data points. This approach not only leverages high and low price points but also offer more precise volatility estimations.
+In this third installment of our series on Bitcoin volatility, we delve into a new volatility estimator, this time based on High and Low data points. This approach not only leverages high and low price points but also offer more precise volatility estimations. To fetch the data, check out this [previous post](https://zaltarba.github.io/blog/DataBaseCreation/), where we explored how to use the Binance API.
 
 Small recap of the previous articles of this serie : 
 
@@ -451,3 +451,4 @@ A: The Parkinson estimator is particularly effective with high-frequency or high
   ]
 }
 </script>
+
