@@ -1,12 +1,13 @@
 ---
 layout: post
-title: Estimating Bitcoin's Volatility Using EWMA
-categories: [Personal Project,Algo Trading]
-excerpt: Dive into the first part of our three-part series on computing Bitcoin's volatility with Binance data.
+title: Bitcoin Volatility Estimation with EWMA in Python
+categories: [Quant Finance, Algo Trading]
+excerpt: Learn how to estimate Bitcoin's realized volatility using the EWMA method in Python with Binance data. 
 image: /thumbnails/BitcoinVolatility1.jpeg
-hidden: False
-tags: [binance, trading, garch, volatility, quant, ewma,]
+hidden: false
+tags: [bitcoin, crypto, ewma, volatility, risk management, forecasting, binance, python, quant finance]
 ---
+
 
 ## Introduction
 
@@ -26,7 +27,7 @@ There are two main types of volatility:
 
 Why this difference ? Well, it happens volatility is far easier to predict than returns themselves. For options or other financial products, the future value of the volatility (meaning the future behaviour of the asset) is more usefull. Thus, the market will use the volatility expectancy for those products. In this post, **we will focus on the realized volatility**.
 
-## Why Study Realized Volatility ?
+## Why Analyze Bitcoin’s Realized Volatility ?
 
 Understanding realized volatility is crucial, especially when dealing with highly volatile assets like Bitcoin. Realized volatility measures the degree of variation in an asset's past price movements over a specific period. Studying it provides valuable insights into the asset's risk profile and helps in making informed decisions. Here's why analyzing realized volatility is essential:
 
@@ -37,7 +38,7 @@ Understanding realized volatility is crucial, especially when dealing with highl
 
 In essence, studying realized volatility is **not just an academic** exercise—it's a practical necessity. It equips traders and investors with the knowledge to navigate the complexities of the financial markets, particularly the dynamic and often unpredictable cryptocurrency landscape. By acknowledging that volatility is a hidden variable dependent on estimation models, we can appreciate the importance of selecting appropriate methods to measure and interpret it. This understanding ultimately leads to better risk management, more effective trading strategies, and informed decision-making in the pursuit of financial goals.
 
-## Preparing the Data
+## Preparing Binance Bitcoin Data for EWMA in Python
 
 Before we can estimate volatility, we need to prepare our data. The database we will use is the one we created in [this post](https://zaltarba.github.io/blog/DataBaseCreation/).
 
@@ -87,7 +88,7 @@ plt.show()
 
 ![figure 1](/blog/images/BitcoinVolatility-1-figure-1.png)
 
-### Calculating Log Returns
+### Calculating Bitcoin Log Returns in Python
 
 Logarithmic returns, or log returns, can be preferred over simple returns for several reasons:
 
@@ -130,7 +131,7 @@ plt.show()
 
 ![figure 2](/blog/images/BitcoinVolatility-1-figure-2.png)
 
-## Estimating Volatility Using EWMA
+## Estimating Bitcoin Volatility with EWMA
 
 ### Introducing the EWMA Method
 
@@ -190,7 +191,7 @@ plt.show()
 
 By analyzing the plot, we can identify periods of sharp volatility spikes, which signal higher risk and potentially greater reward opportunities. These spikes are often triggered by significant market events or news impacting Bitcoin. This behavior is known as **volatility clustering**, where high-volatility periods are followed by similarly turbulent periods, while low-volatility phases exhibit smaller, more stable fluctuations.
 
-### Benefits and Limitations of Using EWMA
+### EWMA Volatility: Advantages and Limitations
 
 - **Responsiveness**: EWMA adjusts quickly to changes, making it suitable for volatile markets.
 - **Simplicity**: It's straightforward to implement and doesn't require complex modeling.
