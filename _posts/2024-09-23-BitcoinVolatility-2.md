@@ -629,7 +629,7 @@ We began by discussing the motivations for moving beyond simple models, then del
 
 We showed how the GARCH model can be used both to estimate **realized volatility** and to generate **volatility forecasts** for the next hour. This ability to project future volatility is incredibly useful for traders, risk managers, and anyone involved in high-frequency trading environments where knowing short-term risk is critical.
 
-In the next post, we will dive deeper into volatility forecasting by exploring alternative data points like Low and High. Stay tuned for the final part of our series as we continue to explore the fascinating world of volatility modeling for Bitcoin !
+In [the next post](https://zaltarba.github.io/blog/BitcoinVolatility-2/), we will dive deeper into volatility forecasting by exploring alternative data points like Low and High. Stay tuned for the final part of our series as we continue to explore the fascinating world of volatility modeling for Bitcoin !
 
 ## Additional Resources
 
