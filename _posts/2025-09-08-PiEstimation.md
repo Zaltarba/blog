@@ -139,7 +139,7 @@ print(pi_estimate)
 
 Running this code with one million points gives a fairly good approximation of $\pi$. Increasing `n` will further improve accuracy.
 
-![figure 2](/blog/images/PiEstimation_figure_1.png)
+![Monte Carlo Simulation Pi Estimation](/blog/images/PiEstimation_figure_1.png)
 
 ## Conclusion  {#conclusion}
 
@@ -149,4 +149,53 @@ Estimating $\pi$ with Monte Carlo is a beautiful demonstration of how probabilit
 
 - [Monte Carlo Method — Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_method)  
 - [Central Limit Theorem — Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)  
-- Gentle, J. E. (2003). *Random Number Generation and Monte Carlo Methods*. Springer. 
+- Gentle, J. E. (2003). *Random Number Generation and Monte Carlo Methods*. Springer.
+
+
+
+
+
+## FAQ: Estimating Pi with Monte Carlo
+
+**Q: How does Monte Carlo simulation estimate π?**  
+A: By generating random points in a square and checking the fraction that fall inside the inscribed circle, we approximate π as four times that probability.
+
+**Q: Why use Monte Carlo to estimate π instead of series expansions?**  
+A: Monte Carlo provides a simulation-based approach that is intuitive, scalable, and easy to implement in Python, making it a great teaching tool and an example of probabilistic methods.
+
+**Q: How many simulations are needed for an accurate π estimate?**  
+A: Accuracy improves with the square root of the number of samples. For example, one million random points already gives a close approximation to π.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does Monte Carlo simulation estimate π?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By generating random points in a square and checking the fraction that fall inside the inscribed circle, we approximate π as four times that probability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use Monte Carlo to estimate π instead of series expansions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monte Carlo provides a simulation-based approach that is intuitive, scalable, and easy to implement in Python, making it a great teaching tool and an example of probabilistic methods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many simulations are needed for an accurate π estimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accuracy improves with the square root of the number of samples. For example, one million random points already gives a close approximation to π."
+      }
+    }
+  ]
+}
+</script>
+
