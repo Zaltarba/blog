@@ -143,7 +143,7 @@ plt.ylabel('BTC USDT')
 plt.show()
 ```
 
-![figure 1](/blog/images/BitcoinVolatility-2-figure-1.png)
+![Bitcoin price chart in Python](/blog/images/BitcoinVolatility-2-figure-1.png)
 
 ### Calculating Log Returns
 
@@ -169,7 +169,7 @@ plt.ylabel('Log Return')
 plt.show()
 ```
 
-![figure 2](/blog/images/BitcoinVolatility-2-figure-2.png)
+![Bitcoin log price chart in Python](/blog/images/BitcoinVolatility-2-figure-2.png)
 
 ## Testing for ARCH Effects
 
@@ -430,7 +430,7 @@ plt.ylabel('Standardized residuals')
 plt.show()
 ```
 
-![figure 3](/blog/images/BitcoinVolatility-2-figure-3.png)
+![Bitcoin chart using GARCH in Python](/blog/images/BitcoinVolatility-2-figure-3.png)
 
 At first glance, the situation looks concerning: we observe clear volatility clustering, with high volatility in the initial months, and numerous extreme values, suggesting the residuals may deviate from normality. 
 
@@ -438,7 +438,7 @@ At first glance, the situation looks concerning: we observe clear volatility clu
 We now need to realize some <strong>rigorous statistical testing</strong> to confirm that.
 </div>
 
-![figure 4](/blog/images/here_we_go_again.png)
+![Bitcoin volatility chart using GARCH in Python](/blog/images/here_we_go_again.png)
 
 ### Autocorrelation of Residuals
 
@@ -555,7 +555,7 @@ plt.ylabel('Volatility')
 plt.show()
 ```
 
-![figure 5](/blog/images/BitcoinVolatility-2-figure-4.png)
+![Bitcoin volatility chart using GARCH in Python 2](/blog/images/BitcoinVolatility-2-figure-4.png)
 
 The plot shows how volatility fluctuates over time, capturing periods of heightened risk (volatility clustering) and more stable periods. 
 
@@ -617,7 +617,7 @@ plt.ylabel('Volatility')
 plt.show()
 ```
 
-![figure 6](/blog/images/BitcoinVolatility-2-figure-6.png)
+![Bitcoin volatility chart using GARCH in Python 3](/blog/images/BitcoinVolatility-2-figure-6.png)
 
 The plot shows how volatility is expected to behave over the next 60 minutes. Spikes in forecasted volatility would indicate heightened market risk, while a more stable line would suggest a calmer market.
 
