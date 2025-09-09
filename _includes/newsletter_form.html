@@ -1,15 +1,15 @@
-<form
-  action="https://buttondown.com/api/emails/embed-subscribe/TheQuantQuest"
-  method="post"
-  target="popupwindow"
-  onsubmit="window.open('https://buttondown.com/TheQuantQuest', 'popupwindow')"
-  class="embeddable-buttondown-form"
->
-  <label for="bd-email">Enter your email</label>
-  <input type="email" name="email" id="bd-email" />
-  
-  <input type="submit" value="Subscribe" />
-  <p>
-    <a href="https://buttondown.com/refer/TheQuantQuest" target="_blank">Powered by Buttondown.</a>
-  </p>
-</form>
+<div class="newsletter-card">
+  <h2>Get new posts and extra comments</h2>
+  <p>You'll receive every new post with extra unpublished comments available only to subscribers!</p>
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/TheQuantQuest"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.com/TheQuantQuest', 'popupwindow')"
+    class="newsletter-form"
+  >
+    <input type="email" name="email" placeholder="Email address" required />
+    <input type="submit" value="Subscribe" />
+  </form>
+  <p class="newsletter-footer">I won't send you spam. Unsubscribe at any time.</p>
+</div>
