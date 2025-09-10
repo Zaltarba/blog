@@ -11,14 +11,14 @@ tags: [bitcoin, crypto, volatility, parkinson estimator, range based, risk manag
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [How to Create a Volatility Estimator?](#how-to-create-a-volatility-estimator)
-3. [Implementation on Bitcoin's Data](#implementation-on-bitcoins-data)
-4. [Considerations for Practical Use](#considerations-for-practical-use)
-5. [Conclusion](#conclusion)
-6. [References and Further Reading](#references-and-further-reading)
+1. [Introduction](##introduction)
+2. [The Parkinson’s Range-Based Method](##parkinson-range-method)
+3. [Implementation on Bitcoin's Data](##parkinson-volitility-on-bitcoin)
+4. [Considerations for Practical Use](##challenge-when-estimating-volatility)
+5. [Conclusion](##conclusion)
+6. [References and Further Reading](##references-and-further-reading)
 
-## Introduction to the Parkinson Estimator for Bitcoin Volatility
+## The Parkinson Estimator for Bitcoin Volatility {##introduction}
 
 In this third installment of our series on Bitcoin volatility, we delve into a new volatility estimator, this time based on High and Low data points. This approach not only leverages high and low price points but also offer more precise volatility estimations. To fetch the data, check out this [previous post](https://zaltarba.github.io/blog/DataBaseCreation/), where we explored how to use the Binance API.
 
@@ -35,7 +35,7 @@ The estimator we'll discuss is not my original creation; its roots trace back to
 
 By the end of this post, you'll gain a deeper understanding of how a volatility estimator can be constructed, making it a valuable guide for quantitative researchers.
 
-## How to Build a Volatility Estimator: Parkinson’s Range-Based Method
+## The Parkinson’s Range-Based Method {##parkinson-range-method}
 
 What steps should a quant researcher follow when searching for an estimator ?
 
@@ -121,7 +121,7 @@ $$
 
 By the central limit theorem, as the sample size $ n $ increases, the estimator $ \hat{\sigma}^2 $ converges to the true variance $ \sigma^2 $, and its distribution approaches normality. Let's get moving now on a pratical implemention on Bitcoin data. 
 
-## Implementing the Parkinson Volatility Estimator on Bitcoin Data
+## Parkinson Volatility Estimator on Bitcoin Data {##parkinson-volitility-on-bitcoin}
 
 ### Binance Bitcoin Data Preparation
 
@@ -379,7 +379,7 @@ In the analysis of Bitcoin's price and volatility during its 2024 All-Time High 
 
 Overall, this analysis highlights the heightened volatility in both intraday and closing price movements as Bitcoin surged to its 2024 ATH, with Parkinson volatility capturing sharper intraday price changes compared to the classic volatility measure.
 
-## Practical Considerations when working on Volatility
+## Practical Considerations when working on Volatility {##challenge-when-estimating-volatility}
 
 A critical decision when implementing a volatility model is selecting the appropriate rolling window length for historical volatility estimation. As Collin Bennett discusses in *Trading Volatility*, this choice is far from trivial and carries important implications for the accuracy of the model. Specifically, the number of data points used in the rolling window directly impacts the variance of the estimator: a longer window reduces variance but assumes that the underlying market conditions, particularly volatility, remain constant over a longer period.
 
@@ -391,7 +391,7 @@ Collin Bennett emphasizes this challenge when he states:
 
 In essence, while using longer windows may reduce estimator variance, it risks incorporating outdated volatility caused by past events, diminishing the relevance of the estimate for current market conditions. As Bennett suggests, aligning the historical window with implied volatility durations (e.g., 21 trading days for one-month implied volatility) can be a practical approach but should be adjusted to account for events that may no longer impact market conditions. 
 
-## Conclusion
+## Conclusion {##conclusion}
 
 In this post, we explored the Parkinson estimator as an alternative method for estimating Bitcoin's volatility, leveraging high and low data points to capture more precise intraday fluctuations. We compared it with the classic close-to-close estimator and observed how the Parkinson estimator provides a better representation of volatility during sharp market movements, such as Bitcoin's 2020 COVID-19 crash and its 2024 all-time high. While both methods have their merits, the choice of estimator ultimately depends on the nature of the data and the specific trading strategy.
 
@@ -407,3 +407,4 @@ I’d love to hear your thoughts! Share your feedback, questions, or suggestions
 - Binance API Documentation: [Binance API](https://github.com/binance/binance-spot-api-docs)
 
 Feel free to explore these resources to deepen your understanding.
+
