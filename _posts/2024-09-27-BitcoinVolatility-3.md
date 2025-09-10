@@ -121,7 +121,7 @@ $$
 
 By the central limit theorem, as the sample size $ n $ increases, the estimator $ \hat{\sigma}^2 $ converges to the true variance $ \sigma^2 $, and its distribution approaches normality. Let's get moving now on a pratical implemention on Bitcoin data. 
 
-## Parkinson Volatility Estimator on Bitcoin Data {#parkinson-volitility-on-bitcoin}
+## Parkinson Volatility Estimator {#parkinson-volitility-on-bitcoin}
 
 ### Binance Bitcoin Data Preparation
 
@@ -407,5 +407,6 @@ I’d love to hear your thoughts! Share your feedback, questions, or suggestions
 - Binance API Documentation: [Binance API](https://github.com/binance/binance-spot-api-docs)
 
 Feel free to explore these resources to deepen your understanding.
+
 
 
