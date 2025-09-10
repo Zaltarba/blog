@@ -47,14 +47,16 @@ Quantitative Researcher with in-depth knowledge in finance, machine learning, st
   - Conducted a thorough investigation into how social factors influence the financial health of municipalities
   - Implemented statistical tools and metrics to facilitate ongoing reporting
 
-- **Mathematics tutor at [Ipesup](https://www.ipesup.fr)**
-  - On going since 2019
-  - Mathematics lessons and tutoring for students in CPGE
-    
+# Teaching 🏫
+
 - **Python instructer at [Dauphine PSL](https://dauphine.psl.eu/formations/masters/finance/m2-gestion-actifs-asset-management)**
   - On going since 2025
   - Python for Finance Instructor, MSc in Asset Management
 
+- **Mathematics tutor at [Ipesup](https://www.ipesup.fr)**
+  - On going since 2019
+  - Mathematics lessons and tutoring for students in CPGE
+    
 # Personal and academic project 🎓
 
 - **Bayesian Statistics Project** - [Github](https://github.com/Zaltarba/Bayesian_statistics_project.git) - *2023*  
