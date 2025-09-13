@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bitcoin Volatility Estimation with EWMA in Python
-categories: [Quant Finance, Algo Trading]
+categories: [Statistics, Quantitative Finance, Algo Trading]
 excerpt: Learn how to estimate Bitcoin's realized volatility using the EWMA method in Python with Binance data. 
 image: /thumbnails/BitcoinVolatility1.jpeg
 hidden: false
