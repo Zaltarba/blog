@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimating Bitcoin's Volatility using a GARCH Model
-categories: [Statistics, Quantitative Finance, Algo Trading]
+categories: [Statistics, Quantitative Finance, Algo Trading, Python]
 tags: [bitcoin, crypto, volatility, garch, forecasting, binance, python, risk management, financial modeling]
 excerpt: Learn how to estimate and forecast Bitcoin volatility using GARCH models in Python with Binance data.
 image: /thumbnails/BitcoinVolatility2.jpeg
