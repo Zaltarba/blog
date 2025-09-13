@@ -85,6 +85,7 @@ title: Posts Archive
   {% assign current_month = '' %}
 
   {% for post in site.posts %}
+  {% unless post.hidden %}
     {% assign post_year = post.date | date: '%Y' %}
     {% assign post_month = post.date | date: '%B' %}
 
@@ -109,5 +110,6 @@ title: Posts Archive
       </a>
       <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
     </div>
+  {% endunless %}
   {% endfor %}
 </div>
