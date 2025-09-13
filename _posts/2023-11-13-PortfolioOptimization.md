@@ -1,7 +1,7 @@
 ---
 layout: post
 title: About Portfolio Optimization
-categories: [Personal Project]
+categories: [Quantitative Finance]
 excerpt: Let's talk about modern Portfolio Optimization !
 hidden: true
 ---
