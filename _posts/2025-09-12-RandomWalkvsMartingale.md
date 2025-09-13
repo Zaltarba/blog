@@ -22,7 +22,7 @@ In this article, we’ll clarify the concepts, illustrate them with Python simul
 4. [Conclusion](#Conclusion)  
 5. [Further Reading](#Further_Reading)
 
-## Random Walk: A Simple Model of Prices  {#Random-Walk}
+## What is a Random Walk in Finance?  {#Random-Walk}
 
 A **random walk** is one of the simplest [stochastic processes](https://en.wikipedia.org/wiki/Stochastic_process). In discrete time, it is defined as:
 
@@ -57,9 +57,9 @@ plt.title("Random Walk Simulations")
 plt.show()
 ```
 
-![Random Walk Simulation with python](/blog/images/RWvsM_fig_1.png)
+<img src="/blog/images/RWvsM_fig_1.png" alt="Python simulation of random walk in finance">
 
-## Martingale: A Broader Mathematical Concept  {#Martingale}
+## What is a Random Walk in Stock Prices?  {#Martingale}
 
 A martingale is defined in probability theory as a process $X_t$ such that:
 
@@ -196,7 +196,7 @@ plt.legend()
 plt.show()
 ```
 
-![Martingale Simulation with python](/blog/images/RWvsM_fig_2.png)
+<img src="/blog/images/RWvsM_fig_2.png" alt="Martingale simulation example with Python">
 
 ## Conclusion  {#Conclusion}
 
@@ -224,6 +224,7 @@ To deepen your understanding of martingales, stochastic discount factors, and th
   - [Radon–Nikodym theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)
 
 These readings offer both the theoretical foundation and practical insights needed for modern quantitative finance.
+
 
 
 
