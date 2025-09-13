@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Fetch and Store Binance Data Efficiently Using HDF5 in Python
-categories: [Quant, Algo Trading, Data Engineering] 
+categories: [Quantitative Finance, Algo Trading, Data Engineering, Binance] 
 excerpt: Learn how to fetch Binance candlestick data and store it efficiently using HDF5 in Python. Discover the Binance API and how to keep your data process scalable.
 image: /thumbnails/DataBaseCreation.jpeg
 hidden: False
