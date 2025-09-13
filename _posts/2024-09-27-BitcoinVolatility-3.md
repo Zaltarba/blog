@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bitcoin Volatility Estimation with the Parkinson Estimator in Python
-categories: [Statistics, Quantitative Finance, Algo Trading]
+categories: [Statistics, Quantitative Finance, Algo Trading, Python]
 excerpt: Learn how to estimate Bitcoin's volatility using the Parkinson estimator in Python with Binance data. Includes theory, implementation, and comparisons to classic volatility measures.
 image: /thumbnails/BitcoinVolatility3.webp
 hidden: false
@@ -407,6 +407,7 @@ I’d love to hear your thoughts! Share your feedback, questions, or suggestions
 - Binance API Documentation: [Binance API](https://github.com/binance/binance-spot-api-docs)
 
 Feel free to explore these resources to deepen your understanding.
+
 
 
 
