@@ -8,18 +8,26 @@ hidden: False
 tags: [random walk vs martingale, difference between random walk and martingale, martingale finance explained, random walk stock prices, risk neutral measure in finance, stochastic discount factor tutorial, radon nikodym derivative finance, martingale vs random walk in asset pricing, martingale property in economics, python simulation random walk]
 ---
 
-# Random Walk vs Martingale : What’s the Difference ?
+# Random Walk vs Martingale : What’s the Difference ? 
 
 Finance students often encounter both [*random walks*](https://en.wikipedia.org/wiki/Random_walk) and [*martingales*](https://fr.wikipedia.org/wiki/Martingale_(calcul_stochastique)) in their studies. At first sight, the two concepts look almost the same : both can be applied to describe the process, that “do not drift on average”. But both concepts are not identical. Understanding the distinction is crucial.  
 
 In this article, we’ll clarify the concepts, illustrate them with Python simulations, and explain why the distinction matters in finance.  
 
-## Random Walk: A Simple Model of Prices
+## Table of Contents
+
+1. [Random Walk: A Simple Model of Prices](#Random-Walk)  
+2. [Martingale: A Broader Mathematical Concept](#Martingale)  
+3. [Random Walk vs Martingale: Key Differences](#KeyDifferences)  
+4. [Conclusion](#Conclusion)  
+5. [Further Reading](#Further_Reading)
+
+## Random Walk: A Simple Model of Prices  {#Random-Walk}
 
 A **random walk** is one of the simplest [stochastic processes](https://en.wikipedia.org/wiki/Stochastic_process). In discrete time, it is defined as:
 
 $$
-X_{t+1} = X_t + \epsilon_{t+1},
+X_{t+1} = X_t + \epsilon_{t+1}
 $$
 
 where $\epsilon_{t+1}$ are independent and identically distributed (i.i.d.) shocks, often assumed to be Gaussian with mean zero and variance $\sigma^2$. The noise distribution can however take different for, including distribution with heavy tails.
@@ -48,12 +56,17 @@ plt.plot(X)
 plt.title("Random Walk Simulations")
 plt.show()
 ```
+
 ![Random Walk Simulation with python](/blog/images/RWvsM_fig_1.png)
 
-## Martingale: A Broader Mathematical Concept
+## Martingale: A Broader Mathematical Concept  {#Martingale}
 
-A martingale is defined in probability theory as a process $(X_t)$ such that:
-$$\mathbb{E}[X_{t+1} \mid \mathcal{F}_t] = X_t$$
+A martingale is defined in probability theory as a process $X_t$ such that:
+
+$$
+\mathbb{E}[X_{t+1} \mid \mathcal{F}_t] = X_t
+$$
+
 where $\mathcal{F}_t$ is the information available up to time $t$.
 
 ### Intuition
@@ -66,7 +79,7 @@ A martingale is defined by a conditional expectation property under a probabilit
 
 ### Financial Interpretation: The Role of the SDF and Change of Measure
 
-Under the **real-world probability measure** ($ \mathbb{P} $), a stock price is generally **not** a martingale due to the presence of risk premia—investors demand compensation for bearing risk. However, in **risk-neutral pricing**, we use a different probability measure, called the **risk-neutral measure** ($ \mathbb{Q} $), under which **discounted asset prices become martingales**. This makes the concept universal.
+Under the **real-world probability measure** $\mathbb{P}$, a stock price is generally **not** a martingale due to the presence of risk premia—investors demand compensation for bearing risk. However, in **risk-neutral pricing**, we use a different probability measure, called the **risk-neutral measure** $\mathbb{Q}$, under which **discounted asset prices become martingales**. This makes the concept universal.
 
 #### What is the risk neutral probability 
 
@@ -112,7 +125,7 @@ $$
 P_t = e^{-r} \mathbb{E}^{\mathbb{Q}}_t \left[ P_{t+1}^i \right]
 $$
 
-If we use $e^{rt} P_t $ as the discounted price, we get 
+If we use $e^{rt} P_t$ as the discounted price, we get 
 
 $$
 e^{-rt} P_t^i = e^{-r(t+1)} \mathbb{E}^{\mathbb{Q}}_t \left[ P_{t+1}^i \right]
@@ -132,7 +145,7 @@ In this new measure $ \mathbb{Q} $, the discounted price of any asset is a **mar
 
 This is the mathematical foundation of modern asset pricing and derivatives valuation: we **price assets as if investors are risk-neutral**, using a change of measure justified by the SDF, even though in reality they are not.
 
-## Random Walk vs Martingale: Key Differences
+## Random Walk vs Martingale: Key Differences  {#KeyDifferences}
 
 | Feature         | Random Walk                                  | Martingale                                      |
 |-----------------|---------------------------------------------|------------------------------------------------|
@@ -185,12 +198,11 @@ plt.show()
 
 ![Martingale Simulation with python](/blog/images/RWvsM_fig_2.png)
 
-
-## Conclusion
+## Conclusion  {#Conclusion}
 
 Random walks and martingales may seem similar at first glance, but the distinction is subtle and important. Random walks describe how prices move step by step, while martingales capture a broader property of **fair game** conditional expectations. Understanding both is fundamental to quantitative finance, stochastic modeling, and financial mathematics. To see a pratical use of random walk models and martingales properties to forecast volatility, check this [previous post](https://zaltarba.github.io/blog/BitcoinVolatility-2/) ! 
 
-## Further Reading
+## Further Reading  {#FurtherReading}
 
 To deepen your understanding of martingales, stochastic discount factors, and their role in asset pricing, consider exploring the following resources:
 
@@ -212,5 +224,6 @@ To deepen your understanding of martingales, stochastic discount factors, and th
   - [Radon–Nikodym theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)
 
 These readings offer both the theoretical foundation and practical insights needed for modern quantitative finance.
+
 
 
