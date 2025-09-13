@@ -4,7 +4,7 @@ title: Contact
 permalink: /contact/
 ---
 
-- 🔗 [Linkedin](https://www.linkedin.com/in/balthazar-courvoisier-a31703199/)
-- 🔗 [Github](https://github.com/Zaltarba)
-- 📧 [Personal email](mailto:balthazar.courvoisier@gmail.com)
-- [Research Gate](https://www.researchgate.net/profile/Balthazar-Courvoisier)
+- 🔗 **[LinkedIn](https://www.linkedin.com/in/balthazar-courvoisier-a31703199/)**  
+- 🔗 **[GitHub](https://github.com/Zaltarba)**  
+- 📧 **[Email Me](mailto:balthazar.courvoisier@gmail.com)**  
+- 🔬 **[ResearchGate](https://www.researchgate.net/profile/Balthazar-Courvoisier)**
