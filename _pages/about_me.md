@@ -4,7 +4,7 @@ title: About me
 permalink: /about_me/
 ---
 
-Quantitative Researcher with in-depth knowledge in finance, machine learning, statistics and econometrics. Stock markets enthusiast !
+Quantitative Researcher and PhD student working on deep learning applications to the world of finance. Stock markets enthusiast !
 
 # Education 🏫
 
