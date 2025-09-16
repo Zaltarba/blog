@@ -20,6 +20,8 @@ Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarb
 
 Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_3.ipynb) and [TP correction  link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_3_corrected.ipynb).
 
+[Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+
 ### Session 4 
 
 Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_4.ipynb).
