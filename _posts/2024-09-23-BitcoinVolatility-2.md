@@ -66,7 +66,7 @@ The [**GARCH**](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteros
 We modelize the log returns with : 
 
 $$
-r_t = \log(p_t) - \log(p_{t-1}) \quad \text{where} \quad \epsilon_t \sim \mathcal{N}(0, \sigma_t^2)
+r_t = \log(p_t) - \log(p_{t-1}) \quad \text{where} \quad r_t \sim \mathcal{N}(0, \sigma_t^2)
 $$
 
 Here, $\sigma_t^2$ is the time-varying volatility, which is gonna be modeled by the GARCH model. A **GARCH** model need two parameters for it's definition : p and q. It considers a combination of **p** lagged variances (past periods’ volatility) and **q** lagged squared returns (recent price changes), giving it the flexibility to model volatility with a deeper memory. The general form of the **GARCH(p, q)** model is given by:
