@@ -145,13 +145,12 @@ Running this code with one million points gives a fairly good approximation of $
 
 Estimating $\pi$ with Monte Carlo is a beautiful demonstration of how probability and geometry intersect. It shows that if we can identify a random variable with an expectation equal to the quantity of interest, then repeated sampling gives us a practical way to approximate it.
 
-@article{idiosyncratic_diffusion}
+## References
+<a id="ref-gu2018"></a> Gu, S., Kelly, B., & Xiu, D. (2018). Empirical Asset Pricing via Machine Learning. *Review of Financial Studies*, 33(5), 2223–2273.
 
 ## References and Further Reading  {#references-and-further-reading}
 
 - [Monte Carlo Method — Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_method)  
 - [Central Limit Theorem — Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)  
 - Gentle, J. E. (2003). *Random Number Generation and Monte Carlo Methods*. Springer.
-
-{% bibliography %}
 
