@@ -93,7 +93,7 @@ In financial time series like Bitcoin’s returns, there are well-documented **A
 
 ## Preparing the Data
 
-Before we fit a GARCH model, let’s load and clean our data, just like we did in the previous post with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values. Because we are gonna use plenty of statistical test, we are gonna have to tackle some hardware limitations. For this modelling we will work with 3 months historic and keep one months for out of sample testing.
+Before we fit a GARCH model, let’s load and clean our data, just like we did in the [previous post](https://zaltarba.github.io/blog/BitcoinVolatility-1/) with EWMA. We’ll again use the Bitcoin data we stored in HDF5 format and ensure the dataset is free of missing values. Because we are gonna use plenty of statistical test, we are gonna have to tackle some hardware limitations. For this modelling we will work with 3 months historic and keep one months for out of sample testing.
 
 ### Loading Data from HDF5
 
