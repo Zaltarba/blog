@@ -35,8 +35,8 @@ Schematic timeline (CAPM → Factor Zoo → IPCA / ML)
 Paste this directly into a Jekyll post (inside HTML) or save as .svg
 Accessible: includes <title> and <desc>
 -->
+<div style="max-width: 600px; margin: 0 auto;">
 <svg width="100%" height="auto" viewBox="0 0 900 220" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc">
-  <div style="max-width: 600px; margin: 0 auto;">
   <title id="title">Timeline: CAPM → Factor Zoo → IPCA / ML</title>
   <desc id="desc">A simple horizontal timeline with three labeled nodes: CAPM (parsimonious), Factor Zoo (many candidate factors), and IPCA / ML (high-dimensional SDF learning).</desc>
 
@@ -126,8 +126,8 @@ Accessible: includes <title> and <desc>
 
   <!-- Small caption (non-essential for SEO but informative) -->
   <text x="30" y="30" class="node-sub" style="font-size:13px">Schematic: evolution from parsimonious factor models toward high-dimensional SDF estimation.</text>
-</div>
 </svg>
+</div>
 
 
 ## The Case for Less: Low-Dimensional Factor Models and Interpretability  {#smallmodel}
@@ -137,3 +137,4 @@ Accessible: includes <title> and <desc>
 
 
 ## Conclusion  {#conclusion}  
+
