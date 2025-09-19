@@ -34,8 +34,8 @@ Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarb
 
 **Paper Exam**  
 Scheduled for 6 October 2025, the exam will assess your understanding of the course’s theoretical foundations.  
-Weight: 50% of your final grade.
+*50% of your final grade*
 
 **Group Project**  
 Due on 9 January 2025 with an oral presentation, the project description is at [GitHub Repository](https://github.com/Zaltarba/PSL_python_for_finance/tree/main).  
-Weight: 50% of your final grade.
+*50% of your final grade*
