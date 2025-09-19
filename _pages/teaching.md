@@ -35,7 +35,7 @@ Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarb
 ### Assements dates 
 
 **Paper Exam**  
-Scheduled for 6 October 2025, the exam will assess your understanding of the course’s theoretical foundations.  
+Scheduled for 6 November 2025, the exam will assess your understanding of the course’s theoretical foundations.  
 *50% of your final grade*
 
 **Group Project**  
