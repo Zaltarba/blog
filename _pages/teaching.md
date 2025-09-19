@@ -29,7 +29,8 @@ Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarb
 
 ### Session 5
 
-Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_5.ipynb).
+Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_5.ipynb) and [TP correction  link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_5_corrected.ipynb).
+
 
 ### Assements dates 
 
