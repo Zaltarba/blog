@@ -4,6 +4,7 @@ title: A theorical review of the Hurst Exponent estimators
 categories: [Quantitative Finance, Statistics]
 excerpt: In this post we will make a theorical review of several Hurst exponent estimators from the litterature.
 image: /thumbnails/HurstEstimatorsReview.jpeg
+hidden: true
 ---
 
 ## A reminder on the Hurst exponent 
