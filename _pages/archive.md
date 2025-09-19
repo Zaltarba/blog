@@ -8,8 +8,8 @@ title: Posts Archive
 <div id="archives">
   <section id="archive">
      <h3>Most Recent Posts</h3>
-      {%for post in site.posts %}
-      {% unless post.hidden %}
+      {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+      {%for post in visible_posts %}
       {% unless post.next %}
       <ul class="this">
           {% else %}
@@ -25,7 +25,6 @@ title: Posts Archive
           {% if month != nmonth %}
           <h3 style="text-align:left;">{{ post.date | date: '%B %Y' }}</h3>
           {% endif %}
-          {% endunless %}
           {% endunless %}
           <p><b><a href="{{ site.baseurl }}{{ post.url }}">{% if post.title and post.title != "" %}{{post.title}}{% else %}{{post.excerpt |strip_html}}{%endif%}</a></b> - {% if post.date and post.date != "" %}{{ post.date | date: "%e %B %Y" }}{%endif%}</p>
           {% endfor %}
