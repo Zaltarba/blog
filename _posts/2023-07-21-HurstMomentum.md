@@ -4,6 +4,7 @@ title: Momentum Strategy enhanced with the Hurst Exponent
 categories: [Personal Project,Algo Trading]
 excerpt: This blog post is an humble attempt at implementing a momentum strategy using a lesser-known metric, the Hurst exponent
 image: /thumbnails/HurstMomentum.jpeg
+hidden: true
 ---
 
 # Introduction
@@ -36,7 +37,7 @@ The Hurst exponent's value ranges between 0 and 1, where:
 
 In the context of finance, a high Hurst exponent value signifies that an asset's price movements are likely to show strong persistence, making it an attractive candidate for momentum trading strategies. Conversely, a low Hurst exponent value indicates that the asset's price movements might be more unpredictable or mean-reverting, less suitable for momentum trading.  
 
-## How to exploit the Hurst exponent in a Momentum Trading strategy   
+## The Hurst exponent for Momentum Trading 
 
 Combining momentum trading with the Hurst exponent involves a systematic approach to identify assets with persistent price trends. The process can be summarized in the following steps:  
 
