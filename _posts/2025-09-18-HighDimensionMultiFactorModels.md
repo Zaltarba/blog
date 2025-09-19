@@ -2,7 +2,7 @@
 layout: post
 title: "Multi-Factor Models: Could Less Be Better?"
 categories: [Statistics, Quantitative Finance,]
-excerpt: Random Walk vs Martingale : "A literature-based exploration of the current debate in asset pricing: should we embrace high-dimensional stochastic discount factor learning, or stick with parsimonious classic approaches? Both schools of thought coexist in today’s research."
+excerpt: "A literature-based exploration of the current debate in asset pricing: should we embrace high-dimensional stochastic discount factor learning, or stick with parsimonious classic approaches? Both schools of thought coexist in today’s research."
 image: /thumbnails/HighDimensionMultiFactorModels.jpeg
 hidden: true
 tags: [asset pricing, factor models, stochastic discount factor, machine learning, finance, sdf, IPAT]
@@ -137,4 +137,5 @@ Accessible: includes <title> and <desc>
 
 
 ## Conclusion  {#conclusion}  
+
 
