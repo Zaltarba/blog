@@ -8,8 +8,6 @@ hidden: False
 tags: [random walk vs martingale, difference between random walk and martingale, martingale finance explained, random walk stock prices, risk neutral measure in finance, stochastic discount factor tutorial, radon nikodym derivative finance, martingale vs random walk in asset pricing, martingale property in economics, python simulation random walk]
 ---
 
-# Random Walk vs Martingale : What’s the Difference ? 
-
 Finance students often encounter both [*random walks*](https://en.wikipedia.org/wiki/Random_walk) and [*martingales*](https://fr.wikipedia.org/wiki/Martingale_(calcul_stochastique)) in their studies. At first sight, the two concepts look almost the same : both can be applied to describe the process, that “do not drift on average”. But both concepts are not identical. Understanding the distinction is crucial.  
 
 In this article, we’ll clarify the concepts, illustrate them with Python simulations, and explain why the distinction matters in finance.  
@@ -224,6 +222,7 @@ To deepen your understanding of martingales, stochastic discount factors, and th
   - [Radon–Nikodym theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)
 
 These readings offer both the theoretical foundation and practical insights needed for modern quantitative finance.
+
 
 
 
