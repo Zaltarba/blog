@@ -85,6 +85,6 @@ Now, your notebook cells will run inside the clean conda environment.
 1. Open a .py file in VS Code.
 2. Look at the bottom-right corner of VS Code → click on the interpreter selector.
 3. Choose the interpreter from your environment (it should appear as something like Python 3.10 ('myproject')).
-
-
+   
 Once selected, running scripts (Run → Run Without Debugging or the green button) will execute in your conda environment.
+
