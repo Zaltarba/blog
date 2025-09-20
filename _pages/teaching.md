@@ -26,11 +26,13 @@ Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarb
 
 Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_4.ipynb) and [TP correction  link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_4_corrected.ipynb).
 
-
 ### Session 5
 
 Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_5.ipynb) and [TP correction  link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_5_corrected.ipynb).
 
+### Session 6
+
+Notebook google colab [TP link](https://colab.research.google.com/github/Zaltarba/PSL_python_for_finance/blob/main/python_session_6.ipynb).
 
 ### Assements dates 
 
@@ -41,3 +43,5 @@ Scheduled for 6 November 2025, the exam will assess your understanding of the co
 **Group Project**  
 Due on 9 January 2025 with an oral presentation, the project description is at this [GitHub Repository](https://github.com/Zaltarba/PSL_python_for_finance/tree/main).  
 *50% of your final grade*
+
+
