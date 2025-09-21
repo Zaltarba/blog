@@ -150,7 +150,7 @@ $$
 The expected value under your assumptions is 20.40\\$, which is above the current price 19\\$. That suggests a potential edge *if* your assumptions are more accurate than the market’s. When making a are more complex model, you should take into account also the time required for the deal to go trough, and think more into target and fallback distributions than fixed parameters.
 
 
-## Case Study: Warner Bros Discovery & Paramount/Skydance  {#case-study-warner-bros-discovery-paramountskydance}
+## Warner Bros Discovery & Paramount/Skydance  {#case-study-warner-bros-discovery-paramountskydance}
 
 ### Deal Overview  {#deal-overview}
 
@@ -395,6 +395,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
