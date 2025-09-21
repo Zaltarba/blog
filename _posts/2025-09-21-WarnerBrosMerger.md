@@ -67,8 +67,8 @@ From that spread, we can actually **estimate the implied probability** of the de
 
 We can model the current price as a weighted average of two outcomes:
 
-- The deal closes, and the target gets \$20  
-- The deal fails, and the target falls back to its pre-deal price (say, \$10)
+- The deal closes, and the target gets 20\$  
+- The deal fails, and the target falls back to its pre-deal price (say, 10\$)
 
 We can write this as:
 
@@ -78,8 +78,8 @@ $$
 
 Where:
 - $p$ is the **implied probability** of deal success
-- Deal Price is the offer amount (e.g. \$20)
-- Fallback Price is the estimated value if the deal fails (e.g. \$10)
+- Deal Price is the offer amount (e.g. 20\$)
+- Fallback Price is the estimated value if the deal fails (e.g. 10\$)
 
 Solving for $p$:
 
@@ -131,9 +131,9 @@ If EV is meaningfully above the current price (after adjusting for time and risk
 
 Suppose:
 
-- Deal price = 24$  
-- Current stock price = 19$  
-- Fallback (if deal fails) = 12$  
+- Deal price = 24\$   
+- Current stock price = 19\$  
+- Fallback (if deal fails) = 12\$  
 
 Using the formula to back out the **implied probability**:
 
@@ -147,14 +147,14 @@ $$
 \text{EV} = 0.70 \times 24 + 0.30 \times 12 = 16.8 + 3.6 = 20.4
 $$
 
-The expected value under your assumptions is 20.40$, which is above the current price 19$. That suggests a potential edge *if* your assumptions are more accurate than the market’s. When making a are more complex model, you should take into account also the time required for the deal to go trough. 
+The expected value under your assumptions is 20.40\$, which is above the current price 19\$. That suggests a potential edge *if* your assumptions are more accurate than the market’s. When making a are more complex model, you should take into account also the time required for the deal to go trough, and think more into target and fallback distributions than fixed parameters.
 
 
 ## Case Study: Warner Bros Discovery & Paramount/Skydance  {#case-study-warner-bros-discovery-paramountskydance}
 
 ### Deal Overview  {#deal-overview}
 
-According to a [New York Post report (Sep 19, 2025)](https://nypost.com/2025/09/19/media/paramount-skydance-eyes-takeover-bid-for-warner-bros-discovery-report/), Skydance Media, which recently acquired control of Paramount Global, is now exploring a bid to acquire Warner Bros Discovery at a price in the range of **\$22–\$24 per share**.
+According to a [New York Post report (Sep 19, 2025)](https://nypost.com/2025/09/19/media/paramount-skydance-eyes-takeover-bid-for-warner-bros-discovery-report/), Skydance Media, which recently acquired control of Paramount Global, is now exploring a bid to acquire Warner Bros Discovery at a price in the range of **22\$–24\$ per share**.
 
 This isn’t a formal offer (yet), but it’s enough to move the market. Want to see it ? Here the Warner Bros stock price over the last days (and bonus the Python code to do it at home) : 
 
@@ -186,7 +186,7 @@ plt.show()
 
 Analyst reactions have been mixed:
 
-- TD Cowen’s Doug Creutz downgraded WBD from Buy to Hold, arguing that without a deal, the stock could fall back to **\$11–\$12**, based on fundamentals. ([MarketWatch, Sep 20, 2025](https://www.marketwatch.com/story/buying-wbds-stock-ahead-of-a-possible-paramount-deal-this-analyst-is-cautious-0b4fa36c))
+- TD Cowen’s Doug Creutz downgraded WBD from Buy to Hold, arguing that without a deal, the stock could fall back to **11\$–12\$**, based on fundamentals. ([MarketWatch, Sep 20, 2025](https://www.marketwatch.com/story/buying-wbds-stock-ahead-of-a-possible-paramount-deal-this-analyst-is-cautious-0b4fa36c))
 
 How to get info like that easily at home ? Here again python is your friend. Here a small code enabling you to get recent headlines on any ticker :
 
@@ -212,7 +212,7 @@ print(f"🔗 {link}\n")
 
 ```bash
 📌 Wells Fargo Raises Warner Bros. Discovery (WBD) Price Target, Sees M&A Potential
-Warner Bros. Discovery Inc. (NASDAQ:WBD) ranks among the best communication services stocks to buy now. Wells Fargo boosted its price target for Warner Bros. Discovery Inc. (NASDAQ:WBD) to $14 from $13 on September 11, retaining an Equal Weight rating on the company’s shares. The revision reflects Wells Fargo’s belief that Warner Brothers Discovery’s Studios and […]
+Warner Bros. Discovery Inc. (NASDAQ:WBD) ranks among the best communication services stocks to buy now. Wells Fargo boosted its price target for Warner Bros. Discovery Inc. (NASDAQ:WBD) to 14\$ from 13\$ on September 11, retaining an Equal Weight rating on the company’s shares. The revision reflects Wells Fargo’s belief that Warner Brothers Discovery’s Studios and […]
 🔗 https://finance.yahoo.com/news/wells-fargo-raises-warner-bros-075936106.html
 ```
 
@@ -222,9 +222,9 @@ So what is the market currently pricing in? Let’s quantify it.
 
 Let’s plug in some numbers based on the reporting and price action:
 
-- **Deal price (X)**: We will use 24$ 
-- **Current price (Y)**: 19$ (WBD has traded between 18$–20$ since the rumor broke)  
-- **Fallback price (B)**: 11$ (where analysts estimate WBD would trade without a deal)
+- **Deal price (X)**: We will use 24\$ 
+- **Current price (Y)**: 19$ (WBD has traded between 18\$–20\$ since the rumor broke)  
+- **Fallback price (B)**: 11\$ (where analysts estimate WBD would trade without a deal)
 
 Using the implied probability formula:
 
@@ -268,8 +268,8 @@ plt.show()
 
 Let’s break down the potential payoff structure:
 
-- **Upside if deal closes**: 5$ per share → about **+26.3%** return from 19$ to 24$  
-- **Downside if deal fails**: Loss of 8$ per share → about **–42.1%** from 19$ to 11$  
+- **Upside if deal closes**: 5\$ per share → about **+26.3%** return from 19\$ to 24\$  
+- **Downside if deal fails**: Loss of 8\$ per share → about **–42.1%** from 19\$ to 11\$  
 
 If the deal closes in **6 months**, that’s a 26% return in half a year, or over **50% annualized** (not adjusting for taxes or compounding). But **this return is priced in**. Meaning the risk of dowside exist and is priced. The question you must ask yourself in this situation is more : is the market probability near the truth ? ie is the market efficient ? 
 
@@ -281,7 +281,7 @@ Let’s run a few scenarios.
 
 #### Scenario A: More optimistic fallback
 
-Suppose the market is wrong about the downside, and the true fallback price is 14$, not 11$. Then:
+Suppose the market is wrong about the downside, and the true fallback price is 14\$, not 11\$. Then:
 
 $$
 p = \frac{19 - 14}{24 - 14} = \frac{5}{10} = 50\%
@@ -291,7 +291,7 @@ So in this more optimistic view, the **implied probability drops to 50%**, becau
 
 #### Scenario B: Lower deal price
 
-What if the deal gets negotiated down to 22$ ? Then:
+What if the deal gets negotiated down to 22\$ ? Then:
 
 $$
 p = \frac{19 - 11}{22 - 11} = \frac{8}{11} \approx 72.7\%
@@ -299,7 +299,7 @@ $$
 
 Ironically, a **lower offer price** results in a *higher implied probability* — because the spread narrows.
 
-This shows that the probability estimate is sensitive to both inputs: the upside and the fallback. What if we want to look at it in more scalable fashion ? The 24$ dollars per share is maybe a good payoff guess, but what about the fallback price ? Warner Bros Stock has move from 8 to 14$ regularly over the last 2 years. Again (and for the last time) we can use Python to study the sensitivity to this fallback price. What we want to see is the *implied probability*. 
+This shows that the probability estimate is sensitive to both inputs: the upside and the fallback. What if we want to look at it in more scalable fashion ? The 24\$ dollars per share is maybe a good payoff guess, but what about the fallback price ? Warner Bros Stock has move from 8 to 14\$ regularly over the last 2 years. Again (and for the last time) we can use Python to study the sensitivity to this fallback price. What we want to see is the *implied probability*. 
 
 ```python 
 import numpy as np
@@ -363,16 +363,16 @@ To sum up:
 - If you think the market is **too cautious**, there may be opportunity  
 - If you think the market is **too optimistic**, it might be time to hedge or trim
 
-The rest depends on how you model risk — and whether you trust your estimates more than the market does.
+The rest depends on how you model risk and whether you trust your estimates more than the market.
 
 ## Conclusion  {#conclusion}
 
-The Warner Bros Discovery–Paramount/Skydance case offers a real-time example of how markets digest deal rumors, price in uncertainty, and reflect a collective estimate of risk — all through a single number: the stock price.
+The Warner Bros Discovery–Paramount/Skydance case offers a real-time example of how markets digest deal rumors, price in uncertainty, and reflect a collective estimate of risk, all through a single number: the stock price.
 
 This case illustrates a few key points:
 
-- **Markets imply probabilities** through price — not opinion. While analysts debate whether WBD is worth \$11 or \$14 without a deal, the stock price incorporates not just that debate, but the *likelihood* of various outcomes.
-- **Implied probability is not truth** — it's just what the current prices suggest. If you have a differentiated view on the deal's odds or timing, that’s where alpha can live.
+- **Markets imply probabilities** through price — not opinion. While analysts debate whether WBD is worth 11\$ or 14\$ without a deal, the stock price incorporates not just that debate, but the *likelihood* of various outcomes.
+- **Implied probability is not truth** : it's just what the current prices suggest. If you have a differentiated view on the deal's odds or timing, that’s where alpha can live.
 - **A simple framework goes a long way**. By mapping out:
   - the potential deal price (upside)
   - the fallback value (downside)
@@ -380,7 +380,7 @@ This case illustrates a few key points:
   - the regulatory and strategic context
   ...you can structure a probabilistic view of the trade, rather than just a gut feeling.
 
-This isn’t forecasting. It’s scenario modeling — and it forces clarity of thought.
+This isn’t forecasting. It’s scenario modeling and it forces clarity of thought.
 
 What we’ve walked through here is a first-principles framework: pricing, spreads, probabilities, payoffs.
 
@@ -392,5 +392,3 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
-
-
