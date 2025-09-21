@@ -44,4 +44,6 @@ Scheduled for 6 November 2025, the exam will assess your understanding of the co
 Due on 9 January 2025 with an oral presentation, the project description is at this [GitHub Repository](https://github.com/Zaltarba/PSL_python_for_finance/tree/main).  
 *50% of your final grade*
 
+### Ressources 
 
+[Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
