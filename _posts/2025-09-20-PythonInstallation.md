@@ -3,8 +3,8 @@ layout: post
 title: 🐍 Use Anaconda to Create a Clean Python Environment 
 categories: [Python,]
 excerpt: How to Use Anaconda to Create a Clean Python Environment
-image: /thumbnails/PiEstimation.jpeg
-hidden: True 
+image: /thumbnails/PythonInstallation.jpeg
+hidden: False 
 tags: [python, anaconda, tutorial, installation, dev, quant-dev]
 ---
 
@@ -87,4 +87,5 @@ Now, your notebook cells will run inside the clean conda environment.
 3. Choose the interpreter from your environment (it should appear as something like Python 3.10 ('myproject')).
    
 Once selected, running scripts (Run → Run Without Debugging or the green button) will execute in your conda environment.
+
 
