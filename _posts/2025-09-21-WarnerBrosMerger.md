@@ -15,7 +15,7 @@ This post is for informational and educational purposes only. It does not consti
 ## Table of Contents
 
 1. [What Is Merger Arbitrage?](#what-is-merger-arbitrage)
-2. [Understanding Implied Probability from Market Prices](#understanding-implied-probability-from-market-prices)
+2. [Market Prices and Implied Probabilities](#understanding-implied-probability-from-market-prices)
 3. [A Simple Merger Arbitrage Methodology](#merger-arbitrage-methodology)
 4. [Case Study: Warner Bros Discovery & Paramount/Skydance](#case-study-warner-bros-discovery-paramountskydance)
     - 4.1 [Deal Overview](#deal-overview)
@@ -47,7 +47,7 @@ Merger arbitrage isn’t about guessing whether a stock will go up or down. It�
 
 It’s not glamorous. It’s not momentum-driven. But when done systematically with proper sizing, scenario modeling, and discipline it can be a effective strategy (here a [first article](https://www.aima.org/asset/676DA5D6-8CE4-42D7-A2C6171EAC6382DC/) and a [second one](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=315639) documenting this assertion).
 
-## Understanding Implied Probability from Market Prices  {#understanding-implied-probability-from-market-prices}
+## Market Prices and Implied Probabilities  {#understanding-implied-probability-from-market-prices}
 
 When a public company announces it’s being acquired, the offer is almost always above the last trading price, often significantly. That premium is what makes merger arbitrage possible.
 
@@ -395,6 +395,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
