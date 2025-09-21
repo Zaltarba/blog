@@ -184,9 +184,7 @@ plt.show()
 
 <img src="/blog/images/WarnerBros_fig_1.png" alt="Warner Bros Stock Evolution">
 
-Analyst reactions have been mixed:
-
-- TD Cowen’s Doug Creutz downgraded WBD from Buy to Hold, arguing that without a deal, the stock could fall back to **11\\$–12\\$**, based on fundamentals. ([MarketWatch, Sep 20, 2025](https://www.marketwatch.com/story/buying-wbds-stock-ahead-of-a-possible-paramount-deal-this-analyst-is-cautious-0b4fa36c))
+Analyst reactions have been mixed: analysts from TD Cowen have downgraded WBD from Buy to Hold, arguing that without a deal, the stock could fall back to **11\\$–12\\$**, based on fundamentals. ([MarketWatch, Sep 20, 2025](https://www.marketwatch.com/story/buying-wbds-stock-ahead-of-a-possible-paramount-deal-this-analyst-is-cautious-0b4fa36c))
 
 How to get info like that easily at home ? Here again python is your friend. Here a small code enabling you to get recent headlines on any ticker :
 
@@ -395,6 +393,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
