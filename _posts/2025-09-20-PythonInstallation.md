@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 🐍 Use Anaconda to Create a Clean Python Environment 
+title: Anaconda to Create a Clean Python Environment 🐍 
 categories: [Python,]
-excerpt: How to Use Anaconda to Create a Clean Python Environment
+excerpt: Learn how to use Anaconda for your Python setup, allowing you to .py files and jupiter notebooks.
 image: /thumbnails/PythonInstallation.jpeg
 hidden: False 
 tags: [python, anaconda, tutorial, installation, dev, quant-dev]
@@ -10,7 +10,7 @@ tags: [python, anaconda, tutorial, installation, dev, quant-dev]
 
 Setting up a clean and stable Python environment is essential for learning and working on projects. This guide will show you how to use **Anaconda** to do just that.
 
-## 📦 What is Anaconda?
+## 🐍 What is Anaconda?
 
 Anaconda is a free Python distribution that includes:
 
@@ -87,5 +87,6 @@ Now, your notebook cells will run inside the clean conda environment.
 3. Choose the interpreter from your environment (it should appear as something like Python 3.10 ('myproject')).
    
 Once selected, running scripts (Run → Run Without Debugging or the green button) will execute in your conda environment.
+
 
 
