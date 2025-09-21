@@ -278,7 +278,7 @@ If the deal closes in **6 months**, that’s a 26% return in half a year, or ove
 
 The final step to fully understand our model is asking : **how sensitive are we to changes in assumptions ?** Let’s run a few scenarios.
 
-#### Scenario A: More optimistic fallback
+#### What if the fallback increase ?
 
 Suppose the market is wrong about the downside, and the true fallback price is 14\\$, not 11\\$. Then:
 
@@ -288,7 +288,7 @@ $$
 
 So in this more optimistic view, the **implied probability drops to 50%**, because the downside isn’t as severe.
 
-#### Scenario B: Lower deal price
+#### What if the deal price decrease ?
 
 What if the deal gets negotiated down to 22\\$ ? Then:
 
@@ -395,6 +395,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
