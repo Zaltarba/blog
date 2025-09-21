@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Merger Arbitrage Explained: Warner Bros Discovery, Paramount & Market-Implied Probabilities"
-categories: [Quantitative Finance]
+categories: [Quantitative Finance, Python]
 excerpt: "Learn how to analyze merger arbitrage opportunities using the Warner Bros Discovery and Paramount deal rumors. We break down market-implied probabilities, downside risk, and how to model expected value like a quant."
 image: /assets/images/merger-arbitrage-wbd-paramount.png
 hidden: false
-tags: [Merger Arbitrage, Warner Bros Discovery, Paramount, Skydance, Event-Driven, Quant Finance]
+tags: [Merger Arbitrage, Warner Bros Discovery, Paramount, Skydance, Event-Driven, Quantitative Finance, Quant]
 ---
 
 ## Disclaimer 
@@ -392,3 +392,4 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
