@@ -39,7 +39,7 @@ This gap between the current market price of the target and the deal price is ca
 
 In a pure **cash deal**, the arbitrage setup is straightforward: you buy the target company’s shares after the deal is announced and wait. If the deal closes, the acquirer pays cash, and you pocket the difference. If the deal breaks, the stock usually drops, sometimes sharply, and you lose money. So the whole game is about **probabilities** and **payoffs**. In this post I will only talk about this kind of deal.
 
-The wider the spread, the more the market is signaling uncertainty. A narrow spread? The market sees a high chance of the deal going through. A wide spread? More risk — or at least, more perceived risk.
+The wider the spread, the more the market is signaling uncertainty. A narrow spread? The market sees a high chance of the deal going through. A wide spread? More risk or at least, more perceived risk.
 
 In some cases, the spread can even go negative, the stock trades above the offer price. That usually means investors are betting on a bidding war or a sweetened deal.
 
@@ -51,7 +51,7 @@ It’s not glamorous. It’s not momentum-driven. But when done systematically w
 
 When a public company announces it’s being acquired, the offer is almost always above the last trading price, often significantly. That premium is what makes merger arbitrage possible.
 
-Let’s work on a simple example. Imagine a small public company : let's call it Banana. It is trading at 10$ per share. One morning, Apple announces it wants to acquire that company for 20$ a share, in cash. That’s a 100% premium.
+Let’s work on a simple example. Imagine a small public company : let's call it Banana. It is trading at 10\$ per share. One morning, Apple announces it wants to acquire that company for 20\$ a share, in cash. That’s a 100% premium.
 
 What happens to the stock? It jumps, but not to 20\$. Maybe it shoots up to 18\$ or 19\$. That difference between the offer price 20\$ and the new trading price (say, 18\$) is called the **spread**. And it contains valuable information.
 
@@ -212,7 +212,10 @@ print(f"🔗 {link}\n")
 
 ```bash
 📌 Wells Fargo Raises Warner Bros. Discovery (WBD) Price Target, Sees M&A Potential
-Warner Bros. Discovery Inc. (NASDAQ:WBD) ranks among the best communication services stocks to buy now. Wells Fargo boosted its price target for Warner Bros. Discovery Inc. (NASDAQ:WBD) to 14\$ from 13\$ on September 11, retaining an Equal Weight rating on the company’s shares. The revision reflects Wells Fargo’s belief that Warner Brothers Discovery’s Studios and […]
+Warner Bros. Discovery Inc. (NASDAQ:WBD) ranks among the best communication services stocks to buy now.
+Wells Fargo boosted its price target for Warner Bros. Discovery Inc. (NASDAQ:WBD) to 14$ from 13$ on
+September 11, retaining an Equal Weight rating on the company’s shares. The revision reflects
+Wells Fargo’s belief that Warner Brothers Discovery’s Studios and […]
 🔗 https://finance.yahoo.com/news/wells-fargo-raises-warner-bros-075936106.html
 ```
 
@@ -223,7 +226,7 @@ So what is the market currently pricing in? Let’s quantify it.
 Let’s plug in some numbers based on the reporting and price action:
 
 - **Deal price (X)**: We will use 24\$ 
-- **Current price (Y)**: 19$ (WBD has traded between 18\$–20\$ since the rumor broke)  
+- **Current price (Y)**: 19\$ (WBD has traded between 18\$–20\$ since the rumor broke)  
 - **Fallback price (B)**: 11\$ (where analysts estimate WBD would trade without a deal)
 
 Using the implied probability formula:
@@ -337,7 +340,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img src="/blog/images/WarnerBros_fig_3.png" alt="Implied Probability Sensitivity — WBD Deal at 24$">
+<img src="/blog/images/WarnerBros_fig_3.png" alt="Implied Probability Sensitivity — WBD Deal at 24">
 
 ### What Makes This Deal Tricky?
 
@@ -358,7 +361,7 @@ So even if Skydance makes a formal offer, the path to closing could be long — 
 
 To sum up:
 
-- The market is pricing in **~60% chance** of a 24$/share deal based on current prices and downside estimates  
+- The market is pricing in **~60% chance** of a 24\$ share deal based on current prices and downside estimates  
 - Regulatory headwinds are real — and potentially deal-breaking  
 - If you think the market is **too cautious**, there may be opportunity  
 - If you think the market is **too optimistic**, it might be time to hedge or trim
@@ -392,4 +395,5 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
