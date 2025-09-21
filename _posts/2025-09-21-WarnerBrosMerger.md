@@ -45,7 +45,7 @@ In some cases, the spread can even go negative, the stock trades above the offer
 
 Merger arbitrage isn’t about guessing whether a stock will go up or down. It’s about **evaluating a specific corporate event**, estimating the probability of success, and judging whether the potential return justifies the risk. It's closer to probabilistic thinking than traditional investing.
 
-It’s not glamorous. It’s not momentum-driven. But when done systematically with proper sizing, scenario modeling, and discipline it can be a effective strategy (here two article documented this [link 1](https://www.aima.org/asset/676DA5D6-8CE4-42D7-A2C6171EAC6382DC/) and [link 2](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=315639)).
+It’s not glamorous. It’s not momentum-driven. But when done systematically with proper sizing, scenario modeling, and discipline it can be a effective strategy (here a [first article](https://www.aima.org/asset/676DA5D6-8CE4-42D7-A2C6171EAC6382DC/) and a [second one](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=315639) documenting this assertion).
 
 ## Understanding Implied Probability from Market Prices  {#understanding-implied-probability-from-market-prices}
 
@@ -392,3 +392,4 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
