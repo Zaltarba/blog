@@ -33,7 +33,7 @@ Let’s walk through it.
 
 Merger arbitrage is an event-driven investment strategy built around one simple idea: when a company announces it’s acquiring another, there's a temporary pricing inefficiency and that create an opportunity. Here’s how it works.
 
-When an acquisition is announced, the acquirer offers to buy the target company, **usually at a premium**. For example, they might offer 24$ per share for a company that was trading at 15$. The target's stock typically jumps on the news... but not all the way to 24$. Why not? Because there’s still risk: the deal might fall through, get delayed, or be blocked by regulators. So the market applies a discount, pricing in the possibility of failure.
+When an acquisition is announced, the acquirer offers to buy the target company, **usually at a premium**. For example, they might offer 24\$ per share for a company that was trading at 15\$. The target's stock typically jumps on the news... but not all the way to 24\$. Why not? Because there’s still risk: the deal might fall through, get delayed, or be blocked by regulators. So the market applies a discount, pricing in the possibility of failure.
 
 This gap between the current market price of the target and the deal price is called the **spread**. Merger arbitrageurs make bets on it to make an arbitrage.
 
@@ -53,13 +53,13 @@ When a public company announces it’s being acquired, the offer is almost alway
 
 Let’s work on a simple example. Imagine a small public company : let's call it Banana. It is trading at 10$ per share. One morning, Apple announces it wants to acquire that company for 20$ a share, in cash. That’s a 100% premium.
 
-What happens to the stock? It jumps, but not to 20$. Maybe it shoots up to 18$ or 19$. That difference between the offer price 20$ and the new trading price (say, 18$) is called the **spread**. And it contains valuable information.
+What happens to the stock? It jumps, but not to 20\$. Maybe it shoots up to 18\$ or 19\$. That difference between the offer price 20\$ and the new trading price (say, 18\$) is called the **spread**. And it contains valuable information.
 
 ### The Spreak is the Market-Priced Deal Risk
 
-If the market believed with 100% certainty that the deal would close exactly as proposed, the stock would immediately trade at 20$. But that almost never happens. There’s always *some* risk : antitrust issues, financing problems, board pushback, political pressure, or just the chance that the acquirer changes its mind.
+If the market believed with 100% certainty that the deal would close exactly as proposed, the stock would immediately trade at 20\$. But that almost never happens. There’s always *some* risk : antitrust issues, financing problems, board pushback, political pressure, or just the chance that the acquirer changes its mind.
 
-So the market prices in that uncertainty. In our example, the 2$ gap between 18$ and 20$ is how the market *discounts* the possibility that the deal might not happenn or might happen later, or on worse terms.
+So the market prices in that uncertainty. In our example, the 2\$ gap between 18\$ and 20\$ is how the market *discounts* the possibility that the deal might not happenn or might happen later, or on worse terms.
 
 From that spread, we can actually **estimate the implied probability** of the deal closing.
 
@@ -97,7 +97,7 @@ So, in this case, the market is pricing in **an 80% chance** that the deal will 
 
 ## Merger Arbitrage Methodology  {#merger-arbitrage-methodology}
 
-The implied probability isn’t just academic — it’s your decision-making compass.
+The implied probability isn’t just academic : it’s your decision-making compass.
 
 If you’re looking at a potential merger arbitrage setup, here’s the process in plain terms:
 
@@ -392,3 +392,4 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
