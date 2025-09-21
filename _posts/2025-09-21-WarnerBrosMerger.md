@@ -276,9 +276,7 @@ If the deal closes in **6 months**, that’s a 26% return in half a year, or ove
 
 ### Sensitivity Analysis  {#sensitivity-analysis}
 
-The final step is asking: *how sensitive is this trade to changes in assumptions?*
-
-Let’s run a few scenarios.
+The final step to fully understand our model is asking : **how sensitive are we to changes in assumptions ?** Let’s run a few scenarios.
 
 #### Scenario A: More optimistic fallback
 
@@ -300,7 +298,11 @@ $$
 
 Ironically, a **lower offer price** results in a *higher implied probability* — because the spread narrows.
 
-This shows that the probability estimate is sensitive to both inputs: the upside and the fallback. What if we want to look at it in more scalable fashion ? The 24\\$ dollars per share is maybe a good payoff guess, but what about the fallback price ? Warner Bros Stock has move from 8 to 14\\$ regularly over the last 2 years. Again (and for the last time) we can use Python to study the sensitivity to this fallback price. What we want to see is the *implied probability*. 
+This shows that the probability estimate is sensitive to both inputs: the upside and the fallback. What if we want to look at it in more scalable fashion ? 
+
+#### Getting the full picture
+
+The 24\\$ dollars per share is maybe a good payoff guess, but what about the fallback price ? Warner Bros Stock has move from 8 to 14\\$ regularly over the last 2 years. Again (and for the last time) we can use Python to study the sensitivity to this fallback price. What we want to see is the *implied probability*. 
 
 ```python 
 import numpy as np
@@ -393,6 +395,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
