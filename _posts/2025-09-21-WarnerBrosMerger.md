@@ -346,7 +346,7 @@ plt.show()
 
 Beyond price modeling, this deal carries **significant regulatory risk**.
 
-According to a [Columbia Journal of Law & the Arts article](https://journals.library.columbia.edu/index.php/lawandarts/announcement/view/826), a Paramount–WBD merger would likely trigger scrutiny under the 2023 DOJ/FTC Merger Guidelines. The combined entity would have substantial market share in theatrical distribution, streaming, and television — possibly pushing it into “highly concentrated” territory by antitrust standards.
+According to a [Columbia Journal of Law & the Arts article](https://journals.library.columbia.edu/index.php/lawandarts/announcement/view/826), a Paramount–WBD merger would likely trigger scrutiny under the 2023 DOJ/FTC Merger Guidelines. The combined entity would have substantial market share in theatrical distribution, streaming, and television possibly pushing it into “highly concentrated” territory by antitrust standards.
 
 Key regulatory concerns:
 
@@ -355,14 +355,14 @@ Key regulatory concerns:
 - **Media plurality** concerns (CNN + CBS News under one roof)  
 - **Public interest tests** from the FCC (because of news media and licenses)
 
-So even if Skydance makes a formal offer, the path to closing could be long — and far from guaranteed.
+So even if Skydance makes a formal offer, the path to closing could be long and far from guaranteed.
 
 ### Where We Are Now
 
 To sum up:
 
 - The market is pricing in **~60% chance** of a 24\\$ share deal based on current prices and downside estimates  
-- Regulatory headwinds are real — and potentially deal-breaking  
+- Regulatory headwinds are real and potentially deal-breaking  
 - If you think the market is **too cautious**, there may be opportunity  
 - If you think the market is **too optimistic**, it might be time to hedge or trim
 
@@ -395,6 +395,7 @@ But more complex models are absolutely possible:
 - **Option-based models** to account for volatility in both upside and fallback prices
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
+
 
 
 
