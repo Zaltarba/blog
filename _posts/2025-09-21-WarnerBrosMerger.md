@@ -396,7 +396,7 @@ But more complex models are absolutely possible:
 
 You don’t *need* these tools to start — but as the stakes grow, or as you allocate more capital to merger arbitrage, adding depth to your modeling can help improve risk management and return profile.
 
-
+What’s your take ? Is the market underestimating the regulatory risk here ? Or is this a misunderstood opportunity ? Let's talk bellow !
 
 
 
