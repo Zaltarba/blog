@@ -231,7 +231,7 @@ $$
 When using the OLS estimator, the betas of the stock (an $ N \times K $ matrix) are defined as
 
 $$
-\Beta_{t+1} = R_{t+1} F_{t+1}^\top (F_{t+1} F_{t+1}^\top)^{-1}
+B_{t+1} = R_{t+1} F_{t+1}^\top (F_{t+1} F_{t+1}^\top)^{-1}
 $$
 
 Since
@@ -243,18 +243,18 @@ $$
 we get
 
 $$
-R_{t+1} F_{t+1}^\top = \Beta_{t+1} F_{t+1} F_{t+1}^\top
+R_{t+1} F_{t+1}^\top = B_{t+1} F_{t+1} F_{t+1}^\top
 $$
 
 Letting $\Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top]$, we have the final expression
 
 $$
-\mathbb{E}_t[R_{t+1}] = \Beta_{t+1} \Sigma_{FF}^{t+1} \lambda
+\mathbb{E}_t[R_{t+1}] = B_{t+1} \Sigma_{FF}^{t+1} \lambda
 $$
 
 By starting with basic properties of the stochastic discount factor, we ultimately arrive at a pricing formula that depends only on our factor model. This is powerful because it allows us to shift the focus from estimating relationships across all $ N $ assets to working with a much smaller set of $ K $ factors.
 
-Plenty of work must be then done on estimating $\Beta_{t+1}$, $\Sigma_{FF}^{t+1}$ and $\lambda_{t+1}$. When $ K \ll N $, and assuming the factors are not highly correlated, the factor covariance matrix $\Sigma_{FF}^{t+1}$ is easier to estimate, invert, and work with in general.
+Plenty of work must be then done on estimating $B_{t+1}$, $\Sigma_{FF}^{t+1}$ and $\lambda_{t+1}$. When $ K \ll N $, and assuming the factors are not highly correlated, the factor covariance matrix $\Sigma_{FF}^{t+1}$ is easier to estimate, invert, and work with in general.
 
 This dimensionality reduction offers several practical benefits, including more stable estimates, reduced computational complexity, and better interpretability of risk-return trade-offs.
 
@@ -270,6 +270,7 @@ So next time you're running a factor regression, remember: you're not just crunc
 
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
