@@ -148,7 +148,12 @@ Intuitively, this states that **all assets are “fairly priced”** given the S
 
 In theory, if we knew the distribution of $m_{t+1}$, pricing would be straightforward. This leads to the “everything is factored into the price,” which you can see on [Benjamin Channel](https://www.youtube.com/@benjjjaamiinn). But in reality, the SDF is unobservable, so we must approximate it. One approach could be Bayesian: treat the SDF as a latent random variable and update a prior distribution with market realizations over time.  
 
-<img src="/blog/images/thats_my_quant.jpeg" alt="That's my Quant">
+<div style="text-align: center;">
+  <img 
+    src="/blog/images/thats_my_quant.jpeg" 
+    alt="That's my Quant"
+    style="max-height: 350px; width: auto; max-width: 100%;">
+</div>
 
 In practice, however, finance has favored **simpler approximations**. Factor models, estimated via OLS regressions, can be interpreted as **linear projections of the SDF onto observed returns**. This is why factor models—CAPM, Fama–French, and beyond—capture so much pricing information: they approximate the true, unobservable stochastic discount factor.
 
@@ -265,6 +270,7 @@ So next time you're running a factor regression, remember: you're not just crunc
 
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
