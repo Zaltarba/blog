@@ -7,7 +7,6 @@ image: /assets/images/LinkingFactorModelsAndSDF.jpeg
 hidden: False
 tags: [risk neutral measure in finance, stochastic discount factor tutorial, finance, factor model, fama french,]
 keywords: ["Stochastic Discount Factor", "Factor Models", "Asset Pricing", "Fama French", "CAPM", "Machine Learning in Finance", "Risk Premium", "Quantitative Finance"]
-description: "This post explores why factor models actually work—not just how. It explains their theoretical foundation in the stochastic discount factor (SDF), their connection to asset pricing, and why they remain central to modern finance."
 ---
 
 Asset pricing has evolved dramatically over the past several decades, shifting from simple models based on a single market factor to an expansive [zoo](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4605976) of multifactor frameworks. But beneath the growing complexity lies a deeper unifying idea: factor models are, at their core, just approximations of the Stochastic Discount Factor (SDF). This post is not about which factors “work” or how to pick them—it's about why factor models work at all. Drawing on insights from [Cochrane (2005)](https://www.johnhcochrane.com/asset-pricing), we'll explore how the seemingly empirical world of factor investing is fundamentally tied to the SDF.
@@ -267,5 +266,6 @@ Understanding this connection does more than just satisfy theoretical curiosity.
 Ultimately, pricing assets isn’t just about maximizing $R^2$, it’s about understanding how risk is valued. And factor models, when grounded in the SDF framework, give us a coherent, mathematically justified, and practically useful way to do just that.
 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all assets in the economy.
+
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
