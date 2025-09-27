@@ -71,8 +71,8 @@ But investors said: Let there be more than one risk, for markets are many and va
     </g>
   </g>
   <text x="150" y="160" text-anchor="middle" class="node-label">CAPM</text>
-  <text x="150" y="178" text-anchor="middle" class="node-sub">Parsimonious — single market factor</text>
-  <text x="150" y="196" text-anchor="middle" class="year">(Sharpe, Lintner — canonical 1960s)</text>
+  <text x="150" y="178" text-anchor="middle" class="node-sub"> Sharpe, Single factor</text>
+  <text x="150" y="196" text-anchor="middle" class="year">(1960 — 1990s)</text>
 
   <!-- Factor Zoo node -->
   <g transform="translate(430,110)" filter="url(#softShadow)">
@@ -85,8 +85,8 @@ But investors said: Let there be more than one risk, for markets are many and va
       <rect x="18" y="7" width="4" height="17" rx="1" fill="#2ca02c"></rect>
     </g>
   </g>
-  <text x="430" y="160" text-anchor="middle" class="node-label">Factor Zoo</text>
-  <text x="430" y="178" text-anchor="middle" class="node-sub">Many proposed characteristics / factors</text>
+  <text x="430" y="160" text-anchor="middle" class="node-label">Multi Factors Models</text>
+  <text x="430" y="178" text-anchor="middle" class="node-sub"> Fama French, small number of factors </text>
   <text x="430" y="196" text-anchor="middle" class="year">(1990s — 2010s)</text>
 
   <!-- IPCA / ML node -->
@@ -100,9 +100,9 @@ But investors said: Let there be more than one risk, for markets are many and va
       <path d="M0 8 L12 0 L24 8" fill="none" stroke="#d62728" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
     </g>
   </g>
-  <text x="710" y="160" text-anchor="middle" class="node-label">IPCA / ML</text>
-  <text x="710" y="178" text-anchor="middle" class="node-sub">Instrumented PC & high-dimensional SDF learning</text>
-  <text x="710" y="196" text-anchor="middle" class="year">(Kelly et al., 2019 → present)</text>
+  <text x="710" y="160" text-anchor="middle" class="node-label">Factor Zoo</text>
+  <text x="710" y="178" text-anchor="middle" class="node-sub">Many proposed factors</text>
+  <text x="710" y="196" text-anchor="middle" class="year">(2010 → present)</text>
 
   <!-- Optional connecting dots (timeline progression) -->
   <g fill="#2b2b2b" opacity="0.12">
@@ -111,9 +111,6 @@ But investors said: Let there be more than one risk, for markets are many and va
     <circle cx="520" cy="110" r="4"></circle>
     <circle cx="610" cy="110" r="4"></circle>
   </g>
-
-  <!-- Small caption (non-essential for SEO but informative) -->
-  <text x="30" y="30" class="node-sub" style="font-size:13px">Schematic: evolution from parsimonious factor models toward high-dimensional SDF estimation.</text>
 </svg>
 </div>
 
@@ -268,5 +265,6 @@ So next time you're running a factor regression, remember: you're not just crunc
 
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
