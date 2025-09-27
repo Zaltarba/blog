@@ -3,7 +3,7 @@ layout: post
 title: "The SDF Explained: Why Factor Models Actually Work"
 categories: [Quantitative Finance]
 excerpt: "Learn why factor models work in finance. Beneath their growing complexity in the number of factors lies a deeper unifying idea: factor models are, at their core, just approximations of the Stochastic Discount Factor (SDF)."
-image: /assets/thumbnails/LinkingFactorModelsAndSDF.jpeg
+image: /thumbnails/LinkingFactorModelsAndSDF.jpeg
 hidden: False
 tags: [risk neutral measure in finance, stochastic discount factor tutorial, finance, factor model, fama french, capm]
 ---
@@ -270,6 +270,7 @@ So next time you're running a factor regression, remember: you're not just crunc
 
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
