@@ -210,7 +210,7 @@ What really matters when working with $\mathbb{E}[M_{t+1} R_{t+1}] = 0$ is under
 
 Factor models offer a practical solution by capturing the sensitivity of returns to underlying risk factors. This sensitivity gives us a tractable way to understand how returns co-move with the SDF, essentially providing a handle on their joint behavior.
 
-In other words, the key mathematical value of factor models is that they let us approximate the joint dynamics between $ M_t $ and $ R_t $ through the factors $ F $. Let's see that with same equations : 
+In other words, the key mathematical value of factor models is that they let us approximate the joint dynamics between $ M_t $ and $ R_t $ through the factors $ F $. Let's see that with some equations : 
 
 $$
 \mathbb{E}_t[R_{t+1} \times M_{t+1}] = 0
@@ -260,16 +260,12 @@ This dimensionality reduction offers several practical benefits, including more 
 
 ## Conclusion  {#Conclusion}
 
-At first glance, factor models may look like clever statistical tools thrown at return data to extract patterns. But a deeper look reveals something more fundamental: they are not just predictive regressions, they are structured approximations of the Stochastic Discount Factor, the very object at the heart of modern asset pricing.
+At first glance, factor models may look like clever statistical tools thrown at return data to extract patterns. But a deeper look reveals something more fundamental: they are not just predictive regressions, they are structured approximations of the Stochastic Discount Factor, the very object at the heart of modern asset pricing. This tells us *why* factor models work.
 
-Understanding this connection does more than just satisfy theoretical curiosity. It tells us *why* factor models work, and what their limitations might be. It guides us in selecting and interpreting factors, estimating their loadings, and understanding what we’re really doing when we fit a model to asset returns.
-
-Ultimately, pricing assets isn’t just about maximizing $R^2$, it’s about understanding how risk is valued. And factor models, when grounded in the SDF framework, give us a coherent, mathematically justified, and practically useful way to do just that.
-
-So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all assets in the economy.
-
+So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
