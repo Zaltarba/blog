@@ -246,7 +246,11 @@ $$
 R_{t+1} F_{t+1}^\top = B_{t+1} F_{t+1} F_{t+1}^\top
 $$
 
-Letting $$ \Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top] $$, we have the final expression
+Letting 
+$$ 
+\Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top] 
+$$ 
+we have the final expression
 
 $$
 \mathbb{E}_t[R_{t+1}] = B_{t+1} \Sigma_{FF}^{t+1} \lambda
@@ -265,6 +269,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
