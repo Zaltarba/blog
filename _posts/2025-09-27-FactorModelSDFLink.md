@@ -246,7 +246,7 @@ $$
 R_{t+1} F_{t+1}^\top = B_{t+1} F_{t+1} F_{t+1}^\top
 $$
 
-Letting \\( \Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top] \\), we have the final expression
+Letting $$ \Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top] $$, we have the final expression
 
 $$
 \mathbb{E}_t[R_{t+1}] = B_{t+1} \Sigma_{FF}^{t+1} \lambda
