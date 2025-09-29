@@ -166,7 +166,7 @@ At this point, you might be thinking: *“What’s the link between factor model
 
 ### From Factor Models to the SDF
 
-Now consider the reverse. Suppose we have a factor model:
+Suppose we have a factor model:
 
 $$
 r_{i,t+1} = \sum_{k=1}^K \beta_{ik} F_{k,t+1} + \epsilon_{i,t+1}, \quad i = 1, \dots, N
@@ -271,6 +271,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
