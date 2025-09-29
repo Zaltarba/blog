@@ -155,7 +155,7 @@ In theory, if we knew the distribution of $m_{t+1}$, pricing would be straightfo
     style="max-height: 350px; width: auto; max-width: 100%;">
 </div>
 
-In practice, however, finance has favored **simpler approximations**. Factor models, estimated via OLS regressions, can be interpreted as **linear projections of the SDF onto observed returns**. This is why factor models—CAPM, Fama–French, and beyond—capture so much pricing information: they approximate the true, unobservable stochastic discount factor.
+In practice, however, finance has favored **simpler approximations**. Factor models, estimated via OLS regressions, can be interpreted as **linear projections of the SDF onto observed returns**. This is why factor models—CAPM, Fama–French, and beyond—capture so much pricing information: they approximate the true, unobservable stochastic discount factor. To known more about the Stochastic Discount Factor and what it's implies in terms of risk neutral mesures and martingales, go check [this previous post](https://zaltarba.github.io/blog/RandomWalkvsMartingale/)
 
 ## Factor Models as SDFs in Disguise {#FactorModelsAreSDF}
 
@@ -271,6 +271,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
