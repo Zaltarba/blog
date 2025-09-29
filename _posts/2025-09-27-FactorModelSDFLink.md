@@ -216,13 +216,13 @@ $$
 \mathbb{E}_t[R_{t+1} \times M_{t+1}] = 0
 $$
 
-which implies
+Which implies
 
 $$
 \mathbb{E}_t\big[R_{t+1} \times (1 - \lambda^\top F_{t+1})\big] = 0
 $$
 
-and thus
+And thus
 
 $$
 \mathbb{E}_t[R_{t+1}] = \mathbb{E}_t[R_{t+1} F_{t+1}^\top] \lambda
@@ -240,19 +240,19 @@ $$
 R_{t+1} F_{t+1}^\top = R_{t+1} F_{t+1}^\top (F_{t+1} F_{t+1}^\top)^{-1} (F_{t+1} F_{t+1}^\top),
 $$
 
-we get
+We get : 
 
 $$
 R_{t+1} F_{t+1}^\top = B_{t+1} F_{t+1} F_{t+1}^\top
 $$
 
-Letting   
+Noting :  
 
 $$ 
 \Sigma_{FF}^{t+1} = \mathbb{E}_t[F_{t+1} F_{t+1}^\top] 
 $$ 
 
-we have the final expression  
+We end up with :
 
 $$
 \mathbb{E}_t[R_{t+1}] = B_{t+1} \Sigma_{FF}^{t+1} \lambda
@@ -271,6 +271,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
