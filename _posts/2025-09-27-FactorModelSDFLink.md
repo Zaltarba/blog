@@ -2,13 +2,13 @@
 layout: post
 title: "The SDF Explained: Why Factor Models Actually Work"
 categories: [Quantitative Finance]
-excerpt: "Learn why factor models work in finance. Beneath their growing complexity in the number of factors lies a deeper unifying idea: factor models are, at their core, just approximations of the Stochastic Discount Factor (SDF)."
+excerpt: "Learn why factor models work in finance. Beneath their growing complexity in the number of factors lies a deeper unifying idea: factor models are, at their core, a way to approximate the Stochastic Discount Factor (SDF)."
 image: /thumbnails/LinkingFactorModelsAndSDF.jpeg
 hidden: False
 tags: [risk neutral measure in finance, stochastic discount factor tutorial, finance, factor model, fama french, capm]
 ---
 
-Asset pricing has evolved dramatically over the past several decades, shifting from simple models based on a single market factor to an expansive [zoo](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4605976) of multifactor frameworks. But beneath the growing complexity lies a deeper unifying idea: factor models are, at their core, just approximations of the Stochastic Discount Factor (SDF). This post is not about which factors “work” or how to pick them—it's about why factor models work at all. Drawing on insights from [Cochrane (2005)](https://www.johnhcochrane.com/asset-pricing), we'll explore how the seemingly empirical world of factor investing is fundamentally tied to the SDF.
+Asset pricing has evolved dramatically over the past several decades, shifting from simple models based on a single market factor to an expansive [zoo](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4605976) of multifactor frameworks. But beneath the growing complexity lies a deeper unifying idea: factor models are, at their core, a way to approximate the Stochastic Discount Factor (SDF). This post is not about which factors “work” or how to pick them, it's about why factor models work at all. Drawing on insights from [Cochrane (2005)](https://www.johnhcochrane.com/asset-pricing), we'll explore how the empirical world of factor investing is fundamentally tied to the SDF.
 
 ## Table of Contents
 
@@ -265,6 +265,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
