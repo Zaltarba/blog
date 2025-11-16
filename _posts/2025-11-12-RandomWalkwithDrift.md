@@ -12,13 +12,13 @@ As discussed in our previous [blog post on martingales and random walks](https:/
 
 ## Table of Contents
 
-1. [Setting the Stage: Drift, Martingale & Measures](#RandomWalkDrift_Definition)
-2. [Transforming a Random Walk with Drift into a Martingale](#RandomWalkDrift_Martingale)  
-3. [Connection with the Stochastic Discount Factor](#ConnectionSDF)
+1. [Martingales, Random Walks and Drifts](#RandomWalkDrift_Definition)
+2. [From Random Walk with Drift to a Martingale](#RandomWalkDrift_Martingale)  
+3. [Link with the Stochastic Discount Factor](#ConnectionSDF)
 4. [Conclusion](#Conclusion)  
 5. [Further Reading](#FurtherReading)
 
-## Setting the Stage: Martingales, Random Walks and Drifts   {#RandomWalkDrift_Definition}
+## Martingales, Random Walks and Drifts   {#RandomWalkDrift_Definition}
 
 Let's make some definitions here to ensure we all speak the same language (thank God mathematics is universal).
 
@@ -39,11 +39,11 @@ Intuitively, the best forecast of tomorrow’s value, given all information toda
 
 ### Random Walk
 
-A **random walk** $(W_t)_{t \ge 0}$ is a discrete-time stochastic process defined by  
+A random walk $(W_t)_{t \ge 0}$ is a discrete-time stochastic process defined by  
 $$
 W_t = \sum_{i=1}^{t} \varepsilon_i,
 $$
-where $\{\varepsilon_i\}_{i \ge 1}$ is a sequence of i.i.d. random variables and where **in most cases** :
+where $\{\varepsilon_i\}_{i \ge 1}$ is a sequence of i.i.d. random variables and where in many cases :
 $$
 \mathbb{E}[\varepsilon_i] = 0, \quad \text{and} \quad \text{Var}(\varepsilon_i) = \sigma^2.
 $$
@@ -55,9 +55,9 @@ which and the random walk $(W_t)$ is a **martingale**.
 
 ### Random Walk with Drift
 
-However, financial modelling requires more often than not to have $\mathbb{E}[\varepsilon_i] = r$ (1), with $r$ a non null constant. To adjust, we can use $\tilde{\varepsilon_i} = \varepsilon_i - r$. Using it we can get a new random walk with increments $\tilde{\varepsilon_i}$ that we will note $\tilde{W_t}$. From the relationship (1) we can say that $\tilde{W_t} = W_t - r \times t$ or equivalently $W_t = \tilde{W_t} + r \times t$.
+However, financial modelling requires more often than not to have $\mathbb{E}[\varepsilon_i] = r$, with $r$ a non null constant. To adjust, we can use $\tilde{\varepsilon_i} = \varepsilon_i - r$ to define a new random walk with increments $\tilde{\varepsilon_i}$ that we will note $\tilde{W_t}$. From the relationship we can say that $\tilde{W_t} = W_t - r \times t$ or equivalently $W_t = \tilde{W_t} + r \times t$.
 
-Thus introducing a non zero constant for $\mathbb{E}[\varepsilon_i]$ creates a **random walk with drift**  and modifies the process into  
+Thus introducing a non zero constant for $\mathbb{E}[\varepsilon_i]$ creates a **random walk with drift**  and modifies the process into :
 $$
 X_t = \mu t + W_t.
 $$
@@ -100,7 +100,7 @@ plt.show()
 
 <img src="/blog/images/RWwithD_fig_1.png" alt="Random Walk with Drift simulation example with Python">
 
-## Transforming a Random Walk with Drift into a Martingale {#RandomWalkDrift_Martingale}
+## From Random Walk with Drift to a Martingale {#RandomWalkDrift_Martingale}
 
 So far, we have described our random walks dynamics under a **real-world measure**, denoted by $\mathbb{P}$. Under $\mathbb{P}$, a random walk can exhibit a **drift**. When modelling financial instruments, this drift reflects required expected return for bearing risk. However it is far more convenient to work with martingales when computing expectations, the probability of a given event, ... And that why mathematicals tools have been searched to transform random walk with drift into random walk : the change of measure, and more speciafically the **risk-neutral measure** in finance.
 
@@ -191,13 +191,13 @@ $$
 P(\tau_a < \infty) = e^{-\theta a}.
 $$
 
+And finally :
+
 $$
-\boxed{
 P(\tau_a < \infty) = \exp\Big(-\frac{2\mu}{\sigma^2} a\Big)
-}
 $$
 
-## Connection with the Stochastic Discount Factor  {#ConnectionSDF}
+## Link with the Stochastic Discount Factor  {#ConnectionSDF}
 
 In finance, the **Stochastic Discount Factor** (SDF), usually denoted $M_t$, plays exactly the same conceptual role. It is the core of assets pricing and the magic behind factors models [(go see the post)](https://zaltarba.github.io/blog/FactorModelSDFLink/). 
 
@@ -224,3 +224,4 @@ If you’d like to explore these ideas more deeply, the following resources prov
    A mathematically precise introduction to the link between real-world and risk-neutral measures.
 
 Together, these texts bridge intuition and mathematics, reinforcing how **changing measures** connects probability theory, pricing, and the economics of risk.
+
