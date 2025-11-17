@@ -31,26 +31,34 @@ Let's make some definitions here to ensure we all speak the same language (thank
 
 ### Martingale
 
-A **martingale** $W_t$ with respect to a filtration $\mathcal{F}_t)$ satisfies  
+A **martingale** $W_t$ with respect to a filtration $\mathcal{F}_t$ satisfies :  
+
 $$
 \mathbb{E}[W_{t+1} \mid \mathcal{F}_t] = w_t, \quad \forall t \ge 0.
 $$
+
 Intuitively, the best forecast of tomorrow’s value, given all information today, is simply today’s value.
 
 ### Random Walk
 
-A random walk $W_t$ is a discrete-time stochastic process defined by  
+A random walk $W_t$ is a discrete-time stochastic process defined by :  
+
 $$
 W_t = \sum_{i=1}^{t} \varepsilon_i,
 $$
+
 where $\{\varepsilon_i\}_{i \ge 1}$ is a sequence of i.i.d. random variables and where in many cases :
+
 $$
 \mathbb{E}[\varepsilon_i] = 0, \quad \text{and} \quad \text{Var}(\varepsilon_i) = \sigma^2.
 $$
+
 In these settings, the process satisfies :
+
 $$
 \mathbb{E}[W_{t+1} \mid \mathcal{F}_t] = W_t,
 $$
+
 which and the random walk $(W_t)$ is a **martingale**.
 
 ### Random Walk with Drift
@@ -224,6 +232,7 @@ If you’d like to explore these ideas more deeply, the following resources prov
    A mathematically precise introduction to the link between real-world and risk-neutral measures.
 
 Together, these texts bridge intuition and mathematics, reinforcing how **changing measures** connects probability theory, pricing, and the economics of risk.
+
 
 
 
