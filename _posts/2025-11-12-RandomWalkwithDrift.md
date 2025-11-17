@@ -115,6 +115,7 @@ So far, we have described our random walks dynamics under a **real-world measure
 What is the key idea here ? Many real word applications require simply to compute an expectation. For a deriviative for instance, however the model used to describe the behavior of the underlying, [Black Scholes](https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model) for instance, we end up computed to expectation of the final payoff.
 
 For any random real variable $X$, we can express it's expectation as :
+
 $$
 \mathbb{E}[X] = \int_{-\infty}^{\infty} f(x)x \mathrm{d}x
 $$
@@ -232,6 +233,7 @@ If you’d like to explore these ideas more deeply, the following resources prov
    A mathematically precise introduction to the link between real-world and risk-neutral measures.
 
 Together, these texts bridge intuition and mathematics, reinforcing how **changing measures** connects probability theory, pricing, and the economics of risk.
+
 
 
 
