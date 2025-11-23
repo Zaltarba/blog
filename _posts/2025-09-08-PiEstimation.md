@@ -14,7 +14,7 @@ tags: [monte carlo simulation, python, estimate pi, statistics, pi approximation
 1. [Introduction](#introduction)  
 2. [Monte Carlo Simulation Basics](#montecarlo)  
 3. [Using Random Sampling to Estimate Pi](#probabilities)  
-4. [Python Implementation of Monte Carlo Pi Estimation](#implementation)  
+4. [A Python Implementation](#implementation)  
 5. [Conclusion](#conclusion)  
 6. [References and Further Reading](#references-and-further-reading)
 
@@ -118,7 +118,7 @@ $$
 \sigma_X  < \frac{1}{2}.
 $$
 
-## Python Implementation of Monte Carlo Pi Estimation {#implementation}
+## A Python Implementation  {#implementation}
 
 The implementation is straightforward:
 
