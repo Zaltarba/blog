@@ -12,12 +12,12 @@ Asset pricing has evolved dramatically over the past several decades, shifting f
 
 ## Table of Contents
 
-1. [Factor Models Dominating Role in Modern Asset Pricing](#Context)  
-2. [SDF: The True Concept Behind Asset Prices](#SDF)
+1. [A Historical Perspective](#Context)  
+2. [The True Concept Behind Asset Prices](#SDF)
 3. [Factor Models as SDFs in Disguise](#FactorModelsAreSDF)
 4. [Conclusion](#Conclusion)
 
-## Factor Models in Finance: A Historical Perspective {#Context}
+## A Historical Perspective {#Context}
 
 In the beginning, investors created the Market. The Market was one, with a clear form and simple measure. And the investors said: Let risk be priced. And risk was priced. And they called this the [Capital Asset Pricing Model](https://doi.org/10.2307/2977928), born in 1964, the first of its kind.
 
@@ -271,6 +271,7 @@ At first glance, factor models may look like clever statistical tools thrown at 
 So next time you're running a factor regression, remember: you're not just crunching numbers, you’re approximating the invisible hand that prices all possible states of the economy.
 
 Got thoughts, questions, or counterpoints? Drop a comment below. I’d love to hear your take.
+
 
 
 
