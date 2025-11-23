@@ -13,7 +13,7 @@ As discussed in our previous [blog post on martingales and random walks](https:/
 ## Table of Contents
 
 1. [Martingales, Random Walks and Drifts](#RandomWalkDrift_Definition)
-2. [From Random Walk with Drift to a Martingale](#RandomWalkDrift_Martingale)  
+2. [From Drift to Martingale](#RandomWalkDrift_Martingale)  
 3. [Link with the Stochastic Discount Factor](#ConnectionSDF)
 4. [Conclusion](#Conclusion)  
 5. [Further Reading](#FurtherReading)
@@ -108,7 +108,7 @@ plt.show()
 
 <img src="/blog/images/RWwithD_fig_1.png" alt="Random Walk with Drift simulation example with Python">
 
-## From Random Walk with Drift to a Martingale {#RandomWalkDrift_Martingale}
+## From Drift to Martingale {#RandomWalkDrift_Martingale}
 
 So far, we have described our random walks dynamics under a **real-world measure**, denoted by $\mathbb{P}$. Under $\mathbb{P}$, a random walk can exhibit a **drift**. When modelling financial instruments, this drift reflects required expected return for bearing risk. However it is far more convenient to work with martingales when computing expectations, the probability of a given event, ... And that why mathematicals tools have been searched to transform random walk with drift into random walk : the change of measure, and more speciafically the **risk-neutral measure** in finance.
 
@@ -233,6 +233,7 @@ If you’d like to explore these ideas more deeply, the following resources prov
    A mathematically precise introduction to the link between real-world and risk-neutral measures.
 
 Together, these texts bridge intuition and mathematics, reinforcing how **changing measures** connects probability theory, pricing, and the economics of risk.
+
 
 
 
