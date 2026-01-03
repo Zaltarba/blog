@@ -1,113 +1,17 @@
----
-layout: default
----
-
-<style>
-  }
-  body {
-      font-size: 16px;
-  }
-  .post {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 30px;
-  }
-  .post-image {
-      flex: 1; /* Smaller part of the golden ratio */
-      max-width: 30%;
-      display: flex;
-      justify-content: center; /* Centers the image horizontally */
-      align-items: center; /* Centers the image vertically (if needed) */
-      height: auto; /* Maintains the aspect ratio of the image */
-  }
-  h1 {
-      font-size: 1.25rem; /* Smaller title */
-  }
-  .entry {
-      font-size: 0.875rem; /* Smaller text for summary */
-  }
-  .content {
-    flex: 1.618;
-    margin-right: 20px;
-    text-align: center;
-  }
-  @media (max-width: 768px) {
-    .post {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 0px;
-    }
-    .post-image {
-      flex: 1; /* Smaller part of the golden ratio */
-      max-width: 33%;
-      justify-content: center; /* Centers the image horizontally */
-      align-items: center; /* Centers the image vertically (if needed) */
-    }
-    .post_date {
-      font-size: 0.75rem;
-    }
-    .content {
-      flex: 1.618;
-      text-align: center;
-      margin-right: 20px;
-    }
-    h1 {
-        font-size: 1rem; /* Smaller title */
-    }
-    .entry {
-        font-size: 0.75rem; /* Smaller text for summary */
-    }
-  }
-  .pagination a, .pagination span {
-    font-size: 0.875rem;
-  }
-</style>
-
-<div class="posts">
-  {% for post in paginator.posts %}
-    {% unless post.hidden %}
-      <article class="post">
-        <div class="content">
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            <h1>{{ post.title }}</h1>
-          </a>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-          <div class="entry">
-            {{ post.excerpt }}
-          </div>
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-        </div>
-        {% if post.image %}
-        <div class="post-image">
-          <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | escape }}" style="width: 100%; height: auto;">
-        </div>
-        {% endif %}
-      </article>
-    {% endunless %}
-  {% endfor %}
-
-  <!-- pagination -->
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a class="paginator-button" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-    {% else %}
-      <span class="paginator-button">&laquo; Prev</span>
-    {% endif %}
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="webjeda paginator-button">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a class="paginator-button" href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-        <a class="paginator-button" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-    {% if paginator.next_page %}
-      <a class="paginator-button" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-    {% else %}
-      <span class="paginator-button">Next &raquo;</span>
-    {% endif %}
-  </div>
-  {% endif %}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // Capture path after /blog/
+    const path = window.location.pathname.replace(/^\/blog/, '');
+    // Redirect to the new domain
+    window.location.replace('https://quants.quest' + path);
+  </script>
+  <link rel="canonical" href="https://quants.quest">
+</head>
+<body>
+  <p>Redirecting to <a href="https://quants.quest">https://quants.quest</a></p>
+</body>
+</html>
