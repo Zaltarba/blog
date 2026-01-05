@@ -2,30 +2,29 @@ name: Generate blog redirects
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-- name: Generate redirect HTML files
-  run: |
-    BASE_URL="https://quants.quest"
-    while read slug; do
-      [ -z "$slug" ] && continue
-      DIR="blog/$slug"
-      mkdir -p "$DIR"
-      cat > "$DIR/index.html" <<EOF
+      - name: Generate redirect HTML files
+        run: |
+          BASE_URL="https://quants.quest"
+          while read slug; do
+            [ -z "$slug" ] && continue
+            DIR="blog/$slug"
+            mkdir -p "$DIR"
+            cat > "$DIR/index.html" <<EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting…</title>
+  <title>Redirecting...</title>
   <meta http-equiv="refresh" content="0; url=$BASE_URL/$slug/">
   <link rel="canonical" href="$BASE_URL/$slug/">
 </head>
@@ -37,7 +36,7 @@ jobs:
 </body>
 </html>
 EOF
-    done < redirects.txt
+          done < redirects.txt
 
       - name: Commit and push changes
         run: |
