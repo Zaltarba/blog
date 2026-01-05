@@ -21,22 +21,22 @@ jobs:
             DIR="blog/$slug"
             mkdir -p "$DIR"
             cat > "$DIR/index.html" <<EOF
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0; url=$BASE_URL/$slug/">
-  <link rel="canonical" href="$BASE_URL/$slug/">
-</head>
-<body>
-  <p>
-    Redirecting to
-    <a href="$BASE_URL/blog/$slug">$BASE_URL/blog/$slug</a>
-  </p>
-</body>
-</html>
-EOF
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=$BASE_URL/$slug/">
+    <link rel="canonical" href="$BASE_URL/$slug/">
+  </head>
+  <body>
+    <p>
+      Redirecting to
+      <a href="$BASE_URL/blog/$slug">$BASE_URL/blog/$slug</a>
+    </p>
+  </body>
+  </html>
+  EOF
           done < redirects.txt
 
       - name: Commit and push changes
