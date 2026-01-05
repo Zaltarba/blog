@@ -20,7 +20,7 @@ jobs:
           BASE_URL="https://quants.quest"
           while read slug; do
             [ -z "$slug" ] && continue
-            DIR="blog/$slug"
+            DIR="$slug"
             mkdir -p "$DIR"
             # Generate HTML using printf to avoid raw < in YAML
             printf '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <title>Redirecting...</title>\n  <meta http-equiv="refresh" content="0; url=%s/%s/">\n  <link rel="canonical" href="%s/%s/">\n</head>\n<body>\n  <p>\n    Redirecting to <a href="%s/%s/">%s/%s/</a>\n  </p>\n</body>\n</html>\n' \
