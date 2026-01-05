@@ -1,0 +1,52 @@
+name: Generate blog redirects
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate redirect HTML files
+        run: |
+          BASE_URL="https://quants.quest"
+
+          while read slug; do
+            [ -z "$slug" ] && continue
+
+            DIR="blog/$slug"
+            mkdir -p "$DIR"
+
+            cat > "$DIR/index.html" <<EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=$BASE_URL/$slug/">
+  <link rel="canonical" href="$BASE_URL/$slug/">
+</head>
+<body>
+  <p>
+    Redirecting to
+    <a href="$BASE_URL/blog/$slug">$BASE_URL/blog/$slug</a>
+  </p>
+</body>
+</html>
+EOF
+          done < redirects.txt
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add blog/
+          git commit -m "Auto-generate blog redirect pages" || echo "No changes to commit"
+          git push
