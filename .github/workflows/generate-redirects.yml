@@ -16,13 +16,10 @@ jobs:
       - name: Generate redirect HTML files
         run: |
           BASE_URL="https://quants.quest"
-
           while read slug; do
             [ -z "$slug" ] && continue
-
             DIR="blog/$slug"
             mkdir -p "$DIR"
-
             cat > "$DIR/index.html" <<EOF
 <!DOCTYPE html>
 <html lang="en">
