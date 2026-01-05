@@ -1,0 +1,19 @@
+---
+permalink: /blog/404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
+  <script>
+    const path = window.location.pathname.replace(/^\/blog/, '');
+    window.location.replace(
+      'https://quants.quest' + path + window.location.search
+    );
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
