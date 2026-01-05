@@ -19,29 +19,22 @@ jobs:
             [ -z "$slug" ] && continue
             DIR="blog/$slug"
             mkdir -p "$DIR"
-            cat > "$DIR/index.html" <<EOF
+            # Use quoted here-doc to prevent YAML parsing issues
+            cat > "$DIR/index.html" <<'HTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=$BASE_URL/$slug/">
-  <link rel="canonical" href="$BASE_URL/$slug/">
+  <meta http-equiv="refresh" content="0; url='"$BASE_URL"'/'"$slug"'/">
+  <link rel="canonical" href='"$BASE_URL"'/'"$slug"'/">
 </head>
 <body>
   <p>
     Redirecting to
-    <a href="$BASE_URL/$slug/">$BASE_URL/$slug/</a>
+    <a href='"$BASE_URL"'/'"$slug"'/'>"${BASE_URL}/${slug}/"</a>
   </p>
 </body>
 </html>
-EOF
+HTML
           done < redirects.txt
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add blog/
-          git commit -m "Auto-generate blog redirect pages" || echo "No changes to commit"
-          git push
