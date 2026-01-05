@@ -19,22 +19,10 @@ jobs:
             [ -z "$slug" ] && continue
             DIR="blog/$slug"
             mkdir -p "$DIR"
-            printf '<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=%s/%s/">
-  <link rel="canonical" href="%s/%s/">
-</head>
-<body>
-  <p>
-    Redirecting to
-    <a href="%s/%s/">%s/%s/</a>
-  </p>
-</body>
-</html>
-' "$BASE_URL" "$slug" "$BASE_URL" "$slug" "$BASE_URL" "$slug" "$BASE_URL" "$slug" > "$DIR/index.html"
+            # Generate HTML using printf to avoid raw < in YAML
+            printf '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <title>Redirecting...</title>\n  <meta http-equiv="refresh" content="0; url=%s/%s/">\n  <link rel="canonical" href="%s/%s/">\n</head>\n<body>\n  <p>\n    Redirecting to <a href="%s/%s/">%s/%s/</a>\n  </p>\n</body>\n</html>\n' \
+              "$BASE_URL" "$slug" "$BASE_URL" "$slug" "$BASE_URL" "$slug" "$BASE_URL" "$slug" \
+              > "$DIR/index.html"
           done < redirects.txt
 
       - name: Commit and push changes
